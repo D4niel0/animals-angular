@@ -1,4 +1,12 @@
-<div class="card flex flex-col">
-  <h2>{{ animal?.name }}</h2>
+<div class="card flex flex-col relative bg-white rounded-xl overflow-hidden">
+  <div class="bg-white/50 absolute rounded-t-xl w-full p-2 backdrop-blur-sm">
+    <div class="title flex justify-between items-center">
+      <span>{{ animal?.name }}</span>
+      <div class="location flex items-center gap-1">
+        <span>{{ animal?.location?.city }}</span>
+        <mat-icon>location_on</mat-icon>
+      </div>
+    </div>
+  </div>
   <img [src]="animal?.imageUrl" [alt]="animal?.name" />
 </div>

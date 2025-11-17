@@ -9,5 +9,10 @@ body {
 }
 body {
   margin: 0;
+  padding: 20px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("./assets/images/background-pattern.jpg");
+  background-repeat: repeat;
+  background-size: 20%;
+  @apply text-gray-900;
 }

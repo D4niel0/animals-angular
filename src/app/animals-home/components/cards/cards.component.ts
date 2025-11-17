@@ -1,10 +1,12 @@
 import { Component, Input } from "@angular/core";
 import { Animal } from "../../../shared/models";
+import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: "app-cards",
   standalone: true,
-  imports: [],
+  imports: [SharedModuleModule, MatIconModule],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.scss",
 })
