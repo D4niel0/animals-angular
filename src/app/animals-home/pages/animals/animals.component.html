@@ -4,7 +4,7 @@
     *ngIf="animalsList"
   >
     <article
-      class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+      class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl cursor-pointer"
       *ngFor="let animal of animalsList"
     >
       <app-cards [animal]="animal"></app-cards>

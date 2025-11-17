@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Menú lateral izquierdo (solo en móviles) -->
+  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpened" class="sidenav">
+    <mat-nav-list>
+      <h2 mat-subheader>Navegación</h2>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Inicio</span>
+      </mat-list-item>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>pets</mat-icon>
+        <span matListItemTitle>Animales</span>
+      </mat-list-item>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>shield</mat-icon>
+        <span matListItemTitle>Protectoras</span>
+      </mat-list-item>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>event</mat-icon>
+        <span matListItemTitle>Eventos</span>
+      </mat-list-item>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>mail</mat-icon>
+        <span matListItemTitle>Contacto</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item (click)="closeSidenav()">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span matListItemTitle>Cerrar sesión</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Contenedor principal -->
+  <mat-sidenav-content>
+    <!-- Header móvil (< 768px) -->
+    <mat-toolbar color="primary" class="header">
+      <button mat-icon-button (click)="toggleSidenav()" aria-label="Abrir menú">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <h1>Animals App</h1>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-label="Configuración">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Header desktop (>= 768px) -->
+    <mat-toolbar color="primary" class="header-desktop gap-4">
+      <h1 class="logo">Animals App</h1>
+      <span class="spacer"></span>
+      <nav class="nav-menu">
+        <a class="text-lg cursor-pointer">Home</a>
+        <a class="text-lg cursor-pointer">Animales</a>
+        <a class="text-lg cursor-pointer">Protectoras</a>
+        <a class="text-lg cursor-pointer">Eventos</a>
+        <a class="text-lg cursor-pointer">Contacto</a>
+      </nav>
+      <button mat-icon-button aria-label="Configuración">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Contenido principal -->
+    <main class="main-content text-gray-900">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
