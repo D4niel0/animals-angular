@@ -1,0 +1,636 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "species": "dog",
+      "name": "Luna",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra joven y cariñosa, muy sociable con personas y perfecta para familias activas.",
+      "location": {
+        "city": "Madrid",
+        "region": "Comunidad de Madrid",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Madrid Central",
+          "email": "info@protectoramadrid.org",
+          "phone": "+34 91 555 0001"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=1"
+    },
+    {
+      "id": 2,
+      "species": "dog",
+      "name": "Rocky",
+      "ageYears": 4,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perro muy noble, leal y obediente. Ideal para hogares con niños.",
+      "location": {
+        "city": "Barcelona",
+        "region": "Cataluña",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Barcelona",
+          "email": "contacto@protectorabcn.cat",
+          "phone": "+34 93 555 0002"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=2"
+    },
+    {
+      "id": 3,
+      "species": "dog",
+      "name": "Thor",
+      "ageYears": 5,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": false,
+      "description": "Perro grande, enérgico y con mucha fuerza. Necesita ejercicio diario.",
+      "location": {
+        "city": "Valencia",
+        "region": "Comunidad Valenciana",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Valencia",
+          "email": "info@protectoravalencia.es",
+          "phone": "+34 96 555 0003"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=3"
+    },
+    {
+      "id": 4,
+      "species": "dog",
+      "name": "Nube",
+      "ageYears": 3,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra tranquila y muy dulce, perfecta para un hogar calmado.",
+      "location": {
+        "city": "Sevilla",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Sevilla",
+          "email": "contacto@protectorasevilla.org",
+          "phone": "+34 95 555 0004"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=4"
+    },
+    {
+      "id": 5,
+      "species": "dog",
+      "name": "Bimba",
+      "ageYears": 6,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra muy cariñosa y sociable. Siempre busca mimos y compañía.",
+      "location": {
+        "city": "Bilbao",
+        "region": "País Vasco",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Bilbao",
+          "email": "info@protectorabilbao.eus",
+          "phone": "+34 94 555 0005"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=5"
+    },
+    {
+      "id": 6,
+      "species": "dog",
+      "name": "Max",
+      "ageYears": 1,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Cachorro con mucha energía y ganas de aprender. Muy listo.",
+      "location": {
+        "city": "Zaragoza",
+        "region": "Aragón",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Zaragoza",
+          "email": "contacto@protectorazaragoza.org",
+          "phone": "+34 97 655 0006"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=6"
+    },
+    {
+      "id": 7,
+      "species": "dog",
+      "name": "Toby",
+      "ageYears": 3,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perro juguetón y simpático. Le encanta salir a pasear.",
+      "location": {
+        "city": "Málaga",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Málaga",
+          "email": "info@protectoramalaga.es",
+          "phone": "+34 95 222 0007"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=7"
+    },
+    {
+      "id": 8,
+      "species": "dog",
+      "name": "Simba",
+      "ageYears": 4,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Muy cariñoso y sociable. Siempre quiere estar acompañado.",
+      "location": {
+        "city": "A Coruña",
+        "region": "Galicia",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora A Coruña",
+          "email": "contacto@protectoracorunha.gal",
+          "phone": "+34 98 155 0008"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=8"
+    },
+    {
+      "id": 9,
+      "species": "dog",
+      "name": "Jack",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perro joven, muy activo y con muchas ganas de jugar.",
+      "location": {
+        "city": "Murcia",
+        "region": "Murcia",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Murcia",
+          "email": "info@protectoramurcia.org",
+          "phone": "+34 96 835 0009"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=9"
+    },
+    {
+      "id": 10,
+      "species": "dog",
+      "name": "Lola",
+      "ageYears": 5,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perra muy tranquila y obediente. Ideal para vida en piso.",
+      "location": {
+        "city": "Valladolid",
+        "region": "Castilla y León",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Valladolid",
+          "email": "contacto@protectoravalladolid.es",
+          "phone": "+34 98 335 0010"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=10"
+    },
+    {
+      "id": 11,
+      "species": "dog",
+      "name": "Bruno",
+      "ageYears": 7,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": false,
+      "description": "Perro mayor, calmado y muy noble. Busca un hogar tranquilo.",
+      "location": {
+        "city": "Toledo",
+        "region": "Castilla-La Mancha",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Toledo",
+          "email": "info@protectoratoledo.org",
+          "phone": "+34 92 525 0011"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=11"
+    },
+    {
+      "id": 12,
+      "species": "dog",
+      "name": "Rex",
+      "ageYears": 6,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": false,
+      "description": "Perro inteligente y vigilante. Ideal para personas con experiencia.",
+      "location": {
+        "city": "Gijón",
+        "region": "Asturias",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Gijón",
+          "email": "contacto@protectoragijon.es",
+          "phone": "+34 98 535 0012"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=12"
+    },
+    {
+      "id": 13,
+      "species": "dog",
+      "name": "Zeus",
+      "ageYears": 3,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Muy protector y activo. Perfecto para rutinas con actividad.",
+      "location": {
+        "city": "Madrid",
+        "region": "Comunidad de Madrid",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Madrid Central",
+          "email": "info@protectoramadrid.org",
+          "phone": "+34 91 555 0001"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=13"
+    },
+    {
+      "id": 14,
+      "species": "dog",
+      "name": "Cleo",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perra muy dócil, cariñosa y tranquila. Perfecta para piso.",
+      "location": {
+        "city": "Granada",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Granada",
+          "email": "info@protectoragranada.org",
+          "phone": "+34 95 822 0014"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=14"
+    },
+    {
+      "id": 15,
+      "species": "dog",
+      "name": "Hera",
+      "ageYears": 4,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra equilibrada, tranquila y muy agradecida.",
+      "location": {
+        "city": "Pamplona",
+        "region": "Navarra",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Pamplona",
+          "email": "contacto@protectorapamplona.eus",
+          "phone": "+34 94 812 0015"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=15"
+    },
+
+    {
+      "id": 16,
+      "species": "dog",
+      "name": "Duke",
+      "ageYears": 8,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perro mayor muy calmado, ideal para hogar con rutina estable.",
+      "location": {
+        "city": "León",
+        "region": "Castilla y León",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora León",
+          "email": "info@protectoraleon.org",
+          "phone": "+34 98 722 0016"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=16"
+    },
+    {
+      "id": 17,
+      "species": "dog",
+      "name": "Tana",
+      "ageYears": 1,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Cachorra alegre, aprende rápido y es muy cariñosa.",
+      "location": {
+        "city": "Santander",
+        "region": "Cantabria",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Santander",
+          "email": "contacto@protectorasantander.es",
+          "phone": "+34 94 220 0017"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=17"
+    },
+    {
+      "id": 18,
+      "species": "dog",
+      "name": "Fiona",
+      "ageYears": 5,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra tranquila, muy cariñosa con adultos y niños.",
+      "location": {
+        "city": "Cádiz",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Cádiz",
+          "email": "info@protectoracadiz.org",
+          "phone": "+34 95 625 0018"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=18"
+    },
+    {
+      "id": 19,
+      "species": "dog",
+      "name": "Ghost",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": false,
+      "description": "Perro muy inteligente y atlético. Ideal para deporte y montaña.",
+      "location": {
+        "city": "Logroño",
+        "region": "La Rioja",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Logroño",
+          "email": "contacto@protectoralogrono.org",
+          "phone": "+34 94 122 0019"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=19"
+    },
+    {
+      "id": 20,
+      "species": "dog",
+      "name": "Buddy",
+      "ageYears": 3,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perro equilibrado y cariñoso, muy sociable con todos.",
+      "location": {
+        "city": "Huelva",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Huelva",
+          "email": "info@protectorahuelva.org",
+          "phone": "+34 95 924 0020"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=20"
+    },
+
+    {
+      "id": 21,
+      "species": "dog",
+      "name": "Coco",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Le encanta jugar y es muy sociable. Ideal para familias.",
+      "location": {
+        "city": "Tarragona",
+        "region": "Cataluña",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Tarragona",
+          "email": "contacto@protectoratarragona.cat",
+          "phone": "+34 97 722 0021"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=21"
+    },
+    {
+      "id": 22,
+      "species": "dog",
+      "name": "Nina",
+      "ageYears": 1,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Muy cariñosa y dulce. Siempre quiere estar cerca de la gente.",
+      "location": {
+        "city": "Palma",
+        "region": "Islas Baleares",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Palma",
+          "email": "info@protectorapalma.es",
+          "phone": "+34 97 120 0022"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=22"
+    },
+    {
+      "id": 23,
+      "species": "dog",
+      "name": "Simón",
+      "ageYears": 4,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": false,
+      "description": "Perro tranquilo y observador. Muy fiel cuando coge confianza.",
+      "location": {
+        "city": "Salamanca",
+        "region": "Castilla y León",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Salamanca",
+          "email": "contacto@protectorasalamanca.org",
+          "phone": "+34 92 326 0023"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=23"
+    },
+    {
+      "id": 24,
+      "species": "dog",
+      "name": "Togo",
+      "ageYears": 3,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Activo, curioso y muy inteligente.",
+      "location": {
+        "city": "Ávila",
+        "region": "Castilla y León",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Ávila",
+          "email": "info@protectoraavila.org",
+          "phone": "+34 92 021 0024"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=24"
+    },
+    {
+      "id": 25,
+      "species": "dog",
+      "name": "Milo",
+      "ageYears": 2,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Muy cariñoso y dócil. Perfecto para familias tranquilas.",
+      "location": {
+        "city": "Burgos",
+        "region": "Castilla y León",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Burgos",
+          "email": "contacto@protectoraburgos.org",
+          "phone": "+34 94 729 0025"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=25"
+    },
+    {
+      "id": 26,
+      "species": "dog",
+      "name": "Neo",
+      "ageYears": 6,
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": false,
+      "description": "Perro senior muy tranquilo que busca un hogar sin estrés.",
+      "location": {
+        "city": "Almería",
+        "region": "Andalucía",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Almería",
+          "email": "info@protectoraalmeria.org",
+          "phone": "+34 95 023 0026"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=26"
+    },
+    {
+      "id": 27,
+      "species": "dog",
+      "name": "Tana",
+      "ageYears": 1,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Cachorra dulce, simpática y muy sociable.",
+      "location": {
+        "city": "Cáceres",
+        "region": "Extremadura",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Cáceres",
+          "email": "contacto@protectoracaceres.org",
+          "phone": "+34 92 721 0027"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=27"
+    },
+    {
+      "id": 28,
+      "species": "dog",
+      "name": "Kyra",
+      "ageYears": 3,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra cariñosa y agradecida. Muy fiel a quien confía.",
+      "location": {
+        "city": "Cuenca",
+        "region": "Castilla-La Mancha",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Cuenca",
+          "email": "info@protectoracuenca.org",
+          "phone": "+34 96 922 0028"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=28"
+    },
+    {
+      "id": 29,
+      "species": "dog",
+      "name": "Troy",
+      "ageYears": 7,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perro mayor muy bueno y cariñoso. Ideal para personas tranquilas.",
+      "location": {
+        "city": "Albacete",
+        "region": "Castilla-La Mancha",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Albacete",
+          "email": "contacto@protectoraalbacete.org",
+          "phone": "+34 96 714 0029"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=29"
+    },
+    {
+      "id": 30,
+      "species": "dog",
+      "name": "Olivia",
+      "ageYears": 2,
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perra muy sociable, cariñosa y juguetona.",
+      "location": {
+        "city": "Ourense",
+        "region": "Galicia",
+        "country": "España",
+        "shelter": {
+          "name": "Protectora Ourense",
+          "email": "info@protectoraourense.gal",
+          "phone": "+34 98 837 0030"
+        }
+      },
+      "imageUrl": "https://placedog.net/500/400?id=30"
+    }
+  ]
+}
