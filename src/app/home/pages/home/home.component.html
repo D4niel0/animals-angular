@@ -2,11 +2,14 @@
   <article class="hero">
     <app-banner></app-banner>
   </article>
-  <section
-    appRevealOnScroll
-    class="body flex flex-col gap-10 mt-24 px-10 md:px-20 lg:px-40"
-  >
-    <article class="about bg-white/70 shadow-md rounded-md overflow-hidden">
+  <section class="body flex flex-col gap-10 mt-24 px-10 md:px-20 lg:px-40">
+    <article appRevealOnScroll class="species">
+      <app-species-buttons></app-species-buttons>
+    </article>
+    <article
+      appRevealOnScroll
+      class="about bg-white/70 shadow-md rounded-md overflow-hidden"
+    >
       <div class="flex flex-wrap md:flex-nowrap gap-5">
         <div class="flex items-center justify-between gap-10 p-5">
           <div class="flex flex-col gap-3">
@@ -24,25 +27,6 @@
           alt="about image"
           class="about-image w-full object-cover h-32 md:h-96"
         />
-      </div>
-    </article>
-    <article class="species">
-      <div class="grid grid-cols-3 gap-6 text-center my-12">
-        <div
-          class="p-6 rounded-full bg-white shadow hover:scale-105 transition"
-        >
-          Perros
-        </div>
-        <div
-          class="p-6 rounded-full bg-white shadow hover:scale-105 transition"
-        >
-          Gatos
-        </div>
-        <div
-          class="p-6 rounded-full bg-white shadow hover:scale-105 transition"
-        >
-          Otros
-        </div>
       </div>
     </article>
   </section>
