@@ -632,5 +632,8 @@
       },
       "imageUrl": "https://placedog.net/500/400?id=30"
     }
-  ]
+  ],
+  "animals-count": {
+    "total": 30
+  }
 }

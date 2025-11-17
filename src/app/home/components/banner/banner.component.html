@@ -1,0 +1,25 @@
+<div class="banner relative">
+  <img
+    src="/assets/images/home-banner.jpg"
+    alt="banner image"
+    class="banner-image w-full object-cover shadow-md"
+  />
+  <div
+    class="box-container w-1/2 sm:w-1/2 lg:w-1/3 bg-white/50 backdrop-blur-sm absolute rounded-md shadow-xl p-5 flex flex-col justify-center items-center gap-2 translate-y-1/2"
+  >
+    <span
+      class="text-xl sm:text-2xl lg:text-4xl font-chewy"
+      appCountUp
+      [endValue]="totalAnimals"
+      [duration]="3000"
+    ></span>
+    <span class="text-lg sm:text-xl lg:text-2xl text-center font-chewy pb-4"
+      >mascotas esperan un hogar</span
+    >
+    <div
+      class="text-xs sm:text-sm lg:text-base button p-1 text-center bg-green-200 rounded-b-md absolute bottom-0 w-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-green-300"
+    >
+      <a>Ver animales en adopción</a>
+    </div>
+  </div>
+</div>

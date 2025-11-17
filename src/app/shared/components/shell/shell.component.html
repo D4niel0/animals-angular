@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- Menú lateral izquierdo (solo en móviles) -->
-  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpened" class="sidenav">
+  <mat-sidenav #sidenav mode="over" [opened]="sidenavOpened" class="sidenav">
     <mat-nav-list>
       <h2 mat-subheader>Navegación</h2>
       <mat-list-item (click)="closeSidenav()">
@@ -51,8 +51,10 @@
       <h1 class="logo">Animals App</h1>
       <span class="spacer"></span>
       <nav class="nav-menu">
-        <a class="text-lg cursor-pointer">Home</a>
-        <a class="text-lg cursor-pointer">Animales</a>
+        <a [routerLink]="['/home']" class="text-lg cursor-pointer">Home</a>
+        <a [routerLink]="['/animals-home']" class="text-lg cursor-pointer"
+          >Animales</a
+        >
         <a class="text-lg cursor-pointer">Protectoras</a>
         <a class="text-lg cursor-pointer">Eventos</a>
         <a class="text-lg cursor-pointer">Contacto</a>
@@ -63,7 +65,7 @@
     </mat-toolbar>
 
     <!-- Contenido principal -->
-    <main class="main-content text-gray-900">
+    <main class="text-gray-900" [ngClass]="{ 'main-content': !isHome }">
       <router-outlet />
     </main>
   </mat-sidenav-content>
