@@ -13,10 +13,9 @@ import { filter } from "rxjs";
 })
 export class ShellComponent {
   @ViewChild("sidenav") sidenav!: MatSidenav;
-  protected sidenavOpened = false;
   protected isHome = false;
 
-    constructor(private router: Router) {
+  constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
 
     this.router.events
@@ -29,14 +28,12 @@ export class ShellComponent {
   private checkIsHome(url: string): boolean {
     return url === "/home" || url === "/";
   }
-  
+
   toggleSidenav() {
     this.sidenav.toggle();
-    this.sidenavOpened = !this.sidenavOpened;
   }
 
   closeSidenav() {
     this.sidenav.close();
-    this.sidenavOpened = false;
   }
 }

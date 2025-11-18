@@ -4,6 +4,7 @@ import { RevealOnScrollDirective } from "../../../shared/directives/reveal-on-sc
 import { SpeciesButtonsComponent } from "../../components/species-buttons/species-buttons.component";
 import { MatStepperModule } from "@angular/material/stepper";
 import { UrgentAnimalsComponent } from "../../components/urgent-animals/urgent-animals.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: "app-home",
@@ -12,6 +13,7 @@ import { UrgentAnimalsComponent } from "../../components/urgent-animals/urgent-a
     BannerComponent,
     SpeciesButtonsComponent,
     UrgentAnimalsComponent,
+    FooterComponent,
     RevealOnScrollDirective,
   ],
   templateUrl: "./home.component.html",

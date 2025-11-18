@@ -1,9 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
-  <!-- Menú lateral izquierdo (solo en móviles) -->
-  <mat-sidenav #sidenav mode="over" [opened]="sidenavOpened" class="sidenav">
+  <!-- LATERAL MOBILE -->
+  <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
-      <h2 mat-subheader>Navegación</h2>
-      <mat-list-item (click)="closeSidenav()">
+      <mat-list-item *ngIf="!isHome" (click)="closeSidenav()">
         <mat-icon matListItemIcon>home</mat-icon>
         <span matListItemTitle>Inicio</span>
       </mat-list-item>
@@ -31,9 +30,9 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- Contenedor principal -->
+  <!-- MAIN CONTAINER -->
   <mat-sidenav-content>
-    <!-- Header móvil (< 768px) -->
+    <!-- Mobile Header (< 768px) -->
     <mat-toolbar color="primary" class="header">
       <button mat-icon-button (click)="toggleSidenav()" aria-label="Abrir menú">
         <mat-icon>menu</mat-icon>
@@ -51,21 +50,28 @@
       <h1 class="logo">Animals App</h1>
       <span class="spacer"></span>
       <nav class="nav-menu">
-        <a [routerLink]="['/home']" class="text-lg cursor-pointer">Home</a>
-        <a [routerLink]="['/animals-home']" class="text-lg cursor-pointer"
+        <a
+          *ngIf="!isHome"
+          [routerLink]="['/home']"
+          class="text-lg cursor-pointer hover:text-green-600"
+          >Home</a
+        >
+        <a
+          [routerLink]="['/animals-home']"
+          class="text-lg cursor-pointer hover:text-green-600"
           >Animales</a
         >
-        <a class="text-lg cursor-pointer">Protectoras</a>
-        <a class="text-lg cursor-pointer">Eventos</a>
-        <a class="text-lg cursor-pointer">Contacto</a>
+        <a class="text-lg cursor-pointer hover:text-green-600">Protectoras</a>
+        <a class="text-lg cursor-pointer hover:text-green-600">Eventos</a>
+        <a class="text-lg cursor-pointer hover:text-green-600">Contacto</a>
       </nav>
       <button mat-icon-button aria-label="Configuración">
         <mat-icon>settings</mat-icon>
       </button>
     </mat-toolbar>
 
-    <!-- Contenido principal -->
-    <main class="text-gray-900 pb-5" [ngClass]="{ 'main-content': !isHome }">
+    <!-- Main Content -->
+    <main class="text-gray-900" [ngClass]="{ 'main-content': !isHome }">
       <router-outlet />
     </main>
   </mat-sidenav-content>
