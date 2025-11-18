@@ -31,7 +31,7 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/themes/material-green-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -89,7 +89,7 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/azure-blue.css.css",
+              "src/themes/material-green-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

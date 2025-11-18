@@ -6,6 +6,7 @@
       "name": "Luna",
       "ageYears": 2,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -22,7 +23,10 @@
           "phone": "+34 91 555 0001"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=1"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=1",
+        "https://placedog.net/500/400?id=31"
+      ]
     },
     {
       "id": 2,
@@ -30,6 +34,7 @@
       "name": "Rocky",
       "ageYears": 4,
       "size": "medium",
+      "breed": "Pastor Alemán",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -46,7 +51,10 @@
           "phone": "+34 93 555 0002"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=2"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=2",
+        "https://placedog.net/500/400?id=32"
+      ]
     },
     {
       "id": 3,
@@ -54,6 +62,7 @@
       "name": "Thor",
       "ageYears": 5,
       "size": "large",
+      "breed": "Labrador Retriever",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -71,7 +80,10 @@
           "phone": "+34 96 555 0003"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=3"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=3",
+        "https://placedog.net/500/400?id=33"
+      ]
     },
     {
       "id": 4,
@@ -79,6 +91,7 @@
       "name": "Nube",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -95,7 +108,10 @@
           "phone": "+34 95 555 0004"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=4"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=4",
+        "https://placedog.net/500/400?id=34"
+      ]
     },
     {
       "id": 5,
@@ -103,6 +119,7 @@
       "name": "Bimba",
       "ageYears": 6,
       "size": "medium",
+      "breed": "Bulldog Francés",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -119,7 +136,10 @@
           "phone": "+34 94 555 0005"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=5"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=5",
+        "https://placedog.net/500/400?id=35"
+      ]
     },
     {
       "id": 6,
@@ -127,6 +147,7 @@
       "name": "Max",
       "ageYears": 1,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -143,7 +164,10 @@
           "phone": "+34 97 655 0006"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=6"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=6",
+        "https://placedog.net/500/400?id=36"
+      ]
     },
     {
       "id": 7,
@@ -151,6 +175,7 @@
       "name": "Toby",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Golden Retriever",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -167,7 +192,10 @@
           "phone": "+34 95 222 0007"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=7"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=7",
+        "https://placedog.net/500/400?id=37"
+      ]
     },
     {
       "id": 8,
@@ -175,6 +203,7 @@
       "name": "Simba",
       "ageYears": 4,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -191,7 +220,10 @@
           "phone": "+34 98 155 0008"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=8"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=8",
+        "https://placedog.net/500/400?id=38"
+      ]
     },
     {
       "id": 9,
@@ -199,6 +231,7 @@
       "name": "Jack",
       "ageYears": 2,
       "size": "medium",
+      "breed": "Border Collie",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -215,7 +248,10 @@
           "phone": "+34 96 835 0009"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=9"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=9",
+        "https://placedog.net/500/400?id=39"
+      ]
     },
     {
       "id": 10,
@@ -223,6 +259,7 @@
       "name": "Lola",
       "ageYears": 5,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": true,
@@ -239,7 +276,10 @@
           "phone": "+34 98 335 0010"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=10"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=10",
+        "https://placedog.net/500/400?id=40"
+      ]
     },
     {
       "id": 11,
@@ -247,6 +287,7 @@
       "name": "Bruno",
       "ageYears": 7,
       "size": "large",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -264,7 +305,10 @@
           "phone": "+34 92 525 0011"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=11"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=11",
+        "https://placedog.net/500/400?id=41"
+      ]
     },
     {
       "id": 12,
@@ -272,6 +316,7 @@
       "name": "Rex",
       "ageYears": 6,
       "size": "large",
+      "breed": "Pastor Belga",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -289,7 +334,10 @@
           "phone": "+34 98 535 0012"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=12"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=12",
+        "https://placedog.net/500/400?id=42"
+      ]
     },
     {
       "id": 13,
@@ -297,6 +345,7 @@
       "name": "Zeus",
       "ageYears": 3,
       "size": "large",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -313,7 +362,10 @@
           "phone": "+34 91 555 0001"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=13"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=13",
+        "https://placedog.net/500/400?id=43"
+      ]
     },
     {
       "id": 14,
@@ -321,6 +373,7 @@
       "name": "Cleo",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -337,7 +390,10 @@
           "phone": "+34 95 822 0014"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=14"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=14",
+        "https://placedog.net/500/400?id=44"
+      ]
     },
     {
       "id": 15,
@@ -345,6 +401,7 @@
       "name": "Hera",
       "ageYears": 4,
       "size": "large",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -361,7 +418,10 @@
           "phone": "+34 94 812 0015"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=15"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=15",
+        "https://placedog.net/500/400?id=45"
+      ]
     },
     {
       "id": 16,
@@ -369,6 +429,7 @@
       "name": "Duke",
       "ageYears": 8,
       "size": "large",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -386,7 +447,10 @@
           "phone": "+34 98 722 0016"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=16"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=16",
+        "https://placedog.net/500/400?id=46"
+      ]
     },
     {
       "id": 17,
@@ -394,6 +458,7 @@
       "name": "Tana",
       "ageYears": 1,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -410,7 +475,10 @@
           "phone": "+34 94 220 0017"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=17"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=17",
+        "https://placedog.net/500/400?id=47"
+      ]
     },
     {
       "id": 18,
@@ -418,6 +486,7 @@
       "name": "Fiona",
       "ageYears": 5,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -434,7 +503,10 @@
           "phone": "+34 95 625 0018"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=18"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=18",
+        "https://placedog.net/500/400?id=48"
+      ]
     },
     {
       "id": 19,
@@ -442,6 +514,7 @@
       "name": "Ghost",
       "ageYears": 2,
       "size": "large",
+      "breed": "Husky Siberiano",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -459,7 +532,10 @@
           "phone": "+34 94 122 0019"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=19"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=19",
+        "https://placedog.net/500/400?id=49"
+      ]
     },
     {
       "id": 20,
@@ -467,6 +543,7 @@
       "name": "Buddy",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -483,7 +560,10 @@
           "phone": "+34 95 924 0020"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=20"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=20",
+        "https://placedog.net/500/400?id=50"
+      ]
     },
     {
       "id": 21,
@@ -491,6 +571,7 @@
       "name": "Coco",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -507,7 +588,10 @@
           "phone": "+34 97 722 0021"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=21"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=21",
+        "https://placedog.net/500/400?id=51"
+      ]
     },
     {
       "id": 22,
@@ -515,6 +599,7 @@
       "name": "Nina",
       "ageYears": 1,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -531,7 +616,10 @@
           "phone": "+34 97 120 0022"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=22"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=22",
+        "https://placedog.net/500/400?id=52"
+      ]
     },
     {
       "id": 23,
@@ -539,6 +627,7 @@
       "name": "Simón",
       "ageYears": 4,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -555,7 +644,10 @@
           "phone": "+34 92 326 0023"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=23"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=23",
+        "https://placedog.net/500/400?id=53"
+      ]
     },
     {
       "id": 24,
@@ -563,6 +655,7 @@
       "name": "Togo",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -579,7 +672,10 @@
           "phone": "+34 92 021 0024"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=24"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=24",
+        "https://placedog.net/500/400?id=54"
+      ]
     },
     {
       "id": 25,
@@ -587,6 +683,7 @@
       "name": "Milo",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -603,7 +700,10 @@
           "phone": "+34 94 729 0025"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=25"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=25",
+        "https://placedog.net/500/400?id=55"
+      ]
     },
     {
       "id": 26,
@@ -611,6 +711,7 @@
       "name": "Neo",
       "ageYears": 6,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -628,7 +729,10 @@
           "phone": "+34 95 023 0026"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=26"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=26",
+        "https://placedog.net/500/400?id=56"
+      ]
     },
     {
       "id": 27,
@@ -636,6 +740,7 @@
       "name": "Tana",
       "ageYears": 1,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -652,7 +757,10 @@
           "phone": "+34 92 721 0027"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=27"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=27",
+        "https://placedog.net/500/400?id=57"
+      ]
     },
     {
       "id": 28,
@@ -660,6 +768,7 @@
       "name": "Kyra",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -676,7 +785,10 @@
           "phone": "+34 96 922 0028"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=28"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=28",
+        "https://placedog.net/500/400?id=58"
+      ]
     },
     {
       "id": 29,
@@ -684,6 +796,7 @@
       "name": "Troy",
       "ageYears": 7,
       "size": "large",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -701,7 +814,10 @@
           "phone": "+34 96 714 0029"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=29"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=29",
+        "https://placedog.net/500/400?id=59"
+      ]
     },
     {
       "id": 30,
@@ -709,6 +825,7 @@
       "name": "Olivia",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -725,7 +842,10 @@
           "phone": "+34 98 837 0030"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=30"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=30",
+        "https://placedog.net/500/400?id=60"
+      ]
     }
   ],
   "animals-count": {
@@ -738,6 +858,7 @@
       "name": "Buddy",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -754,7 +875,10 @@
           "phone": "+34 95 924 0020"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=20"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=20",
+        "https://placedog.net/500/400?id=50"
+      ]
     },
     {
       "id": 21,
@@ -762,6 +886,7 @@
       "name": "Coco",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -778,7 +903,10 @@
           "phone": "+34 97 722 0021"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=21"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=21",
+        "https://placedog.net/500/400?id=51"
+      ]
     },
     {
       "id": 22,
@@ -786,6 +914,7 @@
       "name": "Nina",
       "ageYears": 1,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -802,7 +931,10 @@
           "phone": "+34 97 120 0022"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=22"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=22",
+        "https://placedog.net/500/400?id=52"
+      ]
     },
     {
       "id": 23,
@@ -810,6 +942,7 @@
       "name": "Simón",
       "ageYears": 4,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": true,
@@ -826,7 +959,10 @@
           "phone": "+34 92 326 0023"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=23"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=23",
+        "https://placedog.net/500/400?id=53"
+      ]
     },
     {
       "id": 24,
@@ -834,6 +970,7 @@
       "name": "Togo",
       "ageYears": 3,
       "size": "medium",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": true,
       "compatibleWithCats": false,
@@ -850,7 +987,10 @@
           "phone": "+34 92 021 0024"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=24"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=24",
+        "https://placedog.net/500/400?id=54"
+      ]
     },
     {
       "id": 25,
@@ -858,6 +998,7 @@
       "name": "Milo",
       "ageYears": 2,
       "size": "small",
+      "breed": "Mestizo",
       "date": "12/01/2025",
       "compatibleWithDogs": false,
       "compatibleWithCats": false,
@@ -874,7 +1015,10 @@
           "phone": "+34 94 729 0025"
         }
       },
-      "imageUrl": "https://placedog.net/500/400?id=25"
+      "imageUrl": [
+        "https://placedog.net/500/400?id=25",
+        "https://placedog.net/500/400?id=55"
+      ]
     }
   ]
 }

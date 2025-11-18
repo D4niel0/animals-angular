@@ -1,7 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, inject, Input } from "@angular/core";
 import { Animal } from "../../models";
 import { SharedModuleModule } from "../../shared-module/shared-module.module";
 import { MatIconModule } from "@angular/material/icon";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-cards",
@@ -12,4 +13,9 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class CardsComponent {
   @Input() animal: Animal | null = null;
+  private router = inject(Router);
+
+  goToDetails(id: number | undefined): void {
+    this.router.navigateByUrl("/animals-home/" + id);
+  }
 }

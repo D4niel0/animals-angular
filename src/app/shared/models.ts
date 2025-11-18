@@ -7,6 +7,7 @@ export interface Animal {
   size: "small" | "medium" | "large";
 
   date: string;
+  breed: string;
   compatibleWithDogs: boolean;
   compatibleWithCats: boolean;
   compatibleWithChildren: boolean;
@@ -17,7 +18,7 @@ export interface Animal {
 
   location: AnimalLocation;
 
-  imageUrl: string;
+  imageUrl: string[];
 }
 
 export interface AnimalLocation {

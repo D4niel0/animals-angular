@@ -1,4 +1,7 @@
-<div class="card flex flex-col relative bg-white rounded-xl overflow-hidden">
+<div
+  class="card flex flex-col relative bg-white rounded-xl overflow-hidden"
+  (click)="goToDetails(animal?.id)"
+>
   <div class="bg-white/50 absolute rounded-t-xl w-full p-2 backdrop-blur-sm">
     <div class="title flex justify-between items-center">
       <span>{{ animal?.name }}</span>
@@ -8,5 +11,5 @@
       </div>
     </div>
   </div>
-  <img [src]="animal?.imageUrl" [alt]="animal?.name" />
+  <img [src]="animal?.imageUrl?.[0]" [alt]="animal?.name" />
 </div>

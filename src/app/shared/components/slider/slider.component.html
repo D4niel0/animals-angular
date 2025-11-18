@@ -1,0 +1,9 @@
+<swiper-container
+  class="w-full h-full object-cover max-h-[420px] bg-black/80"
+  navigation="true"
+  loop="true"
+>
+  <swiper-slide class="flex justify-center" *ngFor="let image of images"
+    ><img [src]="image" alt="Animal image"
+  /></swiper-slide>
+</swiper-container>

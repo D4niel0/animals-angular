@@ -1,0 +1,121 @@
+<form
+  [formGroup]="contactForm"
+  (ngSubmit)="submitContactForm(animal)"
+  class="grid grid-cols-1 md:grid-cols-2 gap-6"
+>
+  <!-- Nombre -->
+  <mat-form-field>
+    <mat-label>Tu nombre</mat-label>
+    <input matInput formControlName="name" placeholder="Escribe tu nombre" />
+    <mat-error *ngIf="contactForm.controls['name'].invalid"
+      >Campo obligatorio</mat-error
+    >
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field>
+    <mat-label>Correo electrónico</mat-label>
+    <input
+      matInput
+      type="email"
+      formControlName="email"
+      placeholder="tucorreo@example.com"
+    />
+    <mat-error *ngIf="contactForm.controls['email'].invalid"
+      >Correo no válido</mat-error
+    >
+  </mat-form-field>
+
+  <!-- Teléfono -->
+  <mat-form-field>
+    <mat-label>Teléfono (opcional)</mat-label>
+    <input matInput formControlName="phone" />
+  </mat-form-field>
+
+  <!-- Localidad -->
+  <mat-form-field>
+    <mat-label>Localidad</mat-label>
+    <input
+      matInput
+      formControlName="location"
+      placeholder="Ciudad o provincia"
+    />
+  </mat-form-field>
+
+  <!-- Tamaño del alojamiento -->
+  <mat-form-field>
+    <mat-label>Tamaño del alojamiento</mat-label>
+    <mat-select formControlName="homeSize">
+      <mat-option value="small">Pequeño (estudio / 1 habitación)</mat-option>
+      <mat-option value="medium">Mediano (piso estándar)</mat-option>
+      <mat-option value="large">Grande (casa o jardín)</mat-option>
+    </mat-select>
+    <mat-error *ngIf="contactForm.controls['homeSize'].invalid"
+      >Obligatorio</mat-error
+    >
+  </mat-form-field>
+
+  <!-- Ha tenido mascotas -->
+  <mat-form-field>
+    <mat-label>¿Has tenido mascotas antes?</mat-label>
+    <mat-select formControlName="hadPets">
+      <mat-option value="yes">Sí</mat-option>
+      <mat-option value="no">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Familiar con la raza -->
+  <mat-form-field>
+    <mat-label>¿Estás familiarizado con la raza?</mat-label>
+    <mat-select formControlName="familiarWithBreed">
+      <mat-option value="yes">Sí</mat-option>
+      <mat-option value="no">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Asunto -->
+  <mat-form-field class="md:col-span-2">
+    <mat-label>Motivo del contacto</mat-label>
+    <mat-select formControlName="subject">
+      <mat-option value="info"
+        >Quiero información sobre {{ animal?.name }}</mat-option
+      >
+      <mat-option value="adoption"
+        >Quiero iniciar proceso de adopción</mat-option
+      >
+      <mat-option value="foster">Quiero ser casa de acogida</mat-option>
+      <mat-option value="other">Otras consultas</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Mensaje -->
+  <mat-form-field class="md:col-span-2">
+    <mat-label>Mensaje</mat-label>
+    <textarea
+      matInput
+      rows="4"
+      formControlName="message"
+      placeholder="Cuéntanos un poco sobre ti..."
+    ></textarea>
+    <mat-error *ngIf="contactForm.controls['message'].invalid"
+      >El mensaje es obligatorio</mat-error
+    >
+  </mat-form-field>
+
+  <!-- Privacidad -->
+  <mat-checkbox formControlName="privacy" class="md:col-span-2">
+    Acepto la política de privacidad
+  </mat-checkbox>
+
+  <!-- Botón enviar -->
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="contactForm.invalid"
+      type="submit"
+    >
+      Enviar mensaje
+    </button>
+  </div>
+</form>
