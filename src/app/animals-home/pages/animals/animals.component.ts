@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from "@angular/core";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
 import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
-import { CardsComponent } from "../../components/cards/cards.component";
+import { CardsComponent } from "../../../shared/components/cards/cards.component";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -24,7 +24,6 @@ export class AnimalsComponent implements OnInit {
   getAnimals() {
     return this.animalsService.getAnimals().subscribe((data: Animal[]) => {
       this.animalsList = data;
-      console.log(this.animalsList);
     });
   }
 }

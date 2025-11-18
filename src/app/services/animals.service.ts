@@ -15,4 +15,10 @@ export class AnimalsService {
   getCountAnimals(): any {
     return this.http.get<any>(`${this.baseUrl}animals-count`).pipe(delay(500));
   }
+
+  getUrgentAnimals(): any {
+    return this.http
+      .get<any[]>(`${this.baseUrl}urgent-animals`)
+      .pipe(delay(500));
+  }
 }

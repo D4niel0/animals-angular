@@ -1,0 +1,17 @@
+<div class="flex flex-col gap-3 p-5">
+  <div class="flex flex-col gap-3">
+    <span class="font-chewy text-2xl">Adopción urgente</span>
+    <span>Los que más tiempo llevan esperando, dales tú la oportunidad. </span>
+  </div>
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6"
+    *ngIf="animalsList"
+  >
+    <article
+      class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl cursor-pointer"
+      *ngFor="let animal of animalsList"
+    >
+      <app-cards [animal]="animal"></app-cards>
+    </article>
+  </div>
+</div>

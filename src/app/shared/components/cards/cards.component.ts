@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
-import { Animal } from "../../../shared/models";
-import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
+import { Animal } from "../../models";
+import { SharedModuleModule } from "../../shared-module/shared-module.module";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({

@@ -4,11 +4,16 @@ export interface Animal {
   name: string;
   ageYears: number;
 
+  size: "small" | "medium" | "large";
+
+  date: string;
   compatibleWithDogs: boolean;
   compatibleWithCats: boolean;
   compatibleWithChildren: boolean;
 
   description: string;
+  history: string;
+  specialNeeds?: string;
 
   location: AnimalLocation;
 
