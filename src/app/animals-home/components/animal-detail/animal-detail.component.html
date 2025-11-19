@@ -38,6 +38,20 @@
               >
                 {{ animal.breed }}
               </span>
+
+              <span
+                class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
+                [ngClass]="
+                  animal.sex === 'm'
+                    ? 'bg-blue-50 text-blue-700'
+                    : 'bg-pink-50 text-pink-700'
+                "
+              >
+                <mat-icon>{{
+                  animal.sex === "m" ? "male" : "female"
+                }}</mat-icon>
+                {{ animal.sex === "m" ? "Macho" : "Hembra" }}
+              </span>
               <span
                 class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700"
               >
@@ -161,7 +175,7 @@
               >
                 <app-animal-contact-form
                   [animal]="animal"
-                  [showContactForm]="showContactForm"
+                  (showContactForm)="toggleContactForm()"
                 ></app-animal-contact-form>
               </div>
             </div>

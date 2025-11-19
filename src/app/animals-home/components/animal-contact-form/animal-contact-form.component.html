@@ -3,7 +3,6 @@
   (ngSubmit)="submitContactForm(animal)"
   class="grid grid-cols-1 md:grid-cols-2 gap-6"
 >
-  <!-- Nombre -->
   <mat-form-field>
     <mat-label>Tu nombre</mat-label>
     <input matInput formControlName="name" placeholder="Escribe tu nombre" />
@@ -12,7 +11,6 @@
     >
   </mat-form-field>
 
-  <!-- Email -->
   <mat-form-field>
     <mat-label>Correo electrónico</mat-label>
     <input
@@ -26,15 +24,13 @@
     >
   </mat-form-field>
 
-  <!-- Teléfono -->
   <mat-form-field>
     <mat-label>Teléfono (opcional)</mat-label>
     <input matInput formControlName="phone" />
   </mat-form-field>
 
-  <!-- Localidad -->
   <mat-form-field>
-    <mat-label>Localidad</mat-label>
+    <mat-label>Localidad (opcional)</mat-label>
     <input
       matInput
       formControlName="location"
@@ -42,7 +38,6 @@
     />
   </mat-form-field>
 
-  <!-- Tamaño del alojamiento -->
   <mat-form-field>
     <mat-label>Tamaño del alojamiento</mat-label>
     <mat-select formControlName="homeSize">
@@ -55,7 +50,6 @@
     >
   </mat-form-field>
 
-  <!-- Ha tenido mascotas -->
   <mat-form-field>
     <mat-label>¿Has tenido mascotas antes?</mat-label>
     <mat-select formControlName="hadPets">
@@ -64,7 +58,6 @@
     </mat-select>
   </mat-form-field>
 
-  <!-- Familiar con la raza -->
   <mat-form-field>
     <mat-label>¿Estás familiarizado con la raza?</mat-label>
     <mat-select formControlName="familiarWithBreed">
@@ -73,7 +66,6 @@
     </mat-select>
   </mat-form-field>
 
-  <!-- Asunto -->
   <mat-form-field class="md:col-span-2">
     <mat-label>Motivo del contacto</mat-label>
     <mat-select formControlName="subject">
@@ -88,7 +80,6 @@
     </mat-select>
   </mat-form-field>
 
-  <!-- Mensaje -->
   <mat-form-field class="md:col-span-2">
     <mat-label>Mensaje</mat-label>
     <textarea
@@ -107,7 +98,6 @@
     Acepto la política de privacidad
   </mat-checkbox>
 
-  <!-- Botón enviar -->
   <div>
     <button
       mat-raised-button

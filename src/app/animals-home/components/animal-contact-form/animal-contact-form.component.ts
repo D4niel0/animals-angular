@@ -1,4 +1,4 @@
-import { Component, inject, Input } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Animal } from "../../../shared/models";
@@ -14,7 +14,7 @@ export class AnimalContactFormComponent {
   private fb = inject(FormBuilder);
 
   @Input() animal: Animal | undefined;
-  @Input() showContactForm = false;
+  @Output() showContactForm = new EventEmitter<void>();
 
   contactForm = this.fb.group({
     name: ["", Validators.required],
@@ -46,6 +46,6 @@ export class AnimalContactFormComponent {
     alert(`¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`);
 
     this.contactForm.reset();
-    this.showContactForm = false;
+    this.showContactForm.emit();
   }
 }

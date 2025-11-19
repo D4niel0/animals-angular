@@ -4,6 +4,7 @@ import { Animal } from "../../../shared/models";
 import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
 import { CardsComponent } from "../../../shared/components/cards/cards.component";
 import { CommonModule } from "@angular/common";
+import { ScrollService, SavedScroll } from "../../../services/scroll.service";
 
 @Component({
   selector: "app-animals",
@@ -14,7 +15,7 @@ import { CommonModule } from "@angular/common";
 })
 export class AnimalsComponent implements OnInit {
   private animalsService = inject(AnimalsService);
-
+  private scrollService = inject(ScrollService);
   protected animalsList: Animal[] = [];
 
   ngOnInit(): void {
@@ -24,6 +25,22 @@ export class AnimalsComponent implements OnInit {
   getAnimals() {
     return this.animalsService.getAnimals().subscribe((data: Animal[]) => {
       this.animalsList = data;
+      const saved: SavedScroll | null = this.scrollService.get("animals");
+
+      if (saved !== null) {
+        setTimeout(() => {
+          if (saved.selector) {
+            const el = document.querySelector<HTMLElement>(saved.selector);
+            if (el) {
+              el.scrollTop = saved.y;
+              this.scrollService.clear("animals");
+              return;
+            }
+          }
+          window.scrollTo({ top: saved.y, behavior: "auto" });
+          this.scrollService.clear("animals");
+        }, 100);
+      }
     });
   }
 }

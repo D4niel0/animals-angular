@@ -4,7 +4,13 @@
 >
   <div class="bg-white/50 absolute rounded-t-xl w-full p-2 backdrop-blur-sm">
     <div class="title flex justify-between items-center">
-      <span>{{ animal?.name }}</span>
+      <div class="flex items-center gap-1">
+        <span>{{ animal?.name }}</span>
+
+        <mat-icon class="fix-icon">{{
+          animal?.sex === "m" ? "male" : "female"
+        }}</mat-icon>
+      </div>
       <div class="location flex items-center gap-1">
         <span>{{ animal?.location?.city }}</span>
         <mat-icon>location_on</mat-icon>

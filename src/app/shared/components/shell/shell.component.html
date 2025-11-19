@@ -71,8 +71,12 @@
     </mat-toolbar>
 
     <!-- Main Content -->
-    <main class="text-gray-900" [ngClass]="{ 'main-content': !isHome }">
+    <main class="text-gray-900 main-content">
       <router-outlet />
     </main>
+
+    <footer class="footer">
+      <app-footer></app-footer>
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -25,7 +25,6 @@ export class UrgentAnimalsComponent {
       .getUrgentAnimals()
       .subscribe((data: Animal[]) => {
         this.animalsList = data;
-        console.log(this.animalsList);
       });
   }
 }

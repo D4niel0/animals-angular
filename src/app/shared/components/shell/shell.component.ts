@@ -3,11 +3,12 @@ import { SharedModuleModule } from "../../shared-module/shared-module.module";
 import { NavigationEnd, Router, RouterModule } from "@angular/router";
 import { MatSidenav } from "@angular/material/sidenav";
 import { filter } from "rxjs";
+import { FooterComponent } from "../../../home/components/footer/footer.component";
 
 @Component({
   selector: "app-shell",
   standalone: true,
-  imports: [SharedModuleModule, RouterModule],
+  imports: [SharedModuleModule, RouterModule, FooterComponent],
   templateUrl: "./shell.component.html",
   styleUrl: "./shell.component.scss",
 })

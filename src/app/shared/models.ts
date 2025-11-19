@@ -7,6 +7,7 @@ export interface Animal {
   size: "small" | "medium" | "large";
 
   date: string;
+  sex: "m" | "f";
   breed: string;
   compatibleWithDogs: boolean;
   compatibleWithCats: boolean;
