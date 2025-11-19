@@ -53,6 +53,7 @@
         <a
           *ngIf="!isHome"
           [routerLink]="['/home']"
+          (click)="clearScroll()"
           class="text-lg cursor-pointer hover:text-green-600"
           >Home</a
         >
@@ -75,7 +76,7 @@
       <router-outlet />
     </main>
 
-    <footer class="footer">
+    <footer appRevealOnScroll class="footer">
       <app-footer></app-footer>
     </footer>
   </mat-sidenav-content>

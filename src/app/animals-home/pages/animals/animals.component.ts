@@ -5,6 +5,7 @@ import { SharedModuleModule } from "../../../shared/shared-module/shared-module.
 import { CardsComponent } from "../../../shared/components/cards/cards.component";
 import { CommonModule } from "@angular/common";
 import { ScrollService, SavedScroll } from "../../../services/scroll.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-animals",
@@ -22,7 +23,11 @@ export class AnimalsComponent implements OnInit {
     this.getAnimals();
   }
 
-  getAnimals() {
+  /**
+   * @description Fetch the list of animals and restore scroll position if available.
+   * @returns
+   */
+  protected getAnimals(): Subscription {
     return this.animalsService.getAnimals().subscribe((data: Animal[]) => {
       this.animalsList = data;
       const saved: SavedScroll | null = this.scrollService.get("animals");

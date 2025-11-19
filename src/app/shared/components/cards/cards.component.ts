@@ -17,6 +17,11 @@ export class CardsComponent {
   private router = inject(Router);
   private scrollService = inject(ScrollService);
 
+  /**
+   * Generates a CSS path selector for the given element.
+   * @param el The element to generate the CSS path for.
+   * @returns The CSS path as a string, or undefined if the element is invalid.
+   */
   private getCssPath(el: Element | null): string | undefined {
     if (!el || el.nodeType !== 1) return undefined;
     const elem = el as Element;
@@ -51,6 +56,11 @@ export class CardsComponent {
     return parts.length ? parts.join(" > ") : undefined;
   }
 
+  /**
+   * @description Check if the given element is scrollable.
+   * @param el The element to check for scrollability.
+   * @returns True if the element is scrollable, false otherwise.
+   */
   private isScrollable(el: Element): boolean {
     const style = window.getComputedStyle(el);
     const overflowY = style.overflowY;
@@ -78,7 +88,12 @@ export class CardsComponent {
     return null;
   }
 
-  goToDetails(eventOrId: any, maybeId?: number | undefined): void {
+  /**
+   * @description Navigate to the animal details page while saving the current scroll position.
+   * @param eventOrId
+   * @param maybeId
+   */
+  protected goToDetails(eventOrId: any, maybeId?: number | undefined): void {
     let id: number | undefined;
     let startEl: Element | null = null;
 
@@ -111,6 +126,10 @@ export class CardsComponent {
   }
 }
 
+/**
+ * @description Retrieves the event target from the caller function.
+ * @returns
+ */
 function eventTargetFromCaller(): Element | null {
   return null;
 }

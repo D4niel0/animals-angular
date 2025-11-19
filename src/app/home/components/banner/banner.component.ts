@@ -13,6 +13,7 @@ export class BannerComponent {
   private animalsService = inject(AnimalsService);
 
   protected totalAnimals = 0;
+
   constructor() {
     this.animalsService.getCountAnimals().subscribe((data: any) => {
       this.totalAnimals = data.total;

@@ -35,7 +35,12 @@ export class AnimalDetailComponent {
     );
   }
 
-  getSizeLabel(size: Animal["size"]): string {
+  /**
+   * @description Returns a label for the animal size.
+   * @param size The size of the animal.
+   * @returns A string label representing the size.
+   */
+  protected getSizeLabel(size: Animal["size"]): string {
     switch (size) {
       case "small":
         return "Pequeño";
@@ -48,7 +53,10 @@ export class AnimalDetailComponent {
     }
   }
 
-  toggleContactForm() {
+  /**
+   * @description Toggles the visibility of the contact form.
+   */
+  protected toggleContactForm(): void {
     this.showContactForm = !this.showContactForm;
   }
 }

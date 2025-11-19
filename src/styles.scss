@@ -42,3 +42,29 @@ body,
 .animate-fadeIn {
   animation: fadeIn 250ms ease-out forwards;
 }
+
+/* Success */
+.snackbar-success .mdc-snackbar__surface {
+  border-color: #c3e6cb !important;
+  background-color: #d4edda !important;
+  color: #155724 !important;
+  font-weight: 500 !important;
+}
+
+.snackbar-error .mdc-snackbar__surface {
+  border-color: #f5c6cb !important;
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+}
+
+.snackbar-warning .mdc-snackbar__surface {
+  border-color: #ffeeba !important;
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+}
+
+.snackbar-success .mdc-snackbar__label,
+.snackbar-error .mdc-snackbar__label,
+.snackbar-warning .mdc-snackbar__label {
+  color: inherit !important;
+}

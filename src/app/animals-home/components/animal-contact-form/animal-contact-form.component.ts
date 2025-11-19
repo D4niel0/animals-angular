@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Animal } from "../../../shared/models";
+import { SnackbarService } from "../../../services/snackbar.service";
 
 @Component({
   selector: "app-animal-contact-form",
@@ -12,6 +13,7 @@ import { Animal } from "../../../shared/models";
 })
 export class AnimalContactFormComponent {
   private fb = inject(FormBuilder);
+  private snackBarService = inject(SnackbarService);
 
   @Input() animal: Animal | undefined;
   @Output() showContactForm = new EventEmitter<void>();
@@ -31,7 +33,11 @@ export class AnimalContactFormComponent {
     privacy: [false, Validators.requiredTrue],
   });
 
-  submitContactForm(animal: any) {
+  /**
+   * @description Submit contact form
+   * @param animal Animal contact
+   */
+  protected submitContactForm(animal: any): void {
     if (this.contactForm.invalid) return;
 
     const data = {
@@ -41,9 +47,10 @@ export class AnimalContactFormComponent {
       shelterEmail: animal.location.shelter.email,
     };
 
-    console.log("Formulario enviado:", data);
-
-    alert(`¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`);
+    this.snackBarService.open(
+      `¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`,
+      "success"
+    );
 
     this.contactForm.reset();
     this.showContactForm.emit();
