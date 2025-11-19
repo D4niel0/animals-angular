@@ -6,6 +6,7 @@ import { filter } from "rxjs";
 import { FooterComponent } from "../../../home/components/footer/footer.component";
 import { RevealOnScrollDirective } from "../../directives/reveal-on-scroll.directive";
 import { ScrollService } from "../../../services/scroll.service";
+import { AnimalsService } from "../../../services/animals.service";
 
 @Component({
   selector: "app-shell",
@@ -23,6 +24,7 @@ export class ShellComponent {
   @ViewChild("sidenav") sidenav!: MatSidenav;
   protected isHome = false;
   private scrollService = inject(ScrollService);
+  private animalsService = inject(AnimalsService);
 
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
@@ -60,7 +62,8 @@ export class ShellComponent {
   /**
    * @description Clear saved scroll position for animals page
    */
-  protected clearScroll(): void {
+  protected clear(): void {
     this.scrollService.clear("animals");
+    this.animalsService.clearAnimalsCache();
   }
 }

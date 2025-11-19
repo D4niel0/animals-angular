@@ -1,7 +1,8 @@
 <section>
+  <app-paw-spinner *ngIf="isLoading"></app-paw-spinner>
   <div
     class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6"
-    *ngIf="animalsList"
+    *ngIf="animalsList && !isLoading"
   >
     <article
       class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl cursor-pointer"

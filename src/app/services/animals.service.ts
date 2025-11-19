@@ -19,6 +19,10 @@ export class AnimalsService {
     } as Animal;
   }
 
+  /**
+   * @description Fetch the list of animals from the API or return cached data.
+   * @returns
+   */
   getAnimals(): Observable<Animal[]> {
     const cached = this.animalsSignal();
     if (cached && cached.length > 0) {
@@ -32,6 +36,10 @@ export class AnimalsService {
     );
   }
 
+  /**
+   * @description Force refresh the list of animals from the API.
+   * @returns
+   */
   refreshAnimals(): Observable<Animal[]> {
     return this.http.get<Animal[]>(`${this.baseUrl}animals`).pipe(
       delay(500),
@@ -40,6 +48,11 @@ export class AnimalsService {
     );
   }
 
+  /**
+   * @description Get a single animal by its ID, checking the cache first.
+   * @param id
+   * @returns
+   */
   getAnimalById(id: number): Observable<Animal | null> {
     const cached = this.animalsSignal();
     const idNum = Number(id);
@@ -54,13 +67,28 @@ export class AnimalsService {
     );
   }
 
+  /**
+   * @description Get the count of animals from the API.
+   * @returns
+   */
   getCountAnimals(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}animals-count`).pipe(delay(500));
   }
 
+  /**
+   * @description Get the list of urgent animals from the API.
+   * @returns
+   */
   getUrgentAnimals(): Observable<any[]> {
     return this.http
       .get<any[]>(`${this.baseUrl}urgent-animals`)
       .pipe(delay(500));
+  }
+
+  /**
+   * @description Clear the cached animals data.
+   */
+  clearAnimalsCache(): void {
+    this.animalsSignal.set(null);
   }
 }

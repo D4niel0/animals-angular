@@ -53,7 +53,7 @@
         <a
           *ngIf="!isHome"
           [routerLink]="['/home']"
-          (click)="clearScroll()"
+          (click)="clear()"
           class="text-lg cursor-pointer hover:text-green-600"
           >Home</a
         >
@@ -72,7 +72,7 @@
     </mat-toolbar>
 
     <!-- Main Content -->
-    <main class="text-gray-900 main-content">
+    <main class="text-gray-900 main-content px-3 md:px-7 lg:px-14">
       <router-outlet />
     </main>
 
