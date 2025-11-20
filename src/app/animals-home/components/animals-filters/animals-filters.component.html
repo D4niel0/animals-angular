@@ -1,0 +1,122 @@
+<div class="flex flex-col gap-3">
+  <span class="text-2xl font-chewy">Filtros</span>
+  <form [formGroup]="filtersForm">
+    <article class="flex flex-col gap-2">
+      <div class="flex gap-5 flex-wrap">
+        <!-- SPECIES -->
+        <div class="flex gap-2">
+          @for (s of speciesList; track s) {
+          <button
+            type="button"
+            (click)="toggleChip('species', s)"
+            [attr.aria-pressed]="isSelected('species', s)"
+            class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+            [ngClass]="
+              isSelected('species', s)
+                ? 'bg-green-100 text-green-800'
+                : 'bg-gray-200 text-gray-700'
+            "
+          >
+            {{ s === "dog" ? "Perro" : s === "cat" ? "Gato" : "Otro" }}
+          </button>
+          }
+        </div>
+        <!-- GENDER -->
+        <div class="flex gap-2">
+          @for (g of genderList; track g) {
+          <button
+            type="button"
+            (click)="toggleChip('gender', g)"
+            [attr.aria-pressed]="isSelected('gender', g)"
+            class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+            [ngClass]="
+              isSelected('gender', g)
+                ? 'bg-blue-100 text-blue-800'
+                : 'bg-gray-200 text-gray-700'
+            "
+          >
+            {{ g === "m" ? "Macho" : "Hembra" }}
+          </button>
+          }
+        </div>
+        <!-- SIZE -->
+        <div class="flex gap-2">
+          @for (t of sizeList; track t) {
+          <button
+            type="button"
+            (click)="toggleChip('size', t)"
+            [attr.aria-pressed]="isSelected('size', t)"
+            class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+            [ngClass]="
+              isSelected('size', t)
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-gray-200 text-gray-700'
+            "
+          >
+            {{
+              t === "small" ? "Pequeño" : t === "medium" ? "Mediano" : "Grande"
+            }}
+          </button>
+          }
+        </div>
+        <!-- COMPATIBILITY -->
+        <div class="flex gap-2 flex-wrap">
+          @for (c of compatibilityList; track c) {
+          <button
+            type="button"
+            (click)="toggleChip('compatibility', c)"
+            [attr.aria-pressed]="isSelected('compatibility', c)"
+            class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+            [ngClass]="
+              isSelected('compatibility', c)
+                ? 'bg-purple-100 text-purple-800'
+                : 'bg-gray-200 text-gray-700'
+            "
+          >
+            {{
+              c === "child"
+                ? "Compatible con niños"
+                : c === "dog"
+                ? "Compatible con perros"
+                : "Compatible con gatos"
+            }}
+          </button>
+          }
+        </div>
+      </div>
+      <div class="flex gap-5 flex-wrap">
+        <!-- YEARS -->
+        <div class="age flex gap-2 items-center lg:w-1/4 w-full">
+          <span class="w-20">Años</span>
+          <mat-slider
+            class="grow"
+            [min]="0"
+            [max]="AGE_MAX"
+            step="1"
+            discrete
+            aria-label="Edad"
+            [displayWith]="formatLabel"
+          >
+            <input matSliderStartThumb formControlName="ageRangeStart" />
+            <input matSliderEndThumb formControlName="ageRangeEnd" />
+          </mat-slider>
+        </div>
+
+        <!-- ZONE -->
+        <div class="zone flex gap-2 lg:w-1/4 w-full items-center">
+          <mat-form-field class="w-full">
+            <mat-label>Ubicación</mat-label>
+            <mat-select multiple formControlName="location">
+              @for (province of PROVINCES_LIST; track province) {
+              <mat-option [value]="province">{{ province }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="resetFilters()">
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </article>
+  </form>
+</div>

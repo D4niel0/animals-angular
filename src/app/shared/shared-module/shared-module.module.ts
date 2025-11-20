@@ -11,6 +11,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatChipsModule } from "@angular/material/chips";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 const MATERIAL_MODULES = [
   MatSidenavModule,
@@ -23,6 +26,9 @@ const MATERIAL_MODULES = [
   MatInputModule,
   MatSelectModule,
   MatCheckboxModule,
+  MatSliderModule,
+  MatChipsModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

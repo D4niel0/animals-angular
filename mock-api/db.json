@@ -16,7 +16,7 @@
       "history": "Luna fue encontrada en un parque de Madrid tras haber sido abandonada. Un vecino la estuvo alimentando unos días hasta que avisó a la protectora.",
       "location": {
         "city": "Madrid",
-        "region": "Comunidad de Madrid",
+        "region": "Madrid",
         "country": "España",
         "shelter": {
           "name": "Protectora Madrid Central",
@@ -45,7 +45,7 @@
       "history": "Rocky fue cedido por una familia que no podía seguir cuidando de él por motivos laborales. Ha vivido siempre en casa y está acostumbrado a la convivencia familiar.",
       "location": {
         "city": "Barcelona",
-        "region": "Cataluña",
+        "region": "Barcelona",
         "country": "España",
         "shelter": {
           "name": "Protectora Barcelona",
@@ -75,7 +75,7 @@
       "specialNeeds": "Precisa de paseos diarios largos y trabajo de manejo con correa por su fuerza.",
       "location": {
         "city": "Valencia",
-        "region": "Comunidad Valenciana",
+        "region": "Valencia",
         "country": "España",
         "shelter": {
           "name": "Protectora Valencia",
@@ -104,7 +104,7 @@
       "history": "Nube llegó al refugio junto a otro perro con el que no se llevaba bien. En el refugio han visto que prefiere ser la única mascota de la casa.",
       "location": {
         "city": "Sevilla",
-        "region": "Andalucía",
+        "region": "Sevilla",
         "country": "España",
         "shelter": {
           "name": "Protectora Sevilla",
@@ -133,7 +133,7 @@
       "history": "Bimba fue rescatada de la calle con claros signos de haber tenido varias camadas. Desde que está en la protectora se ha adaptado muy bien a la vida en interior.",
       "location": {
         "city": "Bilbao",
-        "region": "País Vasco",
+        "region": "Bizkaia",
         "country": "España",
         "shelter": {
           "name": "Protectora Bilbao",
@@ -162,7 +162,7 @@
       "history": "Max fue encontrado junto a sus hermanos en una caja de cartón a las afueras de la ciudad. Es el más curioso y juguetón de la camada.",
       "location": {
         "city": "Zaragoza",
-        "region": "Aragón",
+        "region": "Zaragoza",
         "country": "España",
         "shelter": {
           "name": "Protectora Zaragoza",
@@ -191,7 +191,7 @@
       "history": "Toby vivía con una persona mayor que ya no podía sacarlo a la calle con la frecuencia necesaria. Lo cedió al refugio buscando para él una familia más activa.",
       "location": {
         "city": "Málaga",
-        "region": "Andalucía",
+        "region": "Málaga",
         "country": "España",
         "shelter": {
           "name": "Protectora Málaga",
@@ -220,7 +220,7 @@
       "history": "Simba fue rescatado de una situación de abandono en un patio sin apenas contacto humano. En pocos meses se ha convertido en un perro muy cercano y confiado.",
       "location": {
         "city": "A Coruña",
-        "region": "Galicia",
+        "region": "A Coruña",
         "country": "España",
         "shelter": {
           "name": "Protectora A Coruña",
@@ -278,7 +278,7 @@
       "history": "Lola convivía con una persona que tuvo que ingresar en una residencia. Está acostumbrada a vivir en interior y a pasar muchas horas acompañando en casa.",
       "location": {
         "city": "Valladolid",
-        "region": "Castilla y León",
+        "region": "Valladolid",
         "country": "España",
         "shelter": {
           "name": "Protectora Valladolid",
@@ -308,7 +308,7 @@
       "specialNeeds": "Tiene artrosis leve y necesita cama mullida y paseos cortos.",
       "location": {
         "city": "Toledo",
-        "region": "Castilla-La Mancha",
+        "region": "Toledo",
         "country": "España",
         "shelter": {
           "name": "Protectora Toledo",
@@ -367,7 +367,7 @@
       "history": "Zeus llegó a la protectora después de varios avisos por escaparse del jardín. Es un perro joven al que le encanta hacer ejercicio y aprender trucos.",
       "location": {
         "city": "Madrid",
-        "region": "Comunidad de Madrid",
+        "region": "Madrid",
         "country": "España",
         "shelter": {
           "name": "Protectora Madrid Central",
@@ -396,7 +396,7 @@
       "history": "Cleo fue rescatada de un abandono en una caja de transporte frente al refugio. Desde el primer día se mostró muy confiada y cariñosa.",
       "location": {
         "city": "Granada",
-        "region": "Andalucía",
+        "region": "Granada",
         "country": "España",
         "shelter": {
           "name": "Protectora Granada",
@@ -455,7 +455,7 @@
       "specialNeeds": "Sigue una medicación económica para control de la tensión.",
       "location": {
         "city": "León",
-        "region": "Castilla y León",
+        "region": "León",
         "country": "España",
         "shelter": {
           "name": "Protectora León",
@@ -513,7 +513,7 @@
       "history": "Fiona llegó al refugio tras ser encontrada vagando por una urbanización. Desde el primer día buscó el contacto con las personas.",
       "location": {
         "city": "Cádiz",
-        "region": "Andalucía",
+        "region": "Cádiz",
         "country": "España",
         "shelter": {
           "name": "Protectora Cádiz",
@@ -572,7 +572,7 @@
       "history": "Buddy fue encontrado con collar pero sin identificación. A pesar de la difusión, nadie lo reclamó y ahora busca un nuevo hogar.",
       "location": {
         "city": "Huelva",
-        "region": "Andalucía",
+        "region": "Huelva",
         "country": "España",
         "shelter": {
           "name": "Protectora Huelva",
@@ -601,7 +601,7 @@
       "history": "Coco fue entregado por una familia joven que tuvo un cambio de domicilio y no podía seguir teniéndolo. Está acostumbrado a vivir dentro de casa.",
       "location": {
         "city": "Tarragona",
-        "region": "Cataluña",
+        "region": "Tarragona",
         "country": "España",
         "shelter": {
           "name": "Protectora Tarragona",
@@ -659,7 +659,7 @@
       "history": "Simón fue recogido tras varios avisos en un polígono industrial. Al principio era muy desconfiado, pero ha mejorado mucho con trabajo de socialización.",
       "location": {
         "city": "Salamanca",
-        "region": "Castilla y León",
+        "region": "Salamanca",
         "country": "España",
         "shelter": {
           "name": "Protectora Salamanca",
@@ -688,7 +688,7 @@
       "history": "Togo fue encontrado con una cadena rota cerca de una zona rural. Aprendió muy rápido a pasear con correa y a responder a órdenes básicas.",
       "location": {
         "city": "Ávila",
-        "region": "Castilla y León",
+        "region": "Ávila",
         "country": "España",
         "shelter": {
           "name": "Protectora Ávila",
@@ -717,7 +717,7 @@
       "history": "Milo fue devuelto a la protectora tras una adopción fallida en la que no se adaptó a convivir con otros perros. Con humanos es un auténtico mimoso.",
       "location": {
         "city": "Burgos",
-        "region": "Castilla y León",
+        "region": "Burgos",
         "country": "España",
         "shelter": {
           "name": "Protectora Burgos",
@@ -747,7 +747,7 @@
       "specialNeeds": "Necesita un hogar sin niños pequeños ni mucho ruido.",
       "location": {
         "city": "Almería",
-        "region": "Andalucía",
+        "region": "Almería",
         "country": "España",
         "shelter": {
           "name": "Protectora Almería",
@@ -776,7 +776,7 @@
       "history": "Esta segunda Tana fue encontrada junto a un contenedor. Es muy sociable con otros perros y le encanta jugar con pelotas.",
       "location": {
         "city": "Cáceres",
-        "region": "Extremadura",
+        "region": "Cáceres",
         "country": "España",
         "shelter": {
           "name": "Protectora Cáceres",
@@ -805,7 +805,7 @@
       "history": "Kyra fue rescatada de un caso de acumulación de animales. A pesar de ello, se ha adaptado muy bien a la vida en el refugio y busca un hogar definitivo.",
       "location": {
         "city": "Cuenca",
-        "region": "Castilla-La Mancha",
+        "region": "Cuenca",
         "country": "España",
         "shelter": {
           "name": "Protectora Cuenca",
@@ -835,7 +835,7 @@
       "specialNeeds": "Paseos moderados y control veterinario anual por su edad.",
       "location": {
         "city": "Albacete",
-        "region": "Castilla-La Mancha",
+        "region": "Albacete",
         "country": "España",
         "shelter": {
           "name": "Protectora Albacete",
@@ -864,7 +864,7 @@
       "history": "Olivia fue encontrada con un leve cuadro de desnutrición, del que ya está completamente recuperada. Es muy simpática con todo el mundo.",
       "location": {
         "city": "Ourense",
-        "region": "Galicia",
+        "region": "Ourense",
         "country": "España",
         "shelter": {
           "name": "Protectora Ourense",
@@ -898,7 +898,7 @@
       "history": "Buddy fue encontrado con collar pero sin identificación. A pesar de la difusión, nadie lo reclamó y ahora busca un nuevo hogar.",
       "location": {
         "city": "Huelva",
-        "region": "Andalucía",
+        "region": "Huelva",
         "country": "España",
         "shelter": {
           "name": "Protectora Huelva",
@@ -927,7 +927,7 @@
       "history": "Coco fue entregado por una familia joven que tuvo un cambio de domicilio y no podía seguir teniéndolo. Está acostumbrado a vivir dentro de casa.",
       "location": {
         "city": "Tarragona",
-        "region": "Cataluña",
+        "region": "Tarragona",
         "country": "España",
         "shelter": {
           "name": "Protectora Tarragona",
@@ -985,7 +985,7 @@
       "history": "Simón fue recogido tras varios avisos en un polígono industrial. Al principio era muy desconfiado, pero ha mejorado mucho con trabajo de socialización.",
       "location": {
         "city": "Salamanca",
-        "region": "Castilla y León",
+        "region": "Salamanca",
         "country": "España",
         "shelter": {
           "name": "Protectora Salamanca",
@@ -1014,7 +1014,7 @@
       "history": "Togo fue encontrado con una cadena rota cerca de una zona rural. Aprendió muy rápido a pasear con correa y a responder a órdenes básicas.",
       "location": {
         "city": "Ávila",
-        "region": "Castilla y León",
+        "region": "Ávila",
         "country": "España",
         "shelter": {
           "name": "Protectora Ávila",
@@ -1043,7 +1043,7 @@
       "history": "Milo fue devuelto a la protectora tras una adopción fallida en la que no se adaptó a convivir con otros perros. Con humanos es un auténtico mimoso.",
       "location": {
         "city": "Burgos",
-        "region": "Castilla y León",
+        "region": "Burgos",
         "country": "España",
         "shelter": {
           "name": "Protectora Burgos",

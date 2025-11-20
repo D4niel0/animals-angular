@@ -1,14 +1,21 @@
 <section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <app-animals-filters></app-animals-filters>
+  </article>
   <app-paw-spinner *ngIf="isLoading"></app-paw-spinner>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6"
-    *ngIf="animalsList && !isLoading"
+  <article
+    class="bg-white/70 shadow-md rounded-md p-5 mt-5"
+    *ngIf="filteredAnimals && !isLoading"
   >
-    <article
-      class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl cursor-pointer"
-      *ngFor="let animal of animalsList"
+    <div
+      class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6"
     >
-      <app-cards [animal]="animal"></app-cards>
-    </article>
-  </div>
+      <article
+        class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl cursor-pointer"
+        *ngFor="let animal of filteredAnimals"
+      >
+        <app-cards [animal]="animal"></app-cards>
+      </article>
+    </div>
+  </article>
 </section>
