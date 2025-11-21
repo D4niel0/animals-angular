@@ -86,35 +86,43 @@
       </div>
       <div class="flex gap-5 flex-wrap">
         <!-- YEARS -->
-        <div class="age flex gap-2 items-center lg:w-1/4 w-full">
-          <span class="w-20">Años</span>
-          <mat-slider
+        <div class="age flex gap-2 items-center lg:w-1/3 w-full">
+          <span class="w-16">Años</span>
+          <span class="pr-2">{{ filtersForm.get("ageRange")?.value[0] }}</span>
+          <p-slider
             class="grow"
+            formControlName="ageRange"
             [min]="0"
             [max]="AGE_MAX"
-            step="1"
-            discrete
-            aria-label="Edad"
-            [displayWith]="formatLabel"
-          >
-            <input matSliderStartThumb formControlName="ageRangeStart" />
-            <input matSliderEndThumb formControlName="ageRangeEnd" />
-          </mat-slider>
+            [step]="1"
+            [range]="true"
+            (onSlideEnd)="onAgeRangeChange($event)"
+          ></p-slider>
+          <span class="pl-2">{{
+            filtersForm.get("ageRange")?.value[1] === AGE_MAX
+              ? "+" + AGE_MAX
+              : filtersForm.get("ageRange")?.value[1]
+          }}</span>
         </div>
 
         <!-- ZONE -->
         <div class="zone flex gap-2 lg:w-1/4 w-full items-center">
-          <mat-form-field class="w-full">
-            <mat-label>Ubicación</mat-label>
-            <mat-select multiple formControlName="location">
-              @for (province of PROVINCES_LIST; track province) {
-              <mat-option [value]="province">{{ province }}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-          <button mat-raised-button color="primary" (click)="resetFilters()">
-            Limpiar
-          </button>
+          <p-multiSelect
+            [options]="provincesOptions"
+            formControlName="location"
+            defaultLabel="Ubicación"
+            optionLabel="label"
+            optionValue="value"
+            display="chip"
+            class="w-full"
+          ></p-multiSelect>
+
+          <button
+            pButton
+            type="button"
+            label="Limpiar"
+            (click)="resetFilters()"
+          ></button>
         </div>
       </div>
     </article>
