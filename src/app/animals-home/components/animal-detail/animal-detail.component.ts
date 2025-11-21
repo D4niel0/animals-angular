@@ -1,7 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
-import { MatIconModule } from "@angular/material/icon";
 import { Observable, switchMap, map } from "rxjs";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
