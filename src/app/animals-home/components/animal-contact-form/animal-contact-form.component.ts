@@ -1,20 +1,55 @@
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
-import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import { Animal } from "../../../shared/models";
-import { SnackbarService } from "../../../services/snackbar.service";
+import { CommonModule } from "@angular/common";
+import { ButtonModule } from "primeng/button";
+import { InputTextModule } from "primeng/inputtext";
+import { DropdownModule } from "primeng/dropdown";
+import { TextareaModule } from "primeng/textarea";
+import { CheckboxModule } from "primeng/checkbox";
+import { ToastModule } from "primeng/toast";
+import { ToastService } from "../../../services/toast.service";
 
 @Component({
   selector: "app-animal-contact-form",
   standalone: true,
-  imports: [SharedModuleModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    DropdownModule,
+    TextareaModule,
+    CheckboxModule,
+    ButtonModule,
+    ToastModule,
+  ],
   templateUrl: "./animal-contact-form.component.html",
   styleUrl: "./animal-contact-form.component.scss",
 })
 export class AnimalContactFormComponent {
   private fb = inject(FormBuilder);
-  private snackBarService = inject(SnackbarService);
+  private toastService = inject(ToastService);
+  protected homeSizeOptions = [
+    { label: "Pequeño (estudio / 1 habitación)", value: "small" },
+    { label: "Mediano (piso estándar)", value: "medium" },
+    { label: "Grande (casa o jardín)", value: "large" },
+  ];
+  protected yesNoOptions = [
+    { label: "Sí", value: "yes" },
+    { label: "No", value: "no" },
+  ];
 
+  protected get subjectOptions() {
+    return [
+      {
+        label: `Quiero información sobre ${this.animal?.name ?? ""}`,
+        value: "info",
+      },
+      { label: "Quiero iniciar proceso de adopción", value: "adoption" },
+      { label: "Quiero ser casa de acogida", value: "foster" },
+      { label: "Otras consultas", value: "other" },
+    ];
+  }
   @Input() animal: Animal | undefined;
   @Output() showContactForm = new EventEmitter<void>();
 
@@ -38,8 +73,10 @@ export class AnimalContactFormComponent {
    * @param animal Animal contact
    */
   protected submitContactForm(animal: any): void {
-    if (this.contactForm.invalid) return;
-
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
     const data = {
       ...this.contactForm.value,
       animalId: animal.id,
@@ -47,10 +84,11 @@ export class AnimalContactFormComponent {
       shelterEmail: animal.location.shelter.email,
     };
 
-    this.snackBarService.open(
-      `¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`,
-      "success"
+    this.toastService.success(
+      `¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`
     );
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     this.contactForm.reset();
     this.showContactForm.emit();

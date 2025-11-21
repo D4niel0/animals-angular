@@ -1,14 +1,12 @@
 import { Component, inject, Input } from "@angular/core";
 import { Animal } from "../../models";
-import { SharedModuleModule } from "../../shared-module/shared-module.module";
-import { MatIconModule } from "@angular/material/icon";
 import { Router } from "@angular/router";
 import { ScrollService } from "../../../services/scroll.service";
 
 @Component({
   selector: "app-cards",
   standalone: true,
-  imports: [SharedModuleModule, MatIconModule],
+  imports: [],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.scss",
 })
@@ -78,7 +76,6 @@ export class CardsComponent {
     }
     const candidates = [
       document.querySelector(".main-content"),
-      document.querySelector(".mat-drawer-content"),
       document.scrollingElement as Element | null,
       document.body,
     ];

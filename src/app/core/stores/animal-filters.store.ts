@@ -5,8 +5,7 @@ export interface AnimalsFilters {
   size: string[];
   gender: string[];
   compatibility: string[];
-  ageRangeStart: number;
-  ageRangeEnd: number;
+  ageRange: number[];
   location: string[];
 }
 
@@ -17,8 +16,7 @@ export class AnimalsFiltersStore {
     size: [],
     gender: [],
     compatibility: [],
-    ageRangeStart: 0,
-    ageRangeEnd: 20,
+    ageRange: [0,20],
     location: [],
   });
 
@@ -47,8 +45,7 @@ export class AnimalsFiltersStore {
       size: [],
       gender: [],
       compatibility: [],
-      ageRangeStart: 0,
-      ageRangeEnd: 20,
+    ageRange: [0,20],
       location: [],
     });
   }

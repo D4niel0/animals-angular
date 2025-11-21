@@ -1,17 +1,8 @@
-.sidenav-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.sidenav {
-  width: 250px;
+::ng-deep .p-toolbar {
+  width: 100% !important;
+  border: none !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(4px) !important;
 }
 
 .header {
@@ -19,11 +10,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
   z-index: 60;
-  display: flex;
   align-items: center;
-  padding: 0 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   background-color: rgba(255, 255, 255, 0.6) !important;
 }
@@ -33,76 +21,25 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
   z-index: 60;
-  display: none;
   align-items: center;
-  padding: 0 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 @media (min-width: 768px) {
-  .header {
+  .p-toolbar-mobile {
     display: none;
   }
-  .header-desktop {
+  .p-toolbar-desktop {
     display: flex;
+    width: 100%;
   }
-}
-
-.logo {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-
-  a {
-    text-decoration: none;
-    font-weight: 500;
-  }
-}
-
-.spacer {
-  flex: 1 1 auto;
 }
 
 .main-content {
-  padding-top: 64px;
+  padding-top: 58px;
   padding-bottom: 24px;
   overflow-y: visible;
   flex: 1;
-}
-
-::ng-deep .mat-drawer-container {
-  background-color: transparent !important;
-}
-
-::ng-deep .mat-drawer-content {
-  background-color: transparent !important;
-}
-
-::ng-deep .mat-drawer {
-  border-radius: 0px !important;
-}
-
-::ng-deep .mat-sidenav {
-  background-color: rgba(255, 255, 255, 0.72) !important;
-  color: #111827 !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-::ng-deep .mat-toolbar.mat-primary,
-::ng-deep .mat-toolbar {
-  background-color: rgba(255, 255, 255, 0.6) !important;
-  color: #111827 !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }

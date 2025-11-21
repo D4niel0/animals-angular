@@ -1,28 +1,38 @@
-import { Component, inject, ViewChild } from "@angular/core";
-import { SharedModuleModule } from "../../shared-module/shared-module.module";
-import { NavigationEnd, Router, RouterModule } from "@angular/router";
-import { MatSidenav } from "@angular/material/sidenav";
+import { Component, inject } from "@angular/core";
+import { Router, RouterModule, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs";
+
 import { FooterComponent } from "../../../home/components/footer/footer.component";
 import { RevealOnScrollDirective } from "../../directives/reveal-on-scroll.directive";
 import { ScrollService } from "../../../services/scroll.service";
 import { AnimalsService } from "../../../services/animals.service";
 
+import { SidebarModule } from "primeng/sidebar";
+import { ButtonModule } from "primeng/button";
+import { ToolbarModule } from "primeng/toolbar";
+import { CommonModule } from "@angular/common";
+import { ToastModule } from "primeng/toast";
+
 @Component({
   selector: "app-shell",
   standalone: true,
   imports: [
-    SharedModuleModule,
+    CommonModule,
     RouterModule,
     FooterComponent,
     RevealOnScrollDirective,
+    SidebarModule,
+    ButtonModule,
+    ToolbarModule,
+    ToastModule,
   ],
   templateUrl: "./shell.component.html",
-  styleUrl: "./shell.component.scss",
+  styleUrls: ["./shell.component.scss"],
 })
 export class ShellComponent {
-  @ViewChild("sidenav") sidenav!: MatSidenav;
+  sidebarVisible = false;
   protected isHome = false;
+
   private scrollService = inject(ScrollService);
   private animalsService = inject(AnimalsService);
 
@@ -36,32 +46,18 @@ export class ShellComponent {
       });
   }
 
-  /**
-   * @description Check if the current route is home
-   * @param url
-   * @returns
-   */
   private checkIsHome(url: string): boolean {
     return url === "/home" || url === "/";
   }
 
-  /**
-   * @description Toggle the sidenav
-   */
   protected toggleSidenav(): void {
-    this.sidenav.toggle();
+    this.sidebarVisible = !this.sidebarVisible;
   }
 
-  /**
-   * @description Close the sidenav
-   */
   protected closeSidenav(): void {
-    this.sidenav.close();
+    this.sidebarVisible = false;
   }
 
-  /**
-   * @description Clear saved scroll position for animals page
-   */
   protected clear(): void {
     this.scrollService.clear("animals");
     this.animalsService.clearAnimalsCache();

@@ -1,13 +1,21 @@
 import { Component, inject } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
+import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { PROVINCES } from "../../../core/constants/provinces.const";
 import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
-
+import { SliderModule } from "primeng/slider";
+import { MultiSelectModule } from "primeng/multiselect";
+import { ButtonModule } from "primeng/button";
+import { CommonModule } from "@angular/common";
 @Component({
   selector: "app-animals-filters",
   standalone: true,
-  imports: [SharedModuleModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SliderModule,
+    MultiSelectModule,
+    ButtonModule,
+  ],
   templateUrl: "./animals-filters.component.html",
   styleUrl: "./animals-filters.component.scss",
 })
@@ -24,10 +32,17 @@ export class AnimalsFiltersComponent {
 
   readonly AGE_MAX = 20;
   readonly PROVINCES_LIST = PROVINCES;
+  protected provincesOptions = this.PROVINCES_LIST.map((p) => ({
+    label: p,
+    value: p,
+  }));
 
   get ageValueLabel(): string {
-    const val = Number(this.filtersForm.get("ageRange")?.value ?? 0);
-    return val >= this.AGE_MAX ? `+${this.AGE_MAX}` : `${val}`;
+    const val = this.filtersForm.get("ageRange")?.value ?? [0, this.AGE_MAX];
+    const start = Number(val[0]);
+    const end = Number(val[1]);
+    const endLabel = end >= this.AGE_MAX ? `+${this.AGE_MAX}` : `${end}`;
+    return `${start} - ${endLabel}`;
   }
 
   constructor() {
@@ -75,8 +90,7 @@ export class AnimalsFiltersComponent {
   private initializeForm(): void {
     this.filtersForm = this.fb.group({
       species: [[]],
-      ageRangeStart: [0],
-      ageRangeEnd: [this.AGE_MAX],
+      ageRange: [[0, this.AGE_MAX]],
       size: [[]],
       gender: [[]],
       compatibility: [[]],
@@ -101,10 +115,15 @@ export class AnimalsFiltersComponent {
       size: [],
       gender: [],
       compatibility: [],
-      ageRangeStart: 0,
-      ageRangeEnd: this.AGE_MAX,
+      ageRange: [0, this.AGE_MAX],
       location: [],
     });
+  }
+
+  protected onAgeRangeChange(event: any): void {
+    const value = event?.value;
+    if (!value) return;
+    this.filtersForm.get("ageRange")?.setValue(value);
   }
 
   /**
@@ -113,10 +132,9 @@ export class AnimalsFiltersComponent {
    * @returns The formatted label string.
    */
   formatLabel(value: number): string {
-    if (value === 20) {
+    if (value === this.AGE_MAX) {
       return `+${value}`;
     }
-
     return `${value}`;
   }
 }
