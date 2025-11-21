@@ -1,87 +1,129 @@
-<mat-sidenav-container class="sidenav-container">
-  <!-- LATERAL MOBILE -->
-  <mat-sidenav #sidenav mode="over" class="sidenav">
-    <mat-nav-list>
-      @if(!isHome){
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>home</mat-icon>
-        <span matListItemTitle>Inicio</span>
-      </mat-list-item>
-      }
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>pets</mat-icon>
-        <span matListItemTitle>Animales</span>
-      </mat-list-item>
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>shield</mat-icon>
-        <span matListItemTitle>Protectoras</span>
-      </mat-list-item>
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>event</mat-icon>
-        <span matListItemTitle>Eventos</span>
-      </mat-list-item>
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>mail</mat-icon>
-        <span matListItemTitle>Contacto</span>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item (click)="closeSidenav()">
-        <mat-icon matListItemIcon>logout</mat-icon>
-        <span matListItemTitle>Cerrar sesión</span>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  position="left"
+  [baseZIndex]="10000"
+  styleClass="app-sidebar"
+>
+  <div class="p-d-flex p-flex-column p-gap-3">
+    <ul class="nav-list flex flex-col gap-3">
+      <li *ngIf="!isHome" (click)="closeSidenav()" class="nav-item">
+        <a class="nav-link flex gap-2" routerLink="/home" aria-label="Inicio">
+          <i class="pi pi-home" aria-hidden="true"></i>
+          <span>Inicio</span>
+        </a>
+      </li>
 
-  <!-- MAIN CONTAINER -->
-  <mat-sidenav-content>
-    <!-- Mobile Header (< 768px) -->
-    <mat-toolbar color="primary" class="header">
-      <button mat-icon-button (click)="toggleSidenav()" aria-label="Abrir menú">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="spacer"></span>
-      <h1>Animals App</h1>
-      <span class="spacer"></span>
-      <button mat-icon-button aria-label="Configuración">
-        <mat-icon>settings</mat-icon>
-      </button>
-    </mat-toolbar>
+      <li (click)="closeSidenav()" class="nav-item">
+        <a
+          class="nav-link flex gap-2"
+          routerLink="/animals-home"
+          aria-label="Animales"
+        >
+          <img src="assets/icons/pawprint.svg" alt="pawprint" class="w-5 h-5" />
+          <span>Animales</span>
+        </a>
+      </li>
 
-    <!-- Header desktop (>= 768px) -->
-    <mat-toolbar color="primary" class="header-desktop gap-4">
+      <li (click)="closeSidenav()" class="nav-item">
+        <a class="nav-link flex gap-2" aria-label="Protectoras">
+          <img src="assets/icons/shelter.svg" alt="shelter" class="w-5 h-5" />
+          <span>Protectoras</span>
+        </a>
+      </li>
+
+      <li (click)="closeSidenav()" class="nav-item">
+        <a class="nav-link flex gap-2" aria-label="Eventos">
+          <img src="assets/icons/calendar.svg" alt="calendar" class="w-5 h-5" />
+          <span>Eventos</span>
+        </a>
+      </li>
+
+      <li (click)="closeSidenav()" class="nav-item">
+        <a class="nav-link flex gap-2" aria-label="Contacto">
+          <img src="assets/icons/email.svg" alt="email" class="w-5 h-5" />
+          <span>Contacto</span>
+        </a>
+      </li>
+
+      <li class="divider" role="separator"></li>
+
+      <li (click)="closeSidenav()" class="nav-item">
+        <a class="nav-link flex gap-2" aria-label="Cerrar sesión">
+          <img src="assets/icons/logout.svg" alt="logout" class="w-5 h-5" />
+          <span>Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</p-sidebar>
+
+<!-- MAIN -->
+<div class="sidenav-container">
+  <!-- Mobile Header (<768px) -->
+  <p-toolbar class="header p-toolbar-mobile w-full md:hidden">
+    <div class="p-toolbar-group-left">
+      <button
+        pButton
+        icon="pi pi-bars"
+        class="p-button-text"
+        (click)="toggleSidenav()"
+        aria-label="Abrir menú"
+      ></button>
+    </div>
+
+    <div class="p-toolbar-group-center">
+      <h1 class="m-0">Animals App</h1>
+    </div>
+
+    <div class="p-toolbar-group-right">
+      <button
+        pButton
+        icon="pi pi-cog"
+        class="p-button-text"
+        aria-label="Configuración"
+      ></button>
+    </div>
+  </p-toolbar>
+
+  <!-- Header desktop (>=768px) -->
+  <p-toolbar class="header-desktop p-toolbar-desktop w-full hidden md:flex">
+    <div class="p-toolbar-group-left">
       <h1 class="logo">Animals App</h1>
-      <span class="spacer"></span>
-      <nav class="nav-menu">
-        @if(!isHome) {
+    </div>
+
+    <div class="p-toolbar-group-right flex items-center gap-6">
+      <div class="flex gap-4">
         <a
           *ngIf="!isHome"
-          [routerLink]="['/home']"
+          routerLink="/home"
           (click)="clear()"
           class="text-lg cursor-pointer hover:text-green-600"
           >Home</a
         >
-        }
         <a
-          [routerLink]="['/animals-home']"
+          routerLink="/animals-home"
           class="text-lg cursor-pointer hover:text-green-600"
           >Animales</a
         >
         <a class="text-lg cursor-pointer hover:text-green-600">Protectoras</a>
         <a class="text-lg cursor-pointer hover:text-green-600">Eventos</a>
         <a class="text-lg cursor-pointer hover:text-green-600">Contacto</a>
-      </nav>
-      <button mat-icon-button aria-label="Configuración">
-        <mat-icon>settings</mat-icon>
-      </button>
-    </mat-toolbar>
+      </div>
+      <button
+        pButton
+        icon="pi pi-cog"
+        class="p-button-text"
+        aria-label="Configuración"
+      ></button>
+    </div>
+  </p-toolbar>
 
-    <!-- Main Content -->
-    <main class="text-gray-900 main-content px-3 md:px-7 lg:px-14">
-      <router-outlet />
-    </main>
+  <!-- Main Content -->
+  <main class="text-gray-900 main-content px-3 md:px-7 lg:px-14">
+    <router-outlet></router-outlet>
+  </main>
 
-    <footer appRevealOnScroll class="footer">
-      <app-footer></app-footer>
-    </footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <footer appRevealOnScroll class="footer">
+    <app-footer></app-footer>
+  </footer>
+</div>
