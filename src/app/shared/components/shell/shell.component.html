@@ -2,10 +2,12 @@
   <!-- LATERAL MOBILE -->
   <mat-sidenav #sidenav mode="over" class="sidenav">
     <mat-nav-list>
-      <mat-list-item *ngIf="!isHome" (click)="closeSidenav()">
+      @if(!isHome){
+      <mat-list-item (click)="closeSidenav()">
         <mat-icon matListItemIcon>home</mat-icon>
         <span matListItemTitle>Inicio</span>
       </mat-list-item>
+      }
       <mat-list-item (click)="closeSidenav()">
         <mat-icon matListItemIcon>pets</mat-icon>
         <span matListItemTitle>Animales</span>
@@ -50,6 +52,7 @@
       <h1 class="logo">Animals App</h1>
       <span class="spacer"></span>
       <nav class="nav-menu">
+        @if(!isHome) {
         <a
           *ngIf="!isHome"
           [routerLink]="['/home']"
@@ -57,6 +60,7 @@
           class="text-lg cursor-pointer hover:text-green-600"
           >Home</a
         >
+        }
         <a
           [routerLink]="['/animals-home']"
           class="text-lg cursor-pointer hover:text-green-600"

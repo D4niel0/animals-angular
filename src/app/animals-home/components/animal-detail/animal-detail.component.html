@@ -8,186 +8,186 @@
       Volver al listado
     </a>
 
-    <ng-container *ngIf="animal$ | async as animal; else loading">
-      <article class="bg-white rounded-2xl shadow-md overflow-hidden">
-        <div>
-          <app-slider [images]="animal.imageUrl"></app-slider>
-        </div>
-
-        <div class="flex flex-col justify-between p-6 space-y-4">
-          <header class="space-y-2">
-            <div class="flex items-center justify-between gap-3">
-              <span class="text-4xl font-chewy text-gray-900">
-                {{ animal.name }}
-              </span>
-              <span
-                class="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
-              >
-                <mat-icon class="text-base">location_on</mat-icon>
-                {{ animal.location.city }}
-              </span>
-            </div>
-
-            <p class="text-sm text-gray-600">
-              {{ animal.location.region }} · {{ animal.location.country }}
-            </p>
-
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span
-                class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
-              >
-                {{ animal.breed }}
-              </span>
-
-              <span
-                class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
-                [ngClass]="
-                  animal.sex === 'm'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'bg-pink-50 text-pink-700'
-                "
-              >
-                <mat-icon>{{
-                  animal.sex === "m" ? "male" : "female"
-                }}</mat-icon>
-                {{ animal.sex === "m" ? "Macho" : "Hembra" }}
-              </span>
-              <span
-                class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700"
-              >
-                {{
-                  animal.species === "dog"
-                    ? "🐶"
-                    : animal.species === "cat"
-                    ? "🐱"
-                    : "🐾"
-                }}
-                {{ getSizeLabel(animal.size) }}
-              </span>
-              <span
-                class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
-              >
-                {{ animal.ageYears }} año{{ animal.ageYears > 1 ? "s" : "" }}
-              </span>
-              <span
-                *ngIf="animal.compatibleWithChildren"
-                class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
-              >
-                👨‍👩‍👧 Compatible con niños
-              </span>
-            </div>
-          </header>
-
-          <section class="space-y-2">
-            <span class="text-2xl font-chewy"> Compatibilidades </span>
-            <div class="flex flex-wrap gap-2 text-xs">
-              <span
-                class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
-                [ngClass]="
-                  animal.compatibleWithDogs
-                    ? 'bg-green-50 text-green-700'
-                    : 'bg-red-50 text-red-700'
-                "
-              >
-                🐕
-                {{
-                  animal.compatibleWithDogs
-                    ? "Compatible con perros"
-                    : "No compatible con perros"
-                }}
-              </span>
-
-              <span
-                class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
-                [ngClass]="
-                  animal.compatibleWithCats
-                    ? 'bg-green-50 text-green-700'
-                    : 'bg-red-50 text-red-700'
-                "
-              >
-                🐈
-                {{
-                  animal.compatibleWithCats
-                    ? "Compatible con gatos"
-                    : "No compatible con gatos"
-                }}
-              </span>
-            </div>
-          </section>
-
-          <section class="space-y-3 text-sm">
-            <div>
-              <span class="text-2xl font-chewy mb-1">
-                Sobre {{ animal.name }}
-              </span>
-              <p class="text-gray-700">{{ animal.description }}</p>
-            </div>
-
-            <div>
-              <span class="text-2xl font-chewy mb-1"> Su historia </span>
-              <p class="text-gray-700">{{ animal.history }}</p>
-            </div>
-
-            <div *ngIf="animal.specialNeeds" class="bg-amber-50 rounded-lg p-3">
-              <span class="text-xl font-chewy mb-1">
-                Necesidades especiales
-              </span>
-              <p class="text-xs text-amber-900">
-                {{ animal.specialNeeds }}
-              </p>
-            </div>
-          </section>
-
-          <section
-            class="mt-2 border-t border-gray-100 pt-3 flex flex-col gap-3 text-sm"
-          >
-            <div>
-              <span class="text-2xl font-chewy"> Contacto </span>
-            </div>
-
-            <div class="flex flex-col gap-1">
-              <span class="text-gray-700 text-lg">
-                {{ animal.location.shelter.name }}
-              </span>
-              <div class="flex items-center">
-                <mat-icon class="text-lg text-green-600 mb-1">mail</mat-icon>
-                <a
-                  href="mailto:{{ animal.location.shelter.email }}"
-                  class="hover:text-green-600 cursor-pointer"
-                >
-                  {{ animal.location.shelter.email }}
-                </a>
-              </div>
-              <div class="flex items-center">
-                <mat-icon class="text-lg text-green-600 mb-1">phone</mat-icon>
-                <span>{{ animal.location.shelter.phone }}</span>
-              </div>
-              <button
-                color="primary"
-                class="!bg-green-300 hover:!bg-green-400 flex items-center gap-2 w-fit p-2 mt-3 rounded-lg transition-colors duration-200 ease-in-out"
-                (click)="toggleContactForm()"
-              >
-                Contactar
-              </button>
-              <div
-                *ngIf="showContactForm"
-                class="mt-4 bg-white rounded-2xl shadow-md p-6 border border-gray-100 animate-fadeIn"
-              >
-                <app-animal-contact-form
-                  [animal]="animal"
-                  (showContactForm)="toggleContactForm()"
-                ></app-animal-contact-form>
-              </div>
-            </div>
-          </section>
-        </div>
-      </article>
-    </ng-container>
-
-    <ng-template #loading>
-      <div class="flex items-center justify-center py-16 text-gray-500">
-        Cargando información del animal...
+    @let animal = animal$ | async; @if (animal) {
+    <article class="bg-white rounded-2xl shadow-md overflow-hidden">
+      <div>
+        <app-slider [images]="animal.imageUrl"></app-slider>
       </div>
-    </ng-template>
+
+      <div class="flex flex-col justify-between p-6 space-y-4">
+        <header class="space-y-2">
+          <div class="flex items-center justify-between gap-3">
+            <span class="text-4xl font-chewy text-gray-900">
+              {{ animal.name }}
+            </span>
+            <span
+              class="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+            >
+              <mat-icon class="text-base">location_on</mat-icon>
+              {{ animal.location.city }}
+            </span>
+          </div>
+
+          <p class="text-sm text-gray-600">
+            {{ animal.location.region }} · {{ animal.location.country }}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+            >
+              {{ animal.breed }}
+            </span>
+
+            <span
+              class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
+              [ngClass]="
+                animal.sex === 'm'
+                  ? 'bg-blue-50 text-blue-700'
+                  : 'bg-pink-50 text-pink-700'
+              "
+            >
+              <mat-icon>{{ animal.sex === "m" ? "male" : "female" }}</mat-icon>
+              {{ animal.sex === "m" ? "Macho" : "Hembra" }}
+            </span>
+            <span
+              class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700"
+            >
+              {{
+                animal.species === "dog"
+                  ? "🐶"
+                  : animal.species === "cat"
+                  ? "🐱"
+                  : "🐾"
+              }}
+              {{ getSizeLabel(animal.size) }}
+            </span>
+            <span
+              class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+            >
+              {{ animal.ageYears }} año{{ animal.ageYears > 1 ? "s" : "" }}
+            </span>
+            @if (animal.compatibleWithChildren) {
+            <span
+              class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+            >
+              👨‍👩‍👧 Compatible con niños
+            </span>
+            }
+          </div>
+        </header>
+
+        <section class="space-y-2">
+          <span class="text-2xl font-chewy"> Compatibilidades </span>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span
+              class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
+              [ngClass]="
+                animal.compatibleWithDogs
+                  ? 'bg-green-50 text-green-700'
+                  : 'bg-red-50 text-red-700'
+              "
+            >
+              🐕
+              {{
+                animal.compatibleWithDogs
+                  ? "Compatible con perros"
+                  : "No compatible con perros"
+              }}
+            </span>
+
+            <span
+              class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
+              [ngClass]="
+                animal.compatibleWithCats
+                  ? 'bg-green-50 text-green-700'
+                  : 'bg-red-50 text-red-700'
+              "
+            >
+              🐈
+              {{
+                animal.compatibleWithCats
+                  ? "Compatible con gatos"
+                  : "No compatible con gatos"
+              }}
+            </span>
+          </div>
+        </section>
+
+        <section class="space-y-3 text-sm">
+          <div>
+            <span class="text-2xl font-chewy mb-1">
+              Sobre {{ animal.name }}
+            </span>
+            <p class="text-gray-700">{{ animal.description }}</p>
+          </div>
+
+          <div>
+            <span class="text-2xl font-chewy mb-1"> Su historia </span>
+            <p class="text-gray-700">{{ animal.history }}</p>
+          </div>
+
+          @if (animal.specialNeeds) {
+          <div class="bg-amber-50 rounded-lg p-3">
+            <span class="text-xl font-chewy mb-1">
+              Necesidades especiales
+            </span>
+            <p class="text-xs text-amber-900">
+              {{ animal.specialNeeds }}
+            </p>
+          </div>
+          }
+        </section>
+
+        <section
+          class="mt-2 border-t border-gray-100 pt-3 flex flex-col gap-3 text-sm"
+        >
+          <div>
+            <span class="text-2xl font-chewy"> Contacto </span>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <span class="text-gray-700 text-lg">
+              {{ animal.location.shelter.name }}
+            </span>
+            <div class="flex items-center">
+              <mat-icon class="text-lg text-green-600 mb-1">mail</mat-icon>
+              <a
+                href="mailto:{{ animal.location.shelter.email }}"
+                class="hover:text-green-600 cursor-pointer"
+              >
+                {{ animal.location.shelter.email }}
+              </a>
+            </div>
+            <div class="flex items-center">
+              <mat-icon class="text-lg text-green-600 mb-1">phone</mat-icon>
+              <span>{{ animal.location.shelter.phone }}</span>
+            </div>
+            <button
+              color="primary"
+              class="!bg-green-300 hover:!bg-green-400 flex items-center gap-2 w-fit p-2 mt-3 rounded-lg transition-colors duration-200 ease-in-out"
+              (click)="toggleContactForm()"
+            >
+              Contactar
+            </button>
+            @if (showContactForm) {
+            <div
+              class="mt-4 bg-white rounded-2xl shadow-md p-6 border border-gray-100 animate-fadeIn"
+            >
+              <app-animal-contact-form
+                [animal]="animal"
+                (showContactForm)="toggleContactForm()"
+              ></app-animal-contact-form>
+            </div>
+            }
+          </div>
+        </section>
+      </div>
+    </article>
+    } @else {
+    <div class="flex items-center justify-center py-16 text-gray-500">
+      Cargando información del animal...
+    </div>
+    }
   </div>
 </div>

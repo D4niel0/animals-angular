@@ -6,9 +6,9 @@
   <mat-form-field>
     <mat-label>Tu nombre</mat-label>
     <input matInput formControlName="name" placeholder="Escribe tu nombre" />
-    <mat-error *ngIf="contactForm.controls['name'].invalid"
-      >Campo obligatorio</mat-error
-    >
+    @if(contactForm.controls['name'].invalid) {
+    <mat-error>Campo obligatorio</mat-error>
+    }
   </mat-form-field>
 
   <mat-form-field>
@@ -19,9 +19,9 @@
       formControlName="email"
       placeholder="tucorreo@example.com"
     />
-    <mat-error *ngIf="contactForm.controls['email'].invalid"
-      >Correo no válido</mat-error
-    >
+    @if(contactForm.controls['email'].invalid) {
+    <mat-error>Correo no válido</mat-error>
+    }
   </mat-form-field>
 
   <mat-form-field>
@@ -45,9 +45,9 @@
       <mat-option value="medium">Mediano (piso estándar)</mat-option>
       <mat-option value="large">Grande (casa o jardín)</mat-option>
     </mat-select>
-    <mat-error *ngIf="contactForm.controls['homeSize'].invalid"
-      >Obligatorio</mat-error
-    >
+    @if(contactForm.controls['homeSize'].invalid) {
+    <mat-error>Obligatorio</mat-error>
+    }
   </mat-form-field>
 
   <mat-form-field>
@@ -88,9 +88,9 @@
       formControlName="message"
       placeholder="Cuéntanos un poco sobre ti..."
     ></textarea>
-    <mat-error *ngIf="contactForm.controls['message'].invalid"
-      >El mensaje es obligatorio</mat-error
-    >
+    @if(contactForm.controls['message'].invalid) {
+    <mat-error>El mensaje es obligatorio</mat-error>
+    }
   </mat-form-field>
 
   <!-- Privacidad -->
