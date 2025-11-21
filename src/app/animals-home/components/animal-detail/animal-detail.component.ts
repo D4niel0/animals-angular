@@ -7,7 +7,7 @@ import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
 import { SliderComponent } from "../../../shared/components/slider/slider.component";
 import { AnimalContactFormComponent } from "../animal-contact-form/animal-contact-form.component";
-import { MatButtonModule } from "@angular/material/button";
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-animal-detail",
@@ -15,9 +15,9 @@ import { MatButtonModule } from "@angular/material/button";
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule,
     SliderComponent,
     AnimalContactFormComponent,
+    ButtonModule,
   ],
   templateUrl: "./animal-detail.component.html",
 })

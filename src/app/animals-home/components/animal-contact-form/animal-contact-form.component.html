@@ -3,109 +3,133 @@
   (ngSubmit)="submitContactForm(animal)"
   class="grid grid-cols-1 md:grid-cols-2 gap-6"
 >
-  <mat-form-field>
-    <mat-label>Tu nombre</mat-label>
-    <input matInput formControlName="name" placeholder="Escribe tu nombre" />
-    @if(contactForm.controls['name'].invalid) {
-    <mat-error>Campo obligatorio</mat-error>
-    }
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Correo electrónico</mat-label>
+  <!-- NAME -->
+  <div class="flex flex-col gap-2">
+    <label for="name">Tu nombre *</label>
     <input
-      matInput
+      id="name"
+      pInputText
+      formControlName="name"
+      placeholder="Escribe tu nombre"
+    />
+    @if (contactForm.controls['name'].invalid &&
+    contactForm.controls['name'].touched) {
+    <small class="p-error"> Campo obligatorio </small>
+    }
+  </div>
+
+  <!-- EMAIL -->
+  <div class="flex flex-col gap-2">
+    <label for="email">Correo electrónico</label>
+    <input
+      id="email"
+      pInputText
       type="email"
       formControlName="email"
       placeholder="tucorreo@example.com"
     />
-    @if(contactForm.controls['email'].invalid) {
-    <mat-error>Correo no válido</mat-error>
+    @if (contactForm.controls['email'].valid &&
+    contactForm.controls['email'].touched) {
+    <small class="p-error"> Correo no válido </small>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <mat-label>Teléfono (opcional)</mat-label>
-    <input matInput formControlName="phone" />
-  </mat-form-field>
+  <!-- PHONE -->
+  <div class="flex flex-col gap-2">
+    <label for="phone">Teléfono</label>
+    <input id="phone" pInputText formControlName="phone" />
+  </div>
 
-  <mat-form-field>
-    <mat-label>Localidad (opcional)</mat-label>
+  <!-- LOCATION -->
+  <div class="flex flex-col gap-2">
+    <label for="location">Localidad</label>
     <input
-      matInput
+      id="location"
+      pInputText
       formControlName="location"
       placeholder="Ciudad o provincia"
     />
-  </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <mat-label>Tamaño del alojamiento</mat-label>
-    <mat-select formControlName="homeSize">
-      <mat-option value="small">Pequeño (estudio / 1 habitación)</mat-option>
-      <mat-option value="medium">Mediano (piso estándar)</mat-option>
-      <mat-option value="large">Grande (casa o jardín)</mat-option>
-    </mat-select>
-    @if(contactForm.controls['homeSize'].invalid) {
-    <mat-error>Obligatorio</mat-error>
+  <!-- HOME SIZE -->
+  <div class="flex flex-col gap-2">
+    <label for="homeSize">Tamaño del alojamiento *</label>
+    <p-dropdown
+      id="homeSize"
+      [options]="homeSizeOptions"
+      formControlName="homeSize"
+      placeholder="Selecciona tamaño"
+    ></p-dropdown>
+    @if( contactForm.controls['homeSize'].invalid &&
+    contactForm.controls['homeSize'].touched) {
+    <small class="p-error"> Obligatorio </small>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <mat-label>¿Has tenido mascotas antes?</mat-label>
-    <mat-select formControlName="hadPets">
-      <mat-option value="yes">Sí</mat-option>
-      <mat-option value="no">No</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- HAD PETS BEFORE -->
+  <div class="flex flex-col gap-2">
+    <label for="hadPets">¿Has tenido mascotas antes? *</label>
+    <p-dropdown
+      id="hadPets"
+      [options]="yesNoOptions"
+      formControlName="hadPets"
+      placeholder="Selecciona"
+    ></p-dropdown>
+  </div>
 
-  <mat-form-field>
-    <mat-label>¿Estás familiarizado con la raza?</mat-label>
-    <mat-select formControlName="familiarWithBreed">
-      <mat-option value="yes">Sí</mat-option>
-      <mat-option value="no">No</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- FAMILIARITY WITH BREED -->
+  <div class="flex flex-col gap-2">
+    <label for="familiarWithBreed">¿Estás familiarizado con la raza? *</label>
+    <p-dropdown
+      id="familiarWithBreed"
+      [options]="yesNoOptions"
+      formControlName="familiarWithBreed"
+      placeholder="Selecciona"
+    ></p-dropdown>
+  </div>
 
-  <mat-form-field class="md:col-span-2">
-    <mat-label>Motivo del contacto</mat-label>
-    <mat-select formControlName="subject">
-      <mat-option value="info"
-        >Quiero información sobre {{ animal?.name }}</mat-option
-      >
-      <mat-option value="adoption"
-        >Quiero iniciar proceso de adopción</mat-option
-      >
-      <mat-option value="foster">Quiero ser casa de acogida</mat-option>
-      <mat-option value="other">Otras consultas</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- SUBJECT -->
+  <div class="flex flex-col gap-2 md:col-span-2">
+    <label for="subject">Motivo del contacto *</label>
+    <p-dropdown
+      id="subject"
+      [options]="subjectOptions"
+      formControlName="subject"
+    ></p-dropdown>
+  </div>
 
-  <mat-form-field class="md:col-span-2">
-    <mat-label>Mensaje</mat-label>
+  <!-- MESSAGE -->
+  <div class="flex flex-col gap-2">
+    <label for="message">Mensaje *</label>
     <textarea
-      matInput
+      id="message"
+      pTextarea
       rows="4"
       formControlName="message"
       placeholder="Cuéntanos un poco sobre ti..."
     ></textarea>
-    @if(contactForm.controls['message'].invalid) {
-    <mat-error>El mensaje es obligatorio</mat-error>
+    @if (contactForm.controls['message'].invalid &&
+    contactForm.controls['message'].touched) {
+    <small class="p-error"> El mensaje es obligatorio </small>
     }
-  </mat-form-field>
+  </div>
 
-  <!-- Privacidad -->
-  <mat-checkbox formControlName="privacy" class="md:col-span-2">
-    Acepto la política de privacidad
-  </mat-checkbox>
+  <!-- PRIVACY -->
+  <div class="field md:col-span-2 flex items-center gap-3">
+    <p-checkbox
+      formControlName="privacy"
+      binary="true"
+      inputId="privacy"
+    ></p-checkbox>
+    <label for="privacy" class="m-0">Acepto la política de privacidad</label>
+  </div>
 
-  <div>
+  <div class="md:col-span-2">
     <button
-      mat-raised-button
-      color="primary"
-      [disabled]="contactForm.invalid"
+      pButton
       type="submit"
-    >
-      Enviar mensaje
-    </button>
+      label="Enviar mensaje"
+      [disabled]="contactForm.invalid"
+    ></button>
   </div>
 </form>

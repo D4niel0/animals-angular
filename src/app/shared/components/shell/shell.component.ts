@@ -11,6 +11,7 @@ import { SidebarModule } from "primeng/sidebar";
 import { ButtonModule } from "primeng/button";
 import { ToolbarModule } from "primeng/toolbar";
 import { CommonModule } from "@angular/common";
+import { ToastModule } from "primeng/toast";
 
 @Component({
   selector: "app-shell",
@@ -23,6 +24,7 @@ import { CommonModule } from "@angular/common";
     SidebarModule,
     ButtonModule,
     ToolbarModule,
+    ToastModule,
   ],
   templateUrl: "./shell.component.html",
   styleUrls: ["./shell.component.scss"],

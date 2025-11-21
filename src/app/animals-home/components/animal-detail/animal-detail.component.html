@@ -4,7 +4,7 @@
       routerLink="/animals-home"
       class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-green-600 mb-4"
     >
-      <mat-icon class="text-base">arrow_back</mat-icon>
+      <i class="pi pi-angle-left"></i>
       Volver al listado
     </a>
 
@@ -23,7 +23,7 @@
             <span
               class="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
             >
-              <mat-icon class="text-base">location_on</mat-icon>
+              <i class="pi pi-map-marker"></i>
               {{ animal.location.city }}
             </span>
           </div>
@@ -47,7 +47,10 @@
                   : 'bg-pink-50 text-pink-700'
               "
             >
-              <mat-icon>{{ animal.sex === "m" ? "male" : "female" }}</mat-icon>
+              <i
+                class="pi pr-1"
+                [ngClass]="animal.sex === 'm' ? 'pi-mars' : 'pi-venus'"
+              ></i>
               {{ animal.sex === "m" ? "Macho" : "Hembra" }}
             </span>
             <span
@@ -60,7 +63,7 @@
                   ? "🐱"
                   : "🐾"
               }}
-              {{ getSizeLabel(animal.size) }}
+              <span class="pl-1">{{ getSizeLabel(animal.size) }}</span>
             </span>
             <span
               class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
@@ -71,7 +74,8 @@
             <span
               class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
             >
-              👨‍👩‍👧 Compatible con niños
+              👨‍👩‍👧
+              <span class="pl-1">{{ "Compatible con niños" }}</span>
             </span>
             }
           </div>
@@ -151,7 +155,7 @@
               {{ animal.location.shelter.name }}
             </span>
             <div class="flex items-center">
-              <mat-icon class="text-lg text-green-600 mb-1">mail</mat-icon>
+              <i class="text-lg text-green-600 pi pi-envelope pr-2"></i>
               <a
                 href="mailto:{{ animal.location.shelter.email }}"
                 class="hover:text-green-600 cursor-pointer"
@@ -160,16 +164,18 @@
               </a>
             </div>
             <div class="flex items-center">
-              <mat-icon class="text-lg text-green-600 mb-1">phone</mat-icon>
+              <i class="text-lg text-green-600 pi pi-phone pr-2"></i>
               <span>{{ animal.location.shelter.phone }}</span>
             </div>
-            <button
-              color="primary"
-              class="!bg-green-300 hover:!bg-green-400 flex items-center gap-2 w-fit p-2 mt-3 rounded-lg transition-colors duration-200 ease-in-out"
-              (click)="toggleContactForm()"
-            >
-              Contactar
-            </button>
+            <div class="button">
+              <button
+                pButton
+                class="mt-4"
+                type="button"
+                label="Contactar"
+                (click)="toggleContactForm()"
+              ></button>
+            </div>
             @if (showContactForm) {
             <div
               class="mt-4 bg-white rounded-2xl shadow-md p-6 border border-gray-100 animate-fadeIn"
