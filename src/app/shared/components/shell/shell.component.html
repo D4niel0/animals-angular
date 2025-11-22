@@ -9,7 +9,12 @@
     <ul class="nav-list flex flex-col gap-3">
       @if (!isHome) {
       <li (click)="closeSidenav()" class="nav-item">
-        <a class="nav-link flex gap-2" routerLink="/home" aria-label="Inicio">
+        <a
+          class="nav-link flex gap-2"
+          routerLink="/home"
+          aria-label="Inicio"
+          (click)="clear()"
+        >
           <img src="assets/icons/home.svg" alt="shelter" class="w-5 h-5" />
           <span>Inicio</span>
         </a>
@@ -32,6 +37,7 @@
           class="nav-link flex gap-2"
           aria-label="Protectoras"
           routerLink="/shelters-home"
+          (click)="clear()"
         >
           <img src="assets/icons/shelter.svg" alt="shelter" class="w-5 h-5" />
           <span>Protectoras</span>
@@ -39,7 +45,7 @@
       </li>
 
       <li (click)="closeSidenav()" class="nav-item">
-        <a class="nav-link flex gap-2" aria-label="Eventos">
+        <a class="nav-link flex gap-2" aria-label="Eventos" (click)="clear()">
           <img src="assets/icons/calendar.svg" alt="calendar" class="w-5 h-5" />
           <span>Eventos</span>
         </a>
@@ -54,7 +60,7 @@
 
       <li class="divider" role="separator"></li>
 
-      <li (click)="closeSidenav()" class="nav-item">
+      <li (click)="closeSidenav()" class="nav-item" (click)="clear()">
         <a class="nav-link flex gap-2" aria-label="Cerrar sesión">
           <img src="assets/icons/logout.svg" alt="logout" class="w-5 h-5" />
           <span>Cerrar sesión</span>
@@ -117,10 +123,15 @@
         <a
           class="text-lg cursor-pointer hover:text-green-600"
           routerLink="/shelters-home"
+          (click)="clear()"
           >Protectoras</a
         >
-        <a class="text-lg cursor-pointer hover:text-green-600">Eventos</a>
-        <a class="text-lg cursor-pointer hover:text-green-600">Contacto</a>
+        <a class="text-lg cursor-pointer hover:text-green-600" (click)="clear()"
+          >Eventos</a
+        >
+        <a class="text-lg cursor-pointer hover:text-green-600" (click)="clear()"
+          >Contacto</a
+        >
       </div>
       <button
         pButton

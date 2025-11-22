@@ -12,6 +12,7 @@ import { ButtonModule } from "primeng/button";
 import { ToolbarModule } from "primeng/toolbar";
 import { CommonModule } from "@angular/common";
 import { ToastModule } from "primeng/toast";
+import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
 
 @Component({
   selector: "app-shell",
@@ -35,7 +36,7 @@ export class ShellComponent {
 
   private scrollService = inject(ScrollService);
   private animalsService = inject(AnimalsService);
-
+  private animalsFilterStore = inject(AnimalsFiltersStore);
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
 
@@ -61,5 +62,6 @@ export class ShellComponent {
   protected clear(): void {
     this.scrollService.clear("animals");
     this.animalsService.clearAnimalsCache();
+    this.animalsFilterStore.resetFilters();
   }
 }
