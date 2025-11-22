@@ -7,6 +7,7 @@ import { Animal } from "../../../shared/models";
 import { SliderComponent } from "../../../shared/components/slider/slider.component";
 import { AnimalContactFormComponent } from "../animal-contact-form/animal-contact-form.component";
 import { ButtonModule } from "primeng/button";
+import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
 
 @Component({
   selector: "app-animal-detail",
@@ -17,6 +18,7 @@ import { ButtonModule } from "primeng/button";
     SliderComponent,
     AnimalContactFormComponent,
     ButtonModule,
+    PawSpinnerComponent,
   ],
   templateUrl: "./animal-detail.component.html",
 })

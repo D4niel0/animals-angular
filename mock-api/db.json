@@ -19,9 +19,16 @@
         "region": "Madrid",
         "country": "España",
         "shelter": {
+          "id": 1,
           "name": "Protectora Madrid Central",
-          "email": "info@protectoramadrid.org",
-          "phone": "+34 91 555 0001"
+          "email": "contacto@protectoramadridcentral.org",
+          "phone": "+34 91 555 0001",
+          "address": {
+            "city": "Alcalá de Henares",
+            "region": "Madrid"
+          },
+          "facebook": "https://facebook.com/protectoramadridcentral",
+          "instagram": "https://instagram.com/protectoramadridcentral"
         }
       },
       "imageUrl": [
@@ -48,9 +55,15 @@
         "region": "Barcelona",
         "country": "España",
         "shelter": {
+          "id": 2,
           "name": "Protectora Barcelona",
           "email": "contacto@protectorabcn.cat",
-          "phone": "+34 93 555 0002"
+          "phone": "+34 93 555 0002",
+          "address": {
+            "city": "Sabadell",
+            "region": "Barcelona"
+          },
+          "facebook": "https://facebook.com/protectorabarcelona"
         }
       },
       "imageUrl": [
@@ -78,9 +91,15 @@
         "region": "Valencia",
         "country": "España",
         "shelter": {
+          "id": 3,
           "name": "Protectora Valencia",
           "email": "info@protectoravalencia.es",
-          "phone": "+34 96 555 0003"
+          "phone": "+34 96 555 0003",
+          "address": {
+            "city": "Gandía",
+            "region": "Valencia"
+          },
+          "instagram": "https://instagram.com/protectoravalencia"
         }
       },
       "imageUrl": [
@@ -107,9 +126,16 @@
         "region": "Sevilla",
         "country": "España",
         "shelter": {
+          "id": 4,
           "name": "Protectora Sevilla",
           "email": "contacto@protectorasevilla.org",
-          "phone": "+34 95 555 0004"
+          "phone": "+34 95 555 0004",
+          "address": {
+            "city": "Dos Hermanas",
+            "region": "Sevilla"
+          },
+          "facebook": "https://facebook.com/protectorasevilla",
+          "instagram": "https://instagram.com/protectorasevilla"
         }
       },
       "imageUrl": [
@@ -130,15 +156,21 @@
       "compatibleWithCats": false,
       "compatibleWithChildren": true,
       "description": "Perra muy cariñosa y sociable. Siempre busca mimos y compañía.",
-      "history": "Bimba fue rescatada de la calle con claros signos de haber tenido varias camadas. Desde que está en la protectora se ha adaptado muy bien a la vida en interior.",
+      "history": "Bimba fue rescatada de la calle con claros signos de haber tenido varias camadas. Desde que está la protectora se ha adaptado muy bien a la vida en interior.",
       "location": {
         "city": "Bilbao",
         "region": "Bizkaia",
         "country": "España",
         "shelter": {
+          "id": 5,
           "name": "Protectora Bilbao",
           "email": "info@protectorabilbao.eus",
-          "phone": "+34 94 555 0005"
+          "phone": "+34 94 555 0005",
+          "address": {
+            "city": "Getxo",
+            "region": "Bizkaia"
+          },
+          "facebook": "https://facebook.com/protectorabilbao"
         }
       },
       "imageUrl": [
@@ -165,9 +197,15 @@
         "region": "Zaragoza",
         "country": "España",
         "shelter": {
+          "id": 6,
           "name": "Protectora Zaragoza",
           "email": "contacto@protectorazaragoza.org",
-          "phone": "+34 97 655 0006"
+          "phone": "+34 97 655 0006",
+          "address": {
+            "city": "Utebo",
+            "region": "Zaragoza"
+          },
+          "instagram": "https://instagram.com/protectorazaragoza"
         }
       },
       "imageUrl": [
@@ -194,9 +232,16 @@
         "region": "Málaga",
         "country": "España",
         "shelter": {
+          "id": 7,
           "name": "Protectora Málaga",
           "email": "info@protectoramalaga.es",
-          "phone": "+34 95 222 0007"
+          "phone": "+34 95 222 0007",
+          "address": {
+            "city": "Marbella",
+            "region": "Málaga"
+          },
+          "facebook": "https://facebook.com/protectoramalaga",
+          "instagram": "https://instagram.com/protectoramalaga"
         }
       },
       "imageUrl": [
@@ -223,9 +268,15 @@
         "region": "A Coruña",
         "country": "España",
         "shelter": {
+          "id": 8,
           "name": "Protectora A Coruña",
           "email": "contacto@protectoracorunha.gal",
-          "phone": "+34 98 155 0008"
+          "phone": "+34 98 155 0008",
+          "address": {
+            "city": "Betanzos",
+            "region": "A Coruña"
+          },
+          "facebook": "https://facebook.com/protectoracorunha"
         }
       },
       "imageUrl": [
@@ -252,9 +303,15 @@
         "region": "Murcia",
         "country": "España",
         "shelter": {
+          "id": 9,
           "name": "Protectora Murcia",
           "email": "info@protectoramurcia.org",
-          "phone": "+34 96 835 0009"
+          "phone": "+34 96 835 0009",
+          "address": {
+            "city": "Cartagena",
+            "region": "Murcia"
+          },
+          "instagram": "https://instagram.com/protectoramurcia"
         }
       },
       "imageUrl": [
@@ -281,9 +338,16 @@
         "region": "Valladolid",
         "country": "España",
         "shelter": {
+          "id": 10,
           "name": "Protectora Valladolid",
           "email": "contacto@protectoravalladolid.es",
-          "phone": "+34 98 335 0010"
+          "phone": "+34 98 335 0010",
+          "address": {
+            "city": "Medina del Campo",
+            "region": "Valladolid"
+          },
+          "facebook": "https://facebook.com/protectoravalladolid",
+          "instagram": "https://instagram.com/protectoravalladolid"
         }
       },
       "imageUrl": [
@@ -311,9 +375,15 @@
         "region": "Toledo",
         "country": "España",
         "shelter": {
+          "id": 11,
           "name": "Protectora Toledo",
           "email": "info@protectoratoledo.org",
-          "phone": "+34 92 525 0011"
+          "phone": "+34 92 525 0011",
+          "address": {
+            "city": "Toledo",
+            "region": "Toledo"
+          },
+          "facebook": "https://facebook.com/protectoratoledo"
         }
       },
       "imageUrl": [
@@ -341,9 +411,15 @@
         "region": "Asturias",
         "country": "España",
         "shelter": {
+          "id": 12,
           "name": "Protectora Gijón",
           "email": "contacto@protectoragijon.es",
-          "phone": "+34 98 535 0012"
+          "phone": "+34 98 535 0012",
+          "address": {
+            "city": "Gijón",
+            "region": "Asturias"
+          },
+          "instagram": "https://instagram.com/protectoragijon"
         }
       },
       "imageUrl": [
@@ -370,9 +446,16 @@
         "region": "Madrid",
         "country": "España",
         "shelter": {
+          "id": 1,
           "name": "Protectora Madrid Central",
-          "email": "info@protectoramadrid.org",
-          "phone": "+34 91 555 0001"
+          "email": "contacto@protectoramadridcentral.org",
+          "phone": "+34 91 555 0001",
+          "address": {
+            "city": "Alcalá de Henares",
+            "region": "Madrid"
+          },
+          "facebook": "https://facebook.com/protectoramadridcentral",
+          "instagram": "https://instagram.com/protectoramadridcentral"
         }
       },
       "imageUrl": [
@@ -399,9 +482,16 @@
         "region": "Granada",
         "country": "España",
         "shelter": {
+          "id": 13,
           "name": "Protectora Granada",
           "email": "info@protectoragranada.org",
-          "phone": "+34 95 822 0014"
+          "phone": "+34 95 822 0014",
+          "address": {
+            "city": "Granada",
+            "region": "Granada"
+          },
+          "facebook": "https://facebook.com/protectoragranada",
+          "instagram": "https://instagram.com/protectoragranada"
         }
       },
       "imageUrl": [
@@ -428,9 +518,15 @@
         "region": "Navarra",
         "country": "España",
         "shelter": {
+          "id": 14,
           "name": "Protectora Pamplona",
           "email": "contacto@protectorapamplona.eus",
-          "phone": "+34 94 812 0015"
+          "phone": "+34 94 812 0015",
+          "address": {
+            "city": "Pamplona",
+            "region": "Navarra"
+          },
+          "instagram": "https://instagram.com/protectorapamplona"
         }
       },
       "imageUrl": [
@@ -458,9 +554,15 @@
         "region": "León",
         "country": "España",
         "shelter": {
+          "id": 15,
           "name": "Protectora León",
           "email": "info@protectoraleon.org",
-          "phone": "+34 98 722 0016"
+          "phone": "+34 98 722 0016",
+          "address": {
+            "city": "León",
+            "region": "León"
+          },
+          "facebook": "https://facebook.com/protectoraleon"
         }
       },
       "imageUrl": [
@@ -487,9 +589,15 @@
         "region": "Cantabria",
         "country": "España",
         "shelter": {
+          "id": 16,
           "name": "Protectora Santander",
           "email": "contacto@protectorasantander.es",
-          "phone": "+34 94 220 0017"
+          "phone": "+34 94 220 0017",
+          "address": {
+            "city": "Santander",
+            "region": "Cantabria"
+          },
+          "instagram": "https://instagram.com/protectorasantander"
         }
       },
       "imageUrl": [
@@ -516,9 +624,15 @@
         "region": "Cádiz",
         "country": "España",
         "shelter": {
+          "id": 17,
           "name": "Protectora Cádiz",
           "email": "info@protectoracadiz.org",
-          "phone": "+34 95 625 0018"
+          "phone": "+34 95 625 0018",
+          "address": {
+            "city": "Cádiz",
+            "region": "Cádiz"
+          },
+          "facebook": "https://facebook.com/protectoracadiz"
         }
       },
       "imageUrl": [
@@ -546,9 +660,15 @@
         "region": "La Rioja",
         "country": "España",
         "shelter": {
+          "id": 18,
           "name": "Protectora Logroño",
           "email": "contacto@protectoralogrono.org",
-          "phone": "+34 94 122 0019"
+          "phone": "+34 94 122 0019",
+          "address": {
+            "city": "Logroño",
+            "region": "La Rioja"
+          },
+          "instagram": "https://instagram.com/protectoralogrono"
         }
       },
       "imageUrl": [
@@ -575,9 +695,16 @@
         "region": "Huelva",
         "country": "España",
         "shelter": {
+          "id": 19,
           "name": "Protectora Huelva",
           "email": "info@protectorahuelva.org",
-          "phone": "+34 95 924 0020"
+          "phone": "+34 95 924 0020",
+          "address": {
+            "city": "Huelva",
+            "region": "Huelva"
+          },
+          "facebook": "https://facebook.com/protectorahuelva",
+          "instagram": "https://instagram.com/protectorahuelva"
         }
       },
       "imageUrl": [
@@ -604,9 +731,15 @@
         "region": "Tarragona",
         "country": "España",
         "shelter": {
+          "id": 20,
           "name": "Protectora Tarragona",
           "email": "contacto@protectoratarragona.cat",
-          "phone": "+34 97 722 0021"
+          "phone": "+34 97 722 0021",
+          "address": {
+            "city": "Tarragona",
+            "region": "Tarragona"
+          },
+          "facebook": "https://facebook.com/protectoratarragona"
         }
       },
       "imageUrl": [
@@ -633,9 +766,15 @@
         "region": "Islas Baleares",
         "country": "España",
         "shelter": {
+          "id": 21,
           "name": "Protectora Palma",
           "email": "info@protectorapalma.es",
-          "phone": "+34 97 120 0022"
+          "phone": "+34 97 120 0022",
+          "address": {
+            "city": "Palma",
+            "region": "Islas Baleares"
+          },
+          "instagram": "https://instagram.com/protectorapalma"
         }
       },
       "imageUrl": [
@@ -662,9 +801,15 @@
         "region": "Salamanca",
         "country": "España",
         "shelter": {
+          "id": 22,
           "name": "Protectora Salamanca",
           "email": "contacto@protectorasalamanca.org",
-          "phone": "+34 92 326 0023"
+          "phone": "+34 92 326 0023",
+          "address": {
+            "city": "Salamanca",
+            "region": "Salamanca"
+          },
+          "facebook": "https://facebook.com/protectorasalamanca"
         }
       },
       "imageUrl": [
@@ -691,9 +836,15 @@
         "region": "Ávila",
         "country": "España",
         "shelter": {
+          "id": 23,
           "name": "Protectora Ávila",
           "email": "info@protectoraavila.org",
-          "phone": "+34 92 021 0024"
+          "phone": "+34 92 021 0024",
+          "address": {
+            "city": "Ávila",
+            "region": "Ávila"
+          },
+          "instagram": "https://instagram.com/protectoraavila"
         }
       },
       "imageUrl": [
@@ -720,9 +871,15 @@
         "region": "Burgos",
         "country": "España",
         "shelter": {
+          "id": 24,
           "name": "Protectora Burgos",
           "email": "contacto@protectoraburgos.org",
-          "phone": "+34 94 729 0025"
+          "phone": "+34 94 729 0025",
+          "address": {
+            "city": "Burgos",
+            "region": "Burgos"
+          },
+          "facebook": "https://facebook.com/protectoraburgos"
         }
       },
       "imageUrl": [
@@ -750,9 +907,15 @@
         "region": "Almería",
         "country": "España",
         "shelter": {
+          "id": 25,
           "name": "Protectora Almería",
           "email": "info@protectoraalmeria.org",
-          "phone": "+34 95 023 0026"
+          "phone": "+34 95 023 0026",
+          "address": {
+            "city": "Almería",
+            "region": "Almería"
+          },
+          "instagram": "https://instagram.com/protectoraalmeria"
         }
       },
       "imageUrl": [
@@ -779,9 +942,15 @@
         "region": "Cáceres",
         "country": "España",
         "shelter": {
+          "id": 26,
           "name": "Protectora Cáceres",
           "email": "contacto@protectoracaceres.org",
-          "phone": "+34 92 721 0027"
+          "phone": "+34 92 721 0027",
+          "address": {
+            "city": "Cáceres",
+            "region": "Cáceres"
+          },
+          "facebook": "https://facebook.com/protectoracaceres"
         }
       },
       "imageUrl": [
@@ -808,9 +977,15 @@
         "region": "Cuenca",
         "country": "España",
         "shelter": {
+          "id": 27,
           "name": "Protectora Cuenca",
           "email": "info@protectoracuenca.org",
-          "phone": "+34 96 922 0028"
+          "phone": "+34 96 922 0028",
+          "address": {
+            "city": "Cuenca",
+            "region": "Cuenca"
+          },
+          "instagram": "https://instagram.com/protectoracuenca"
         }
       },
       "imageUrl": [
@@ -838,9 +1013,15 @@
         "region": "Albacete",
         "country": "España",
         "shelter": {
+          "id": 28,
           "name": "Protectora Albacete",
           "email": "contacto@protectoraalbacete.org",
-          "phone": "+34 96 714 0029"
+          "phone": "+34 96 714 0029",
+          "address": {
+            "city": "Albacete",
+            "region": "Albacete"
+          },
+          "facebook": "https://facebook.com/protectoraalbacete"
         }
       },
       "imageUrl": [
@@ -867,9 +1048,15 @@
         "region": "Ourense",
         "country": "España",
         "shelter": {
+          "id": 29,
           "name": "Protectora Ourense",
           "email": "info@protectoraourense.gal",
-          "phone": "+34 98 837 0030"
+          "phone": "+34 98 837 0030",
+          "address": {
+            "city": "Ourense",
+            "region": "Ourense"
+          },
+          "instagram": "https://instagram.com/protectoraourense"
         }
       },
       "imageUrl": [
@@ -882,151 +1069,6 @@
     "total": 30
   },
   "urgent-animals": [
-    {
-      "id": 20,
-      "species": "dog",
-      "name": "Buddy",
-      "ageYears": 3,
-      "size": "medium",
-      "breed": "Mestizo",
-      "date": "12/01/2025",
-      "sex": "m",
-      "compatibleWithDogs": true,
-      "compatibleWithCats": true,
-      "compatibleWithChildren": true,
-      "description": "Perro equilibrado y cariñoso, muy sociable con todos.",
-      "history": "Buddy fue encontrado con collar pero sin identificación. A pesar de la difusión, nadie lo reclamó y ahora busca un nuevo hogar.",
-      "location": {
-        "city": "Huelva",
-        "region": "Huelva",
-        "country": "España",
-        "shelter": {
-          "name": "Protectora Huelva",
-          "email": "info@protectorahuelva.org",
-          "phone": "+34 95 924 0020"
-        }
-      },
-      "imageUrl": [
-        "https://placedog.net/500/400?id=20",
-        "https://placedog.net/500/400?id=50"
-      ]
-    },
-    {
-      "id": 21,
-      "species": "dog",
-      "name": "Coco",
-      "ageYears": 2,
-      "size": "small",
-      "breed": "Mestizo",
-      "date": "12/01/2025",
-      "sex": "m",
-      "compatibleWithDogs": true,
-      "compatibleWithCats": false,
-      "compatibleWithChildren": true,
-      "description": "Le encanta jugar y es muy sociable. Ideal para familias.",
-      "history": "Coco fue entregado por una familia joven que tuvo un cambio de domicilio y no podía seguir teniéndolo. Está acostumbrado a vivir dentro de casa.",
-      "location": {
-        "city": "Tarragona",
-        "region": "Tarragona",
-        "country": "España",
-        "shelter": {
-          "name": "Protectora Tarragona",
-          "email": "contacto@protectoratarragona.cat",
-          "phone": "+34 97 722 0021"
-        }
-      },
-      "imageUrl": [
-        "https://placedog.net/500/400?id=21",
-        "https://placedog.net/500/400?id=51"
-      ]
-    },
-    {
-      "id": 22,
-      "species": "dog",
-      "name": "Nina",
-      "ageYears": 1,
-      "size": "small",
-      "breed": "Mestizo",
-      "date": "12/01/2025",
-      "sex": "f",
-      "compatibleWithDogs": true,
-      "compatibleWithCats": true,
-      "compatibleWithChildren": true,
-      "description": "Muy cariñosa y dulce. Siempre quiere estar cerca de la gente.",
-      "history": "Nina fue rescatada de un vertedero junto con otra perrita. A pesar de su comienzo complicado, es extremadamente confiada con las personas.",
-      "location": {
-        "city": "Palma",
-        "region": "Islas Baleares",
-        "country": "España",
-        "shelter": {
-          "name": "Protectora Palma",
-          "email": "info@protectorapalma.es",
-          "phone": "+34 97 120 0022"
-        }
-      },
-      "imageUrl": [
-        "https://placedog.net/500/400?id=22",
-        "https://placedog.net/500/400?id=52"
-      ]
-    },
-    {
-      "id": 23,
-      "species": "dog",
-      "name": "Simón",
-      "ageYears": 4,
-      "size": "medium",
-      "breed": "Mestizo",
-      "date": "12/01/2025",
-      "sex": "m",
-      "compatibleWithDogs": true,
-      "compatibleWithCats": true,
-      "compatibleWithChildren": false,
-      "description": "Perro tranquilo y observador. Muy fiel cuando coge confianza.",
-      "history": "Simón fue recogido tras varios avisos en un polígono industrial. Al principio era muy desconfiado, pero ha mejorado mucho con trabajo de socialización.",
-      "location": {
-        "city": "Salamanca",
-        "region": "Salamanca",
-        "country": "España",
-        "shelter": {
-          "name": "Protectora Salamanca",
-          "email": "contacto@protectorasalamanca.org",
-          "phone": "+34 92 326 0023"
-        }
-      },
-      "imageUrl": [
-        "https://placedog.net/500/400?id=23",
-        "https://placedog.net/500/400?id=53"
-      ]
-    },
-    {
-      "id": 24,
-      "species": "dog",
-      "name": "Togo",
-      "ageYears": 3,
-      "size": "medium",
-      "breed": "Mestizo",
-      "date": "12/01/2025",
-      "sex": "m",
-      "compatibleWithDogs": true,
-      "compatibleWithCats": false,
-      "compatibleWithChildren": true,
-      "description": "Activo, curioso y muy inteligente.",
-      "history": "Togo fue encontrado con una cadena rota cerca de una zona rural. Aprendió muy rápido a pasear con correa y a responder a órdenes básicas.",
-      "location": {
-        "city": "Ávila",
-        "region": "Ávila",
-        "country": "España",
-        "shelter": {
-          "name": "Protectora Ávila",
-          "email": "info@protectoraavila.org",
-          "phone": "+34 92 021 0024"
-        }
-      },
-      "imageUrl": [
-        "https://placedog.net/500/400?id=24",
-        "https://placedog.net/500/400?id=54"
-      ]
-    },
     {
       "id": 25,
       "species": "dog",
@@ -1046,15 +1088,314 @@
         "region": "Burgos",
         "country": "España",
         "shelter": {
+          "id": 24,
           "name": "Protectora Burgos",
           "email": "contacto@protectoraburgos.org",
-          "phone": "+34 94 729 0025"
+          "phone": "+34 94 729 0025",
+          "address": {
+            "city": "Burgos",
+            "region": "Burgos"
+          },
+          "facebook": "https://facebook.com/protectoraburgos"
         }
       },
       "imageUrl": [
         "https://placedog.net/500/400?id=25",
         "https://placedog.net/500/400?id=55"
       ]
+    },
+    {
+      "id": 26,
+      "species": "dog",
+      "name": "Neo",
+      "ageYears": 6,
+      "size": "medium",
+      "breed": "Mestizo",
+      "date": "12/01/2025",
+      "sex": "m",
+      "compatibleWithDogs": false,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": false,
+      "description": "Perro senior muy tranquilo que busca un hogar sin estrés.",
+      "history": "Neo pasó años viviendo en un patio sin apenas estimulación. Ahora disfruta de una rutina tranquila y agradece tener su propio espacio.",
+      "specialNeeds": "Necesita un hogar sin niños pequeños ni mucho ruido.",
+      "location": {
+        "city": "Almería",
+        "region": "Almería",
+        "country": "España",
+        "shelter": {
+          "id": 25,
+          "name": "Protectora Almería",
+          "email": "info@protectoraalmeria.org",
+          "phone": "+34 95 023 0026",
+          "address": {
+            "city": "Almería",
+            "region": "Almería"
+          },
+          "instagram": "https://instagram.com/protectoraalmeria"
+        }
+      },
+      "imageUrl": [
+        "https://placedog.net/500/400?id=26",
+        "https://placedog.net/500/400?id=56"
+      ]
+    },
+    {
+      "id": 27,
+      "species": "dog",
+      "name": "Tana",
+      "ageYears": 1,
+      "size": "small",
+      "breed": "Mestizo",
+      "date": "12/01/2025",
+      "sex": "f",
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Cachorra dulce, simpática y muy sociable.",
+      "history": "Esta segunda Tana fue encontrada junto a un contenedor. Es muy sociable con otros perros y le encanta jugar con pelotas.",
+      "location": {
+        "city": "Cáceres",
+        "region": "Cáceres",
+        "country": "España",
+        "shelter": {
+          "id": 26,
+          "name": "Protectora Cáceres",
+          "email": "contacto@protectoracaceres.org",
+          "phone": "+34 92 721 0027",
+          "address": {
+            "city": "Cáceres",
+            "region": "Cáceres"
+          },
+          "facebook": "https://facebook.com/protectoracaceres"
+        }
+      },
+      "imageUrl": [
+        "https://placedog.net/500/400?id=27",
+        "https://placedog.net/500/400?id=57"
+      ]
+    },
+    {
+      "id": 28,
+      "species": "dog",
+      "name": "Kyra",
+      "ageYears": 3,
+      "size": "medium",
+      "breed": "Mestizo",
+      "date": "12/01/2025",
+      "sex": "f",
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perra cariñosa y agradecida. Muy fiel a quien confía.",
+      "history": "Kyra fue rescatada de un caso de acumulación de animales. A pesar de ello, se ha adaptado muy bien a la vida en el refugio y busca un hogar definitivo.",
+      "location": {
+        "city": "Cuenca",
+        "region": "Cuenca",
+        "country": "España",
+        "shelter": {
+          "id": 27,
+          "name": "Protectora Cuenca",
+          "email": "info@protectoracuenca.org",
+          "phone": "+34 96 922 0028",
+          "address": {
+            "city": "Cuenca",
+            "region": "Cuenca"
+          },
+          "instagram": "https://instagram.com/protectoracuenca"
+        }
+      },
+      "imageUrl": [
+        "https://placedog.net/500/400?id=28",
+        "https://placedog.net/500/400?id=58"
+      ]
+    },
+    {
+      "id": 29,
+      "species": "dog",
+      "name": "Troy",
+      "ageYears": 7,
+      "size": "large",
+      "breed": "Mestizo",
+      "date": "12/01/2025",
+      "sex": "m",
+      "compatibleWithDogs": true,
+      "compatibleWithCats": false,
+      "compatibleWithChildren": true,
+      "description": "Perro mayor muy bueno y cariñoso. Ideal para personas tranquilas.",
+      "history": "Troy fue abandonado en una gasolinera y estuvo semanas viviendo allí hasta que la protectora pudo recogerlo. Es muy agradecido y se adapta bien a nuevos entornos.",
+      "specialNeeds": "Paseos moderados y control veterinario anual por su edad.",
+      "location": {
+        "city": "Albacete",
+        "region": "Albacete",
+        "country": "España",
+        "shelter": {
+          "id": 28,
+          "name": "Protectora Albacete",
+          "email": "contacto@protectoraalbacete.org",
+          "phone": "+34 96 714 0029",
+          "address": {
+            "city": "Albacete",
+            "region": "Albacete"
+          },
+          "facebook": "https://facebook.com/protectoraalbacete"
+        }
+      },
+      "imageUrl": [
+        "https://placedog.net/500/400?id=29",
+        "https://placedog.net/500/400?id=59"
+      ]
+    },
+    {
+      "id": 30,
+      "species": "dog",
+      "name": "Olivia",
+      "ageYears": 2,
+      "size": "small",
+      "breed": "Mestizo",
+      "date": "12/01/2025",
+      "sex": "f",
+      "compatibleWithDogs": true,
+      "compatibleWithCats": true,
+      "compatibleWithChildren": true,
+      "description": "Perra muy sociable, cariñosa y juguetona.",
+      "history": "Olivia fue encontrada con un leve cuadro de desnutrición, del que ya está completamente recuperada. Es muy simpática con todo el mundo.",
+      "location": {
+        "city": "Ourense",
+        "region": "Ourense",
+        "country": "España",
+        "shelter": {
+          "id": 29,
+          "name": "Protectora Ourense",
+          "email": "info@protectoraourense.gal",
+          "phone": "+34 98 837 0030",
+          "address": {
+            "city": "Ourense",
+            "region": "Ourense"
+          },
+          "instagram": "https://instagram.com/protectoraourense"
+        }
+      },
+      "imageUrl": [
+        "https://placedog.net/500/400?id=30",
+        "https://placedog.net/500/400?id=60"
+      ]
+    }
+  ],
+  "shelters": [
+    {
+      "id": 1,
+      "name": "Protectora Madrid Central",
+      "email": "contacto@protectoramadridcentral.org",
+      "phone": "+34 91 555 0001",
+      "address": {
+        "city": "Alcalá de Henares",
+        "region": "Madrid"
+      },
+      "facebook": "https://facebook.com/protectoramadridcentral",
+      "instagram": "https://instagram.com/protectoramadridcentral"
+    },
+    {
+      "id": 2,
+      "name": "Protectora Barcelona",
+      "email": "contacto@protectorabcn.cat",
+      "phone": "+34 93 555 0002",
+      "address": {
+        "city": "Sabadell",
+        "region": "Barcelona"
+      },
+      "facebook": "https://facebook.com/protectorabarcelona"
+    },
+    {
+      "id": 3,
+      "name": "Protectora Valencia",
+      "email": "info@protectoravalencia.es",
+      "phone": "+34 96 555 0003",
+      "address": {
+        "city": "Gandía",
+        "region": "Valencia"
+      },
+      "instagram": "https://instagram.com/protectoravalencia"
+    },
+    {
+      "id": 4,
+      "name": "Protectora Sevilla",
+      "email": "contacto@protectorasevilla.org",
+      "phone": "+34 95 555 0004",
+      "address": {
+        "city": "Dos Hermanas",
+        "region": "Sevilla"
+      },
+      "facebook": "https://facebook.com/protectorasevilla",
+      "instagram": "https://instagram.com/protectorasevilla"
+    },
+    {
+      "id": 5,
+      "name": "Protectora Bilbao",
+      "email": "info@protectorabilbao.eus",
+      "phone": "+34 94 555 0005",
+      "address": {
+        "city": "Getxo",
+        "region": "Bizkaia"
+      },
+      "facebook": "https://facebook.com/protectorabilbao"
+    },
+    {
+      "id": 6,
+      "name": "Protectora Zaragoza",
+      "email": "contacto@protectorazaragoza.org",
+      "phone": "+34 97 655 0006",
+      "address": {
+        "city": "Utebo",
+        "region": "Zaragoza"
+      },
+      "instagram": "https://instagram.com/protectorazaragoza"
+    },
+    {
+      "id": 7,
+      "name": "Protectora Málaga",
+      "email": "info@protectoramalaga.es",
+      "phone": "+34 95 222 0007",
+      "address": {
+        "city": "Marbella",
+        "region": "Málaga"
+      },
+      "facebook": "https://facebook.com/protectoramalaga",
+      "instagram": "https://instagram.com/protectoramalaga"
+    },
+    {
+      "id": 8,
+      "name": "Protectora A Coruña",
+      "email": "contacto@protectoracorunha.gal",
+      "phone": "+34 98 155 0008",
+      "address": {
+        "city": "Betanzos",
+        "region": "A Coruña"
+      },
+      "instagram": "https://instagram.com/protectoracorunha"
+    },
+    {
+      "id": 9,
+      "name": "Protectora Murcia",
+      "email": "info@protectoramurcia.org",
+      "phone": "+34 96 835 0009",
+      "address": {
+        "city": "Cartagena",
+        "region": "Murcia"
+      },
+      "facebook": "https://facebook.com/protectoramurcia"
+    },
+    {
+      "id": 10,
+      "name": "Protectora Valladolid",
+      "email": "contacto@protectoravalladolid.es",
+      "phone": "+34 98 335 0010",
+      "address": {
+        "city": "Medina del Campo",
+        "region": "Valladolid"
+      },
+      "facebook": "https://facebook.com/protectoravalladolid",
+      "instagram": "https://instagram.com/protectoravalladolid"
     }
   ]
 }

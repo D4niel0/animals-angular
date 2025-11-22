@@ -30,7 +30,17 @@ export interface AnimalLocation {
 }
 
 export interface AnimalShelter {
+  id: number;
+  logo?: string;
   name: string;
   email: string;
   phone: string;
+  facebook?: string;
+  instagram?: string;
+  address?: Address;
+}
+
+export interface Address {
+  city: string;
+  region: string;
 }

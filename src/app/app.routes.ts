@@ -4,6 +4,7 @@ import { AnimalsComponent } from "./animals-home/pages/animals/animals.component
 import { ShellComponent } from "./shared/components/shell/shell.component";
 import { HomeComponent } from "./home/pages/home/home.component";
 import { AnimalDetailComponent } from "./animals-home/components/animal-detail/animal-detail.component";
+import { SheltersComponent } from "./shelters-home/pages/shelters/shelters.component";
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: "animals-home/:id",
         component: AnimalDetailComponent,
+      },
+      {
+        path: "shelters-home",
+        component: SheltersComponent,
       },
       {
         path: "**",

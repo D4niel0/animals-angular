@@ -28,7 +28,11 @@
       </li>
 
       <li (click)="closeSidenav()" class="nav-item">
-        <a class="nav-link flex gap-2" aria-label="Protectoras">
+        <a
+          class="nav-link flex gap-2"
+          aria-label="Protectoras"
+          routerLink="/shelters-home"
+        >
           <img src="assets/icons/shelter.svg" alt="shelter" class="w-5 h-5" />
           <span>Protectoras</span>
         </a>
@@ -110,7 +114,11 @@
           class="text-lg cursor-pointer hover:text-green-600"
           >Animales</a
         >
-        <a class="text-lg cursor-pointer hover:text-green-600">Protectoras</a>
+        <a
+          class="text-lg cursor-pointer hover:text-green-600"
+          routerLink="/shelters-home"
+          >Protectoras</a
+        >
         <a class="text-lg cursor-pointer hover:text-green-600">Eventos</a>
         <a class="text-lg cursor-pointer hover:text-green-600">Contacto</a>
       </div>

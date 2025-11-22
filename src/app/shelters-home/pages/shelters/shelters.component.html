@@ -1,0 +1,69 @@
+<section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <div class="flex flex-col gap-3">
+      <span class="text-2xl font-chewy">Filtros</span>
+      <div class="zone flex gap-2 lg:w-1/4 w-full items-center">
+        <p-multiSelect
+          [(ngModel)]="selectedProvinces"
+          [options]="provincesOptions"
+          defaultLabel="Ubicación"
+          optionLabel="label"
+          optionValue="value"
+          display="chip"
+          class="w-full"
+          (onChange)="onProvinceChange($event.value)"
+        ></p-multiSelect>
+
+        <button
+          pButton
+          type="button"
+          label="Limpiar"
+          (click)="resetFilters()"
+        ></button>
+      </div>
+    </div>
+  </article>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    @if (isLoading) {
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      <article
+        *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+        class="shadow-md rounded-xl cursor-pointer"
+      >
+        <div class="card-skeleton">
+          <div class="img-wrap skeleton-wrap" style="--img-ratio: 16/9">
+            <p-skeleton
+              class="skeleton-block rounded-xl"
+              [width]="'100%'"
+              [height]="'100%'"
+            ></p-skeleton>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    } @else if (!isLoading && filteredShelters.length > 0) {
+
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+      @for (shelter of filteredShelters; track shelter.id) {
+      <article
+        class="shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg rounded-xl"
+      >
+        <app-shelters-cards [shelter]="shelter"></app-shelters-cards>
+      </article>
+      }
+    </div>
+    } @else {
+    <div class="flex flex-col w-full items-center gap-5">
+      <span class="font-chewy text-xl md:text-2xl lg:text-4xl">
+        No se encontraron protectoras
+      </span>
+      <img
+        src="/assets/images/without.png"
+        alt="without image"
+        class="without-image object-cover w-1/2"
+      />
+    </div>
+    }
+  </article>
+</section>
