@@ -11,5 +11,8 @@
       </div>
     </div>
   </div>
-  <img [src]="animal?.imageUrl?.[0]" [alt]="animal?.name" />
+
+  <div class="img-wrap" style="--img-ratio: 4/3">
+    <img class="card-img" [src]="animal?.imageUrl?.[0]" [alt]="animal?.name" />
+  </div>
 </div>

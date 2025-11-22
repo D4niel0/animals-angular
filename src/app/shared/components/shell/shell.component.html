@@ -7,12 +7,14 @@
 >
   <div class="p-d-flex p-flex-column p-gap-3">
     <ul class="nav-list flex flex-col gap-3">
-      <li *ngIf="!isHome" (click)="closeSidenav()" class="nav-item">
+      @if (!isHome) {
+      <li (click)="closeSidenav()" class="nav-item">
         <a class="nav-link flex gap-2" routerLink="/home" aria-label="Inicio">
-          <i class="pi pi-home" aria-hidden="true"></i>
+          <img src="assets/icons/home.svg" alt="shelter" class="w-5 h-5" />
           <span>Inicio</span>
         </a>
       </li>
+      }
 
       <li (click)="closeSidenav()" class="nav-item">
         <a
@@ -94,13 +96,15 @@
 
     <div class="p-toolbar-group-right flex items-center gap-6">
       <div class="flex gap-4">
+        @if (!isHome) {
         <a
-          *ngIf="!isHome"
           routerLink="/home"
           (click)="clear()"
           class="text-lg cursor-pointer hover:text-green-600"
-          >Home</a
+          >Inicio</a
         >
+        }
+
         <a
           routerLink="/animals-home"
           class="text-lg cursor-pointer hover:text-green-600"

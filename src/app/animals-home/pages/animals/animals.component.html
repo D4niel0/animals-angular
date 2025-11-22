@@ -4,8 +4,24 @@
   </article>
   <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
     @if (isLoading) {
-
-    <app-paw-spinner></app-paw-spinner>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6"
+    >
+      <article
+        *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+        class="shadow-md rounded-xl cursor-pointer"
+      >
+        <div class="card-skeleton">
+          <div class="img-wrap skeleton-wrap" style="--img-ratio: 4/3">
+            <p-skeleton
+              class="skeleton-block rounded-xl"
+              [width]="'100%'"
+              [height]="'100%'"
+            ></p-skeleton>
+          </div>
+        </div>
+      </article>
+    </div>
 
     } @else if (!isLoading && filteredAnimals.length > 0) {
 

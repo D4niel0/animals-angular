@@ -1,26 +1,25 @@
 import { Component, inject, OnInit, effect } from "@angular/core";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
-import { SharedModuleModule } from "../../../shared/shared-module/shared-module.module";
 import { CardsComponent } from "../../../shared/components/cards/cards.component";
 import { CommonModule } from "@angular/common";
 import { ScrollService, SavedScroll } from "../../../services/scroll.service";
 import { finalize, Subscription } from "rxjs";
-import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
 import { AnimalsFiltersComponent } from "../../components/animals-filters/animals-filters.component";
 import {
   AnimalsFilters,
   AnimalsFiltersStore,
 } from "../../../core/stores/animal-filters.store";
+import { SkeletonModule } from "primeng/skeleton";
 
 @Component({
   selector: "app-animals",
   standalone: true,
   imports: [
-    SharedModuleModule,
+    CommonModule,
     CardsComponent,
-    PawSpinnerComponent,
     AnimalsFiltersComponent,
+    SkeletonModule,
   ],
   templateUrl: "./animals.component.html",
   styleUrl: "./animals.component.scss",
