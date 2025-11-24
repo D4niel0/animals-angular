@@ -69,14 +69,21 @@
             >
               {{ animal.ageYears }} año{{ animal.ageYears > 1 ? "s" : "" }}
             </span>
-            @if (animal.compatibleWithChildren) {
             <span
-              class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+              class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium text-xs"
+              [ngClass]="
+                animal.compatibleWithChildren
+                  ? 'bg-green-50 text-green-700'
+                  : 'bg-red-50 text-red-700'
+              "
             >
-              👨‍👩‍👧
-              <span class="pl-1">{{ "Compatible con niños" }}</span>
+              🧒
+              {{
+                animal.compatibleWithChildren
+                  ? "Compatible con niños"
+                  : "No compatible con niños"
+              }}
             </span>
-            }
           </div>
         </header>
 

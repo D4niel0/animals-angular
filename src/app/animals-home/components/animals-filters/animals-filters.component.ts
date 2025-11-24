@@ -37,6 +37,8 @@ export class AnimalsFiltersComponent {
     value: p,
   }));
 
+  protected showFilters = true;
+
   get ageValueLabel(): string {
     const val = this.filtersForm.get("ageRange")?.value ?? [0, this.AGE_MAX];
     const start = Number(val[0]);
@@ -53,6 +55,13 @@ export class AnimalsFiltersComponent {
     this.filtersForm.valueChanges.subscribe((val) => {
       this.filtersStore.setFilters(val);
     });
+  }
+
+  /**
+   * @description Toggle the visibility of the filters section.
+   */
+  protected toggleShowFilters(): void {
+    this.showFilters = !this.showFilters;
   }
 
   /**

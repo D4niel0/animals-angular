@@ -25,13 +25,13 @@
   </article>
   <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
     @if (isLoading) {
-    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
       <article
         *ngFor="let i of [1, 2, 3, 4, 5, 6]"
         class="shadow-md rounded-xl cursor-pointer"
       >
         <div class="card-skeleton">
-          <div class="img-wrap skeleton-wrap" style="--img-ratio: 16/9">
+          <div class="skeleton-wrap shelter-skeleton h-36">
             <p-skeleton
               class="skeleton-block rounded-xl"
               [width]="'100%'"
