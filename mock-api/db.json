@@ -1,7 +1,7 @@
 {
   "animals": [
     {
-      "id": 1,
+      "id": "1",
       "species": "dog",
       "name": "Luna",
       "ageYears": 2,
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "species": "dog",
       "name": "Rocky",
       "ageYears": 4,
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "species": "dog",
       "name": "Thor",
       "ageYears": 5,
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "species": "dog",
       "name": "Nube",
       "ageYears": 3,
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "species": "dog",
       "name": "Bimba",
       "ageYears": 6,
@@ -179,7 +179,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "species": "dog",
       "name": "Max",
       "ageYears": 1,
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "species": "dog",
       "name": "Toby",
       "ageYears": 3,
@@ -250,7 +250,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "species": "dog",
       "name": "Simba",
       "ageYears": 4,
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "species": "dog",
       "name": "Jack",
       "ageYears": 2,
@@ -320,7 +320,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "species": "dog",
       "name": "Lola",
       "ageYears": 5,
@@ -356,7 +356,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "species": "dog",
       "name": "Bruno",
       "ageYears": 7,
@@ -392,7 +392,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "species": "dog",
       "name": "Rex",
       "ageYears": 6,
@@ -428,7 +428,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "species": "dog",
       "name": "Zeus",
       "ageYears": 3,
@@ -464,7 +464,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "species": "dog",
       "name": "Cleo",
       "ageYears": 2,
@@ -500,7 +500,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "species": "dog",
       "name": "Hera",
       "ageYears": 4,
@@ -535,7 +535,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "species": "dog",
       "name": "Duke",
       "ageYears": 8,
@@ -571,7 +571,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "17",
       "species": "dog",
       "name": "Tana",
       "ageYears": 1,
@@ -606,7 +606,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "species": "dog",
       "name": "Fiona",
       "ageYears": 5,
@@ -641,7 +641,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "species": "dog",
       "name": "Ghost",
       "ageYears": 2,
@@ -677,7 +677,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "species": "dog",
       "name": "Buddy",
       "ageYears": 3,
@@ -713,7 +713,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "species": "dog",
       "name": "Coco",
       "ageYears": 2,
@@ -748,7 +748,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": "22",
       "species": "dog",
       "name": "Nina",
       "ageYears": 1,
@@ -783,7 +783,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "23",
       "species": "dog",
       "name": "Simón",
       "ageYears": 4,
@@ -818,7 +818,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "species": "dog",
       "name": "Togo",
       "ageYears": 3,
@@ -853,7 +853,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": "25",
       "species": "dog",
       "name": "Milo",
       "ageYears": 2,
@@ -888,7 +888,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "species": "dog",
       "name": "Neo",
       "ageYears": 6,
@@ -924,7 +924,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "species": "dog",
       "name": "Tana",
       "ageYears": 1,
@@ -959,7 +959,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": "28",
       "species": "dog",
       "name": "Kyra",
       "ageYears": 3,
@@ -994,7 +994,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "species": "dog",
       "name": "Troy",
       "ageYears": 7,
@@ -1030,7 +1030,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "species": "dog",
       "name": "Olivia",
       "ageYears": 2,
@@ -1070,7 +1070,7 @@
   },
   "urgent-animals": [
     {
-      "id": 25,
+      "id": "25",
       "species": "dog",
       "name": "Milo",
       "ageYears": 2,
@@ -1105,7 +1105,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "species": "dog",
       "name": "Neo",
       "ageYears": 6,
@@ -1141,7 +1141,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "species": "dog",
       "name": "Tana",
       "ageYears": 1,
@@ -1176,7 +1176,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": "28",
       "species": "dog",
       "name": "Kyra",
       "ageYears": 3,
@@ -1211,7 +1211,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "species": "dog",
       "name": "Troy",
       "ageYears": 7,
@@ -1247,7 +1247,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "species": "dog",
       "name": "Olivia",
       "ageYears": 2,
@@ -1284,7 +1284,7 @@
   ],
   "shelters": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Protectora Madrid Central",
       "email": "contacto@protectoramadridcentral.org",
       "phone": "+34 91 555 0001",
@@ -1296,7 +1296,7 @@
       "instagram": "https://instagram.com/protectoramadridcentral"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Protectora Barcelona",
       "email": "contacto@protectorabcn.cat",
       "phone": "+34 93 555 0002",
@@ -1307,7 +1307,7 @@
       "facebook": "https://facebook.com/protectorabarcelona"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Protectora Valencia",
       "email": "info@protectoravalencia.es",
       "phone": "+34 96 555 0003",
@@ -1318,7 +1318,7 @@
       "instagram": "https://instagram.com/protectoravalencia"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Protectora Sevilla",
       "email": "contacto@protectorasevilla.org",
       "phone": "+34 95 555 0004",
@@ -1330,7 +1330,7 @@
       "instagram": "https://instagram.com/protectorasevilla"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Protectora Bilbao",
       "email": "info@protectorabilbao.eus",
       "phone": "+34 94 555 0005",
@@ -1341,7 +1341,7 @@
       "facebook": "https://facebook.com/protectorabilbao"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Protectora Zaragoza",
       "email": "contacto@protectorazaragoza.org",
       "phone": "+34 97 655 0006",
@@ -1352,7 +1352,7 @@
       "instagram": "https://instagram.com/protectorazaragoza"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Protectora Málaga",
       "email": "info@protectoramalaga.es",
       "phone": "+34 95 222 0007",
@@ -1364,7 +1364,7 @@
       "instagram": "https://instagram.com/protectoramalaga"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Protectora A Coruña",
       "email": "contacto@protectoracorunha.gal",
       "phone": "+34 98 155 0008",
@@ -1375,7 +1375,7 @@
       "instagram": "https://instagram.com/protectoracorunha"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Protectora Murcia",
       "email": "info@protectoramurcia.org",
       "phone": "+34 96 835 0009",
@@ -1386,7 +1386,7 @@
       "facebook": "https://facebook.com/protectoramurcia"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Protectora Valladolid",
       "email": "contacto@protectoravalladolid.es",
       "phone": "+34 98 335 0010",
@@ -1397,5 +1397,34 @@
       "facebook": "https://facebook.com/protectoravalladolid",
       "instagram": "https://instagram.com/protectoravalladolid"
     }
-  ]
+  ],
+  "register": [],
+  "login": [],
+  "reset-password": [],
+  "forgot-password": [],
+  "logout": [],
+  "my-shelter": {
+    "myShelter": {
+      "id": "99",
+      "legalName": "Mi Protectora",
+      "taxId": "DAS12345",
+      "registryNumber": "123123123",
+      "responsibleFullName": "Daniel Aguilar",
+      "responsibleRole": "Presidente",
+      "contactPhone": "666666666",
+      "contactEmail": "daniel@miprotectora.com",
+      "address": {
+        "street": "Calle protectora",
+        "number": "12",
+        "extra": "Finca 1",
+        "postalCode": "28944",
+        "city": "Fuenlabrada",
+        "province": "Madrid"
+      },
+      "facebook": "https://www.facebook.com/mi-protectora",
+      "instagram": "https://www.instagram.com/mi-protectora",
+      "website": "https://www.mi-protectora.com"
+    },
+    "token": "TEST_TOKEN"
+  }
 }

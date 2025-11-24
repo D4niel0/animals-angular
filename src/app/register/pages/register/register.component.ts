@@ -19,6 +19,8 @@ import { MenuItem } from "primeng/api";
 import { RegisterStepsComponent } from "../../components/register-steps/register-steps.component";
 import { ToastService } from "../../../services/toast.service";
 import { Router } from "@angular/router";
+import { AuthService } from "../../../services/auth.service";
+import { finalize } from "rxjs";
 
 @Component({
   selector: "app-register",
@@ -39,17 +41,26 @@ import { Router } from "@angular/router";
 export class RegisterComponent {
   private toastService = inject(ToastService);
   private router = inject(Router);
-  shelterForm: FormGroup;
+  private authService = inject(AuthService);
+  protected isLoading: boolean = false;
+  protected shelterForm: FormGroup = new FormGroup({});
 
-  registerSteps: MenuItem[] = [
+  protected registerSteps: MenuItem[] = [
     { label: "Rellenar datos" },
     { label: "Validación" },
     { label: "Confirmación" },
   ];
 
-  activeIndex: number = 0;
+  protected activeIndex: number = 0;
 
   constructor(private fb: FormBuilder) {
+    this.initializeForm();
+  }
+
+  /**
+   * @description Initialize the registration form with validation
+   */
+  protected initializeForm(): void {
     this.shelterForm = this.fb.group(
       {
         legalName: ["", [Validators.required, Validators.maxLength(150)]],
@@ -100,20 +111,33 @@ export class RegisterComponent {
     );
   }
 
-  onSubmit(): void {
+  /**
+   * @description Submit form to register shelter
+   * @returns
+   */
+  protected onSubmit(): void {
     if (this.shelterForm.invalid) {
       this.shelterForm.markAllAsTouched();
       return;
     }
 
+    this.isLoading = true;
     const data: ShelterRegistration = this.shelterForm.value;
-    console.log("Registro protectora", data);
-    this.toastService.success(
-      "La protectora se ha registrado correctamente. En un plazo de 24-48 horas recibirás un correo electrónico con la confirmación del alta",
-      "Registro completado"
-    );
 
-    this.router.navigate(["/"]);
+    this.authService
+      .registerShelter(data)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe({
+        next: () => {
+          console.log("Registro protectora", data);
+          this.toastService.success(
+            "La protectora se ha registrado correctamente. En un plazo de 24-48 horas recibirás un correo electrónico con la confirmación del alta",
+            "Registro completado"
+          );
+
+          this.router.navigate(["/"]);
+        },
+      });
   }
 
   get passwordControl() {
@@ -124,10 +148,18 @@ export class RegisterComponent {
     return this.shelterForm.get("confirmPassword");
   }
 
-  onActiveIndexChange(event: number) {
+  /**
+   * @description Handle step index change
+   * @param event
+   */
+  protected onActiveIndexChange(event: number): void {
     this.activeIndex = event;
   }
 
+  /**
+   * @description Validator to check if password and confirm password match
+   * @returns ValidationErrors | null
+   */
   private passwordsMatchValidator(): ValidatorFn {
     return (group: AbstractControl): ValidationErrors | null => {
       const password = group.get("password")?.value;

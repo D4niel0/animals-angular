@@ -1,0 +1,85 @@
+import { CommonModule } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
+import { Router, RouterModule } from "@angular/router";
+
+import { InputTextModule } from "primeng/inputtext";
+import { PasswordModule } from "primeng/password";
+import { ButtonModule } from "primeng/button";
+import { CheckboxModule } from "primeng/checkbox";
+import { AuthService } from "../../../services/auth.service";
+import { finalize } from "rxjs";
+
+@Component({
+  selector: "app-login",
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
+    CheckboxModule,
+  ],
+  templateUrl: "./login.component.html",
+  styleUrl: "./login.component.scss",
+})
+export class LoginComponent {
+  protected loginForm: FormGroup;
+  protected isLoading: boolean = false;
+  private authService = inject(AuthService);
+
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.loginForm = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required]],
+    });
+  }
+
+  /**
+   * @description Submit form to login
+   * @returns
+   */
+  protected onSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    this.isLoading = true;
+    const { email, password } = this.loginForm.value;
+    this.authService
+      .login(email, password)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe({
+        next: () => {
+          console.log("Login", { email, password });
+          this.getMyShelter();
+        },
+      });
+  }
+
+  protected getMyShelter(): void {
+    this.authService.getMyShelter().subscribe({
+      next: (shelter) => {
+        localStorage.setItem("myShelter", JSON.stringify(shelter.myShelter));
+        localStorage.setItem("token", shelter.token);
+        console.log("My Shelter:", shelter.myShelter);
+      },
+    });
+  }
+
+  get emailControl() {
+    return this.loginForm.get("email");
+  }
+
+  get passwordControl() {
+    return this.loginForm.get("password");
+  }
+}

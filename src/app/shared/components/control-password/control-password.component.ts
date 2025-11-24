@@ -13,4 +13,5 @@ import { PasswordModule } from "primeng/password";
 export class ControlPasswordComponent {
   @Input() password: FormControl = new FormControl();
   @Input() confirmPassword: FormControl = new FormControl();
+  @Input() responsive: boolean = true;
 }

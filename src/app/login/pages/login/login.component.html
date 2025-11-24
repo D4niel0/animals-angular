@@ -1,0 +1,118 @@
+<section
+  class="min-h-[calc(100vh-64px)] flex items-center justify-center px-3 md:px-0"
+>
+  <article
+    class="bg-white/80 shadow-lg rounded-2xl p-6 md:p-8 w-full max-w-md backdrop-blur-sm border border-slate-100"
+  >
+    <!-- Header -->
+    <header class="mb-6 text-center">
+      <div
+        class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100"
+      >
+        <i class="pi pi-paw text-emerald-600 text-xl"></i>
+      </div>
+      <h1 class="font-chewy text-2xl text-gray-900">Acceso a protectoras</h1>
+      <p class="mt-1 text-sm text-gray-600">
+        Inicia sesión para gestionar tus animales en adopción.
+      </p>
+    </header>
+
+    <!-- Formulario -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="space-y-4">
+        <!-- Email -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Correo electrónico *
+          </label>
+          <input
+            id="email"
+            pInputText
+            type="email"
+            formControlName="email"
+            placeholder="correo@protectoraxxx.org"
+            class="w-full"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                emailControl?.invalid && emailControl?.touched
+            }"
+          />
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="emailControl?.invalid && emailControl?.touched"
+          >
+            <ng-container *ngIf="emailControl?.hasError('required')">
+              El correo es obligatorio.
+            </ng-container>
+            <ng-container *ngIf="emailControl?.hasError('email')">
+              Introduce un correo electrónico válido.
+            </ng-container>
+          </small>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Contraseña *
+          </label>
+          <p-password
+            id="password"
+            formControlName="password"
+            [toggleMask]="true"
+            [feedback]="false"
+            inputStyleClass="w-full"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                passwordControl?.invalid && passwordControl?.touched
+            }"
+            placeholder="Tu contraseña"
+          ></p-password>
+          <small
+            class="text-red-500 text-xs block mt-1"
+            *ngIf="passwordControl?.invalid && passwordControl?.touched"
+          >
+            La contraseña es obligatoria.
+          </small>
+        </div>
+
+        <!-- Remember + Forgot -->
+        <div class="flex items-center justify-end gap-3">
+          <a
+            routerLink="/forgot-password"
+            class="text-xs md:text-sm text-emerald-600 hover:text-emerald-700"
+          >
+            ¿Has olvidado tu contraseña?
+          </a>
+        </div>
+
+        <!-- Botón -->
+        <button
+          pButton
+          type="submit"
+          label="Iniciar sesión"
+          class="w-full mt-2"
+          [disabled]="loginForm.invalid"
+        ></button>
+      </div>
+    </form>
+
+    <!-- Footer / Link a registro -->
+    <footer class="mt-6 text-center">
+      <p class="text-xs text-gray-600">
+        ¿Todavía no tienes cuenta?
+        <a
+          routerLink="/register"
+          class="font-medium text-emerald-600 hover:text-emerald-700"
+        >
+          Solicitar registro
+        </a>
+      </p>
+    </footer>
+  </article>
+</section>

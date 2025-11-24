@@ -15,6 +15,7 @@ import { ToastModule } from "primeng/toast";
 import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
 import { Menu } from "primeng/menu";
 import { MenuItem } from "primeng/api";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-shell",
@@ -34,7 +35,7 @@ import { MenuItem } from "primeng/api";
   styleUrls: ["./shell.component.scss"],
 })
 export class ShellComponent {
-  sidebarVisible = false;
+  protected sidebarVisible = false;
   protected isHome = false;
 
   protected menuItems: MenuItem[] = [
@@ -52,12 +53,13 @@ export class ShellComponent {
     },
     {
       label: "Cerrar sesión",
-      // command: () => this.logout()
+      command: () => this.logout(),
     },
   ];
   private scrollService = inject(ScrollService);
   private animalsService = inject(AnimalsService);
   private animalsFilterStore = inject(AnimalsFiltersStore);
+  private authService = inject(AuthService);
 
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
@@ -85,5 +87,15 @@ export class ShellComponent {
     this.scrollService.clear("animals");
     this.animalsService.clearAnimalsCache();
     this.animalsFilterStore.resetFilters();
+  }
+
+  protected logout(): void {
+    this.authService.logout().subscribe({
+      next: () => {
+        localStorage.removeItem("myShelter");
+        localStorage.removeItem("token");
+        this.router.navigate(["/home"]);
+      },
+    });
   }
 }
