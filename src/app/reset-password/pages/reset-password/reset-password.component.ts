@@ -16,6 +16,7 @@ import { ButtonModule } from "primeng/button";
 import { ControlPasswordComponent } from "../../../shared/components/control-password/control-password.component";
 import { AuthService } from "../../../services/auth.service";
 import { finalize } from "rxjs";
+import { AnimationOptions, LottieComponent } from "ngx-lottie";
 
 @Component({
   selector: "app-reset-password",
@@ -26,8 +27,10 @@ import { finalize } from "rxjs";
     RouterModule,
     ButtonModule,
     ControlPasswordComponent,
+    LottieComponent,
   ],
   templateUrl: "./reset-password.component.html",
+  styleUrl: "./reset-password.component.scss",
 })
 export class ResetPasswordComponent {
   private authService = inject(AuthService);
@@ -36,6 +39,11 @@ export class ResetPasswordComponent {
   protected submitted = false;
   protected token: string | null = null;
   protected isLoading: boolean = false;
+  protected options: AnimationOptions = {
+    path: "/assets/lottie/cat-animation.json",
+    autoplay: true,
+    loop: true,
+  };
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,

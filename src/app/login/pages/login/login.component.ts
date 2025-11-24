@@ -14,6 +14,7 @@ import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
 import { AuthService } from "../../../services/auth.service";
 import { finalize } from "rxjs";
+import { AnimationOptions, LottieComponent } from "ngx-lottie";
 
 @Component({
   selector: "app-login",
@@ -26,6 +27,7 @@ import { finalize } from "rxjs";
     PasswordModule,
     ButtonModule,
     CheckboxModule,
+    LottieComponent,
   ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
@@ -33,6 +35,11 @@ import { finalize } from "rxjs";
 export class LoginComponent {
   protected loginForm: FormGroup;
   protected isLoading: boolean = false;
+  protected options: AnimationOptions = {
+    path: "/assets/lottie/cat-animation.json",
+    autoplay: true,
+    loop: true,
+  };
   private authService = inject(AuthService);
 
   constructor(private fb: FormBuilder, private router: Router) {

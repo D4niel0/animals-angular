@@ -12,6 +12,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from "primeng/button";
 import { AuthService } from "../../../services/auth.service";
 import { finalize } from "rxjs";
+import { AnimationOptions, LottieComponent } from "ngx-lottie";
 
 @Component({
   selector: "app-forgot-password",
@@ -22,14 +23,22 @@ import { finalize } from "rxjs";
     RouterModule,
     InputTextModule,
     ButtonModule,
+    LottieComponent,
   ],
   templateUrl: "./forgot-password.component.html",
+  styleUrl: "./forgot-password.component.scss",
 })
 export class ForgotPasswordComponent {
   private authService = inject(AuthService);
   protected forgotForm: FormGroup;
   protected submitted: boolean = false;
   protected isLoading: boolean = false;
+  protected options: AnimationOptions = {
+    path: "/assets/lottie/cat-animation.json",
+    autoplay: true,
+    loop: true,
+  };
+
   constructor(private fb: FormBuilder, private router: Router) {
     this.forgotForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
