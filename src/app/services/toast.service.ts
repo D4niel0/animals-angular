@@ -6,36 +6,41 @@ import { MessageService } from "primeng/api";
 })
 export class ToastService {
   private messageService = inject(MessageService);
+  private readonly TOAST_LIFE = 5000;
 
-  success(message: string) {
+  success(message: string, summary?: string) {
     this.messageService.add({
       severity: "success",
-      summary: "Éxito",
+      summary: summary || "Éxito",
       detail: message,
+      life: this.TOAST_LIFE,
     });
   }
 
-  info(message: string) {
+  info(message: string, summary?: string) {
     this.messageService.add({
       severity: "info",
-      summary: "Info",
+      summary: summary || "Info",
       detail: message,
+      life: this.TOAST_LIFE,
     });
   }
 
-  warn(message: string) {
+  warn(message: string, summary?: string) {
     this.messageService.add({
       severity: "warn",
-      summary: "Advertencia",
+      summary: summary || "Advertencia",
       detail: message,
+      life: this.TOAST_LIFE,
     });
   }
 
-  error(message: string) {
+  error(message: string, summary?: string) {
     this.messageService.add({
       severity: "error",
-      summary: "Error",
+      summary: summary || "Error",
       detail: message,
+      life: this.TOAST_LIFE,
     });
   }
 }

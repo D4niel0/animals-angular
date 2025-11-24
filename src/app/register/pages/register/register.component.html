@@ -1,0 +1,547 @@
+<section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <div class="form-image relative">
+      <img
+        src="/assets/images/register.png"
+        alt="banner image"
+        class="banner-image w-full object-cover rounded-t-md h-48"
+      />
+    </div>
+
+    <div class="mt-6 mb-4 pt-2">
+      <app-register-steps></app-register-steps>
+    </div>
+
+    <hr class="border-gray-200" />
+
+    <header class="mb-6 mt-4">
+      <h1 class="font-chewy text-xl md:text-2xl font-semibold text-gray-900">
+        Formulario de registro
+      </h1>
+      <p class="text-sm text-gray-600 mt-1">
+        Rellena los siguientes datos para solicitar el alta como protectora o
+        asociación.
+      </p>
+    </header>
+
+    <form
+      [formGroup]="shelterForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-8"
+      novalidate
+    >
+      <!-- Datos de la entidad -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Datos de la entidad</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre legal -->
+          <div>
+            <label
+              for="legalName"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Nombre legal de la entidad *</label
+            >
+            <input
+              id="legalName"
+              pInputText
+              type="text"
+              placeholder="Nombre legal de la entidad"
+              formControlName="legalName"
+              class="w-full"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('legalName')?.invalid &&
+                  shelterForm.get('legalName')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('legalName')?.invalid &&
+                shelterForm.get('legalName')?.touched
+              "
+            >
+              El nombre legal es obligatorio.
+            </small>
+          </div>
+
+          <!-- CIF/NIF -->
+          <div>
+            <label
+              for="taxId"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >CIF / NIF *</label
+            >
+            <input
+              id="taxId"
+              pInputText
+              type="text"
+              formControlName="taxId"
+              placeholder="CIF / NIF"
+              class="w-full uppercase"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('taxId')?.invalid &&
+                  shelterForm.get('taxId')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('taxId')?.invalid &&
+                shelterForm.get('taxId')?.touched
+              "
+            >
+              El CIF/NIF es obligatorio.
+            </small>
+          </div>
+
+          <!-- Número de registro -->
+          <div>
+            <label
+              for="registryNumber"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Número de registro *</label
+            >
+            <input
+              id="registryNumber"
+              pInputText
+              type="text"
+              placeholder="Número de registro"
+              formControlName="registryNumber"
+              class="w-full"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('registryNumber')?.invalid &&
+                  shelterForm.get('registryNumber')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('registryNumber')?.invalid &&
+                shelterForm.get('registryNumber')?.touched
+              "
+            >
+              El número de registro es obligatorio.
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- Persona responsable -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Persona responsable</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre responsable -->
+          <div>
+            <label
+              for="responsibleFullName"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Nombre y apellidos de la persona responsable *
+            </label>
+            <input
+              id="responsibleFullName"
+              pInputText
+              type="text"
+              placeholder="Nombre y apellidos"
+              formControlName="responsibleFullName"
+              class="w-full"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('responsibleFullName')?.invalid &&
+                  shelterForm.get('responsibleFullName')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('responsibleFullName')?.invalid &&
+                shelterForm.get('responsibleFullName')?.touched
+              "
+            >
+              El nombre de la persona responsable es obligatorio.
+            </small>
+          </div>
+
+          <!-- Cargo -->
+          <div>
+            <label
+              for="responsibleRole"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Cargo dentro de la asociación *</label
+            >
+            <input
+              id="responsibleRole"
+              pInputText
+              type="text"
+              formControlName="responsibleRole"
+              class="w-full"
+              placeholder="Presidenta, secretario, voluntaria autorizada…"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('responsibleRole')?.invalid &&
+                  shelterForm.get('responsibleRole')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('responsibleRole')?.invalid &&
+                shelterForm.get('responsibleRole')?.touched
+              "
+            >
+              El cargo es obligatorio.
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- Contacto -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Datos de contacto</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Teléfono -->
+          <div>
+            <label
+              for="contactPhone"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Teléfono de contacto *</label
+            >
+            <input
+              id="contactPhone"
+              pInputText
+              type="tel"
+              formControlName="contactPhone"
+              class="w-full"
+              placeholder="Ej. 600 123 456"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('contactPhone')?.invalid &&
+                  shelterForm.get('contactPhone')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('contactPhone')?.invalid &&
+                shelterForm.get('contactPhone')?.touched
+              "
+            >
+              Introduce un teléfono válido.
+            </small>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label
+              for="contactEmail"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Correo electrónico *</label
+            >
+            <input
+              id="contactEmail"
+              pInputText
+              type="email"
+              formControlName="contactEmail"
+              class="w-full"
+              placeholder="correo@protectoraxxx.org"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('contactEmail')?.invalid &&
+                  shelterForm.get('contactEmail')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('contactEmail')?.invalid &&
+                shelterForm.get('contactEmail')?.touched
+              "
+            >
+              Introduce un correo válido.
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Datos de acceso</h2>
+
+        <!-- Contraseña -->
+        <app-control-password
+          [confirmPassword]="$any(shelterForm.get('confirmPassword'))"
+          [password]="$any(shelterForm.get('password'))"
+        ></app-control-password>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- Dirección -->
+      <section class="space-y-4" formGroupName="address">
+        <h2 class="text-lg font-medium text-gray-900">Dirección</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Calle -->
+          <div class="md:col-span-2">
+            <label
+              for="street"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Calle *</label
+            >
+            <input
+              id="street"
+              pInputText
+              type="text"
+              formControlName="street"
+              class="w-full"
+              placeholder="Calle, avenida, carretera…"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('address.street')?.invalid &&
+                  shelterForm.get('address.street')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('address.street')?.invalid &&
+                shelterForm.get('address.street')?.touched
+              "
+            >
+              La calle es obligatoria.
+            </small>
+          </div>
+
+          <!-- Número -->
+          <div>
+            <label
+              for="number"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Número *</label
+            >
+            <input
+              id="number"
+              pInputText
+              type="text"
+              formControlName="number"
+              class="w-full"
+              placeholder="Ej. 12, 12B…"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('address.number')?.invalid &&
+                  shelterForm.get('address.number')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('address.number')?.invalid &&
+                shelterForm.get('address.number')?.touched
+              "
+            >
+              El número es obligatorio.
+            </small>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Extra -->
+          <div class="md:col-span-3">
+            <label
+              for="extra"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Información adicional</label
+            >
+            <input
+              id="extra"
+              pInputText
+              type="text"
+              formControlName="extra"
+              class="w-full"
+              placeholder="Piso, puerta, bloque, finca… (opcional)"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Código postal -->
+          <div>
+            <label
+              for="postalCode"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Código postal *</label
+            >
+            <input
+              id="postalCode"
+              pInputText
+              type="text"
+              formControlName="postalCode"
+              class="w-full"
+              placeholder="Ej. 28013"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('address.postalCode')?.invalid &&
+                  shelterForm.get('address.postalCode')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('address.postalCode')?.invalid &&
+                shelterForm.get('address.postalCode')?.touched
+              "
+            >
+              Introduce un código postal válido.
+            </small>
+          </div>
+
+          <!-- Ciudad -->
+          <div>
+            <label
+              for="city"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Ciudad *</label
+            >
+            <input
+              id="city"
+              pInputText
+              type="text"
+              placeholder="Ciudad"
+              formControlName="city"
+              class="w-full"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('address.city')?.invalid &&
+                  shelterForm.get('address.city')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('address.city')?.invalid &&
+                shelterForm.get('address.city')?.touched
+              "
+            >
+              La ciudad es obligatoria.
+            </small>
+          </div>
+
+          <!-- Provincia -->
+          <div>
+            <label
+              for="province"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Provincia *</label
+            >
+            <input
+              id="province"
+              pInputText
+              type="text"
+              formControlName="province"
+              placeholder="Provincia"
+              class="w-full"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('address.province')?.invalid &&
+                  shelterForm.get('address.province')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('address.province')?.invalid &&
+                shelterForm.get('address.province')?.touched
+              "
+            >
+              La provincia es obligatoria.
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- Redes sociales -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">
+          Redes sociales (opcional)
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Web -->
+          <div>
+            <label
+              for="website"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Web</label
+            >
+            <input
+              id="website"
+              pInputText
+              type="url"
+              formControlName="website"
+              class="w-full"
+              placeholder="https://www.protectoraxxx.org"
+            />
+          </div>
+
+          <!-- Facebook -->
+          <div>
+            <label
+              for="facebook"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Facebook</label
+            >
+            <input
+              id="facebook"
+              pInputText
+              type="url"
+              formControlName="facebook"
+              class="w-full"
+              placeholder="https://www.facebook.com/tu-protectora"
+            />
+          </div>
+
+          <!-- Instagram -->
+          <div>
+            <label
+              for="instagram"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Instagram</label
+            >
+            <input
+              id="instagram"
+              pInputText
+              type="url"
+              formControlName="instagram"
+              class="w-full"
+              placeholder="https://www.instagram.com/tu-protectora"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Botón enviar -->
+      <div class="flex justify-end pt-4 border-t border-gray-200">
+        <button
+          pButton
+          type="submit"
+          label="Enviar solicitud"
+          class="px-6"
+          [disabled]="shelterForm.invalid || shelterForm.pending"
+        ></button>
+      </div>
+    </form>
+  </article>
+</section>

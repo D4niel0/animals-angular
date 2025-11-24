@@ -34,6 +34,7 @@ export interface AnimalShelter {
   logo?: string;
   name: string;
   email: string;
+  password: string;
   phone: string;
   facebook?: string;
   instagram?: string;
@@ -43,4 +44,31 @@ export interface AnimalShelter {
 export interface Address {
   city: string;
   region: string;
+}
+
+export interface Address {
+  street: string;
+  number: string | number;
+  extra?: string;
+  postalCode: string;
+  city: string;
+  province: string;
+}
+
+export interface ShelterRegistration {
+  legalName: string;
+  taxId: string;
+  registryNumber: string;
+
+  responsibleFullName: string;
+  responsibleRole: string;
+
+  contactPhone: string;
+  contactEmail: string;
+
+  address: Address;
+
+  facebook?: string;
+  instagram?: string;
+  website?: string;
 }

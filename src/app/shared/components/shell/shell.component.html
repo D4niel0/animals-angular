@@ -50,15 +50,6 @@
           <span>Contacto</span>
         </a>
       </li>
-
-      <li class="divider" role="separator"></li>
-
-      <li (click)="closeSidenav()" class="nav-item" (click)="clear()">
-        <a class="nav-link flex gap-2" aria-label="Cerrar sesión">
-          <img src="assets/icons/logout.svg" alt="logout" class="w-5 h-5" />
-          <span>Cerrar sesión</span>
-        </a>
-      </li>
     </ul>
   </div>
 </p-sidebar>
@@ -78,23 +69,26 @@
     </div>
 
     <div class="p-toolbar-group-center">
-      <h1 class="m-0">Animals App</h1>
+      <h1 routerLink="/home" class="m-0 cursor-pointer">Animals App</h1>
     </div>
 
     <div class="p-toolbar-group-right">
       <button
         pButton
+        type="button"
         icon="pi pi-cog"
         class="p-button-text"
         aria-label="Configuración"
+        (click)="menuMobile.toggle($event)"
       ></button>
+      <p-menu #menuMobile [popup]="true" [model]="menuItems"></p-menu>
     </div>
   </p-toolbar>
 
   <!-- Header desktop (>=768px) -->
   <p-toolbar class="header-desktop p-toolbar-desktop w-full hidden md:flex">
     <div class="p-toolbar-group-left">
-      <h1 class="logo">Animals App</h1>
+      <h1 routerLink="/home" class="logo cursor-pointer">Animals App</h1>
     </div>
 
     <div class="p-toolbar-group-right flex items-center gap-6">
@@ -125,10 +119,13 @@
       </div>
       <button
         pButton
+        type="button"
         icon="pi pi-cog"
         class="p-button-text"
         aria-label="Configuración"
+        (click)="menu.toggle($event)"
       ></button>
+      <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
     </div>
   </p-toolbar>
 

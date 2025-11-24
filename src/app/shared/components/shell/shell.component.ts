@@ -13,6 +13,8 @@ import { ToolbarModule } from "primeng/toolbar";
 import { CommonModule } from "@angular/common";
 import { ToastModule } from "primeng/toast";
 import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
+import { Menu } from "primeng/menu";
+import { MenuItem } from "primeng/api";
 
 @Component({
   selector: "app-shell",
@@ -26,6 +28,7 @@ import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
     ButtonModule,
     ToolbarModule,
     ToastModule,
+    Menu,
   ],
   templateUrl: "./shell.component.html",
   styleUrls: ["./shell.component.scss"],
@@ -34,9 +37,28 @@ export class ShellComponent {
   sidebarVisible = false;
   protected isHome = false;
 
+  protected menuItems: MenuItem[] = [
+    {
+      label: "Iniciar sesión",
+      routerLink: ["/login"],
+    },
+    {
+      label: "Registro",
+      routerLink: ["/register"],
+    },
+    {
+      label: "Gestionar animales",
+      routerLink: ["/panel/animals"],
+    },
+    {
+      label: "Cerrar sesión",
+      // command: () => this.logout()
+    },
+  ];
   private scrollService = inject(ScrollService);
   private animalsService = inject(AnimalsService);
   private animalsFilterStore = inject(AnimalsFiltersStore);
+
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
 
