@@ -8,6 +8,7 @@ import { RegisterComponent } from "./register/pages/register/register.component"
 import { LoginComponent } from "./login/pages/login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/pages/forgot-password/forgot-password.component";
 import { ResetPasswordComponent } from "./reset-password/pages/reset-password/reset-password.component";
+import { panelRoutes } from "./panel/panel.routes";
 
 export const routes: Routes = [
   {
@@ -22,7 +23,7 @@ export const routes: Routes = [
       { path: "login", component: LoginComponent },
       { path: "forgot-password", component: ForgotPasswordComponent },
       { path: "reset-password", component: ResetPasswordComponent },
-
+      { path: "panel", children: panelRoutes },
       { path: "**", redirectTo: "home" },
     ],
   },

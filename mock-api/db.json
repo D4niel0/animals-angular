@@ -1404,27 +1404,26 @@
   "forgot-password": [],
   "logout": [],
   "my-shelter": {
-    "myShelter": {
-      "id": "99",
-      "legalName": "Mi Protectora",
-      "taxId": "DAS12345",
-      "registryNumber": "123123123",
-      "responsibleFullName": "Daniel Aguilar",
-      "responsibleRole": "Presidente",
-      "contactPhone": "666666666",
-      "contactEmail": "daniel@miprotectora.com",
-      "address": {
-        "street": "Calle protectora",
-        "number": "12",
-        "extra": "Finca 1",
-        "postalCode": "28944",
-        "city": "Fuenlabrada",
-        "province": "Madrid"
-      },
-      "facebook": "https://www.facebook.com/mi-protectora",
-      "instagram": "https://www.instagram.com/mi-protectora",
-      "website": "https://www.mi-protectora.com"
+    "id": "99",
+    "legalName": "Mi Protectora",
+    "taxId": "DAS12345",
+    "registryNumber": "123123123",
+    "responsibleFullName": "Daniel Aguilar",
+    "responsibleRole": "Presidente",
+    "contactPhone": "666666666",
+    "contactEmail": "daniel@miprotectora.com",
+    "address": {
+      "street": "Calle protectora",
+      "number": "12",
+      "extra": "Finca 1",
+      "postalCode": "28944",
+      "city": "Fuenlabrada",
+      "province": "Madrid"
     },
-    "token": "TEST_TOKEN"
-  }
+    "facebook": "https://www.facebook.com/mi-protectora",
+    "instagram": "https://www.instagram.com/mi-protectora",
+    "website": "https://www.mi-protectora.com"
+  },
+  "update-shelter": [],
+  "change-password": []
 }

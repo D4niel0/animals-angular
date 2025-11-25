@@ -65,7 +65,8 @@ export interface ShelterRegistration {
 
   contactPhone: string;
   contactEmail: string;
-
+  password: string;
+  confirmPassword: string;
   address: Address;
 
   facebook?: string;
@@ -73,11 +74,26 @@ export interface ShelterRegistration {
   website?: string;
 }
 
-export interface MyShelterProfileResponse {
-  myShelter: MyShelterProfile;
-  token: string;
-}
-
 export interface MyShelterProfile extends ShelterRegistration {
   id: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  shelterId: string;
+}
+
+export interface ShelterUpdateProfile {
+  id: string;
+  legalName: string;
+  responsibleFullName: string;
+  responsibleRole: string;
+
+  contactPhone: string;
+
+  address: Address;
+
+  facebook?: string;
+  instagram?: string;
+  website?: string;
 }

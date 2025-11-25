@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { delay, Subscription } from "rxjs";
+import { delay } from "rxjs";
 import {
+  LoginResponse,
   MyShelterProfile,
-  MyShelterProfileResponse,
   ShelterRegistration,
 } from "../shared/models";
 
@@ -15,7 +15,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post(`${this.baseUrl}login`, { email, password })
+      .post<LoginResponse>(`${this.baseUrl}login`, { email, password })
       .pipe(delay(500));
   }
 
@@ -41,7 +41,9 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}logout`, {});
   }
 
-  getMyShelter() {
-    return this.http.get<MyShelterProfileResponse>(`${this.baseUrl}my-shelter`);
+  getMyShelter(shelterId: string) {
+    return this.http
+      .get<MyShelterProfile>(`${this.baseUrl}my-shelter/${shelterId || ""}`)
+      .pipe(delay(500));
   }
 }

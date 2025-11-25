@@ -65,21 +65,12 @@ export class LoginComponent {
       .login(email, password)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
-        next: () => {
+        next: (response) => {
           console.log("Login", { email, password });
-          this.getMyShelter();
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("shelterId", response.shelterId);
         },
       });
-  }
-
-  protected getMyShelter(): void {
-    this.authService.getMyShelter().subscribe({
-      next: (shelter) => {
-        localStorage.setItem("myShelter", JSON.stringify(shelter.myShelter));
-        localStorage.setItem("token", shelter.token);
-        console.log("My Shelter:", shelter.myShelter);
-      },
-    });
   }
 
   get emailControl() {

@@ -45,14 +45,6 @@ export class RegisterComponent {
   protected isLoading: boolean = false;
   protected shelterForm: FormGroup = new FormGroup({});
 
-  protected registerSteps: MenuItem[] = [
-    { label: "Rellenar datos" },
-    { label: "Validación" },
-    { label: "Confirmación" },
-  ];
-
-  protected activeIndex: number = 0;
-
   constructor(private fb: FormBuilder) {
     this.initializeForm();
   }
@@ -64,7 +56,7 @@ export class RegisterComponent {
     this.shelterForm = this.fb.group(
       {
         legalName: ["", [Validators.required, Validators.maxLength(150)]],
-        taxId: ["", [Validators.required, Validators.maxLength(20)]], // CIF/NIF
+        taxId: ["", [Validators.required, Validators.maxLength(20)]],
         registryNumber: ["", [Validators.required, Validators.maxLength(50)]],
 
         responsibleFullName: [
@@ -146,14 +138,6 @@ export class RegisterComponent {
 
   get confirmPasswordControl() {
     return this.shelterForm.get("confirmPassword");
-  }
-
-  /**
-   * @description Handle step index change
-   * @param event
-   */
-  protected onActiveIndexChange(event: number): void {
-    this.activeIndex = event;
   }
 
   /**

@@ -52,6 +52,10 @@ export class ShellComponent {
       routerLink: ["/panel/animals"],
     },
     {
+      label: "Editar perfil",
+      routerLink: ["/panel/profile"],
+    },
+    {
       label: "Cerrar sesión",
       command: () => this.logout(),
     },
