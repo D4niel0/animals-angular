@@ -76,3 +76,18 @@ body,
   }
 }
 // skeleton cards end
+
+.p-tag-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.p-inputtext,
+.p-multiselect-label,
+.p-select-label {
+  font-size: 14px !important;
+}
+
+.p-datatable-table-container {
+  min-height: 250px;
+}

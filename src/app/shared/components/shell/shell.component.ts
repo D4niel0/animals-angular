@@ -49,7 +49,7 @@ export class ShellComponent {
     },
     {
       label: "Gestionar animales",
-      routerLink: ["/panel/animals"],
+      routerLink: ["/panel/shelter-animals"],
     },
     {
       label: "Editar perfil",

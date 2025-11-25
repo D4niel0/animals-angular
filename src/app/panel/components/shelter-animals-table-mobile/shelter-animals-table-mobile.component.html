@@ -1,0 +1,226 @@
+<section
+  class="bg-white/80 rounded-xl shadow-sm p-4 mb-4 space-y-3 border border-slate-100"
+>
+  <div class="flex items-center justify-between">
+    <h2 class="text-base font-medium text-gray-900 mb-1">Filtros</h2>
+    <button
+      pButton
+      type="button"
+      class="p-button-text"
+      (click)="toggleShowFilters()"
+      [attr.aria-expanded]="showFilters"
+      aria-controls="filters-form"
+      [icon]="showFilters ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+    ></button>
+  </div>
+  @if (showFilters) {
+  <div class="space-y-2">
+    <div>
+      <label class="block text-xs font-medium text-gray-700 mb-1">
+        Nombre
+      </label>
+      <input
+        pInputText
+        type="text"
+        [(ngModel)]="nameFilter"
+        name="nameFilter"
+        placeholder="Buscar por nombre"
+        class="w-full text-sm"
+      />
+    </div>
+
+    <div class="grid grid-cols-2 gap-2">
+      <div>
+        <label class="block text-xs font-medium text-gray-700 mb-1">
+          Especie
+        </label>
+        <p-dropdown
+          [options]="speciesOptions"
+          [(ngModel)]="speciesFilter"
+          name="speciesFilter"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Todas"
+          [showClear]="true"
+          styleClass="w-full text-sm"
+        >
+          <ng-template pTemplate="item" let-option>
+            <p-tag
+              [value]="option.label"
+              [severity]="option.severity"
+              class="w-full justify-center"
+            ></p-tag>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-700 mb-1">
+          Estado
+        </label>
+        <p-dropdown
+          [options]="statusOptions"
+          [(ngModel)]="statusFilter"
+          name="statusFilter"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Todos"
+          [showClear]="true"
+          styleClass="w-full text-sm"
+        >
+          <ng-template pTemplate="item" let-option>
+            <p-tag
+              [value]="option.label"
+              [severity]="option.severity"
+              class="w-full justify-center"
+            ></p-tag>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-medium text-gray-700 mb-1">
+        Edad (años)
+      </label>
+      <p-inputNumber
+        [(ngModel)]="ageFilter"
+        name="ageFilter"
+        inputId="ageFilterMobile"
+        placeholder="Cualquiera"
+        class="w-full text-sm"
+      ></p-inputNumber>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2">
+      <div>
+        <label class="block text-xs font-medium text-gray-700 mb-1">
+          Tamaño
+        </label>
+        <p-dropdown
+          [options]="sizeOptions"
+          [(ngModel)]="sizeFilter"
+          name="sizeFilter"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Todos"
+          [showClear]="true"
+          styleClass="w-full text-sm"
+        >
+          <ng-template pTemplate="item" let-option>
+            <p-tag
+              [value]="option.label"
+              [severity]="option.severity"
+              class="w-full justify-center"
+            ></p-tag>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-gray-700 mb-1">
+          Sexo
+        </label>
+        <p-dropdown
+          [options]="sexOptions"
+          [(ngModel)]="sexFilter"
+          name="sexFilter"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Todos"
+          [showClear]="true"
+          styleClass="w-full text-sm"
+        >
+          <ng-template pTemplate="item" let-option>
+            <p-tag
+              [value]="option.label"
+              [severity]="option.severity"
+              class="w-full justify-center"
+            ></p-tag>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex justify-end pt-1">
+      <button
+        pButton
+        type="button"
+        label="Limpiar filtros"
+        class="p-button-text text-xs"
+        (click)="clearMobileFilters()"
+      ></button>
+    </div>
+  </div>
+  }
+</section>
+
+<section class="space-y-3">
+  @if (isLoading) { @for (item of [1,2,3,4,5]; track $index) {
+  <article
+    class="bg-white/80 rounded-xl shadow-sm p-3 flex gap-3 items-center border border-slate-100 h-32"
+  >
+    <div>
+      <p-skeleton size="4rem" />
+    </div>
+    <div class="flex-1 min-w-0 gap-1">
+      <p-skeleton width="100%" height="4rem" />
+    </div>
+  </article>
+  } } @else { @for (animal of filteredAnimalsMobile; track $index) {
+  <article
+    class="bg-white/80 rounded-xl shadow-sm p-3 flex gap-3 items-center border border-slate-100"
+  >
+    <img
+      [src]="animal.image"
+      [alt]="animal.name"
+      class="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+    />
+
+    <div class="flex-1 min-w-0">
+      <div class="flex justify-between items-start gap-2">
+        <h3 class="font-medium text-sm truncate">{{ animal.name }}</h3>
+        <button
+          pButton
+          type="button"
+          icon="pi pi-pencil"
+          class="p-button-text p-button-rounded p-button-sm"
+          (click)="onEdit(animal)"
+          [pTooltip]="'Editar animal'"
+          tooltipPosition="top"
+        ></button>
+      </div>
+
+      <div class="flex flex-wrap gap-1 mt-2 text-[10px]">
+        <p-tag
+          [value]="getSpeciesLabel(animal)"
+          [severity]="getSpeciesSeverity(animal.species)"
+        ></p-tag>
+        <p-tag
+          [value]="getStatusLabel(animal)"
+          [severity]="getStatusSeverity(animal.status)"
+        ></p-tag>
+        <p-tag
+          [value]="getSizeLabel(animal)"
+          [severity]="getSizeSeverity(animal.size)"
+        ></p-tag>
+        <p-tag
+          [value]="getSexLabel(animal)"
+          [severity]="getSexSeverity(animal.sex)"
+        ></p-tag>
+        <p-tag
+          [value]="animal.ageYears === 1 ? '1 año' : animal.ageYears + ' años'"
+          severity="secondary"
+        ></p-tag>
+      </div>
+    </div>
+  </article>
+  } }
+
+  <p
+    *ngIf="filteredAnimalsMobile.length === 0 && !isLoading"
+    class="text-center text-xs text-gray-500 py-4"
+  >
+    No hay animales que coincidan con los filtros seleccionados.
+  </p>
+</section>

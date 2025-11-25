@@ -1,0 +1,18 @@
+<section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <header class="mb-6 mt-4 flex items-center">
+      <h1
+        class="font-chewy text-xl md:text-2xl font-semibold text-gray-900 grow"
+      >
+        Gestion de animales
+      </h1>
+      <button pButton type="button" label="Nuevo"></button>
+    </header>
+    <div>
+      <app-shelter-animals-table
+        [animals]="animals"
+        [isLoading]="isLoading"
+      ></app-shelter-animals-table>
+    </div>
+  </article>
+</section>

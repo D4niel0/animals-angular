@@ -27,4 +27,10 @@ export class ProfileService {
       })
       .pipe(delay(500));
   }
+
+  getShelterAnimals() {
+    return this.http
+      .get<any>(`${this.baseUrl}shelter-animals`)
+      .pipe(delay(500));
+  }
 }

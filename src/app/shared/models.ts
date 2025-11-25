@@ -1,10 +1,11 @@
 export interface Animal {
   id: number;
-  species: "dog";
+  species: "dog" | "cat" | "other";
   name: string;
   ageYears: number;
 
   size: "small" | "medium" | "large";
+  status: "available" | "reserved";
 
   date: string;
   sex: "m" | "f";
@@ -96,4 +97,15 @@ export interface ShelterUpdateProfile {
   facebook?: string;
   instagram?: string;
   website?: string;
+}
+
+export interface ShelterAnimals {
+  id: string;
+  name: string;
+  status: "available" | "reserved";
+  species: "dog" | "cat" | "other";
+  image: string;
+  ageYears: number;
+  size: "small" | "medium" | "large";
+  sex: "m" | "f";
 }

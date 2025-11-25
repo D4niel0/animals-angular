@@ -1,0 +1,302 @@
+<!-- DESKTOP -->
+<div class="hidden md:block">
+  <p-table
+    [value]="animals"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 20, 50]"
+    [stripedRows]="true"
+    responsiveLayout="scroll"
+    dataKey="id"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          Nombre
+          <p-columnFilter
+            type="text"
+            field="name"
+            placeholder="Buscar por nombre"
+          ></p-columnFilter>
+        </th>
+
+        <th class="min-w-20"></th>
+
+        <th>
+          Especie
+          <p-columnFilter field="species" matchMode="equals">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [options]="speciesOptions"
+                [ngModel]="value"
+                (onChange)="filter($event.value)"
+                (onClear)="filter(null)"
+                placeholder="Todas"
+                [showClear]="true"
+                styleClass="w-full"
+                optionLabel="label"
+                optionValue="value"
+              >
+                <ng-template pTemplate="item" let-option>
+                  <p-tag
+                    [value]="option.label"
+                    [severity]="option.severity"
+                    class="w-full justify-center"
+                  ></p-tag>
+                </ng-template>
+
+                <ng-template pTemplate="selectedItem" let-option>
+                  <p-tag
+                    *ngIf="option"
+                    [value]="option.label"
+                    [severity]="option.severity"
+                  ></p-tag>
+                  <span *ngIf="!option" class="text-gray-400 text-xs">
+                    Todas
+                  </span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <th>
+          Estado
+          <p-columnFilter field="status" matchMode="equals">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [options]="statusOptions"
+                [ngModel]="value"
+                (onChange)="filter($event.value)"
+                (onClear)="filter(null)"
+                placeholder="Todos"
+                [showClear]="true"
+                styleClass="w-full"
+                optionLabel="label"
+                optionValue="value"
+              >
+                <ng-template pTemplate="item" let-option>
+                  <p-tag
+                    [value]="option.label"
+                    [severity]="option.severity"
+                    class="w-full justify-center"
+                  ></p-tag>
+                </ng-template>
+
+                <ng-template pTemplate="selectedItem" let-option>
+                  <p-tag
+                    *ngIf="option"
+                    [value]="option.label"
+                    [severity]="option.severity"
+                  ></p-tag>
+                  <span *ngIf="!option" class="text-gray-400 text-xs">
+                    Todos
+                  </span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <th>
+          Edad
+          <p-columnFilter field="ageYears" matchMode="equals" type="numeric">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-inputNumber
+                [ngModel]="value"
+                (onInput)="filter($event.value)"
+                inputId="ageFilter"
+                placeholder="Años"
+                class="w-full"
+              ></p-inputNumber>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <th>
+          Tamaño
+          <p-columnFilter field="size" matchMode="equals">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [options]="sizeOptions"
+                [ngModel]="value"
+                (onChange)="filter($event.value)"
+                (onClear)="filter(null)"
+                placeholder="Todos"
+                [showClear]="true"
+                styleClass="w-full"
+                optionLabel="label"
+                optionValue="value"
+              >
+                <ng-template pTemplate="item" let-option>
+                  <p-tag
+                    [value]="option.label"
+                    [severity]="option.severity"
+                    class="w-full justify-center"
+                  ></p-tag>
+                </ng-template>
+
+                <ng-template pTemplate="selectedItem" let-option>
+                  <p-tag
+                    *ngIf="option"
+                    [value]="option.label"
+                    [severity]="option.severity"
+                  ></p-tag>
+                  <span *ngIf="!option" class="text-gray-400 text-xs">
+                    Todos
+                  </span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <th>
+          Sexo
+          <p-columnFilter field="sex" matchMode="equals">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [options]="sexOptions"
+                [ngModel]="value"
+                (onChange)="filter($event.value)"
+                (onClear)="filter(null)"
+                placeholder="Todos"
+                [showClear]="true"
+                styleClass="w-full"
+                optionLabel="label"
+                optionValue="value"
+              >
+                <ng-template pTemplate="item" let-option>
+                  <p-tag
+                    [value]="option.label"
+                    [severity]="option.severity"
+                    class="w-full justify-center"
+                  ></p-tag>
+                </ng-template>
+
+                <ng-template pTemplate="selectedItem" let-option>
+                  <p-tag
+                    *ngIf="option"
+                    [value]="option.label"
+                    [severity]="option.severity"
+                  ></p-tag>
+                  <span *ngIf="!option" class="text-gray-400 text-xs">
+                    Todos
+                  </span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <!-- Columna acciones (sin título) -->
+        <th style="width: 4rem"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-animal>
+      <tr>
+        <td>{{ animal.name }}</td>
+
+        <td>
+          <img
+            [src]="animal.image"
+            [alt]="animal.name"
+            class="w-12 h-12 object-cover rounded-md"
+          />
+        </td>
+
+        <td>
+          <p-tag
+            [value]="getSpeciesLabel(animal)"
+            [severity]="getSpeciesSeverity(animal.species)"
+          ></p-tag>
+        </td>
+
+        <td>
+          <p-tag
+            [value]="getStatusLabel(animal)"
+            [severity]="getStatusSeverity(animal.status)"
+          ></p-tag>
+        </td>
+        <td>
+          {{ animal.ageYears }} {{ animal.ageYears === 1 ? "año" : "años" }}
+        </td>
+        <td>
+          <p-tag
+            [value]="getSizeLabel(animal)"
+            [severity]="getSizeSeverity(animal.size)"
+          ></p-tag>
+        </td>
+
+        <td>
+          <p-tag
+            [value]="getSexLabel(animal)"
+            [severity]="getSexSeverity(animal.sex)"
+          ></p-tag>
+        </td>
+
+        <td class="text-right">
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-text p-button-rounded"
+            (click)="onEdit(animal)"
+            [pTooltip]="'Editar animal'"
+            tooltipPosition="top"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage" let-animal>
+      @if(!animal && !isLoading) {
+      <tr>
+        <td colspan="8" class="text-center py-6 text-sm text-gray-500">
+          No se han encontrado animales.
+        </td>
+      </tr>
+      } @else { @for (tr of [1,2,3,4,5]; track $index) {
+      <tr>
+        <td><p-skeleton /></td>
+        <td><p-skeleton size="3rem" /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+      </tr>
+      } }
+    </ng-template>
+  </p-table>
+</div>
+
+<!-- MOBILE -->
+<div class="block md:hidden">
+  <app-shelter-animals-table-mobile
+    [animals]="animals"
+    [isLoading]="isLoading"
+  ></app-shelter-animals-table-mobile>
+</div>
