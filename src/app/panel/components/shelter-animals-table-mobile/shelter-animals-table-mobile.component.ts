@@ -27,6 +27,9 @@ import {
 } from "../../../core/utils/label-severity-show";
 import { SkeletonModule } from "primeng/skeleton";
 import { ColorTagComponent } from "../../../shared/components/color-tag/color-tag.component";
+import { ConfirmationService } from "primeng/api";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { ToastService } from "../../../services/toast.service";
 
 @Component({
   selector: "app-shelter-animals-table-mobile",
@@ -42,14 +45,18 @@ import { ColorTagComponent } from "../../../shared/components/color-tag/color-ta
     FormsModule,
     SkeletonModule,
     ColorTagComponent,
+    ConfirmDialogModule,
   ],
   templateUrl: "./shelter-animals-table-mobile.component.html",
   styleUrl: "./shelter-animals-table-mobile.component.scss",
+  providers: [ConfirmationService],
 })
 export class ShelterAnimalsTableMobileComponent {
   @Input() animals: ShelterAnimals[] = [];
   @Input() isLoading: boolean = false;
   private router = inject(Router);
+  private confirmationService = inject(ConfirmationService);
+  private toastService = inject(ToastService);
   protected speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   protected statusOptions: SelectOption[] = STATUS_OPTIONS;
   protected sizeOptions: SelectOption[] = SIZE_OPTIONS;
@@ -107,14 +114,14 @@ export class ShelterAnimalsTableMobileComponent {
    * @description Edit animal action
    * @param animal ShelterAnimals
    */
-  onEdit(animalId: string): void {
+  protected onEdit(animalId: string): void {
     this.router.navigate([`/panel/shelter-animals/${animalId}/edit`]);
   }
 
   /**
    * @description Clear all mobile filters
    */
-  clearMobileFilters(): void {
+  protected clearMobileFilters(): void {
     this.nameFilter = "";
     this.speciesFilter = null;
     this.statusFilter = null;
@@ -128,5 +135,35 @@ export class ShelterAnimalsTableMobileComponent {
    */
   protected toggleShowFilters(): void {
     this.showFilters = !this.showFilters;
+  }
+
+  protected deleteConfirm(
+    event: MouseEvent,
+    animalId: string,
+    animalName: string
+  ): void {
+    this.confirmationService.confirm({
+      target: event.currentTarget as HTMLElement,
+      message: `¿Seguro que quieres eliminar a ${animalName}?`,
+      icon: "pi pi-info-circle",
+      header: "Eliminar animal",
+      rejectButtonProps: {
+        label: "Cancelar",
+        severity: "secondary",
+        outlined: true,
+      },
+      acceptButtonProps: {
+        label: "Eliminar",
+        severity: "danger",
+      },
+      accept: () => {
+        // TODO: INTEGRACIÓN
+        // this.profileService.deleteAnimal(animalId).subscribe(() => {
+        //     this.animals = this.animals.filter(animal => animal.id !== animalId);
+        //     this.toastService.success('Animal eliminado correctamente');
+        // });
+        this.toastService.info("Animal eliminado");
+      },
+    });
   }
 }

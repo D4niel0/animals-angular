@@ -1615,5 +1615,6 @@
     }
   ],
   "new-animal": [],
-  "edit-animal": []
+  "edit-animal": [],
+  "delete-animal": []
 }

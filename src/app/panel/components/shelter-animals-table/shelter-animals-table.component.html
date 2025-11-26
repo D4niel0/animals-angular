@@ -211,6 +211,7 @@
 
         <!-- Columna acciones (sin título) -->
         <th style="width: 4rem"></th>
+        <th style="width: 4rem"></th>
       </tr>
     </ng-template>
 
@@ -267,6 +268,17 @@
             tooltipPosition="top"
           ></button>
         </td>
+        <td class="text-right">
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-text p-button-rounded p-button-danger"
+            (click)="deleteConfirm($event, animal.id, animal.name)"
+            [pTooltip]="'Eliminar animal'"
+            tooltipPosition="top"
+          ></button>
+        </td>
       </tr>
     </ng-template>
 
@@ -292,7 +304,7 @@
     </ng-template>
   </p-table>
 </div>
-
+<p-confirmdialog />
 <!-- MOBILE -->
 <div class="block md:hidden">
   <app-shelter-animals-table-mobile

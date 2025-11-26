@@ -20,8 +20,8 @@
       ></button>
     </header>
 
-    <div *ngIf="isLoading" class="py-10 text-center text-sm text-gray-500">
-      Cargando datos del animal...
+    <div *ngIf="isLoading">
+      <app-paw-spinner></app-paw-spinner>
     </div>
 
     <form

@@ -16,6 +16,7 @@ import { AnimalsService } from "../../../services/animals.service";
 import { ProfileService } from "../../../services/profile.service";
 import { AnimalImagesComponent } from "../../../shared/components/animal-images/animal-images.component";
 import { ToastService } from "../../../services/toast.service";
+import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
 
 @Component({
   selector: "app-shelter-animal-form-page",
@@ -29,6 +30,7 @@ import { ToastService } from "../../../services/toast.service";
     ButtonModule,
     RouterModule,
     AnimalImagesComponent,
+    PawSpinnerComponent,
   ],
   templateUrl: "./shelter-animal-form-page.component.html",
   styleUrl: "./shelter-animal-form-page.component.scss",
@@ -111,29 +113,7 @@ export class ShelterAnimalFormPageComponent {
         }
         this.isLoading = false;
       },
-      error: () => {
-        this.isLoading = false;
-      },
     });
-
-    const mock: Partial<Animal> = {
-      id,
-      name: "Mocky",
-      species: "dog",
-      ageYears: 3,
-      size: "medium",
-      status: "available",
-      sex: "m",
-      compatibleWithDogs: true,
-      compatibleWithCats: false,
-      compatibleWithChildren: true,
-      description: "Perrete muy bueno.",
-      history: "Rescatado de la calle.",
-      specialNeeds: "",
-    };
-
-    this.patchForm(mock);
-    this.isLoading = false;
   }
 
   /**

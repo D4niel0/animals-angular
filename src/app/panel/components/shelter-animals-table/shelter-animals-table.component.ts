@@ -32,6 +32,10 @@ import {
   ColorTagComponent,
   ColorTagVariant,
 } from "../../../shared/components/color-tag/color-tag.component";
+import { ProfileService } from "../../../services/profile.service";
+import { ConfirmationService } from "primeng/api";
+import { ToastService } from "../../../services/toast.service";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
 
 @Component({
   selector: "app-shelter-animals-table",
@@ -49,14 +53,18 @@ import {
     ShelterAnimalsTableMobileComponent,
     SkeletonModule,
     ColorTagComponent,
+    ConfirmDialogModule,
   ],
   templateUrl: "./shelter-animals-table.component.html",
   styleUrl: "./shelter-animals-table.component.scss",
+  providers: [ConfirmationService],
 })
 export class ShelterAnimalsTableComponent {
   @Input() animals: ShelterAnimals[] = [];
   @Input() isLoading: boolean = false;
   private router = inject(Router);
+  private confirmationService = inject(ConfirmationService);
+  private toastService = inject(ToastService);
 
   speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   statusOptions: SelectOption[] = STATUS_OPTIONS;
@@ -77,7 +85,37 @@ export class ShelterAnimalsTableComponent {
    * @description Edit animal action
    * @param animal ShelterAnimals
    */
-  onEdit(animalId: string): void {
+  protected onEdit(animalId: string): void {
     this.router.navigate([`/panel/shelter-animals/${animalId}/edit`]);
+  }
+
+  protected deleteConfirm(
+    event: MouseEvent,
+    animalId: string,
+    animalName: string
+  ): void {
+    this.confirmationService.confirm({
+      target: event.currentTarget as HTMLElement,
+      message: `¿Seguro que quieres eliminar a ${animalName}?`,
+      icon: "pi pi-info-circle",
+      header: "Eliminar animal",
+      rejectButtonProps: {
+        label: "Cancelar",
+        severity: "secondary",
+        outlined: true,
+      },
+      acceptButtonProps: {
+        label: "Eliminar",
+        severity: "danger",
+      },
+      accept: () => {
+        // TODO: INTEGRACIÓN
+        // this.profileService.deleteAnimal(animalId).subscribe(() => {
+        //     this.animals = this.animals.filter(animal => animal.id !== animalId);
+        //     this.toastService.success('Animal eliminado correctamente');
+        // });
+        this.toastService.info("Animal eliminado");
+      },
+    });
   }
 }

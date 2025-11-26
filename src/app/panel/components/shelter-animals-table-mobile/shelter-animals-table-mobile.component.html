@@ -178,17 +178,28 @@
     />
 
     <div class="flex-1 min-w-0">
-      <div class="flex justify-between items-start gap-2">
+      <div class="flex justify-between items-center gap-2">
         <h3 class="font-medium text-sm truncate">{{ animal.name }}</h3>
-        <button
-          pButton
-          type="button"
-          icon="pi pi-pencil"
-          class="p-button-text p-button-rounded p-button-sm"
-          (click)="onEdit(animal.id)"
-          [pTooltip]="'Editar animal'"
-          tooltipPosition="top"
-        ></button>
+        <div class="flex gap-1">
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-text p-button-rounded p-button-sm"
+            (click)="onEdit(animal.id)"
+            [pTooltip]="'Editar animal'"
+            tooltipPosition="top"
+          ></button>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-text p-button-rounded p-button-danger"
+            (click)="deleteConfirm($event, animal.id, animal.name)"
+            [pTooltip]="'Eliminar animal'"
+            tooltipPosition="top"
+          ></button>
+        </div>
       </div>
 
       <div class="flex flex-wrap gap-1 mt-2 text-[10px]">
@@ -224,3 +235,4 @@
     No hay animales que coincidan con los filtros seleccionados.
   </p>
 </section>
+<p-confirmdialog />

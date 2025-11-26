@@ -45,4 +45,10 @@ export class ProfileService {
       .put(`${this.baseUrl}edit-animal/${id}`, animalData)
       .pipe(delay(500));
   }
+
+  deleteAnimal(id: string) {
+    return this.http
+      .delete(`${this.baseUrl}delete-animal/${id}`)
+      .pipe(delay(500));
+  }
 }
