@@ -1,3 +1,5 @@
+import { ColorTagVariant } from "./components/color-tag/color-tag.component";
+
 export interface Animal {
   id: number;
   species: "dog" | "cat" | "other";
@@ -108,4 +110,18 @@ export interface ShelterAnimals {
   ageYears: number;
   size: "small" | "medium" | "large";
   sex: "m" | "f";
+}
+
+export interface SelectOption {
+  label: string;
+  value: string;
+  variant?: ColorTagVariant;
+  severity?:
+    | "info"
+    | "success"
+    | "secondary"
+    | "warn"
+    | "danger"
+    | "contrast"
+    | undefined;
 }

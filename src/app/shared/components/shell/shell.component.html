@@ -74,7 +74,13 @@
         aria-label="Configuración"
         (click)="menuMobile.toggle($event)"
       ></button>
-      <p-menu #menuMobile [popup]="true" [model]="menuItems"></p-menu>
+      <p-menu
+        #menuMobile
+        [popup]="true"
+        [model]="menuItems"
+        appendTo="body"
+        [baseZIndex]="11000"
+      ></p-menu>
     </div>
   </p-toolbar>
 
@@ -115,7 +121,13 @@
         aria-label="Configuración"
         (click)="menu.toggle($event)"
       ></button>
-      <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+      <p-menu
+        #menu
+        [popup]="true"
+        [model]="menuItems"
+        appendTo="body"
+        [baseZIndex]="11000"
+      ></p-menu>
     </div>
   </p-toolbar>
 

@@ -42,19 +42,19 @@
                 optionValue="value"
               >
                 <ng-template pTemplate="item" let-option>
-                  <p-tag
+                  <app-color-tag
                     [value]="option.label"
-                    [severity]="option.severity"
+                    [variant]="option.variant"
                     class="w-full justify-center"
-                  ></p-tag>
+                  ></app-color-tag>
                 </ng-template>
 
                 <ng-template pTemplate="selectedItem" let-option>
-                  <p-tag
+                  <app-color-tag
                     *ngIf="option"
                     [value]="option.label"
-                    [severity]="option.severity"
-                  ></p-tag>
+                    [variant]="option.variant"
+                  ></app-color-tag>
                   <span *ngIf="!option" class="text-gray-400 text-xs">
                     Todas
                   </span>
@@ -84,19 +84,19 @@
                 optionValue="value"
               >
                 <ng-template pTemplate="item" let-option>
-                  <p-tag
+                  <app-color-tag
                     [value]="option.label"
-                    [severity]="option.severity"
+                    [variant]="option.variant"
                     class="w-full justify-center"
-                  ></p-tag>
+                  ></app-color-tag>
                 </ng-template>
 
                 <ng-template pTemplate="selectedItem" let-option>
-                  <p-tag
+                  <app-color-tag
                     *ngIf="option"
                     [value]="option.label"
-                    [severity]="option.severity"
-                  ></p-tag>
+                    [variant]="option.variant"
+                  ></app-color-tag>
                   <span *ngIf="!option" class="text-gray-400 text-xs">
                     Todos
                   </span>
@@ -145,19 +145,19 @@
                 optionValue="value"
               >
                 <ng-template pTemplate="item" let-option>
-                  <p-tag
+                  <app-color-tag
                     [value]="option.label"
-                    [severity]="option.severity"
+                    [variant]="option.variant"
                     class="w-full justify-center"
-                  ></p-tag>
+                  ></app-color-tag>
                 </ng-template>
 
                 <ng-template pTemplate="selectedItem" let-option>
-                  <p-tag
+                  <app-color-tag
                     *ngIf="option"
                     [value]="option.label"
-                    [severity]="option.severity"
-                  ></p-tag>
+                    [variant]="option.variant"
+                  ></app-color-tag>
                   <span *ngIf="!option" class="text-gray-400 text-xs">
                     Todos
                   </span>
@@ -187,19 +187,19 @@
                 optionValue="value"
               >
                 <ng-template pTemplate="item" let-option>
-                  <p-tag
+                  <app-color-tag
                     [value]="option.label"
-                    [severity]="option.severity"
+                    [variant]="option.variant"
                     class="w-full justify-center"
-                  ></p-tag>
+                  ></app-color-tag>
                 </ng-template>
 
                 <ng-template pTemplate="selectedItem" let-option>
-                  <p-tag
+                  <app-color-tag
                     *ngIf="option"
                     [value]="option.label"
-                    [severity]="option.severity"
-                  ></p-tag>
+                    [variant]="option.variant"
+                  ></app-color-tag>
                   <span *ngIf="!option" class="text-gray-400 text-xs">
                     Todos
                   </span>
@@ -227,33 +227,33 @@
         </td>
 
         <td>
-          <p-tag
+          <app-color-tag
             [value]="getSpeciesLabel(animal)"
-            [severity]="getSpeciesSeverity(animal.species)"
-          ></p-tag>
+            [variant]="getSpeciesSeverity(animal.species)"
+          ></app-color-tag>
         </td>
 
         <td>
-          <p-tag
+          <app-color-tag
             [value]="getStatusLabel(animal)"
-            [severity]="getStatusSeverity(animal.status)"
-          ></p-tag>
+            [variant]="getStatusSeverity(animal.status)"
+          ></app-color-tag>
         </td>
         <td>
           {{ animal.ageYears }} {{ animal.ageYears === 1 ? "año" : "años" }}
         </td>
         <td>
-          <p-tag
+          <app-color-tag
             [value]="getSizeLabel(animal)"
-            [severity]="getSizeSeverity(animal.size)"
-          ></p-tag>
+            [variant]="getSizeSeverity(animal.size)"
+          ></app-color-tag>
         </td>
 
         <td>
-          <p-tag
+          <app-color-tag
             [value]="getSexLabel(animal)"
-            [severity]="getSexSeverity(animal.sex)"
-          ></p-tag>
+            [variant]="getSexSeverity(animal.sex)"
+          ></app-color-tag>
         </td>
 
         <td class="text-right">

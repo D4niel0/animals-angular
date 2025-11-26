@@ -45,11 +45,11 @@
           styleClass="w-full text-sm"
         >
           <ng-template pTemplate="item" let-option>
-            <p-tag
+            <app-color-tag
               [value]="option.label"
-              [severity]="option.severity"
+              [variant]="option.severity"
               class="w-full justify-center"
-            ></p-tag>
+            ></app-color-tag>
           </ng-template>
         </p-dropdown>
       </div>
@@ -69,11 +69,11 @@
           styleClass="w-full text-sm"
         >
           <ng-template pTemplate="item" let-option>
-            <p-tag
+            <app-color-tag
               [value]="option.label"
-              [severity]="option.severity"
+              [variant]="option.severity"
               class="w-full justify-center"
-            ></p-tag>
+            ></app-color-tag>
           </ng-template>
         </p-dropdown>
       </div>
@@ -108,11 +108,11 @@
           styleClass="w-full text-sm"
         >
           <ng-template pTemplate="item" let-option>
-            <p-tag
+            <app-color-tag
               [value]="option.label"
-              [severity]="option.severity"
+              [variant]="option.severity"
               class="w-full justify-center"
-            ></p-tag>
+            ></app-color-tag>
           </ng-template>
         </p-dropdown>
       </div>
@@ -132,11 +132,11 @@
           styleClass="w-full text-sm"
         >
           <ng-template pTemplate="item" let-option>
-            <p-tag
+            <app-color-tag
               [value]="option.label"
-              [severity]="option.severity"
+              [variant]="option.severity"
               class="w-full justify-center"
-            ></p-tag>
+            ></app-color-tag>
           </ng-template>
         </p-dropdown>
       </div>
@@ -192,26 +192,26 @@
       </div>
 
       <div class="flex flex-wrap gap-1 mt-2 text-[10px]">
-        <p-tag
+        <app-color-tag
           [value]="getSpeciesLabel(animal)"
-          [severity]="getSpeciesSeverity(animal.species)"
-        ></p-tag>
-        <p-tag
+          [variant]="getSpeciesSeverity(animal.species)"
+        ></app-color-tag>
+        <app-color-tag
           [value]="getStatusLabel(animal)"
-          [severity]="getStatusSeverity(animal.status)"
-        ></p-tag>
-        <p-tag
+          [variant]="getStatusSeverity(animal.status)"
+        ></app-color-tag>
+        <app-color-tag
           [value]="getSizeLabel(animal)"
-          [severity]="getSizeSeverity(animal.size)"
-        ></p-tag>
-        <p-tag
+          [variant]="getSizeSeverity(animal.size)"
+        ></app-color-tag>
+        <app-color-tag
           [value]="getSexLabel(animal)"
-          [severity]="getSexSeverity(animal.sex)"
-        ></p-tag>
-        <p-tag
+          [variant]="getSexSeverity(animal.sex)"
+        ></app-color-tag>
+        <app-color-tag
           [value]="animal.ageYears === 1 ? '1 año' : animal.ageYears + ' años'"
           severity="secondary"
-        ></p-tag>
+        ></app-color-tag>
       </div>
     </div>
   </article>

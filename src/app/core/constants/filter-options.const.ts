@@ -1,23 +1,23 @@
-import { SelectOption } from "../../panel/components/shelter-animals-table/shelter-animals-table.component";
+import { SelectOption } from "../../shared/models";
 
 export const SPECIES_OPTIONS: SelectOption[] = [
-  { label: "Perro", value: "dog", severity: "info" },
-  { label: "Gato", value: "cat", severity: "success" },
-  { label: "Otro", value: "other", severity: "warn" },
+  { label: "Perro", value: "dog", variant: "lime" },
+  { label: "Gato", value: "cat", variant: "purple" },
+  { label: "Otro", value: "other", variant: "zinc" },
 ];
 
 export const STATUS_OPTIONS: SelectOption[] = [
-  { label: "Disponible", value: "available", severity: "success" },
-  { label: "Reservado", value: "reserved", severity: "warn" },
+  { label: "Disponible", value: "available", variant: "emerald" },
+  { label: "Reservado", value: "reserved", variant: "yellow" },
 ];
 
 export const SIZE_OPTIONS: SelectOption[] = [
-  { label: "Pequeño", value: "small", severity: "info" },
-  { label: "Mediano", value: "medium", severity: "warn" },
-  { label: "Grande", value: "large", severity: "danger" },
+  { label: "Pequeño", value: "small", variant: "sky" },
+  { label: "Mediano", value: "medium", variant: "orange" },
+  { label: "Grande", value: "large", variant: "slate" },
 ];
 
 export const SEX_OPTIONS: SelectOption[] = [
-  { label: "Macho", value: "m", severity: "info" },
-  { label: "Hembra", value: "f", severity: "success" },
+  { label: "Macho", value: "m", variant: "blue" },
+  { label: "Hembra", value: "f", variant: "pink" },
 ];

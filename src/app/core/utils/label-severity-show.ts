@@ -1,4 +1,3 @@
-import { SelectOption } from "../../panel/components/shelter-animals-table/shelter-animals-table.component";
 import { ShelterAnimals } from "../../shared/models";
 import {
   SEX_OPTIONS,
@@ -42,17 +41,17 @@ export function getSexLabel(animal: ShelterAnimals): string {
 }
 
 export function getSpeciesSeverity(species: ShelterAnimals["species"]) {
-  return SPECIES_OPTIONS.find((o) => o.value === species)?.severity ?? "info";
+  return SPECIES_OPTIONS.find((o) => o.value === species)?.variant ?? "info";
 }
 
 export function getStatusSeverity(status: ShelterAnimals["status"]) {
-  return STATUS_OPTIONS.find((o) => o.value === status)?.severity ?? "info";
+  return STATUS_OPTIONS.find((o) => o.value === status)?.variant ?? "info";
 }
 
 export function getSizeSeverity(size: ShelterAnimals["size"]) {
-  return SIZE_OPTIONS.find((o) => o.value === size)?.severity ?? "info";
+  return SIZE_OPTIONS.find((o) => o.value === size)?.variant ?? "info";
 }
 
 export function getSexSeverity(sex: ShelterAnimals["sex"]) {
-  return SEX_OPTIONS.find((o) => o.value === sex)?.severity ?? "info";
+  return SEX_OPTIONS.find((o) => o.value === sex)?.variant ?? "info";
 }

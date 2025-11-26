@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ShelterAnimals } from "../../../shared/models";
+import { SelectOption, ShelterAnimals } from "../../../shared/models";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
@@ -9,7 +9,6 @@ import { InputNumberModule } from "primeng/inputnumber";
 import { InputTextModule } from "primeng/inputtext";
 import { TagModule } from "primeng/tag";
 import { TooltipModule } from "primeng/tooltip";
-import { SelectOption } from "../shelter-animals-table/shelter-animals-table.component";
 import {
   SPECIES_OPTIONS,
   STATUS_OPTIONS,
@@ -27,6 +26,7 @@ import {
   getSexSeverity,
 } from "../../../core/utils/label-severity-show";
 import { SkeletonModule } from "primeng/skeleton";
+import { ColorTagComponent } from "../../../shared/components/color-tag/color-tag.component";
 
 @Component({
   selector: "app-shelter-animals-table-mobile",
@@ -40,8 +40,8 @@ import { SkeletonModule } from "primeng/skeleton";
     InputNumberModule,
     TooltipModule,
     FormsModule,
-    TagModule,
     SkeletonModule,
+    ColorTagComponent,
   ],
   templateUrl: "./shelter-animals-table-mobile.component.html",
   styleUrl: "./shelter-animals-table-mobile.component.scss",

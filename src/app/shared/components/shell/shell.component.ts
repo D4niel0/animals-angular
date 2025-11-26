@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { Router, RouterModule, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs";
 
@@ -34,7 +34,10 @@ import { AuthService } from "../../../services/auth.service";
   templateUrl: "./shell.component.html",
   styleUrls: ["./shell.component.scss"],
 })
-export class ShellComponent {
+export class ShellComponent implements OnInit, OnDestroy {
+  @ViewChild("menu") menu!: Menu;
+  @ViewChild("menuMobile") menuMobile!: Menu;
+
   protected sidebarVisible = false;
   protected isHome = false;
 
@@ -65,6 +68,11 @@ export class ShellComponent {
   private animalsFilterStore = inject(AnimalsFiltersStore);
   private authService = inject(AuthService);
 
+  private onScroll = () => {
+    this.menu?.hide();
+    this.menuMobile?.hide();
+  };
+
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
 
@@ -73,6 +81,14 @@ export class ShellComponent {
       .subscribe((ev) => {
         this.isHome = this.checkIsHome(ev.urlAfterRedirects);
       });
+  }
+
+  ngOnInit(): void {
+    window.addEventListener("scroll", this.onScroll, true);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener("scroll", this.onScroll, true);
   }
 
   private checkIsHome(url: string): boolean {

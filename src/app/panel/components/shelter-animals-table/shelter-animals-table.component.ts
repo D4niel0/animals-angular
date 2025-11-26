@@ -6,7 +6,7 @@ import { DropdownModule } from "primeng/dropdown";
 import { InputTextModule } from "primeng/inputtext";
 import { TableModule } from "primeng/table";
 import { InputNumberModule } from "primeng/inputnumber";
-import { ShelterAnimals } from "../../../shared/models";
+import { SelectOption, ShelterAnimals } from "../../../shared/models";
 import { TooltipModule } from "primeng/tooltip";
 import { TagModule } from "primeng/tag";
 import { FormsModule } from "@angular/forms";
@@ -28,19 +28,10 @@ import {
   STATUS_OPTIONS,
 } from "../../../core/constants/filter-options.const";
 import { SkeletonModule } from "primeng/skeleton";
-
-export interface SelectOption {
-  label: string;
-  value: string;
-  severity:
-    | "info"
-    | "success"
-    | "secondary"
-    | "warn"
-    | "danger"
-    | "contrast"
-    | undefined;
-}
+import {
+  ColorTagComponent,
+  ColorTagVariant,
+} from "../../../shared/components/color-tag/color-tag.component";
 
 @Component({
   selector: "app-shelter-animals-table",
@@ -55,9 +46,9 @@ export interface SelectOption {
     InputNumberModule,
     TooltipModule,
     FormsModule,
-    TagModule,
     ShelterAnimalsTableMobileComponent,
     SkeletonModule,
+    ColorTagComponent,
   ],
   templateUrl: "./shelter-animals-table.component.html",
   styleUrl: "./shelter-animals-table.component.scss",
