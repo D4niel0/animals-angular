@@ -112,7 +112,8 @@ export class AnimalsComponent implements OnInit {
       }
 
       const locs = filters.location.filter((l) => l !== "");
-      if (locs.length && !locs.includes(animal.location.region)) return false;
+      const region = animal.location?.region ?? "";
+      if (locs.length && !locs.includes(region)) return false;
 
       return true;
     });
