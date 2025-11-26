@@ -4,11 +4,12 @@ import { ProfileService } from "../../../services/profile.service";
 import { finalize } from "rxjs";
 import { ShelterAnimalsTableComponent } from "../../components/shelter-animals-table/shelter-animals-table.component";
 import { ButtonModule } from "primeng/button";
+import { Router, RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-shelter-animals",
   standalone: true,
-  imports: [ShelterAnimalsTableComponent, ButtonModule],
+  imports: [ShelterAnimalsTableComponent, ButtonModule, RouterModule],
   templateUrl: "./shelter-animals.component.html",
   styleUrl: "./shelter-animals.component.scss",
 })
@@ -16,7 +17,6 @@ export class ShelterAnimalsComponent {
   protected animals: ShelterAnimals[] = [];
   protected isLoading = false;
   private profileService = inject(ProfileService);
-
   constructor() {
     this.getShelterAnimals();
   }

@@ -1,8 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, inject, Input } from "@angular/core";
 import { SelectOption, ShelterAnimals } from "../../../shared/models";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { ButtonModule } from "primeng/button";
 import { DropdownModule } from "primeng/dropdown";
 import { InputNumberModule } from "primeng/inputnumber";
@@ -49,7 +49,7 @@ import { ColorTagComponent } from "../../../shared/components/color-tag/color-ta
 export class ShelterAnimalsTableMobileComponent {
   @Input() animals: ShelterAnimals[] = [];
   @Input() isLoading: boolean = false;
-
+  private router = inject(Router);
   protected speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   protected statusOptions: SelectOption[] = STATUS_OPTIONS;
   protected sizeOptions: SelectOption[] = SIZE_OPTIONS;
@@ -107,8 +107,8 @@ export class ShelterAnimalsTableMobileComponent {
    * @description Edit animal action
    * @param animal ShelterAnimals
    */
-  onEdit(animal: ShelterAnimals): void {
-    console.log("Edit animal:", animal);
+  onEdit(animalId: string): void {
+    this.router.navigate([`/panel/shelter-animals/${animalId}/edit`]);
   }
 
   /**

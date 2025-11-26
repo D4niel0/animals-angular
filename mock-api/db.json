@@ -1613,5 +1613,7 @@
       "size": "large",
       "sex": "f"
     }
-  ]
+  ],
+  "new-animal": [],
+  "edit-animal": []
 }

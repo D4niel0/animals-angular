@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
+import { Router, RouterModule } from "@angular/router";
 import { ButtonModule } from "primeng/button";
 import { DropdownModule } from "primeng/dropdown";
 import { InputTextModule } from "primeng/inputtext";
@@ -56,6 +56,7 @@ import {
 export class ShelterAnimalsTableComponent {
   @Input() animals: ShelterAnimals[] = [];
   @Input() isLoading: boolean = false;
+  private router = inject(Router);
 
   speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   statusOptions: SelectOption[] = STATUS_OPTIONS;
@@ -76,7 +77,7 @@ export class ShelterAnimalsTableComponent {
    * @description Edit animal action
    * @param animal ShelterAnimals
    */
-  onEdit(animal: ShelterAnimals): void {
-    console.log("Edit animal:", animal);
+  onEdit(animalId: string): void {
+    this.router.navigate([`/panel/shelter-animals/${animalId}/edit`]);
   }
 }

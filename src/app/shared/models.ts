@@ -1,7 +1,7 @@
 import { ColorTagVariant } from "./components/color-tag/color-tag.component";
 
 export interface Animal {
-  id: number;
+  id?: number;
   species: "dog" | "cat" | "other";
   name: string;
   ageYears: number;
@@ -9,9 +9,9 @@ export interface Animal {
   size: "small" | "medium" | "large";
   status: "available" | "reserved";
 
-  date: string;
+  date?: string;
   sex: "m" | "f";
-  breed: string;
+  breed?: string;
   compatibleWithDogs: boolean;
   compatibleWithCats: boolean;
   compatibleWithChildren: boolean;
@@ -20,7 +20,7 @@ export interface Animal {
   history: string;
   specialNeeds?: string;
 
-  location: AnimalLocation;
+  location?: AnimalLocation;
 
   imageUrl: string[];
 }

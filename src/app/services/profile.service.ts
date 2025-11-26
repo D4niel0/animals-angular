@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { delay } from "rxjs";
-import { ShelterUpdateProfile } from "../shared/models";
+import { Animal, ShelterUpdateProfile } from "../shared/models";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
@@ -31,6 +31,18 @@ export class ProfileService {
   getShelterAnimals() {
     return this.http
       .get<any>(`${this.baseUrl}shelter-animals`)
+      .pipe(delay(500));
+  }
+
+  createAnimal(animalData: Animal) {
+    return this.http
+      .post(`${this.baseUrl}new-animal`, animalData)
+      .pipe(delay(500));
+  }
+
+  editAnimal(animalData: Animal) {
+    return this.http
+      .put(`${this.baseUrl}edit-animal`, animalData)
       .pipe(delay(500));
   }
 }

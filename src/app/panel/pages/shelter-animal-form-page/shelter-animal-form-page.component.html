@@ -1,0 +1,455 @@
+<section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <header class="mb-6 mt-2 flex items-center justify-between gap-3">
+      <div>
+        <h1 class="font-chewy text-xl md:text-2xl font-semibold text-gray-900">
+          {{ mode === "create" ? "Añadir nuevo animal" : "Editar animal" }}
+        </h1>
+        <p class="text-sm text-gray-600 mt-1">
+          Completa la información del animal para que pueda aparecer en la lista
+          de adopciones.
+        </p>
+      </div>
+
+      <button
+        pButton
+        type="button"
+        label="Volver"
+        class="p-button-text"
+        routerLink="/panel/shelter-animals"
+      ></button>
+    </header>
+
+    <div *ngIf="isLoading" class="py-10 text-center text-sm text-gray-500">
+      Cargando datos del animal...
+    </div>
+
+    <form
+      *ngIf="!isLoading"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="space-y-8"
+      novalidate
+    >
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Datos básicos</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Nombre *
+            </label>
+            <input
+              id="name"
+              pInputText
+              type="text"
+              formControlName="name"
+              class="w-full"
+              placeholder="Nombre del animal"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  form.get('name')?.invalid && form.get('name')?.touched
+              }"
+            />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+            >
+              El nombre es obligatorio.
+            </small>
+          </div>
+
+          <div>
+            <label
+              for="ageYears"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Años *
+            </label>
+            <p-inputNumber
+              inputId="ageYears"
+              formControlName="ageYears"
+              [min]="0"
+              [max]="30"
+              [showButtons]="true"
+              class="w-full"
+              placeholder="Edad en años"
+            ></p-inputNumber>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('ageYears')?.invalid && form.get('ageYears')?.touched
+              "
+            >
+              Introduce una edad válida (0 - 30).
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Características</h2>
+
+        <div>
+          <span class="block text-sm font-medium text-gray-700 mb-1">
+            Especie *
+          </span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let s of speciesList"
+              (click)="setChipValue('species', s)"
+              [attr.aria-pressed]="isChipSelected('species', s)"
+              class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+              [ngClass]="
+                isChipSelected('species', s)
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-gray-200 text-gray-700'
+              "
+            >
+              {{ s === "dog" ? "Perro" : s === "cat" ? "Gato" : "Otros" }}
+            </button>
+          </div>
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="form.get('species')?.invalid && form.get('species')?.touched"
+          >
+            Selecciona una especie.
+          </small>
+        </div>
+
+        <div>
+          <span class="block text-sm font-medium text-gray-700 mb-1">
+            Tamaño *
+          </span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let t of sizeList"
+              (click)="setChipValue('size', t)"
+              [attr.aria-pressed]="isChipSelected('size', t)"
+              class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+              [ngClass]="
+                isChipSelected('size', t)
+                  ? 'bg-yellow-100 text-yellow-800'
+                  : 'bg-gray-200 text-gray-700'
+              "
+            >
+              {{
+                t === "small"
+                  ? "Pequeño"
+                  : t === "medium"
+                  ? "Mediano"
+                  : "Grande"
+              }}
+            </button>
+          </div>
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="form.get('size')?.invalid && form.get('size')?.touched"
+          >
+            Selecciona un tamaño.
+          </small>
+        </div>
+
+        <div>
+          <span class="block text-sm font-medium text-gray-700 mb-1">
+            Estado *
+          </span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let st of statusList"
+              (click)="setChipValue('status', st)"
+              [attr.aria-pressed]="isChipSelected('status', st)"
+              class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+              [ngClass]="
+                isChipSelected('status', st)
+                  ? st === 'available'
+                    ? 'bg-emerald-100 text-emerald-800'
+                    : 'bg-amber-100 text-amber-800'
+                  : 'bg-gray-200 text-gray-700'
+              "
+            >
+              {{ st === "available" ? "Disponible" : "Reservado" }}
+            </button>
+          </div>
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="form.get('status')?.invalid && form.get('status')?.touched"
+          >
+            Selecciona el estado del animal.
+          </small>
+        </div>
+
+        <div>
+          <span class="block text-sm font-medium text-gray-700 mb-1">
+            Sexo *
+          </span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let g of sexList"
+              (click)="setChipValue('sex', g)"
+              [attr.aria-pressed]="isChipSelected('sex', g)"
+              class="select-none rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-150"
+              [ngClass]="
+                isChipSelected('sex', g)
+                  ? g === 'm'
+                    ? 'bg-sky-100 text-sky-800'
+                    : 'bg-pink-100 text-pink-800'
+                  : 'bg-gray-200 text-gray-700'
+              "
+            >
+              {{ g === "m" ? "Macho" : "Hembra" }}
+            </button>
+          </div>
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="form.get('sex')?.invalid && form.get('sex')?.touched"
+          >
+            Selecciona el sexo.
+          </small>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Compatibilidad</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <span class="block text-sm font-medium text-gray-700 mb-1">
+              Compatible con perros *
+            </span>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithDogs', true)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithDogs', true)
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sí
+              </button>
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithDogs', false)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithDogs', false)
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                No
+              </button>
+            </div>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('compatibleWithDogs')?.invalid &&
+                form.get('compatibleWithDogs')?.touched
+              "
+            >
+              Indica si es compatible con perros.
+            </small>
+          </div>
+
+          <div>
+            <span class="block text-sm font-medium text-gray-700 mb-1">
+              Compatible con gatos *
+            </span>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithCats', true)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithCats', true)
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sí
+              </button>
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithCats', false)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithCats', false)
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                No
+              </button>
+            </div>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('compatibleWithCats')?.invalid &&
+                form.get('compatibleWithCats')?.touched
+              "
+            >
+              Indica si es compatible con gatos.
+            </small>
+          </div>
+
+          <div>
+            <span class="block text-sm font-medium text-gray-700 mb-1">
+              Compatible con niños *
+            </span>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithChildren', true)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithChildren', true)
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sí
+              </button>
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithChildren', false)"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithChildren', false)
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                No
+              </button>
+            </div>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('compatibleWithChildren')?.invalid &&
+                form.get('compatibleWithChildren')?.touched
+              "
+            >
+              Indica si es compatible con niños.
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <section class="space-y-4">
+        <h2 class="text-lg font-medium text-gray-900">Descripción</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Descripción *
+            </label>
+            <textarea
+              id="description"
+              pTextarea
+              formControlName="description"
+              rows="4"
+              class="w-full"
+              placeholder="Describe el carácter, energía, rutinas..."
+            ></textarea>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('description')?.invalid &&
+                form.get('description')?.touched
+              "
+            >
+              La descripción es obligatoria.
+            </small>
+          </div>
+
+          <div>
+            <label
+              for="history"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Historia *
+            </label>
+            <textarea
+              id="history"
+              pTextarea
+              formControlName="history"
+              rows="4"
+              class="w-full"
+              placeholder="Cuenta su historia, de dónde viene, cómo llegó al refugio..."
+            ></textarea>
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                form.get('history')?.invalid && form.get('history')?.touched
+              "
+            >
+              La historia es obligatoria.
+            </small>
+          </div>
+        </div>
+
+        <div>
+          <label
+            for="specialNeeds"
+            class="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Necesidades especiales (opcional)
+          </label>
+          <textarea
+            id="specialNeeds"
+            pTextarea
+            formControlName="specialNeeds"
+            rows="3"
+            class="w-full"
+            placeholder="Medicaciones, dietas, cuidados específicos..."
+          ></textarea>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- TODO: Implement image upload functionality -->
+      <section class="space-y-2">
+        <h2 class="text-lg font-medium text-gray-900">Imagen</h2>
+        <p class="text-xs text-gray-500">IMAGES UPLOAD</p>
+      </section>
+
+      <div class="flex justify-end pt-4 border-t border-gray-200 gap-3">
+        <button
+          pButton
+          type="button"
+          class="p-button-text"
+          label="Cancelar"
+          routerLink="/panel/shelter-animals"
+        ></button>
+
+        <button
+          pButton
+          type="submit"
+          [label]="mode === 'create' ? 'Crear animal' : 'Guardar cambios'"
+          class="px-6"
+          [disabled]="form.invalid || isSubmitting"
+        ></button>
+      </div>
+    </form>
+  </article>
+</section>
