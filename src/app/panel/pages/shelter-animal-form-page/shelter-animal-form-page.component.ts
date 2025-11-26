@@ -10,10 +10,12 @@ import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { InputTextModule } from "primeng/inputtext";
 import { InputNumberModule } from "primeng/inputnumber";
 import { ButtonModule } from "primeng/button";
-import { Animal } from "../../../shared/models"; // ajusta ruta
+import { Animal } from "../../../shared/models";
 import { TextareaModule } from "primeng/textarea";
 import { AnimalsService } from "../../../services/animals.service";
 import { ProfileService } from "../../../services/profile.service";
+import { AnimalImagesComponent } from "../../../shared/components/animal-images/animal-images.component";
+import { ToastService } from "../../../services/toast.service";
 
 @Component({
   selector: "app-shelter-animal-form-page",
@@ -26,6 +28,7 @@ import { ProfileService } from "../../../services/profile.service";
     InputNumberModule,
     ButtonModule,
     RouterModule,
+    AnimalImagesComponent,
   ],
   templateUrl: "./shelter-animal-form-page.component.html",
   styleUrl: "./shelter-animal-form-page.component.scss",
@@ -36,10 +39,11 @@ export class ShelterAnimalFormPageComponent {
   private router = inject(Router);
   private animalsService = inject(AnimalsService);
   private profileService = inject(ProfileService);
+  private toastService = inject(ToastService);
 
   form: FormGroup;
   mode: "create" | "edit" = "create";
-  animalId?: number;
+  animalId?: string;
 
   speciesList: Array<"dog" | "cat" | "other"> = ["dog", "cat", "other"];
   sizeList: Array<"small" | "medium" | "large"> = ["small", "medium", "large"];
@@ -48,6 +52,8 @@ export class ShelterAnimalFormPageComponent {
 
   isSubmitting = false;
   isLoading = false;
+  images: string[] = [];
+  imageFiles: File[] = [];
 
   constructor() {
     this.form = this.fb.group({
@@ -71,7 +77,7 @@ export class ShelterAnimalFormPageComponent {
       description: ["", [Validators.required, Validators.maxLength(800)]],
       history: ["", [Validators.required, Validators.maxLength(1200)]],
       specialNeeds: ["", [Validators.maxLength(600)]],
-      // imageUrl: [[]]
+      imageUrl: [[]],
     });
 
     this.initMode();
@@ -85,7 +91,7 @@ export class ShelterAnimalFormPageComponent {
 
     if (idParam) {
       this.mode = "edit";
-      this.animalId = Number(idParam);
+      this.animalId = idParam;
       this.loadAnimalForEdit(this.animalId);
     } else {
       this.mode = "create";
@@ -96,7 +102,7 @@ export class ShelterAnimalFormPageComponent {
    * @description Load animal data for editing and patch the form.
    * @param id The ID of the animal to load for editing.
    */
-  private loadAnimalForEdit(id: number): void {
+  private loadAnimalForEdit(id: string): void {
     this.isLoading = true;
     this.animalsService.getAnimalById(id).subscribe({
       next: (animal) => {
@@ -124,10 +130,6 @@ export class ShelterAnimalFormPageComponent {
       description: "Perrete muy bueno.",
       history: "Rescatado de la calle.",
       specialNeeds: "",
-      imageUrl: [
-        "https://placedog.net/500/400?id=12",
-        "https://placedog.net/500/400?id=42",
-      ],
     };
 
     this.patchForm(mock);
@@ -207,6 +209,23 @@ export class ShelterAnimalFormPageComponent {
   }
 
   /**
+   * @description Handle changes in the animal images component.
+   * @param previews
+   */
+  onImagesChange(previews: string[]): void {
+    this.images = previews;
+  }
+
+  /**
+   * @description Handle changes in the animal images component.
+   * @param files
+   */
+  onFilesChange(files: File[]): void {
+    console.log("onFilesChange -> files:", files);
+    this.imageFiles = files;
+  }
+
+  /**
    * @description Handle form submission for creating or editing an animal.
    * @returns
    */
@@ -217,43 +236,48 @@ export class ShelterAnimalFormPageComponent {
     }
 
     this.isSubmitting = true;
-
     const raw = this.form.value;
 
-    const payload: Animal = {
-      id: this.animalId!,
-      name: raw.name as string,
-      species: raw.species as "dog" | "cat" | "other",
-      ageYears: raw.ageYears as number,
-      size: raw.size as "small" | "medium" | "large",
-      status: raw.status as "available" | "reserved",
-      sex: raw.sex as "m" | "f",
-      compatibleWithDogs: raw.compatibleWithDogs as boolean,
-      compatibleWithCats: raw.compatibleWithCats as boolean,
-      compatibleWithChildren: raw.compatibleWithChildren as boolean,
-      description: raw.description as string,
-      history: raw.history as string,
-      specialNeeds: (raw.specialNeeds ?? "") as string,
-      imageUrl: [],
-    };
+    const animalPayload: Omit<Animal, "id" | "imageUrl" | "location"> = {
+      name: raw.name,
+      species: raw.species,
+      ageYears: raw.ageYears,
+      size: raw.size,
+      status: raw.status,
+      sex: raw.sex,
+      compatibleWithDogs: raw.compatibleWithDogs,
+      compatibleWithCats: raw.compatibleWithCats,
+      compatibleWithChildren: raw.compatibleWithChildren,
+      description: raw.description,
+      history: raw.history,
+      specialNeeds: raw.specialNeeds ?? "",
+    } as any;
+
+    const formData = new FormData();
+
+    formData.append(
+      "animal",
+      new Blob([JSON.stringify(animalPayload)], {
+        type: "application/json",
+      })
+    );
+
+    this.imageFiles.forEach((file, index) => {
+      formData.append("images", file, file.name || `animal-${index}.png`);
+    });
 
     const request$ =
       this.mode === "create"
-        ? this.profileService.createAnimal(payload)
-        : this.profileService.editAnimal(payload);
+        ? this.profileService.createAnimal(formData)
+        : this.profileService.editAnimal(this.animalId!, formData);
 
-    // request$.subscribe({
-    //   next: () => {
-    //     this.isSubmitting = false;
-    //     this.router.navigate(['/panel/shelter-animals']);
-    //   },
-    //   error: () => {
-    //     this.isSubmitting = false;
-    //   },
-    // });
+    // TODO: Integrar
 
-    console.log("Payload enviado", payload, "mode", this.mode);
     this.isSubmitting = false;
+    this.toastService.success(
+      "Éxito",
+      `Animal ${this.mode === "create" ? "creado" : "editado"} correctamente.`
+    );
     this.router.navigate(["/panel/shelter-animals"]);
   }
 }

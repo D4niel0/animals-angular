@@ -53,7 +53,7 @@ export class AnimalsService {
    * @param id
    * @returns
    */
-  getAnimalById(id: number): Observable<Animal | null> {
+  getAnimalById(id: string): Observable<Animal | null> {
     const cached = this.animalsSignal();
     const idNum = Number(id);
     if (cached && cached.length > 0) {
