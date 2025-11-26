@@ -15,4 +15,13 @@
   <div class="img-wrap" style="--img-ratio: 4/3">
     <img class="card-img" [src]="animal?.imageUrl?.[0]" [alt]="animal?.name" />
   </div>
+  @if (animal?.status === 'reserved') {
+  <div
+    class="bg-red-600/50 absolute roundend-b-xl w-full p-2 backdrop-blur-sm bottom-0 text-center"
+  >
+    <span class="text-white font-semibold">
+      {{ "Reservado" }}
+    </span>
+  </div>
+  }
 </div>
