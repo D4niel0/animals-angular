@@ -1,0 +1,108 @@
+<section class="space-y-3">
+  <div class="flex items-center justify-between gap-2">
+    <h2 class="text-lg font-medium text-gray-900">Imágenes</h2>
+    <span class="text-xs text-gray-500">
+      {{ images.length }}/{{ maxImages }} fotos
+    </span>
+  </div>
+
+  <p class="text-xs text-gray-500">
+    Selecciona un recorte de la foto para mantener un formato consistente
+    (aprox. 5:4).
+    <span class="text-red-500"
+      >Al menos debe añadirse una imagen para registrar a un animal.</span
+    >
+  </p>
+
+  <div class="flex flex-wrap gap-3 mt-2">
+    <div
+      *ngFor="let img of images; index as i"
+      class="relative w-32 h-24 rounded-lg overflow-hidden shadow-sm bg-slate-100"
+    >
+      <img
+        [src]="img.previewUrl"
+        alt="Foto {{ i + 1 }}"
+        class="w-full h-full object-cover"
+      />
+
+      <button
+        type="button"
+        pButton
+        icon="pi pi-trash"
+        class="p-button-rounded p-button-sm p-button-danger !absolute !top-1 !right-1"
+        (click)="removeImage(i)"
+        [pTooltip]="'Eliminar foto'"
+        tooltipPosition="top"
+      ></button>
+    </div>
+
+    <button
+      type="button"
+      pButton
+      (click)="onAddClick(fileInput)"
+      [disabled]="!canAddMore"
+      class="border-dashed border-2 border-slate-300 bg-slate-50 text-slate-600 rounded-lg px-3 py-4 text-xs flex flex-col items-center justify-center w-32 h-24"
+    >
+      <i class="pi pi-plus mb-1 text-sm"></i>
+      <span>Añadir foto</span>
+    </button>
+  </div>
+
+  <input
+    #fileInput
+    type="file"
+    accept="image/*"
+    class="hidden"
+    (change)="onFileSelected($event)"
+  />
+
+  <p-dialog
+    [(visible)]="cropperVisible"
+    [modal]="true"
+    [closable]="false"
+    [style]="{ width: '600px', maxWidth: '100%' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <ng-template pTemplate="header">
+      <span class="text-sm font-medium">Selecciona el recorte</span>
+    </ng-template>
+
+    <div class="space-y-3">
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="5 / 4"
+        [resizeToWidth]="500"
+        [cropperMinWidth]="200"
+        format="png"
+        [roundCropper]="false"
+        (imageCropped)="imageCropped($event)"
+      ></image-cropper>
+
+      <div class="text-xs text-gray-500">
+        Mueve y ajusta la imagen para que el animal quede centrado. El recorte
+        se guardará con proporción 5:4.
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-end gap-2">
+        <button
+          pButton
+          type="button"
+          label="Cancelar"
+          class="p-button-text"
+          (click)="onCropCancel()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Usar esta imagen"
+          [disabled]="!pendingPreviewUrl"
+          (click)="onCropConfirm()"
+        ></button>
+      </div>
+    </ng-template>
+  </p-dialog>
+</section>

@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
-import { Observable, switchMap, map } from "rxjs";
+import { Observable, switchMap, map, of } from "rxjs";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
 import { SliderComponent } from "../../../shared/components/slider/slider.component";
@@ -31,8 +31,8 @@ export class AnimalDetailComponent {
     private animalsService: AnimalsService
   ) {
     this.animal$ = this.route.paramMap.pipe(
-      map((params) => Number(params.get("id"))),
-      switchMap((id) => this.animalsService.getAnimalById(id))
+      map((params) => params.get("id")),
+      switchMap((id) => (id ? this.animalsService.getAnimalById(id) : of(null)))
     );
   }
 

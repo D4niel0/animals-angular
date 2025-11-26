@@ -427,10 +427,13 @@
 
       <hr class="border-gray-200" />
 
-      <!-- TODO: Implement image upload functionality -->
-      <section class="space-y-2">
-        <h2 class="text-lg font-medium text-gray-900">Imagen</h2>
-        <p class="text-xs text-gray-500">IMAGES UPLOAD</p>
+      <section class="space-y-4">
+        <app-animal-images
+          [maxImages]="5"
+          [initialImages]="form.get('imageUrl')?.value || []"
+          (imagesChange)="onImagesChange($event)"
+          (filesChange)="onFilesChange($event)"
+        ></app-animal-images>
       </section>
 
       <div class="flex justify-end pt-4 border-t border-gray-200 gap-3">
@@ -447,7 +450,7 @@
           type="submit"
           [label]="mode === 'create' ? 'Crear animal' : 'Guardar cambios'"
           class="px-6"
-          [disabled]="form.invalid || isSubmitting"
+          [disabled]="form.invalid || isSubmitting || images.length === 0"
         ></button>
       </div>
     </form>

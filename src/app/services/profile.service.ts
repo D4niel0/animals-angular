@@ -34,15 +34,15 @@ export class ProfileService {
       .pipe(delay(500));
   }
 
-  createAnimal(animalData: Animal) {
+  createAnimal(animalData: FormData) {
     return this.http
       .post(`${this.baseUrl}new-animal`, animalData)
       .pipe(delay(500));
   }
 
-  editAnimal(animalData: Animal) {
+  editAnimal(id: string, animalData: FormData) {
     return this.http
-      .put(`${this.baseUrl}edit-animal`, animalData)
+      .put(`${this.baseUrl}edit-animal/${id}`, animalData)
       .pipe(delay(500));
   }
 }

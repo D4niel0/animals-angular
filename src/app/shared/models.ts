@@ -1,7 +1,7 @@
 import { ColorTagVariant } from "./components/color-tag/color-tag.component";
 
 export interface Animal {
-  id?: number;
+  id?: string;
   species: "dog" | "cat" | "other";
   name: string;
   ageYears: number;
@@ -22,7 +22,7 @@ export interface Animal {
 
   location?: AnimalLocation;
 
-  imageUrl: string[];
+  imageUrl?: string[];
 }
 
 export interface AnimalLocation {
