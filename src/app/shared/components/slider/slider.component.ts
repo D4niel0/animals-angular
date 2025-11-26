@@ -10,5 +10,5 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from "@angular/core";
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SliderComponent {
-  @Input() images: string[] = [];
+  @Input() images: string[] | undefined;
 }

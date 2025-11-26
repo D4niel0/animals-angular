@@ -221,7 +221,6 @@ export class ShelterAnimalFormPageComponent {
    * @param files
    */
   onFilesChange(files: File[]): void {
-    console.log("onFilesChange -> files:", files);
     this.imageFiles = files;
   }
 
