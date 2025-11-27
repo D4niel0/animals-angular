@@ -28,7 +28,7 @@ export interface Animal {
 
 export interface AnimalLocation {
   city: string;
-  region: string;
+  province: string;
   country: string;
   shelter: AnimalShelter;
 }
@@ -44,11 +44,6 @@ export interface AnimalShelter {
   instagram?: string;
   address?: Address;
   website?: string;
-}
-
-export interface Address {
-  city: string;
-  region: string;
 }
 
 export interface Address {

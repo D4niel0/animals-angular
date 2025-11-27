@@ -63,7 +63,7 @@ export class SheltersComponent implements OnInit {
       this.filteredShelters = this.sheltersList;
     } else {
       this.filteredShelters = this.sheltersList.filter((shelter) =>
-        selectedProvinces.includes(shelter.address.region)
+        selectedProvinces.includes(shelter.address.province)
       );
     }
   }

@@ -17,7 +17,7 @@
       "history": "Luna fue encontrada en un parque de Madrid tras haber sido abandonada. Un vecino la estuvo alimentando unos días hasta que avisó a la protectora.",
       "location": {
         "city": "Madrid",
-        "region": "Madrid",
+        "province": "Madrid",
         "country": "España",
         "shelter": {
           "id": 1,
@@ -26,7 +26,7 @@
           "phone": "+34 91 555 0001",
           "address": {
             "city": "Alcalá de Henares",
-            "region": "Madrid"
+            "province": "Madrid"
           },
           "facebook": "https://facebook.com/protectoramadridcentral",
           "instagram": "https://instagram.com/protectoramadridcentral"
@@ -54,7 +54,7 @@
       "history": "Rocky fue cedido por una familia que no podía seguir cuidando de él por motivos laborales. Ha vivido siempre en casa y está acostumbrado a la convivencia familiar.",
       "location": {
         "city": "Barcelona",
-        "region": "Barcelona",
+        "province": "Barcelona",
         "country": "España",
         "shelter": {
           "id": 2,
@@ -63,7 +63,7 @@
           "phone": "+34 93 555 0002",
           "address": {
             "city": "Sabadell",
-            "region": "Barcelona"
+            "province": "Barcelona"
           },
           "facebook": "https://facebook.com/protectorabarcelona"
         }
@@ -91,7 +91,7 @@
       "specialNeeds": "Precisa de paseos diarios largos y trabajo de manejo con correa por su fuerza.",
       "location": {
         "city": "Valencia",
-        "region": "Valencia",
+        "province": "Valencia",
         "country": "España",
         "shelter": {
           "id": 3,
@@ -100,7 +100,7 @@
           "phone": "+34 96 555 0003",
           "address": {
             "city": "Gandía",
-            "region": "Valencia"
+            "province": "Valencia"
           },
           "instagram": "https://instagram.com/protectoravalencia"
         }
@@ -127,7 +127,7 @@
       "history": "Nube llegó al refugio junto a otro perro con el que no se llevaba bien. En el refugio han visto que prefiere ser la única mascota de la casa.",
       "location": {
         "city": "Sevilla",
-        "region": "Sevilla",
+        "province": "Sevilla",
         "country": "España",
         "shelter": {
           "id": 4,
@@ -136,7 +136,7 @@
           "phone": "+34 95 555 0004",
           "address": {
             "city": "Dos Hermanas",
-            "region": "Sevilla"
+            "province": "Sevilla"
           },
           "facebook": "https://facebook.com/protectorasevilla",
           "instagram": "https://instagram.com/protectorasevilla"
@@ -164,7 +164,7 @@
       "history": "Bimba fue rescatada de la calle con claros signos de haber tenido varias camadas. Desde que está la protectora se ha adaptado muy bien a la vida en interior.",
       "location": {
         "city": "Bilbao",
-        "region": "Bizkaia",
+        "province": "Bizkaia",
         "country": "España",
         "shelter": {
           "id": 5,
@@ -173,7 +173,7 @@
           "phone": "+34 94 555 0005",
           "address": {
             "city": "Getxo",
-            "region": "Bizkaia"
+            "province": "Bizkaia"
           },
           "facebook": "https://facebook.com/protectoraibilbao"
         }
@@ -200,7 +200,7 @@
       "history": "Max fue encontrado junto a sus hermanos en una caja de cartón a las afueras de la ciudad. Es el más curioso y juguetón de la camada.",
       "location": {
         "city": "Zaragoza",
-        "region": "Zaragoza",
+        "province": "Zaragoza",
         "country": "España",
         "shelter": {
           "id": 6,
@@ -209,7 +209,7 @@
           "phone": "+34 97 655 0006",
           "address": {
             "city": "Utebo",
-            "region": "Zaragoza"
+            "province": "Zaragoza"
           },
           "instagram": "https://instagram.com/protectorazaragoza"
         }
@@ -236,7 +236,7 @@
       "history": "Toby vivía con una persona mayor que ya no podía sacarlo a la calle con la frecuencia necesaria. Lo cedió al refugio buscando para él una familia más activa.",
       "location": {
         "city": "Málaga",
-        "region": "Málaga",
+        "province": "Málaga",
         "country": "España",
         "shelter": {
           "id": 7,
@@ -245,7 +245,7 @@
           "phone": "+34 95 222 0007",
           "address": {
             "city": "Marbella",
-            "region": "Málaga"
+            "province": "Málaga"
           },
           "facebook": "https://facebook.com/protectoramalaga",
           "instagram": "https://instagram.com/protectoramalaga"
@@ -273,7 +273,7 @@
       "history": "Simba fue rescatado de una situación de abandono en un patio sin apenas contacto humano. En pocos meses se ha convertido en un perro muy cercano y confiado.",
       "location": {
         "city": "A Coruña",
-        "region": "A Coruña",
+        "province": "A Coruña",
         "country": "España",
         "shelter": {
           "id": 8,
@@ -282,7 +282,7 @@
           "phone": "+34 98 155 0008",
           "address": {
             "city": "Betanzos",
-            "region": "A Coruña"
+            "province": "A Coruña"
           },
           "facebook": "https://facebook.com/protectoracorunha"
         }
@@ -309,7 +309,7 @@
       "history": "Jack fue recogido en la carretera siguiendo a los coches. No llevaba chip y nadie lo ha reclamado, así que busca una nueva familia con energía.",
       "location": {
         "city": "Murcia",
-        "region": "Murcia",
+        "province": "Murcia",
         "country": "España",
         "shelter": {
           "id": 9,
@@ -318,7 +318,7 @@
           "phone": "+34 96 835 0009",
           "address": {
             "city": "Cartagena",
-            "region": "Murcia"
+            "province": "Murcia"
           },
           "instagram": "https://instagram.com/protectoramurcia"
         }
@@ -345,7 +345,7 @@
       "history": "Lola convivía con una persona que tuvo que ingresar en una residencia. Está acostumbrada a vivir en interior y a pasar muchas horas acompañando en casa.",
       "location": {
         "city": "Valladolid",
-        "region": "Valladolid",
+        "province": "Valladolid",
         "country": "España",
         "shelter": {
           "id": 10,
@@ -354,7 +354,7 @@
           "phone": "+34 98 335 0010",
           "address": {
             "city": "Medina del Campo",
-            "region": "Valladolid"
+            "province": "Valladolid"
           },
           "facebook": "https://facebook.com/protectoravalladolid",
           "instagram": "https://instagram.com/protectoravalladolid"
@@ -383,7 +383,7 @@
       "specialNeeds": "Tiene artrosis leve y necesita cama mullida y paseos cortos.",
       "location": {
         "city": "Toledo",
-        "region": "Toledo",
+        "province": "Toledo",
         "country": "España",
         "shelter": {
           "id": 11,
@@ -392,7 +392,7 @@
           "phone": "+34 92 525 0011",
           "address": {
             "city": "Toledo",
-            "region": "Toledo"
+            "province": "Toledo"
           },
           "facebook": "https://facebook.com/protectoratoledo"
         }
@@ -420,7 +420,7 @@
       "specialNeeds": "Requiere adoptante con experiencia en perros de trabajo y manejo firme pero respetuoso.",
       "location": {
         "city": "Gijón",
-        "region": "Asturias",
+        "province": "Asturias",
         "country": "España",
         "shelter": {
           "id": 12,
@@ -429,7 +429,7 @@
           "phone": "+34 98 535 0012",
           "address": {
             "city": "Gijón",
-            "region": "Asturias"
+            "province": "Asturias"
           },
           "instagram": "https://instagram.com/protectoragijon"
         }
@@ -456,7 +456,7 @@
       "history": "Zeus llegó a la protectora después de varios avisos por escaparse del jardín. Es un perro joven al que le encanta hacer ejercicio y aprender trucos.",
       "location": {
         "city": "Madrid",
-        "region": "Madrid",
+        "province": "Madrid",
         "country": "España",
         "shelter": {
           "id": 1,
@@ -465,7 +465,7 @@
           "phone": "+34 91 555 0001",
           "address": {
             "city": "Alcalá de Henares",
-            "region": "Madrid"
+            "province": "Madrid"
           },
           "facebook": "https://facebook.com/protectoramadridcentral",
           "instagram": "https://instagram.com/protectoramadridcentral"
@@ -493,7 +493,7 @@
       "history": "Cleo fue rescatada de un abandono en una caja de transporte frente al refugio. Desde el primer día se mostró muy confiada y cariñosa.",
       "location": {
         "city": "Granada",
-        "region": "Granada",
+        "province": "Granada",
         "country": "España",
         "shelter": {
           "id": 13,
@@ -502,7 +502,7 @@
           "phone": "+34 95 822 0014",
           "address": {
             "city": "Granada",
-            "region": "Granada"
+            "province": "Granada"
           },
           "facebook": "https://facebook.com/protectoragranada",
           "instagram": "https://instagram.com/protectoragranada"
@@ -530,7 +530,7 @@
       "history": "Hera vivía con una familia que se trasladó al extranjero y no pudo llevársela. Está acostumbrada a convivir en casa y se adapta bien a nuevas rutinas.",
       "location": {
         "city": "Pamplona",
-        "region": "Navarra",
+        "province": "Navarra",
         "country": "España",
         "shelter": {
           "id": 14,
@@ -539,7 +539,7 @@
           "phone": "+34 94 812 0015",
           "address": {
             "city": "Pamplona",
-            "region": "Navarra"
+            "province": "Navarra"
           },
           "instagram": "https://instagram.com/protectorapamplona"
         }
@@ -567,7 +567,7 @@
       "specialNeeds": "Sigue una medicación económica para control de la tensión.",
       "location": {
         "city": "León",
-        "region": "León",
+        "province": "León",
         "country": "España",
         "shelter": {
           "id": 15,
@@ -576,7 +576,7 @@
           "phone": "+34 98 722 0016",
           "address": {
             "city": "León",
-            "region": "León"
+            "province": "León"
           },
           "facebook": "https://facebook.com/protectoraleon"
         }
@@ -603,7 +603,7 @@
       "history": "Tana fue encontrada sola en un descampado. En el refugio ha aprendido a relacionarse con otros perros y a pasear con correa.",
       "location": {
         "city": "Santander",
-        "region": "Cantabria",
+        "province": "Cantabria",
         "country": "España",
         "shelter": {
           "id": 16,
@@ -612,7 +612,7 @@
           "phone": "+34 94 220 0017",
           "address": {
             "city": "Santander",
-            "region": "Cantabria"
+            "province": "Cantabria"
           },
           "instagram": "https://instagram.com/protectorasantander"
         }
@@ -639,7 +639,7 @@
       "history": "Fiona llegó al refugio tras ser encontrada vagando por una urbanización. Desde el primer día buscó el contacto con las personas.",
       "location": {
         "city": "Cádiz",
-        "region": "Cádiz",
+        "province": "Cádiz",
         "country": "España",
         "shelter": {
           "id": 17,
@@ -648,7 +648,7 @@
           "phone": "+34 95 625 0018",
           "address": {
             "city": "Cádiz",
-            "region": "Cádiz"
+            "province": "Cádiz"
           },
           "facebook": "https://facebook.com/protectoracadiz"
         }
@@ -676,7 +676,7 @@
       "specialNeeds": "Necesita una familia muy activa que pueda darle actividad física diaria.",
       "location": {
         "city": "Logroño",
-        "region": "La Rioja",
+        "province": "La Rioja",
         "country": "España",
         "shelter": {
           "id": 18,
@@ -685,7 +685,7 @@
           "phone": "+34 94 122 0019",
           "address": {
             "city": "Logroño",
-            "region": "La Rioja"
+            "province": "La Rioja"
           },
           "instagram": "https://instagram.com/protectoralogrono"
         }
@@ -712,7 +712,7 @@
       "history": "Buddy fue encontrado con collar pero sin identificación. A pesar de la difusión, nadie lo reclamó y ahora busca un nuevo hogar.",
       "location": {
         "city": "Huelva",
-        "region": "Huelva",
+        "province": "Huelva",
         "country": "España",
         "shelter": {
           "id": 19,
@@ -721,7 +721,7 @@
           "phone": "+34 95 924 0020",
           "address": {
             "city": "Huelva",
-            "region": "Huelva"
+            "province": "Huelva"
           },
           "facebook": "https://facebook.com/protectorahuelva",
           "instagram": "https://instagram.com/protectorahuelva"
@@ -749,7 +749,7 @@
       "history": "Coco fue entregado por una familia joven que tuvo un cambio de domicilio y no podía seguir teniéndolo. Está acostumbrado a vivir dentro de casa.",
       "location": {
         "city": "Tarragona",
-        "region": "Tarragona",
+        "province": "Tarragona",
         "country": "España",
         "shelter": {
           "id": 20,
@@ -758,7 +758,7 @@
           "phone": "+34 97 722 0021",
           "address": {
             "city": "Tarragona",
-            "region": "Tarragona"
+            "province": "Tarragona"
           },
           "facebook": "https://facebook.com/protectoratarragona"
         }
@@ -785,7 +785,7 @@
       "history": "Nina fue rescatada de un vertedero junto con otra perrita. A pesar de su comienzo complicado, es extremadamente confiada con las personas.",
       "location": {
         "city": "Palma",
-        "region": "Islas Baleares",
+        "province": "Islas Baleares",
         "country": "España",
         "shelter": {
           "id": 21,
@@ -794,7 +794,7 @@
           "phone": "+34 97 120 0022",
           "address": {
             "city": "Palma",
-            "region": "Islas Baleares"
+            "province": "Islas Baleares"
           },
           "instagram": "https://instagram.com/protectorapalma"
         }
@@ -821,7 +821,7 @@
       "history": "Simón fue recogido tras varios avisos en un polígono industrial. Al principio era muy desconfiado, pero ha mejorado mucho con trabajo de socialización.",
       "location": {
         "city": "Salamanca",
-        "region": "Salamanca",
+        "province": "Salamanca",
         "country": "España",
         "shelter": {
           "id": 22,
@@ -830,7 +830,7 @@
           "phone": "+34 92 326 0023",
           "address": {
             "city": "Salamanca",
-            "region": "Salamanca"
+            "province": "Salamanca"
           },
           "facebook": "https://facebook.com/protectorasalamanca"
         }
@@ -857,7 +857,7 @@
       "history": "Togo fue encontrado con una cadena rota cerca de una zona rural. Aprendió muy rápido a pasear con correa y a responder a órdenes básicas.",
       "location": {
         "city": "Ávila",
-        "region": "Ávila",
+        "province": "Ávila",
         "country": "España",
         "shelter": {
           "id": 23,
@@ -866,7 +866,7 @@
           "phone": "+34 92 021 0024",
           "address": {
             "city": "Ávila",
-            "region": "Ávila"
+            "province": "Ávila"
           },
           "instagram": "https://instagram.com/protectoraavila"
         }
@@ -893,7 +893,7 @@
       "history": "Milo fue devuelto a la protectora tras una adopción fallida en la que no se adaptó a convivir con otros perros. Con humanos es un auténtico mimoso.",
       "location": {
         "city": "Burgos",
-        "region": "Burgos",
+        "province": "Burgos",
         "country": "España",
         "shelter": {
           "id": 24,
@@ -902,7 +902,7 @@
           "phone": "+34 94 729 0025",
           "address": {
             "city": "Burgos",
-            "region": "Burgos"
+            "province": "Burgos"
           },
           "facebook": "https://facebook.com/protectoraburgos"
         }
@@ -930,7 +930,7 @@
       "specialNeeds": "Necesita un hogar sin niños pequeños ni mucho ruido.",
       "location": {
         "city": "Almería",
-        "region": "Almería",
+        "province": "Almería",
         "country": "España",
         "shelter": {
           "id": 25,
@@ -939,7 +939,7 @@
           "phone": "+34 95 023 0026",
           "address": {
             "city": "Almería",
-            "region": "Almería"
+            "province": "Almería"
           },
           "instagram": "https://instagram.com/protectoraalmeria"
         }
@@ -966,7 +966,7 @@
       "history": "Esta segunda Tana fue encontrada junto a un contenedor. Es muy sociable con otros perros y le encanta jugar con pelotas.",
       "location": {
         "city": "Cáceres",
-        "region": "Cáceres",
+        "province": "Cáceres",
         "country": "España",
         "shelter": {
           "id": 26,
@@ -975,7 +975,7 @@
           "phone": "+34 92 721 0027",
           "address": {
             "city": "Cáceres",
-            "region": "Cáceres"
+            "province": "Cáceres"
           },
           "facebook": "https://facebook.com/protectoracaceres"
         }
@@ -1002,7 +1002,7 @@
       "history": "Kyra fue rescatada de un caso de acumulación de animales. A pesar de ello, se ha adaptado muy bien a la vida en el refugio y busca un hogar definitivo.",
       "location": {
         "city": "Cuenca",
-        "region": "Cuenca",
+        "province": "Cuenca",
         "country": "España",
         "shelter": {
           "id": 27,
@@ -1011,7 +1011,7 @@
           "phone": "+34 96 922 0028",
           "address": {
             "city": "Cuenca",
-            "region": "Cuenca"
+            "province": "Cuenca"
           },
           "instagram": "https://instagram.com/protectoracuenca"
         }
@@ -1039,7 +1039,7 @@
       "specialNeeds": "Paseos moderados y control veterinario anual por su edad.",
       "location": {
         "city": "Albacete",
-        "region": "Albacete",
+        "province": "Albacete",
         "country": "España",
         "shelter": {
           "id": 28,
@@ -1048,7 +1048,7 @@
           "phone": "+34 96 714 0029",
           "address": {
             "city": "Albacete",
-            "region": "Albacete"
+            "province": "Albacete"
           },
           "facebook": "https://facebook.com/protectoraalbacete"
         }
@@ -1075,7 +1075,7 @@
       "history": "Olivia fue encontrada con un leve cuadro de desnutrición, del que ya está completamente recuperada. Es muy simpática con todo el mundo.",
       "location": {
         "city": "Ourense",
-        "region": "Ourense",
+        "province": "Ourense",
         "country": "España",
         "shelter": {
           "id": 29,
@@ -1084,7 +1084,7 @@
           "phone": "+34 98 837 0030",
           "address": {
             "city": "Ourense",
-            "region": "Ourense"
+            "province": "Ourense"
           },
           "instagram": "https://instagram.com/protectoraourense"
         }
@@ -1116,7 +1116,7 @@
       "history": "Milo fue devuelto a la protectora tras una adopción fallida en la que no se adaptó a convivir con otros perros. Con humanos es un auténtico mimoso.",
       "location": {
         "city": "Burgos",
-        "region": "Burgos",
+        "province": "Burgos",
         "country": "España",
         "shelter": {
           "id": 24,
@@ -1125,7 +1125,7 @@
           "phone": "+34 94 729 0025",
           "address": {
             "city": "Burgos",
-            "region": "Burgos"
+            "province": "Burgos"
           },
           "facebook": "https://facebook.com/protectoraburgos"
         }
@@ -1153,7 +1153,7 @@
       "specialNeeds": "Necesita un hogar sin niños pequeños ni mucho ruido.",
       "location": {
         "city": "Almería",
-        "region": "Almería",
+        "province": "Almería",
         "country": "España",
         "shelter": {
           "id": 25,
@@ -1162,7 +1162,7 @@
           "phone": "+34 95 023 0026",
           "address": {
             "city": "Almería",
-            "region": "Almería"
+            "province": "Almería"
           },
           "instagram": "https://instagram.com/protectoraalmeria"
         }
@@ -1189,7 +1189,7 @@
       "history": "Esta segunda Tana fue encontrada junto a un contenedor. Es muy sociable con otros perros y le encanta jugar con pelotas.",
       "location": {
         "city": "Cáceres",
-        "region": "Cáceres",
+        "province": "Cáceres",
         "country": "España",
         "shelter": {
           "id": 26,
@@ -1198,7 +1198,7 @@
           "phone": "+34 92 721 0027",
           "address": {
             "city": "Cáceres",
-            "region": "Cáceres"
+            "province": "Cáceres"
           },
           "facebook": "https://facebook.com/protectoracaceres"
         }
@@ -1225,7 +1225,7 @@
       "history": "Kyra fue rescatada de un caso de acumulación de animales. A pesar de ello, se ha adaptado muy bien a la vida en el refugio y busca un hogar definitivo.",
       "location": {
         "city": "Cuenca",
-        "region": "Cuenca",
+        "province": "Cuenca",
         "country": "España",
         "shelter": {
           "id": 27,
@@ -1234,7 +1234,7 @@
           "phone": "+34 96 922 0028",
           "address": {
             "city": "Cuenca",
-            "region": "Cuenca"
+            "province": "Cuenca"
           },
           "instagram": "https://instagram.com/protectoracuenca"
         }
@@ -1262,7 +1262,7 @@
       "specialNeeds": "Paseos moderados y control veterinario anual por su edad.",
       "location": {
         "city": "Albacete",
-        "region": "Albacete",
+        "province": "Albacete",
         "country": "España",
         "shelter": {
           "id": 28,
@@ -1271,7 +1271,7 @@
           "phone": "+34 96 714 0029",
           "address": {
             "city": "Albacete",
-            "region": "Albacete"
+            "province": "Albacete"
           },
           "facebook": "https://facebook.com/protectoraalbacete"
         }
@@ -1298,7 +1298,7 @@
       "history": "Olivia fue encontrada con un leve cuadro de desnutrición, del que ya está completamente recuperada. Es muy simpática con todo el mundo.",
       "location": {
         "city": "Ourense",
-        "region": "Ourense",
+        "province": "Ourense",
         "country": "España",
         "shelter": {
           "id": 29,
@@ -1307,7 +1307,7 @@
           "phone": "+34 98 837 0030",
           "address": {
             "city": "Ourense",
-            "region": "Ourense"
+            "province": "Ourense"
           },
           "instagram": "https://instagram.com/protectoraourense"
         }
@@ -1326,7 +1326,7 @@
       "phone": "+34 91 555 0001",
       "address": {
         "city": "Alcalá de Henares",
-        "region": "Madrid"
+        "province": "Madrid"
       },
       "facebook": "https://facebook.com/protectoramadridcentral",
       "instagram": "https://instagram.com/protectoramadridcentral"
@@ -1338,7 +1338,7 @@
       "phone": "+34 93 555 0002",
       "address": {
         "city": "Sabadell",
-        "region": "Barcelona"
+        "province": "Barcelona"
       },
       "facebook": "https://facebook.com/protectorabarcelona"
     },
@@ -1349,7 +1349,7 @@
       "phone": "+34 96 555 0003",
       "address": {
         "city": "Gandía",
-        "region": "Valencia"
+        "province": "Valencia"
       },
       "instagram": "https://instagram.com/protectoravalencia"
     },
@@ -1360,7 +1360,7 @@
       "phone": "+34 95 555 0004",
       "address": {
         "city": "Dos Hermanas",
-        "region": "Sevilla"
+        "province": "Sevilla"
       },
       "facebook": "https://facebook.com/protectorasevilla",
       "instagram": "https://instagram.com/protectorasevilla"
@@ -1372,7 +1372,7 @@
       "phone": "+34 94 555 0005",
       "address": {
         "city": "Getxo",
-        "region": "Bizkaia"
+        "province": "Bizkaia"
       },
       "facebook": "https://facebook.com/protectorabilbao"
     },
@@ -1383,7 +1383,7 @@
       "phone": "+34 97 655 0006",
       "address": {
         "city": "Utebo",
-        "region": "Zaragoza"
+        "province": "Zaragoza"
       },
       "instagram": "https://instagram.com/protectorazaragoza"
     },
@@ -1394,7 +1394,7 @@
       "phone": "+34 95 222 0007",
       "address": {
         "city": "Marbella",
-        "region": "Málaga"
+        "province": "Málaga"
       },
       "facebook": "https://facebook.com/protectoramalaga",
       "instagram": "https://instagram.com/protectoramalaga"
@@ -1406,7 +1406,7 @@
       "phone": "+34 98 155 0008",
       "address": {
         "city": "Betanzos",
-        "region": "A Coruña"
+        "province": "A Coruña"
       },
       "instagram": "https://instagram.com/protectoracorunha"
     },
@@ -1417,7 +1417,7 @@
       "phone": "+34 96 835 0009",
       "address": {
         "city": "Cartagena",
-        "region": "Murcia"
+        "province": "Murcia"
       },
       "facebook": "https://facebook.com/protectoramurcia"
     },
@@ -1428,7 +1428,7 @@
       "phone": "+34 98 335 0010",
       "address": {
         "city": "Medina del Campo",
-        "region": "Valladolid"
+        "province": "Valladolid"
       },
       "facebook": "https://facebook.com/protectoravalladolid",
       "instagram": "https://instagram.com/protectoravalladolid"
