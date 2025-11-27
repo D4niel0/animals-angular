@@ -1,12 +1,16 @@
 <div class="bg-[#efeef1] py-8 px-4">
   <div class="mx-auto">
-    <a
-      routerLink="/animals-home"
-      class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-green-600 mb-4"
-    >
-      <i class="pi pi-angle-left"></i>
-      Volver al listado
-    </a>
+    <div class="flex items-center">
+      <a
+        routerLink="/animals-home"
+        class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-green-600 mb-4 grow"
+      >
+        <i class="pi pi-angle-left"></i>
+        Volver al listado
+      </a>
+      <app-share-button></app-share-button>
+    </div>
+
     <article class="bg-white rounded-2xl shadow-md overflow-hidden">
       @let animal = animal$ | async; @if (animal) {
       <div>

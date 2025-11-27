@@ -116,7 +116,7 @@ export class RegisterComponent {
         next: () => {
           console.log("Registro protectora", data);
           this.toastService.success(
-            "La protectora se ha registrado correctamente. En un plazo de 24-48 horas recibirás un correo electrónico con la confirmación del alta",
+            "Te has registrado correctamente. En un plazo de 24-48 horas recibirás un correo electrónico con la confirmación del alta",
             "Registro completado"
           );
 

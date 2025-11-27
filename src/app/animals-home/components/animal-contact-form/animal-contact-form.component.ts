@@ -85,7 +85,7 @@ export class AnimalContactFormComponent {
     };
 
     this.toastService.success(
-      `¡Tu mensaje ha sido enviado a la protectora de ${animal.name}!`
+      `¡Tu mensaje ha sido enviado a los responsables de ${animal.name}!`
     );
 
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -1,0 +1,18 @@
+<div class="share-speeddial-wrapper" style="height: 3rem">
+  <p-speeddial
+    [model]="items"
+    direction="down"
+    type="linear"
+    [transitionDelay]="60"
+  >
+    <ng-template #button let-toggleCallback="toggleCallback">
+      <p-button
+        size="small"
+        label="Compartir"
+        icon="pi pi-share-alt"
+        iconPos="left"
+        (click)="toggleCallback($event)"
+      ></p-button>
+    </ng-template>
+  </p-speeddial>
+</div>

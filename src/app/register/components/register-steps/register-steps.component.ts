@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { TooltipModule } from "primeng/tooltip";
 
 @Component({
-  selector: 'app-register-steps',
+  selector: "app-register-steps",
   standalone: true,
-  imports: [],
-  templateUrl: './register-steps.component.html',
-  styleUrl: './register-steps.component.scss'
+  imports: [TooltipModule],
+  templateUrl: "./register-steps.component.html",
+  styleUrl: "./register-steps.component.scss",
 })
-export class RegisterStepsComponent {
-
-}
+export class RegisterStepsComponent {}
