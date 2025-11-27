@@ -17,6 +17,7 @@ import { ProfileService } from "../../../services/profile.service";
 import { AnimalImagesComponent } from "../../../shared/components/animal-images/animal-images.component";
 import { ToastService } from "../../../services/toast.service";
 import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
+import { DatePickerModule } from "primeng/datepicker";
 
 @Component({
   selector: "app-shelter-animal-form-page",
@@ -31,6 +32,7 @@ import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-
     RouterModule,
     AnimalImagesComponent,
     PawSpinnerComponent,
+    DatePickerModule,
   ],
   templateUrl: "./shelter-animal-form-page.component.html",
   styleUrl: "./shelter-animal-form-page.component.scss",
@@ -61,12 +63,14 @@ export class ShelterAnimalFormPageComponent {
   images: string[] = [];
   imageFiles: File[] = [];
 
+  maxDate = new Date();
+
   constructor() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.maxLength(80)]],
       species: [null as "dog" | "cat" | "other" | null, [Validators.required]],
-      ageYears: [
-        0,
+      birthday: [
+        "",
         [Validators.required, Validators.min(0), Validators.max(30)],
       ],
       size: [
@@ -128,7 +132,7 @@ export class ShelterAnimalFormPageComponent {
     this.form.patchValue({
       name: animal.name ?? "",
       species: animal.species,
-      ageYears: animal.ageYears ?? 0,
+      birthday: animal.birthdate ?? "",
       size: animal.size ?? null,
       status: animal.status ?? "available",
       sex: animal.sex ?? null,
@@ -215,7 +219,7 @@ export class ShelterAnimalFormPageComponent {
     const animalPayload: Omit<Animal, "id" | "imageUrl" | "location"> = {
       name: raw.name,
       species: raw.species,
-      ageYears: raw.ageYears,
+      birthdate: raw.birthday,
       size: raw.size,
       status: raw.status,
       sex: raw.sex,

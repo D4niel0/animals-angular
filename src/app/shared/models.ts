@@ -4,7 +4,8 @@ export interface Animal {
   id?: string;
   species: "dog" | "cat" | "other";
   name: string;
-  ageYears: number;
+  ageYears?: number;
+  birthdate?: string;
 
   size: "small" | "medium" | "large";
   status: "available" | "reserved" | "fostered";

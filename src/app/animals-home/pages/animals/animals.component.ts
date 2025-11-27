@@ -82,8 +82,9 @@ export class AnimalsComponent implements OnInit {
         return false;
 
       if (
-        animal.ageYears < filters.ageRange[0] ||
-        animal.ageYears > filters.ageRange[1]
+        animal.ageYears &&
+        (animal.ageYears < filters.ageRange[0] ||
+          animal.ageYears > filters.ageRange[1])
       )
         return false;
 
