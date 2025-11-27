@@ -96,17 +96,17 @@ export class AnimalsComponent implements OnInit {
       if (filters.compatibility.length) {
         if (
           filters.compatibility.includes("dog") &&
-          animal.compatibleWithDogs !== true
+          animal.compatibleWithDogs !== "true"
         )
           return false;
         if (
           filters.compatibility.includes("cat") &&
-          animal.compatibleWithCats !== true
+          animal.compatibleWithCats !== "true"
         )
           return false;
         if (
           filters.compatibility.includes("child") &&
-          animal.compatibleWithChildren !== true
+          animal.compatibleWithChildren !== "true"
         )
           return false;
       }

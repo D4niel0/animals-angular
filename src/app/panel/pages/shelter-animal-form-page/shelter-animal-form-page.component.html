@@ -172,11 +172,21 @@
                 isChipSelected('status', st)
                   ? st === 'available'
                     ? 'bg-emerald-100 text-emerald-800'
-                    : 'bg-amber-100 text-amber-800'
+                    : st === 'fostered'
+                    ? 'bg-yellow-100 text-yellow-800'
+                    : st === 'reserved'
+                    ? 'bg-amber-100 text-amber-800'
+                    : 'bg-gray-200 text-gray-700'
                   : 'bg-gray-200 text-gray-700'
               "
             >
-              {{ st === "available" ? "Disponible" : "Reservado" }}
+              {{
+                st === "available"
+                  ? "Disponible"
+                  : st === "fostered"
+                  ? "En acogida"
+                  : "Reservado"
+              }}
             </button>
           </div>
           <small
@@ -231,9 +241,9 @@
             <div class="flex gap-2">
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithDogs', true)"
+                (click)="setBooleanControl('compatibleWithDogs', 'true')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithDogs', true)
+                  isBooleanSelected('compatibleWithDogs', 'true')
                     ? 'bg-green-100 text-green-800'
                     : 'bg-gray-200 text-gray-700'
                 "
@@ -243,15 +253,27 @@
               </button>
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithDogs', false)"
+                (click)="setBooleanControl('compatibleWithDogs', 'false')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithDogs', false)
+                  isBooleanSelected('compatibleWithDogs', 'false')
                     ? 'bg-red-100 text-red-800'
                     : 'bg-gray-200 text-gray-700'
                 "
                 class="rounded-full px-3 py-1 text-sm font-medium transition-all"
               >
                 No
+              </button>
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithDogs', 'untested')"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithDogs', 'untested')
+                    ? 'bg-yellow-50 text-yellow-700'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sin testear
               </button>
             </div>
             <small
@@ -272,9 +294,9 @@
             <div class="flex gap-2">
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithCats', true)"
+                (click)="setBooleanControl('compatibleWithCats', 'true')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithCats', true)
+                  isBooleanSelected('compatibleWithCats', 'true')
                     ? 'bg-green-100 text-green-800'
                     : 'bg-gray-200 text-gray-700'
                 "
@@ -284,15 +306,27 @@
               </button>
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithCats', false)"
+                (click)="setBooleanControl('compatibleWithCats', 'false')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithCats', false)
+                  isBooleanSelected('compatibleWithCats', 'false')
                     ? 'bg-red-100 text-red-800'
                     : 'bg-gray-200 text-gray-700'
                 "
                 class="rounded-full px-3 py-1 text-sm font-medium transition-all"
               >
                 No
+              </button>
+              <button
+                type="button"
+                (click)="setBooleanControl('compatibleWithCats', 'untested')"
+                [ngClass]="
+                  isBooleanSelected('compatibleWithCats', 'untested')
+                    ? 'bg-yellow-50 text-yellow-700'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sin testear
               </button>
             </div>
             <small
@@ -313,9 +347,9 @@
             <div class="flex gap-2">
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithChildren', true)"
+                (click)="setBooleanControl('compatibleWithChildren', 'true')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithChildren', true)
+                  isBooleanSelected('compatibleWithChildren', 'true')
                     ? 'bg-green-100 text-green-800'
                     : 'bg-gray-200 text-gray-700'
                 "
@@ -325,15 +359,29 @@
               </button>
               <button
                 type="button"
-                (click)="setBooleanControl('compatibleWithChildren', false)"
+                (click)="setBooleanControl('compatibleWithChildren', 'false')"
                 [ngClass]="
-                  isBooleanSelected('compatibleWithChildren', false)
+                  isBooleanSelected('compatibleWithChildren', 'false')
                     ? 'bg-red-100 text-red-800'
                     : 'bg-gray-200 text-gray-700'
                 "
                 class="rounded-full px-3 py-1 text-sm font-medium transition-all"
               >
                 No
+              </button>
+              <button
+                type="button"
+                (click)="
+                  setBooleanControl('compatibleWithChildren', 'untested')
+                "
+                [ngClass]="
+                  isBooleanSelected('compatibleWithChildren', 'untested')
+                    ? 'bg-yellow-50 text-yellow-700'
+                    : 'bg-gray-200 text-gray-700'
+                "
+                class="rounded-full px-3 py-1 text-sm font-medium transition-all"
+              >
+                Sin testear
               </button>
             </div>
             <small

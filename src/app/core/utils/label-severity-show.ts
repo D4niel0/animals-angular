@@ -19,6 +19,7 @@ export function getStatusLabel(animal: ShelterAnimals): string {
   const map: Record<ShelterAnimals["status"], string> = {
     available: "Disponible",
     reserved: "Reservado",
+    fostered: "En acogida",
   };
   return map[animal.status];
 }

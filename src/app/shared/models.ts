@@ -7,14 +7,14 @@ export interface Animal {
   ageYears: number;
 
   size: "small" | "medium" | "large";
-  status: "available" | "reserved";
+  status: "available" | "reserved" | "fostered";
 
   date?: string;
   sex: "m" | "f";
   breed?: string;
-  compatibleWithDogs: boolean;
-  compatibleWithCats: boolean;
-  compatibleWithChildren: boolean;
+  compatibleWithDogs: "true" | "false" | "untested";
+  compatibleWithCats: "true" | "false" | "untested";
+  compatibleWithChildren: "true" | "false" | "untested";
 
   description: string;
   history: string;
@@ -42,6 +42,7 @@ export interface AnimalShelter {
   facebook?: string;
   instagram?: string;
   address?: Address;
+  website?: string;
 }
 
 export interface Address {
@@ -50,10 +51,6 @@ export interface Address {
 }
 
 export interface Address {
-  street: string;
-  number: string | number;
-  extra?: string;
-  postalCode: string;
   city: string;
   province: string;
 }
@@ -104,7 +101,7 @@ export interface ShelterUpdateProfile {
 export interface ShelterAnimals {
   id: string;
   name: string;
-  status: "available" | "reserved";
+  status: "available" | "reserved" | "fostered";
   species: "dog" | "cat" | "other";
   image: string;
   ageYears: number;

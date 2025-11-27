@@ -23,5 +23,13 @@
       {{ "Reservado" }}
     </span>
   </div>
+  } @else if (animal?.status === 'fostered') {
+  <div
+    class="bg-yellow-600/50 absolute roundend-b-xl w-full p-2 backdrop-blur-sm bottom-0 text-center"
+  >
+    <span class="text-white font-semibold">
+      {{ "En acogida" }}
+    </span>
+  </div>
   }
 </div>

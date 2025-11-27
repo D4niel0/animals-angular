@@ -72,15 +72,19 @@
             <span
               class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium text-xs"
               [ngClass]="
-                animal.compatibleWithChildren
+                animal.compatibleWithChildren === 'true'
                   ? 'bg-green-50 text-green-700'
+                  : animal.compatibleWithChildren === 'untested'
+                  ? 'bg-yellow-50 text-yellow-700'
                   : 'bg-red-50 text-red-700'
               "
             >
               🧒
               {{
-                animal.compatibleWithChildren
+                animal.compatibleWithChildren === "true"
                   ? "Compatible con niños"
+                  : animal.compatibleWithChildren === "untested"
+                  ? "Sin testear con niños"
                   : "No compatible con niños"
               }}
             </span>
@@ -93,15 +97,19 @@
             <span
               class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
               [ngClass]="
-                animal.compatibleWithDogs
+                animal.compatibleWithDogs === 'true'
                   ? 'bg-green-50 text-green-700'
+                  : animal.compatibleWithDogs === 'untested'
+                  ? 'bg-yellow-50 text-yellow-700'
                   : 'bg-red-50 text-red-700'
               "
             >
               🐕
               {{
-                animal.compatibleWithDogs
+                animal.compatibleWithDogs === "true"
                   ? "Compatible con perros"
+                  : animal.compatibleWithDogs === "untested"
+                  ? "Sin testear con perros"
                   : "No compatible con perros"
               }}
             </span>
@@ -109,15 +117,19 @@
             <span
               class="inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium"
               [ngClass]="
-                animal.compatibleWithCats
+                animal.compatibleWithCats === 'true'
                   ? 'bg-green-50 text-green-700'
+                  : animal.compatibleWithCats === 'untested'
+                  ? 'bg-yellow-50 text-yellow-700'
                   : 'bg-red-50 text-red-700'
               "
             >
               🐈
               {{
-                animal.compatibleWithCats
+                animal.compatibleWithCats === "true"
                   ? "Compatible con gatos"
+                  : animal.compatibleWithCats === "untested"
+                  ? "Sin testear con gatos"
                   : "No compatible con gatos"
               }}
             </span>

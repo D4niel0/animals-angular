@@ -9,10 +9,15 @@
     </div>
     <div class="flex-flex-col">
       <div class="flex gap-2 items-center">
+        @if (shelter?.website) {
+        <a [href]="shelter?.website" class="text-gray-700 text-base lg:text-lg">
+          {{ shelter?.name }}
+        </a>
+        } @else {
         <span class="text-gray-700 text-base lg:text-lg">
           {{ shelter?.name }}
         </span>
-        @if (shelter?.facebook) {
+        } @if (shelter?.facebook) {
         <a
           [href]="shelter?.facebook"
           target="_blank"

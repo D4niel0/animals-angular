@@ -82,13 +82,6 @@ export class RegisterComponent {
         ],
         confirmPassword: ["", [Validators.required]],
         address: this.fb.group({
-          street: ["", [Validators.required, Validators.maxLength(120)]],
-          number: ["", [Validators.required, Validators.maxLength(20)]],
-          extra: [""],
-          postalCode: [
-            "",
-            [Validators.required, Validators.pattern(/^\d{5}$/)],
-          ],
           city: ["", [Validators.required, Validators.maxLength(80)]],
           province: ["", [Validators.required, Validators.maxLength(80)]],
         }),

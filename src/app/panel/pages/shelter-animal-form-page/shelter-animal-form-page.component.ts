@@ -49,7 +49,11 @@ export class ShelterAnimalFormPageComponent {
 
   speciesList: Array<"dog" | "cat" | "other"> = ["dog", "cat", "other"];
   sizeList: Array<"small" | "medium" | "large"> = ["small", "medium", "large"];
-  statusList: Array<"available" | "reserved"> = ["available", "reserved"];
+  statusList: Array<"available" | "reserved" | "fostered"> = [
+    "available",
+    "reserved",
+    "fostered",
+  ];
   sexList: Array<"m" | "f"> = ["m", "f"];
 
   isSubmitting = false;
@@ -72,9 +76,9 @@ export class ShelterAnimalFormPageComponent {
       status: ["available" as "available" | "reserved", [Validators.required]],
       sex: [null as "m" | "f" | null, [Validators.required]],
 
-      compatibleWithDogs: [null as boolean | null, [Validators.required]],
-      compatibleWithCats: [null as boolean | null, [Validators.required]],
-      compatibleWithChildren: [null as boolean | null, [Validators.required]],
+      compatibleWithDogs: ["", [Validators.required]],
+      compatibleWithCats: ["", [Validators.required]],
+      compatibleWithChildren: ["", [Validators.required]],
 
       description: ["", [Validators.required, Validators.maxLength(800)]],
       history: ["", [Validators.required, Validators.maxLength(1200)]],
@@ -128,18 +132,9 @@ export class ShelterAnimalFormPageComponent {
       size: animal.size ?? null,
       status: animal.status ?? "available",
       sex: animal.sex ?? null,
-      compatibleWithDogs:
-        typeof animal.compatibleWithDogs === "boolean"
-          ? animal.compatibleWithDogs
-          : null,
-      compatibleWithCats:
-        typeof animal.compatibleWithCats === "boolean"
-          ? animal.compatibleWithCats
-          : null,
-      compatibleWithChildren:
-        typeof animal.compatibleWithChildren === "boolean"
-          ? animal.compatibleWithChildren
-          : null,
+      compatibleWithDogs: animal.compatibleWithDogs ?? null,
+      compatibleWithCats: animal.compatibleWithCats ?? null,
+      compatibleWithChildren: animal.compatibleWithChildren ?? null,
       description: animal.description ?? "",
       history: animal.history ?? "",
       specialNeeds: animal.specialNeeds ?? "",
@@ -162,7 +157,7 @@ export class ShelterAnimalFormPageComponent {
    * @param controlName The name of the form control to set the value for.
    * @param value The boolean value to set for the form control.
    */
-  setBooleanControl(controlName: string, value: boolean): void {
+  setBooleanControl(controlName: string, value: string): void {
     this.form.get(controlName)?.setValue(value);
     this.form.get(controlName)?.markAsDirty();
     this.form.get(controlName)?.markAsTouched();
@@ -184,7 +179,7 @@ export class ShelterAnimalFormPageComponent {
    * @param value
    * @returns
    */
-  isBooleanSelected(controlName: string, value: boolean): boolean {
+  isBooleanSelected(controlName: string, value: string): boolean {
     return this.form.get(controlName)?.value === value;
   }
 
