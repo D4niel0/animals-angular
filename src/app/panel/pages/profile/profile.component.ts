@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, computed, inject } from "@angular/core";
 import {
   FormGroup,
   FormBuilder,
@@ -9,7 +9,6 @@ import {
   AbstractControl,
 } from "@angular/forms";
 import { finalize } from "rxjs";
-import { AuthService } from "../../../services/auth.service";
 import { ToastService } from "../../../services/toast.service";
 import { ShelterUpdateProfile } from "../../../shared/models";
 import { CommonModule } from "@angular/common";
@@ -20,6 +19,8 @@ import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-
 import { PasswordModule } from "primeng/password";
 import { ControlPasswordComponent } from "../../../shared/components/control-password/control-password.component";
 import { TooltipModule } from "primeng/tooltip";
+import { SheltersService } from "../../../services/shelters.service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-profile",
@@ -39,13 +40,21 @@ import { TooltipModule } from "primeng/tooltip";
 })
 export class ProfileComponent {
   private toastService = inject(ToastService);
-  private authService = inject(AuthService);
+  private sheltersService = inject(SheltersService);
   private profileService = inject(ProfileService);
+  private authService = inject(AuthService);
   protected isLoading: boolean = false;
   protected isLoadingPassword: boolean = false;
+  protected isLoadingEdit: boolean = false;
   protected shelterForm: FormGroup = new FormGroup({});
   protected passwordForm: FormGroup = new FormGroup({});
   protected shelterId: string = localStorage.getItem("shelterId") || "";
+
+  readonly isAuthenticated = this.authService.isAuthenticated;
+  protected buttonTitle = computed<string>(() =>
+    this.isAuthenticated() ? "Modificar" : "Enviar solicitud"
+  );
+
   constructor(private fb: FormBuilder) {
     this.initializeForms();
     this.getShelterProfile();
@@ -72,10 +81,8 @@ export class ProfileComponent {
         [Validators.required, Validators.pattern(/^[0-9+\-\s()]{7,20}$/)],
       ],
       contactEmail: [{ value: "", disabled: true }],
-      address: this.fb.group({
-        city: ["", [Validators.required, Validators.maxLength(80)]],
-        province: ["", [Validators.required, Validators.maxLength(80)]],
-      }),
+      addressCity: ["", [Validators.required, Validators.maxLength(80)]],
+      addressProvince: ["", [Validators.required, Validators.maxLength(80)]],
 
       facebook: [""],
       instagram: [""],
@@ -106,13 +113,12 @@ export class ProfileComponent {
    */
   protected getShelterProfile(): void {
     this.isLoading = true;
-    this.authService
-      .getMyShelter(this.shelterId)
+    this.sheltersService
+      .getMyShelter()
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: (shelter) => {
           this.shelterForm.patchValue(shelter);
-          console.log("shelter form", this.shelterForm.value);
         },
       });
   }
@@ -127,15 +133,14 @@ export class ProfileComponent {
       return;
     }
 
-    this.isLoading = true;
+    this.isLoadingEdit = true;
     const data: ShelterUpdateProfile = this.shelterForm.value;
 
     this.profileService
       .updateShelter(data)
-      .pipe(finalize(() => (this.isLoading = false)))
+      .pipe(finalize(() => (this.isLoadingEdit = false)))
       .subscribe({
         next: () => {
-          console.log("Actualización protectora", data);
           this.toastService.success(
             "Se han actualizado los datos",
             "Actualización completada"

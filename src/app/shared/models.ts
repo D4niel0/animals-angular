@@ -41,15 +41,9 @@ export interface AnimalShelter {
   contactPhone: string;
   facebook?: string;
   instagram?: string;
-  address?: Address;
   addressCity?: string;
   addressProvince?: string;
   website?: string;
-}
-
-export interface Address {
-  city: string;
-  province: string;
 }
 
 export interface ShelterRegistration {
@@ -64,7 +58,8 @@ export interface ShelterRegistration {
   contactEmail: string;
   password: string;
   confirmPassword: string;
-  address: Address;
+  addressCity?: string;
+  addressProvince?: string;
   facebook?: string;
   instagram?: string;
   website?: string;
@@ -87,8 +82,8 @@ export interface ShelterUpdateProfile {
 
   contactPhone: string;
 
-  address: Address;
-
+  addressCity?: string;
+  addressProvince?: string;
   facebook?: string;
   instagram?: string;
   website?: string;

@@ -33,7 +33,22 @@
               placeholder="Nombre legal de la entidad"
               formControlName="legalName"
               class="w-full"
+              maxlength="150"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  shelterForm.get('legalName')?.invalid &&
+                  shelterForm.get('legalName')?.touched
+              }"
             />
+            <small
+              class="text-red-500 text-xs"
+              *ngIf="
+                shelterForm.get('legalName')?.invalid &&
+                shelterForm.get('legalName')?.touched
+              "
+            >
+              El nombre legal es obligatorio.
+            </small>
           </div>
 
           <!-- CIF/NIF -->
@@ -100,6 +115,7 @@
               placeholder="Nombre y apellidos"
               formControlName="responsibleFullName"
               class="w-full"
+              maxlength="100"
               [ngClass]="{
                 'ng-invalid ng-dirty':
                   shelterForm.get('responsibleFullName')?.invalid &&
@@ -131,6 +147,7 @@
               formControlName="responsibleRole"
               class="w-full"
               placeholder="Presidenta, secretario, voluntaria autorizada…"
+              maxlength="60"
               [ngClass]="{
                 'ng-invalid ng-dirty':
                   shelterForm.get('responsibleRole')?.invalid &&
@@ -213,35 +230,36 @@
       <hr class="border-gray-200" />
 
       <!-- Dirección -->
-      <section class="space-y-4" formGroupName="address">
+      <section class="space-y-4">
         <h2 class="text-lg font-medium text-gray-900">Dirección</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- Ciudad -->
           <div>
             <label
-              for="city"
+              for="addressCity"
               class="block text-sm font-medium text-gray-700 mb-1"
               >Ciudad *</label
             >
             <input
-              id="city"
+              id="addressCity"
               pInputText
               type="text"
               placeholder="Ciudad"
-              formControlName="city"
+              formControlName="addressCity"
               class="w-full"
+              maxlength="80"
               [ngClass]="{
                 'ng-invalid ng-dirty':
-                  shelterForm.get('address.city')?.invalid &&
-                  shelterForm.get('address.city')?.touched
+                  shelterForm.get('addressCity')?.invalid &&
+                  shelterForm.get('addressCity')?.touched
               }"
             />
             <small
               class="text-red-500 text-xs"
               *ngIf="
-                shelterForm.get('address.city')?.invalid &&
-                shelterForm.get('address.city')?.touched
+                shelterForm.get('addressCity')?.invalid &&
+                shelterForm.get('addressCity')?.touched
               "
             >
               La ciudad es obligatoria.
@@ -251,28 +269,29 @@
           <!-- Provincia -->
           <div>
             <label
-              for="province"
+              for="addressProvince"
               class="block text-sm font-medium text-gray-700 mb-1"
               >Provincia *</label
             >
             <input
-              id="province"
+              id="addressProvince"
               pInputText
               type="text"
-              formControlName="province"
+              formControlName="addressProvince"
               placeholder="Provincia"
               class="w-full"
+              maxlength="80"
               [ngClass]="{
                 'ng-invalid ng-dirty':
-                  shelterForm.get('address.province')?.invalid &&
-                  shelterForm.get('address.province')?.touched
+                  shelterForm.get('addressProvince')?.invalid &&
+                  shelterForm.get('addressProvince')?.touched
               }"
             />
             <small
               class="text-red-500 text-xs"
               *ngIf="
-                shelterForm.get('address.province')?.invalid &&
-                shelterForm.get('address.province')?.touched
+                shelterForm.get('addressProvince')?.invalid &&
+                shelterForm.get('addressProvince')?.touched
               "
             >
               La provincia es obligatoria.
@@ -348,9 +367,12 @@
         <button
           pButton
           type="submit"
-          label="Enviar solicitud"
+          [label]="buttonTitle()"
           class="px-6"
-          [disabled]="shelterForm.invalid || shelterForm.pending"
+          [loading]="isLoadingEdit"
+          [disabled]="
+            shelterForm.invalid || shelterForm.pending || isLoadingEdit
+          "
         ></button>
       </div>
     </form>

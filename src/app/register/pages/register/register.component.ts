@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, computed, inject } from "@angular/core";
 import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from "primeng/button";
 import {
@@ -15,12 +15,12 @@ import { CommonModule } from "@angular/common";
 import { ControlPasswordComponent } from "../../../shared/components/control-password/control-password.component";
 import { TooltipModule } from "primeng/tooltip";
 import { StepsModule } from "primeng/steps";
-import { MenuItem } from "primeng/api";
 import { RegisterStepsComponent } from "../../components/register-steps/register-steps.component";
 import { ToastService } from "../../../services/toast.service";
 import { Router } from "@angular/router";
-import { AuthService } from "../../../services/auth.service";
 import { finalize } from "rxjs";
+import { SheltersService } from "../../../services/shelters.service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -41,9 +41,15 @@ import { finalize } from "rxjs";
 export class RegisterComponent {
   private toastService = inject(ToastService);
   private router = inject(Router);
+  private sheltersService = inject(SheltersService);
   private authService = inject(AuthService);
   protected isLoading: boolean = false;
   protected shelterForm: FormGroup = new FormGroup({});
+
+  readonly isAuthenticated = this.authService.isAuthenticated;
+  protected buttonTitle = computed<string>(() =>
+    this.isAuthenticated() ? "Modificar" : "Enviar solicitud"
+  );
 
   constructor(private fb: FormBuilder) {
     this.initializeForm();
@@ -81,11 +87,8 @@ export class RegisterComponent {
           ],
         ],
         confirmPassword: ["", [Validators.required]],
-        address: this.fb.group({
-          city: ["", [Validators.required, Validators.maxLength(80)]],
-          province: ["", [Validators.required, Validators.maxLength(80)]],
-        }),
-
+        addressCity: ["", [Validators.required, Validators.maxLength(80)]],
+        addressProvince: ["", [Validators.required, Validators.maxLength(80)]],
         facebook: [""],
         instagram: [""],
         website: [""],
@@ -109,7 +112,7 @@ export class RegisterComponent {
     this.isLoading = true;
     const data: ShelterRegistration = this.shelterForm.value;
 
-    this.authService
+    this.sheltersService
       .registerShelter(data)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({

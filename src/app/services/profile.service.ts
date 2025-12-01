@@ -6,12 +6,13 @@ import { Animal, ShelterUpdateProfile } from "../shared/models";
 @Injectable({ providedIn: "root" })
 export class ProfileService {
   private baseUrl = "http://localhost:3001/";
+  private apiUrl = "http://localhost:3000/api/";
+
   constructor(private http: HttpClient) {}
 
   updateShelter(shelterData: ShelterUpdateProfile) {
-    return this.http
-      .put(`${this.baseUrl}update-shelter`, shelterData)
-      .pipe(delay(500));
+    const { id, ...filteredData } = shelterData;
+    return this.http.patch(`${this.apiUrl}shelters/my-shelter`, filteredData);
   }
 
   changePassword(
