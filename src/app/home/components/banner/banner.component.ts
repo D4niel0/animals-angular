@@ -15,8 +15,8 @@ export class BannerComponent {
   protected totalAnimals = 0;
 
   constructor() {
-    this.animalsService.getCountAnimals().subscribe((data: any) => {
-      this.totalAnimals = data.total;
+    this.animalsService.getCountAnimals().subscribe((total: number) => {
+      this.totalAnimals = total;
     });
   }
 }

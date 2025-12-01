@@ -25,7 +25,6 @@ export class AnimalsService {
     }
 
     return this.http.get<Animal[]>(`${this.apiUrl}animals`).pipe(
-      delay(500),
       map((animals) =>
         animals.map((a) => ({
           ...a,
@@ -41,10 +40,9 @@ export class AnimalsService {
    * @returns
    */
   refreshAnimals(): Observable<Animal[]> {
-    return this.http.get<Animal[]>(`${this.apiUrl}animals`).pipe(
-      delay(500),
-      tap((animals) => this.animalsSignal.set(animals))
-    );
+    return this.http
+      .get<Animal[]>(`${this.apiUrl}animals`)
+      .pipe(tap((animals) => this.animalsSignal.set(animals)));
   }
 
   /**
@@ -54,7 +52,6 @@ export class AnimalsService {
    */
   getAnimalById(id: string): Observable<Animal | null> {
     return this.http.get<Animal>(`${this.apiUrl}animals/${id}`).pipe(
-      delay(500),
       map((animal) => ({
         ...animal,
         ageYears: getAgeYears(animal.birthdate),
@@ -67,7 +64,9 @@ export class AnimalsService {
    * @returns
    */
   getCountAnimals(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}animals-count`).pipe(delay(500));
+    return this.http
+      .get<any>(`${this.apiUrl}animals/count`)
+      .pipe(map((res) => res.count));
   }
 
   /**

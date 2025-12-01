@@ -20,9 +20,10 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string) {
-    return this.http
-      .post<LoginResponse>(`${this.apiUrl}auth/login`, { email, password })
-      .pipe(delay(500));
+    return this.http.post<LoginResponse>(`${this.apiUrl}auth/login`, {
+      email,
+      password,
+    });
   }
 
   resetPassword(token: string | null, newPassword: string) {
