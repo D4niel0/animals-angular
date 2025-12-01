@@ -498,6 +498,7 @@
           type="submit"
           [label]="mode === 'create' ? 'Crear animal' : 'Guardar cambios'"
           class="px-6"
+          [loading]="isLoading"
           [disabled]="form.invalid || isSubmitting || images.length === 0"
         ></button>
       </div>

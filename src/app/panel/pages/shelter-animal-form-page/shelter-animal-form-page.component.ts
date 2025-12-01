@@ -18,6 +18,8 @@ import { AnimalImagesComponent } from "../../../shared/components/animal-images/
 import { ToastService } from "../../../services/toast.service";
 import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
 import { DatePickerModule } from "primeng/datepicker";
+import { finalize } from "rxjs";
+import { formatBirthdateISO } from "../../../core/utils/date-utils";
 
 @Component({
   selector: "app-shelter-animal-form-page",
@@ -62,7 +64,7 @@ export class ShelterAnimalFormPageComponent {
   isLoading = false;
   images: string[] = [];
   imageFiles: File[] = [];
-
+  existingImageUrls: string[] = [];
   maxDate = new Date();
 
   constructor() {
@@ -142,7 +144,11 @@ export class ShelterAnimalFormPageComponent {
       description: animal.description ?? "",
       history: animal.history ?? "",
       specialNeeds: animal.specialNeeds ?? "",
+      imageUrl: animal.imageUrl ?? [],
     });
+
+    this.existingImageUrls = animal.imageUrl ?? [];
+    this.images = [...this.existingImageUrls];
   }
 
   /**
@@ -193,6 +199,10 @@ export class ShelterAnimalFormPageComponent {
    */
   onImagesChange(previews: string[]): void {
     this.images = previews;
+
+    this.existingImageUrls = this.existingImageUrls.filter((url) =>
+      previews.includes(url)
+    );
   }
 
   /**
@@ -214,12 +224,13 @@ export class ShelterAnimalFormPageComponent {
     }
 
     this.isSubmitting = true;
+    this.isLoading = true;
     const raw = this.form.value;
 
     const animalPayload: Omit<Animal, "id" | "imageUrl" | "location"> = {
       name: raw.name,
       species: raw.species,
-      birthdate: raw.birthday,
+      birthdate: formatBirthdateISO(raw.birthday),
       size: raw.size,
       status: raw.status,
       sex: raw.sex,
@@ -240,8 +251,17 @@ export class ShelterAnimalFormPageComponent {
       })
     );
 
+    if (this.mode === "edit" && this.existingImageUrls.length > 0) {
+      formData.append(
+        "existingImages",
+        new Blob([JSON.stringify(this.existingImageUrls)], {
+          type: "application/json",
+        })
+      );
+    }
+
     this.imageFiles.forEach((file, index) => {
-      formData.append("images", file, file.name || `animal-${index}.png`);
+      formData.append("images", file, file.name);
     });
 
     const request$ =
@@ -249,14 +269,24 @@ export class ShelterAnimalFormPageComponent {
         ? this.profileService.createAnimal(formData)
         : this.profileService.editAnimal(this.animalId!, formData);
 
-    // TODO: Integrar
-
-    console.log(animalPayload);
-    this.isSubmitting = false;
-    this.toastService.success(
-      "Éxito",
-      `Animal ${this.mode === "create" ? "creado" : "editado"} correctamente.`
-    );
-    this.router.navigate(["/panel/shelter-animals"]);
+    request$
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+          this.isSubmitting = false;
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.toastService.success(
+            "Éxito",
+            `Animal ${
+              this.mode === "create" ? "creado" : "editado"
+            } correctamente.`
+          );
+          this.animalsService.clearAnimalsCache();
+          this.router.navigate(["/panel/shelter-animals"]);
+        },
+      });
   }
 }

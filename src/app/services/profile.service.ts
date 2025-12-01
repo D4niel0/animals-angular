@@ -42,20 +42,14 @@ export class ProfileService {
   }
 
   createAnimal(animalData: FormData) {
-    return this.http
-      .post(`${this.baseUrl}new-animal`, animalData)
-      .pipe(delay(500));
+    return this.http.post(`${this.apiUrl}animals`, animalData);
   }
 
   editAnimal(id: string, animalData: FormData) {
-    return this.http
-      .put(`${this.baseUrl}edit-animal/${id}`, animalData)
-      .pipe(delay(500));
+    return this.http.patch(`${this.apiUrl}animals/${id}`, animalData);
   }
 
   deleteAnimal(id: string) {
-    return this.http
-      .delete(`${this.baseUrl}delete-animal/${id}`)
-      .pipe(delay(500));
+    return this.http.delete(`${this.apiUrl}animals/${id}`);
   }
 }

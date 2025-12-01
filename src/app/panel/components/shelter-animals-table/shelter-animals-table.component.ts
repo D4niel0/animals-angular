@@ -65,6 +65,7 @@ export class ShelterAnimalsTableComponent {
   private router = inject(Router);
   private confirmationService = inject(ConfirmationService);
   private toastService = inject(ToastService);
+  private profileService = inject(ProfileService);
 
   speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   statusOptions: SelectOption[] = STATUS_OPTIONS;
@@ -109,12 +110,12 @@ export class ShelterAnimalsTableComponent {
         severity: "danger",
       },
       accept: () => {
-        // TODO: INTEGRACIÓN
-        // this.profileService.deleteAnimal(animalId).subscribe(() => {
-        //     this.animals = this.animals.filter(animal => animal.id !== animalId);
-        //     this.toastService.success('Animal eliminado correctamente');
-        // });
-        this.toastService.info("Animal eliminado");
+        this.profileService.deleteAnimal(animalId).subscribe({
+          next: () => {
+            this.toastService.info("Animal eliminado");
+            this.animals = this.animals.filter((a) => a.id !== animalId);
+          },
+        });
       },
     });
   }
