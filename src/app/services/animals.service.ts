@@ -3,21 +3,16 @@ import { Injectable, signal } from "@angular/core";
 import { delay, map, of, tap } from "rxjs";
 import { Observable } from "rxjs";
 import { Animal } from "../shared/models";
+import { getAgeYears } from "../core/utils/date-utils";
 
 @Injectable({ providedIn: "root" })
 export class AnimalsService {
   private baseUrl = "http://localhost:3001/";
+  private apiUrl = "http://localhost:3000/api/";
 
   private animalsSignal = signal<Animal[] | null>(null);
 
   constructor(private http: HttpClient) {}
-
-  private normalizeAnimal(a: any): Animal {
-    return {
-      ...a,
-      id: Number(a.id),
-    } as Animal;
-  }
 
   /**
    * @description Fetch the list of animals from the API or return cached data.
@@ -29,9 +24,14 @@ export class AnimalsService {
       return of(cached);
     }
 
-    return this.http.get<Animal[]>(`${this.baseUrl}animals`).pipe(
+    return this.http.get<Animal[]>(`${this.apiUrl}animals`).pipe(
       delay(500),
-      map((animals) => animals.map((a: any) => this.normalizeAnimal(a))),
+      map((animals) =>
+        animals.map((a) => ({
+          ...a,
+          ageYears: getAgeYears(a.birthdate),
+        }))
+      ),
       tap((animals) => this.animalsSignal.set(animals))
     );
   }
@@ -41,9 +41,8 @@ export class AnimalsService {
    * @returns
    */
   refreshAnimals(): Observable<Animal[]> {
-    return this.http.get<Animal[]>(`${this.baseUrl}animals`).pipe(
+    return this.http.get<Animal[]>(`${this.apiUrl}animals`).pipe(
       delay(500),
-      map((animals) => animals.map((a: any) => this.normalizeAnimal(a))),
       tap((animals) => this.animalsSignal.set(animals))
     );
   }
@@ -54,16 +53,12 @@ export class AnimalsService {
    * @returns
    */
   getAnimalById(id: string): Observable<Animal | null> {
-    const cached = this.animalsSignal();
-    const idNum = Number(id);
-    if (cached && cached.length > 0) {
-      const found = cached.find((a) => Number(a.id) === idNum) ?? null;
-      return of(found);
-    }
-
-    return this.http.get<Animal>(`${this.baseUrl}animals/${id}`).pipe(
+    return this.http.get<Animal>(`${this.apiUrl}animals/${id}`).pipe(
       delay(500),
-      map((animal: any) => this.normalizeAnimal(animal))
+      map((animal) => ({
+        ...animal,
+        ageYears: getAgeYears(animal.birthdate),
+      }))
     );
   }
 

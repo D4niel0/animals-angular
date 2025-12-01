@@ -90,8 +90,8 @@ export class CardsComponent {
    * @param eventOrId
    * @param maybeId
    */
-  protected goToDetails(eventOrId: any, maybeId?: number | undefined): void {
-    let id: number | undefined;
+  protected goToDetails(eventOrId: any, maybeId?: string): void {
+    let id: string | undefined;
     let startEl: Element | null = null;
 
     if (typeof maybeId === "undefined") {

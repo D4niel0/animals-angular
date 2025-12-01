@@ -10,12 +10,17 @@
     <div class="flex-flex-col">
       <div class="flex gap-2 items-center">
         @if (shelter?.website) {
-        <a [href]="shelter?.website" class="text-gray-700 text-base lg:text-lg">
-          {{ shelter?.name }}
+        <a
+          [href]="shelter?.website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-700 text-base lg:text-lg hover:text-green-600"
+        >
+          {{ shelter?.legalName }}
         </a>
         } @else {
         <span class="text-gray-700 text-base lg:text-lg">
-          {{ shelter?.name }}
+          {{ shelter?.legalName }}
         </span>
         } @if (shelter?.facebook) {
         <a
@@ -47,20 +52,20 @@
       </div>
 
       <span class="pb-5 text-sm lg:text-base">
-        {{ shelter?.address?.city + ", " + shelter?.address?.province }}
+        {{ shelter?.addressCity + ", " + shelter?.addressProvince }}
       </span>
       <div class="flex items-center">
         <i class="text-lg text-green-600 pi pi-envelope pr-2"></i>
         <a
-          href="mailto:{{ shelter?.email }}"
+          href="mailto:{{ shelter?.contactEmail }}"
           class="hover:text-green-600 cursor-pointer text-sm lg:text-base"
         >
-          {{ shelter?.email }}
+          {{ shelter?.contactEmail }}
         </a>
       </div>
       <div class="flex items-center">
         <i class="text-lg text-green-600 pi pi-phone pr-2"></i>
-        <span class="text-sm lg:text-base">{{ shelter?.phone }}</span>
+        <span class="text-sm lg:text-base">{{ shelter?.contactPhone }}</span>
       </div>
     </div>
   </div>

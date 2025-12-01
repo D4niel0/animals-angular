@@ -29,20 +29,21 @@ export interface Animal {
 export interface AnimalLocation {
   city: string;
   province: string;
-  country: string;
   shelter: AnimalShelter;
 }
 
 export interface AnimalShelter {
   id: string;
   logo?: string;
-  name: string;
-  email: string;
+  legalName: string;
+  contactEmail: string;
   password: string;
-  phone: string;
+  contactPhone: string;
   facebook?: string;
   instagram?: string;
   address?: Address;
+  addressCity?: string;
+  addressProvince?: string;
   website?: string;
 }
 
@@ -64,7 +65,6 @@ export interface ShelterRegistration {
   password: string;
   confirmPassword: string;
   address: Address;
-
   facebook?: string;
   instagram?: string;
   website?: string;

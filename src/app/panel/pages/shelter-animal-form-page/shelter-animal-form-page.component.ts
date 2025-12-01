@@ -251,6 +251,7 @@ export class ShelterAnimalFormPageComponent {
 
     // TODO: Integrar
 
+    console.log(animalPayload);
     this.isSubmitting = false;
     this.toastService.success(
       "Éxito",

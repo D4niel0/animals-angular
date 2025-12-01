@@ -32,7 +32,7 @@
           </div>
 
           <p class="text-sm text-gray-600">
-            {{ animal.location?.province }} · {{ animal.location?.country }}
+            {{ animal.location?.province }}
           </p>
 
           <div class="flex flex-wrap gap-2 mt-2">
@@ -72,7 +72,10 @@
               class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
             >
               {{ animal.ageYears }} año{{
-                animal.ageYears && animal.ageYears > 1 ? "s" : ""
+                animal.ageYears === 0 ||
+                (animal.ageYears && animal.ageYears > 1)
+                  ? "s"
+                  : ""
               }}
             </span>
             <span
@@ -176,10 +179,18 @@
 
           <div class="flex flex-col gap-1">
             <div class="flex gap-2 items-center">
+              @if (animal.location?.shelter?.website) {
+              <a
+                [href]="animal.location?.shelter?.website"
+                class="text-gray-700 text-lg"
+              >
+                {{ animal.location?.shelter?.legalName }}
+              </a>
+              } @else {
               <span class="text-gray-700 text-lg">
-                {{ animal.location?.shelter?.name }}
+                {{ animal.location?.shelter?.legalName }}
               </span>
-              @if (animal.location?.shelter?.facebook) {
+              } @if (animal.location?.shelter?.facebook) {
               <a
                 [href]="animal.location?.shelter?.facebook"
                 target="_blank"
@@ -209,24 +220,20 @@
             </div>
 
             <span class="pb-5">
-              {{
-                animal.location?.shelter?.address?.city +
-                  ", " +
-                  animal.location?.shelter?.address?.province
-              }}
+              {{ animal.location?.city + ", " + animal.location?.province }}
             </span>
             <div class="flex items-center">
               <i class="text-lg text-green-600 pi pi-envelope pr-2"></i>
               <a
-                href="mailto:{{ animal.location?.shelter?.email }}"
+                href="mailto:{{ animal.location?.shelter?.contactEmail }}"
                 class="hover:text-green-600 cursor-pointer"
               >
-                {{ animal.location?.shelter?.email }}
+                {{ animal.location?.shelter?.contactEmail }}
               </a>
             </div>
             <div class="flex items-center">
               <i class="text-lg text-green-600 pi pi-phone pr-2"></i>
-              <span>{{ animal.location?.shelter?.phone }}</span>
+              <span>{{ animal.location?.shelter?.contactPhone }}</span>
             </div>
             <div class="button">
               <button

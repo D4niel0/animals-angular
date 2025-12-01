@@ -66,9 +66,10 @@ export class LoginComponent {
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: (response) => {
-          console.log("Login", { email, password });
           localStorage.setItem("token", response.token);
           localStorage.setItem("shelterId", response.shelterId);
+          this.authService["_isAuthenticated"].set(true);
+          this.router.navigate(["/home"]);
         },
       });
   }

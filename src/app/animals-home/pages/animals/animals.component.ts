@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, effect } from "@angular/core";
+import { Component, inject, effect } from "@angular/core";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
 import { CardsComponent } from "../../../shared/components/cards/cards.component";
@@ -24,7 +24,7 @@ import { SkeletonModule } from "primeng/skeleton";
   templateUrl: "./animals.component.html",
   styleUrl: "./animals.component.scss",
 })
-export class AnimalsComponent implements OnInit {
+export class AnimalsComponent {
   private animalsService = inject(AnimalsService);
   private scrollService = inject(ScrollService);
   private filtersStore = inject(AnimalsFiltersStore);

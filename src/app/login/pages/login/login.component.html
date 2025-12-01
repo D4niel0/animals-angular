@@ -95,7 +95,8 @@
           type="submit"
           label="Iniciar sesión"
           class="w-full mt-2"
-          [disabled]="loginForm.invalid"
+          [loading]="isLoading"
+          [disabled]="loginForm.invalid || isLoading"
         ></button>
       </div>
     </form>

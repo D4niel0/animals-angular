@@ -1,4 +1,12 @@
-import { Component, inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import {
+  Component,
+  computed,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+  ViewChild,
+} from "@angular/core";
 import { Router, RouterModule, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs";
 
@@ -41,28 +49,38 @@ export class ShellComponent implements OnInit, OnDestroy {
   protected sidebarVisible = false;
   protected isHome = false;
 
-  protected menuItems: MenuItem[] = [
-    {
-      label: "Iniciar sesión",
-      routerLink: ["/login"],
-    },
-    {
-      label: "Registro",
-      routerLink: ["/register"],
-    },
-    {
-      label: "Gestionar animales",
-      routerLink: ["/panel/shelter-animals"],
-    },
-    {
-      label: "Editar perfil",
-      routerLink: ["/panel/profile"],
-    },
-    {
-      label: "Cerrar sesión",
-      command: () => this.logout(),
-    },
-  ];
+  protected menuItems = computed<MenuItem[]>(() => {
+    if (this.isAuthenticated()) {
+      return [
+        {
+          label: "Gestionar animales",
+          routerLink: ["/panel/shelter-animals"],
+        },
+        {
+          label: "Editar perfil",
+          routerLink: ["/panel/profile"],
+        },
+        {
+          label: "Cerrar sesión",
+          command: () => this.logout(),
+        },
+      ];
+    } else {
+      return [
+        {
+          label: "Iniciar sesión",
+          routerLink: ["/login"],
+        },
+        {
+          label: "Registro",
+          routerLink: ["/register"],
+        },
+      ];
+    }
+  });
+
+  protected menuOptions: MenuItem[] = [];
+
   private scrollService = inject(ScrollService);
   private animalsService = inject(AnimalsService);
   private animalsFilterStore = inject(AnimalsFiltersStore);
@@ -72,6 +90,8 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.menu?.hide();
     this.menuMobile?.hide();
   };
+
+  readonly isAuthenticated = this.authService.isAuthenticated;
 
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
@@ -110,12 +130,6 @@ export class ShellComponent implements OnInit, OnDestroy {
   }
 
   protected logout(): void {
-    this.authService.logout().subscribe({
-      next: () => {
-        localStorage.removeItem("myShelter");
-        localStorage.removeItem("token");
-        this.router.navigate(["/home"]);
-      },
-    });
+    this.authService.logout();
   }
 }
