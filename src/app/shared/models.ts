@@ -94,10 +94,11 @@ export interface ShelterAnimals {
   name: string;
   status: "available" | "reserved" | "fostered";
   species: "dog" | "cat" | "other";
-  image: string;
+  imageUrl: string[];
   ageYears: number;
   size: "small" | "medium" | "large";
   sex: "m" | "f";
+  birthdate: string;
 }
 
 export interface SelectOption {

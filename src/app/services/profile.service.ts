@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { delay } from "rxjs";
+import { delay, map } from "rxjs";
 import { Animal, ShelterUpdateProfile } from "../shared/models";
+import { getAgeYears } from "../core/utils/date-utils";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
@@ -30,9 +31,14 @@ export class ProfileService {
   }
 
   getShelterAnimals() {
-    return this.http
-      .get<any>(`${this.baseUrl}shelter-animals`)
-      .pipe(delay(500));
+    return this.http.get<any>(`${this.apiUrl}animals/shelter-animals`).pipe(
+      map((animals) =>
+        animals.map((a: any) => ({
+          ...a,
+          ageYears: getAgeYears(a.birthdate),
+        }))
+      )
+    );
   }
 
   createAnimal(animalData: FormData) {
