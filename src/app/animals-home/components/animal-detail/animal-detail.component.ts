@@ -1,7 +1,15 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { ActivatedRoute, RouterModule } from "@angular/router";
-import { Observable, switchMap, map, of } from "rxjs";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
+import {
+  Observable,
+  switchMap,
+  map,
+  of,
+  finalize,
+  takeUntil,
+  Subject,
+} from "rxjs";
 import { AnimalsService } from "../../../services/animals.service";
 import { Animal } from "../../../shared/models";
 import { SliderComponent } from "../../../shared/components/slider/slider.component";
@@ -24,18 +32,32 @@ import { ShareButtonComponent } from "../../../shared/components/share-button/sh
   ],
   templateUrl: "./animal-detail.component.html",
 })
-export class AnimalDetailComponent {
-  animal$!: Observable<Animal | null>;
-  showContactForm = false;
+export class AnimalDetailComponent implements OnInit {
+  protected animal: Animal | null = null;
+  protected showContactForm = false;
+  protected isLoading = true;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private animalsService: AnimalsService
-  ) {
-    this.animal$ = this.route.paramMap.pipe(
-      map((params) => params.get("id")),
-      switchMap((id) => (id ? this.animalsService.getAnimalById(id) : of(null)))
-    );
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.pipe(takeUntil(this.destroy$)).subscribe((params) => {
+      const id = params.get("id");
+      if (id) {
+        this.loadAnimal(id);
+      } else {
+        this.router.navigate(["/animals-home"]);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   /**
@@ -61,5 +83,23 @@ export class AnimalDetailComponent {
    */
   protected toggleContactForm(): void {
     this.showContactForm = !this.showContactForm;
+  }
+
+  private loadAnimal(id: string): void {
+    this.isLoading = true;
+    this.animalsService
+      .getAnimalById(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (animal) => {
+          this.animal = animal;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error("Error loading animal:", error);
+          this.isLoading = false;
+          this.router.navigate(["/animals-home"]);
+        },
+      });
   }
 }

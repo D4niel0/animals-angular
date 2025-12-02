@@ -74,9 +74,7 @@ export class AnimalsService {
    * @returns
    */
   getUrgentAnimals(): Observable<any[]> {
-    return this.http
-      .get<any[]>(`${this.baseUrl}urgent-animals`)
-      .pipe(delay(500));
+    return this.http.get<any[]>(`${this.apiUrl}animals/urgent-animals`);
   }
 
   /**

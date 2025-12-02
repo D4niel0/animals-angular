@@ -75,6 +75,7 @@ export class ShelterAnimalFormPageComponent {
         "",
         [Validators.required, Validators.min(0), Validators.max(30)],
       ],
+      breed: ["", [Validators.maxLength(60)]],
       size: [
         null as "small" | "medium" | "large" | null,
         [Validators.required],
@@ -135,6 +136,7 @@ export class ShelterAnimalFormPageComponent {
       name: animal.name ?? "",
       species: animal.species,
       birthday: animal.birthdate ?? "",
+      breed: animal.breed ?? "",
       size: animal.size ?? null,
       status: animal.status ?? "available",
       sex: animal.sex ?? null,
@@ -231,6 +233,7 @@ export class ShelterAnimalFormPageComponent {
       name: raw.name,
       species: raw.species,
       birthdate: formatBirthdateISO(raw.birthday),
+      breed: raw.breed,
       size: raw.size,
       status: raw.status,
       sex: raw.sex,
@@ -279,10 +282,10 @@ export class ShelterAnimalFormPageComponent {
       .subscribe({
         next: () => {
           this.toastService.success(
-            "Éxito",
             `Animal ${
               this.mode === "create" ? "creado" : "editado"
-            } correctamente.`
+            } correctamente.`,
+            "Éxito"
           );
           this.animalsService.clearAnimalsCache();
           this.router.navigate(["/panel/shelter-animals"]);

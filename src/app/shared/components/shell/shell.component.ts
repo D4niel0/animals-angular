@@ -24,6 +24,7 @@ import { AnimalsFiltersStore } from "../../../core/stores/animal-filters.store";
 import { Menu } from "primeng/menu";
 import { MenuItem } from "primeng/api";
 import { AuthService } from "../../../services/auth.service";
+import { ToastService } from "../../../services/toast.service";
 
 @Component({
   selector: "app-shell",
@@ -85,6 +86,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   private animalsService = inject(AnimalsService);
   private animalsFilterStore = inject(AnimalsFiltersStore);
   private authService = inject(AuthService);
+  private toastService = inject(ToastService);
 
   private onScroll = () => {
     this.menu?.hide();
@@ -131,5 +133,9 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   protected logout(): void {
     this.authService.logout();
+    this.toastService.success(
+      "Sesión cerrada",
+      "Has cerrado sesión correctamente."
+    );
   }
 }

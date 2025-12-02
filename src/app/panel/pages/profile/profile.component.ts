@@ -21,6 +21,8 @@ import { ControlPasswordComponent } from "../../../shared/components/control-pas
 import { TooltipModule } from "primeng/tooltip";
 import { SheltersService } from "../../../services/shelters.service";
 import { AuthService } from "../../../services/auth.service";
+import { PROVINCES } from "../../../core/constants/provinces.const";
+import { SelectModule } from "primeng/select";
 
 @Component({
   selector: "app-profile",
@@ -34,6 +36,7 @@ import { AuthService } from "../../../services/auth.service";
     PasswordModule,
     ControlPasswordComponent,
     TooltipModule,
+    SelectModule,
   ],
   templateUrl: "./profile.component.html",
   styleUrl: "./profile.component.scss",
@@ -54,6 +57,11 @@ export class ProfileComponent {
   protected buttonTitle = computed<string>(() =>
     this.isAuthenticated() ? "Modificar" : "Enviar solicitud"
   );
+  readonly PROVINCES_LIST = PROVINCES;
+  protected provincesOptions = this.PROVINCES_LIST.map((p) => ({
+    label: p,
+    value: p,
+  }));
 
   constructor(private fb: FormBuilder) {
     this.initializeForms();

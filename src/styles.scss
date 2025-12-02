@@ -91,3 +91,7 @@ body,
 .p-datatable-table-container {
   min-height: 250px;
 }
+
+p-columnfilter .p-datatable-column-filter-button {
+  display: none !important;
+}

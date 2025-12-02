@@ -36,6 +36,7 @@ import { ProfileService } from "../../../services/profile.service";
 import { ConfirmationService } from "primeng/api";
 import { ToastService } from "../../../services/toast.service";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { AnimalsService } from "../../../services/animals.service";
 
 @Component({
   selector: "app-shelter-animals-table",
@@ -66,6 +67,7 @@ export class ShelterAnimalsTableComponent {
   private confirmationService = inject(ConfirmationService);
   private toastService = inject(ToastService);
   private profileService = inject(ProfileService);
+  private animalsService = inject(AnimalsService);
 
   speciesOptions: SelectOption[] = SPECIES_OPTIONS;
   statusOptions: SelectOption[] = STATUS_OPTIONS;
@@ -114,6 +116,7 @@ export class ShelterAnimalsTableComponent {
           next: () => {
             this.toastService.info("Animal eliminado");
             this.animals = this.animals.filter((a) => a.id !== animalId);
+            this.animalsService.clearAnimalsCache();
           },
         });
       },

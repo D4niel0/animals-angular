@@ -21,6 +21,8 @@ import { Router } from "@angular/router";
 import { finalize } from "rxjs";
 import { SheltersService } from "../../../services/shelters.service";
 import { AuthService } from "../../../services/auth.service";
+import { PROVINCES } from "../../../core/constants/provinces.const";
+import { SelectModule } from "primeng/select";
 
 @Component({
   selector: "app-register",
@@ -34,6 +36,7 @@ import { AuthService } from "../../../services/auth.service";
     TooltipModule,
     StepsModule,
     RegisterStepsComponent,
+    SelectModule,
   ],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
@@ -50,6 +53,11 @@ export class RegisterComponent {
   protected buttonTitle = computed<string>(() =>
     this.isAuthenticated() ? "Modificar" : "Enviar solicitud"
   );
+  readonly PROVINCES_LIST = PROVINCES;
+  protected provincesOptions = this.PROVINCES_LIST.map((p) => ({
+    label: p,
+    value: p,
+  }));
 
   constructor(private fb: FormBuilder) {
     this.initializeForm();

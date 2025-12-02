@@ -64,29 +64,55 @@
 
           <div>
             <label
-              for="ageYears"
+              for="breed"
               class="block text-sm font-medium text-gray-700 mb-1"
             >
-              Fecha de nacimiento *
+              Raza *
             </label>
-            <p-datepicker
-              formControlName="birthday"
-              [maxDate]="maxDate"
-              [readonlyInput]="true"
-              [iconDisplay]="'input'"
-              [showIcon]="true"
-              inputId="icondisplay"
+            <input
+              id="breed"
+              pInputText
+              type="text"
+              formControlName="breed"
+              class="w-full"
+              placeholder="Raza del animal"
+              [ngClass]="{
+                'ng-invalid ng-dirty':
+                  form.get('breed')?.invalid && form.get('breed')?.touched
+              }"
             />
-
             <small
               class="text-red-500 text-xs"
-              *ngIf="
-                form.get('ageYears')?.invalid && form.get('ageYears')?.touched
-              "
+              *ngIf="form.get('breed')?.invalid && form.get('breed')?.touched"
             >
-              Introduce una fecha de nacimiento válida.
+              La raza es obligatoria.
             </small>
           </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <label
+            for="ageYears"
+            class="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Fecha de nacimiento *
+          </label>
+          <p-datepicker
+            formControlName="birthday"
+            [maxDate]="maxDate"
+            [readonlyInput]="true"
+            [iconDisplay]="'input'"
+            [showIcon]="true"
+            inputId="icondisplay"
+          />
+
+          <small
+            class="text-red-500 text-xs"
+            *ngIf="
+              form.get('ageYears')?.invalid && form.get('ageYears')?.touched
+            "
+          >
+            Introduce una fecha de nacimiento válida.
+          </small>
         </div>
       </section>
 

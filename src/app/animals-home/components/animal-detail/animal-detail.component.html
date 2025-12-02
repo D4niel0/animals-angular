@@ -12,7 +12,9 @@
     </div>
 
     <article class="bg-white rounded-2xl shadow-md overflow-hidden">
-      @let animal = animal$ | async; @if (animal) {
+      @if (isLoading) {
+      <app-paw-spinner></app-paw-spinner>
+      } @else if (animal) {
       <div>
         <app-slider [images]="animal.imageUrl"></app-slider>
       </div>
@@ -257,8 +259,6 @@
           </div>
         </section>
       </div>
-      } @else {
-      <app-paw-spinner></app-paw-spinner>
       }
     </article>
   </div>

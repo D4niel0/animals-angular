@@ -21,18 +21,25 @@
         <p class="font-semibold text-gray-900 mb-3">Explora</p>
         <ul class="space-y-2">
           <li>
-            <a class="hover:text-green-600 cursor-pointer">Home</a>
+            <a routerLink="/home" class="hover:text-green-600 cursor-pointer"
+              >Home</a
+            >
           </li>
           <li>
-            <a class="hover:text-green-600 cursor-pointer">
+            <a
+              routerLink="/animals-home"
+              class="hover:text-green-600 cursor-pointer"
+            >
               Animales en adopción
             </a>
           </li>
           <li>
-            <a class="hover:text-green-600 cursor-pointer"> Protectoras </a>
-          </li>
-          <li>
-            <a class="hover:text-green-600 cursor-pointer"> Contacto </a>
+            <a
+              routerLink="/shelters-home"
+              class="hover:text-green-600 cursor-pointer"
+            >
+              Protectoras
+            </a>
           </li>
         </ul>
       </nav>
@@ -48,10 +55,6 @@
             >
               info&#64;animalsapp.es
             </a>
-          </li>
-          <li class="flex items-center gap-2">
-            <i class="text-lg text-green-600 pi pi-phone"></i>
-            <span>+34 600 000 000</span>
           </li>
         </ul>
 

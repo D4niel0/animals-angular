@@ -43,9 +43,11 @@ export class LoginComponent {
   private authService = inject(AuthService);
 
   constructor(private fb: FormBuilder, private router: Router) {
+    const rememberedEmail = localStorage.getItem("rememberedEmail") || "";
     this.loginForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
+      email: [rememberedEmail, [Validators.required, Validators.email]],
       password: ["", [Validators.required]],
+      remember: [false],
     });
   }
 
@@ -66,10 +68,15 @@ export class LoginComponent {
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: (response) => {
+          if (this.loginForm.get("remember")?.value) {
+            localStorage.setItem("rememberedEmail", email);
+          } else {
+            localStorage.removeItem("rememberedEmail");
+          }
           localStorage.setItem("token", response.token);
           localStorage.setItem("shelterId", response.shelterId);
           this.authService["_isAuthenticated"].set(true);
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/panel/shelter-animals"]);
         },
       });
   }
