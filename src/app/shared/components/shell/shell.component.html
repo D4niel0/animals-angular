@@ -66,14 +66,24 @@
     </div>
 
     <div class="p-toolbar-group-right">
-      <button
-        pButton
-        type="button"
-        icon="pi pi-user"
-        class="p-button-text"
-        aria-label="Usuario"
+      @if (profileImage(); as imgUrl) {
+      <p-avatar
+        [image]="imgUrl"
+        class="mr-2 cursor-pointer"
+        size="large"
+        shape="circle"
         (click)="menuMobile.toggle($event)"
-      ></button>
+      />
+      } @else {
+      <p-avatar
+        icon="pi pi-user"
+        class="mr-2 cursor-pointer"
+        size="large"
+        shape="circle"
+        (click)="menuMobile.toggle($event)"
+        [style]="{ 'background-color': '#dcfce7', color: '#22c55e' }"
+      />
+      }
       <p-menu
         #menuMobile
         [popup]="true"
@@ -113,14 +123,25 @@
           >Protectoras</a
         >
       </div>
-      <button
-        pButton
-        type="button"
-        icon="pi pi-user"
-        class="p-button-text"
-        aria-label="Usuario"
+      @if (profileImage(); as imgUrl) {
+      <p-avatar
+        [image]="imgUrl"
+        class="mr-2 cursor-pointer"
+        size="large"
+        shape="circle"
         (click)="menu.toggle($event)"
-      ></button>
+      />
+      } @else {
+      <p-avatar
+        icon="pi pi-user"
+        class="mr-2 cursor-pointer"
+        size="large"
+        shape="circle"
+        (click)="menu.toggle($event)"
+        [style]="{ 'background-color': '#dcfce7', color: '#22c55e' }"
+      />
+      }
+
       <p-menu
         #menu
         [popup]="true"

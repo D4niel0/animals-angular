@@ -180,50 +180,63 @@
           </div>
 
           <div class="flex flex-col gap-1">
-            <div class="flex gap-2 items-center">
-              @if (animal.location?.shelter?.website) {
-              <a
-                [href]="animal.location?.shelter?.website"
-                class="text-gray-700 text-lg"
-              >
-                {{ animal.location?.shelter?.legalName }}
-              </a>
-              } @else {
-              <span class="text-gray-700 text-lg">
-                {{ animal.location?.shelter?.legalName }}
-              </span>
-              } @if (animal.location?.shelter?.facebook) {
-              <a
-                [href]="animal.location?.shelter?.facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Facebook"
-              >
+            <div class="flex gap-2 items-center pb-5">
+              <div class="logo items-center flex-shrink-0 hidden sm:block">
                 <img
-                  class="w-6 cursor-pointer"
-                  src="/assets/icons/facebook.png"
-                  alt="Facebook"
+                  [src]="
+                    animal.location?.shelter?.imgUrl ||
+                    '/assets/images/shelter-img.png'
+                  "
+                  alt="shelter image"
+                  class="shelter-image w-16 rounded-lg"
                 />
-              </a>
-              } @if (animal.location?.shelter?.instagram) {
-              <a
-                [href]="animal.location?.shelter?.instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Instagram"
-              >
-                <img
-                  class="w-6 cursor-pointer"
-                  src="/assets/icons/instagram.png"
-                  alt="Instagram"
-                />
-              </a>
-              }
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="flex gap-2 items-center">
+                  @if (animal.location?.shelter?.website) {
+                  <a
+                    [href]="animal.location?.shelter?.website"
+                    class="text-gray-700 text-lg font-medium"
+                  >
+                    {{ animal.location?.shelter?.legalName }}
+                  </a>
+                  } @else {
+                  <span class="text-gray-700 text-lg font-medium">
+                    {{ animal.location?.shelter?.legalName }}
+                  </span>
+                  } @if (animal.location?.shelter?.facebook) {
+                  <a
+                    [href]="animal.location?.shelter?.facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Facebook"
+                  >
+                    <img
+                      class="w-6 cursor-pointer"
+                      src="/assets/icons/facebook.png"
+                      alt="Facebook"
+                    />
+                  </a>
+                  } @if (animal.location?.shelter?.instagram) {
+                  <a
+                    [href]="animal.location?.shelter?.instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram"
+                  >
+                    <img
+                      class="w-6 cursor-pointer"
+                      src="/assets/icons/instagram.png"
+                      alt="Instagram"
+                    />
+                  </a>
+                  }
+                </div>
+                <span>
+                  {{ animal.location?.city + ", " + animal.location?.province }}
+                </span>
+              </div>
             </div>
-
-            <span class="pb-5">
-              {{ animal.location?.city + ", " + animal.location?.province }}
-            </span>
             <div class="flex items-center">
               <i class="text-lg text-green-600 pi pi-envelope pr-2"></i>
               <a

@@ -15,6 +15,7 @@ import { CheckboxModule } from "primeng/checkbox";
 import { AuthService } from "../../../services/auth.service";
 import { finalize } from "rxjs";
 import { AnimationOptions, LottieComponent } from "ngx-lottie";
+import { ProfileService } from "../../../services/profile.service";
 
 @Component({
   selector: "app-login",
@@ -41,13 +42,16 @@ export class LoginComponent {
     loop: true,
   };
   private authService = inject(AuthService);
+  private profileService = inject(ProfileService);
 
   constructor(private fb: FormBuilder, private router: Router) {
     const rememberedEmail = localStorage.getItem("rememberedEmail") || "";
+    const remembered = localStorage.getItem("remember") === "true";
+
     this.loginForm = this.fb.group({
       email: [rememberedEmail, [Validators.required, Validators.email]],
       password: ["", [Validators.required]],
-      remember: [false],
+      remember: [remembered],
     });
   }
 
@@ -70,8 +74,14 @@ export class LoginComponent {
         next: (response) => {
           if (this.loginForm.get("remember")?.value) {
             localStorage.setItem("rememberedEmail", email);
+            localStorage.setItem("remember", "true");
           } else {
             localStorage.removeItem("rememberedEmail");
+            localStorage.removeItem("remember");
+          }
+
+          if (response.imgUrl) {
+            this.profileService.setProfileImage(response.imgUrl);
           }
           localStorage.setItem("token", response.token);
           localStorage.setItem("shelterId", response.shelterId);

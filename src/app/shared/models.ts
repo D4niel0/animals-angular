@@ -34,7 +34,7 @@ export interface AnimalLocation {
 
 export interface AnimalShelter {
   id: string;
-  logo?: string;
+  imgUrl?: string;
   legalName: string;
   contactEmail: string;
   password: string;
@@ -67,11 +67,13 @@ export interface ShelterRegistration {
 
 export interface MyShelterProfile extends ShelterRegistration {
   id: string;
+  imgUrl?: string;
 }
 
 export interface LoginResponse {
   token: string;
   shelterId: string;
+  imgUrl?: string;
 }
 
 export interface ShelterUpdateProfile {

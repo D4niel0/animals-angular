@@ -23,6 +23,7 @@ import { SheltersService } from "../../../services/shelters.service";
 import { AuthService } from "../../../services/auth.service";
 import { PROVINCES } from "../../../core/constants/provinces.const";
 import { SelectModule } from "primeng/select";
+import { ProfileImageComponent } from "../../../shared/components/profile-image/profile-image.component";
 
 @Component({
   selector: "app-profile",
@@ -37,6 +38,7 @@ import { SelectModule } from "primeng/select";
     ControlPasswordComponent,
     TooltipModule,
     SelectModule,
+    ProfileImageComponent,
   ],
   templateUrl: "./profile.component.html",
   styleUrl: "./profile.component.scss",
@@ -52,6 +54,7 @@ export class ProfileComponent {
   protected shelterForm: FormGroup = new FormGroup({});
   protected passwordForm: FormGroup = new FormGroup({});
   protected shelterId: string = localStorage.getItem("shelterId") || "";
+  protected currentProfileImage = this.profileService.profileImage;
 
   readonly isAuthenticated = this.authService.isAuthenticated;
   protected buttonTitle = computed<string>(() =>
@@ -74,6 +77,7 @@ export class ProfileComponent {
   protected initializeForms(): void {
     this.shelterForm = this.fb.group({
       id: [{ value: "", disabled: true }],
+      imgUrl: [null],
       legalName: ["", [Validators.required, Validators.maxLength(150)]],
       taxId: [{ value: "", disabled: true }],
       registryNumber: [{ value: "", disabled: true }],
@@ -127,6 +131,7 @@ export class ProfileComponent {
       .subscribe({
         next: (shelter) => {
           this.shelterForm.patchValue(shelter);
+          this.profileService.setProfileImage(shelter.imgUrl ?? null);
         },
       });
   }
@@ -186,6 +191,13 @@ export class ProfileComponent {
           this.passwordForm.reset();
         },
       });
+  }
+
+  /**
+   * @description Handle profile image update
+   */
+  protected onProfileImageUpdated(imgUrl: string): void {
+    this.shelterForm.patchValue({ imgUrl }, { emitEvent: false });
   }
 
   /**

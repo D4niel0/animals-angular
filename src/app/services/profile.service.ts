@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { delay, map } from "rxjs";
+import { Injectable, signal } from "@angular/core";
+import { delay, map, tap } from "rxjs";
 import { Animal, ShelterUpdateProfile } from "../shared/models";
 import { getAgeYears } from "../core/utils/date-utils";
 
@@ -8,8 +8,24 @@ import { getAgeYears } from "../core/utils/date-utils";
 export class ProfileService {
   private baseUrl = "http://localhost:3001/";
   private apiUrl = "http://localhost:3000/api/";
+  private _profileImage = signal<string | null>(null);
+  readonly profileImage = this._profileImage.asReadonly();
 
   constructor(private http: HttpClient) {}
+
+  /**
+   * @description Set profile image URL in the signal
+   */
+  setProfileImage(imgUrl: string | null): void {
+    this._profileImage.set(imgUrl);
+  }
+
+  /**
+   * @description Clear profile image from signal
+   */
+  clearProfileImage(): void {
+    this._profileImage.set(null);
+  }
 
   updateShelter(shelterData: ShelterUpdateProfile) {
     const { id, ...filteredData } = shelterData;
@@ -51,5 +67,14 @@ export class ProfileService {
 
   deleteAnimal(id: string) {
     return this.http.delete(`${this.apiUrl}animals/${id}`);
+  }
+
+  uploadProfileImage(formData: FormData) {
+    return this.http
+      .post<{ imgUrl: string }>(
+        `${this.apiUrl}shelters/profile-image`,
+        formData
+      )
+      .pipe(tap((response) => this._profileImage.set(response.imgUrl)));
   }
 }

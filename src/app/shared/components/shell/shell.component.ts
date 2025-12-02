@@ -25,6 +25,8 @@ import { Menu } from "primeng/menu";
 import { MenuItem } from "primeng/api";
 import { AuthService } from "../../../services/auth.service";
 import { ToastService } from "../../../services/toast.service";
+import { Avatar } from "primeng/avatar";
+import { ProfileService } from "../../../services/profile.service";
 
 @Component({
   selector: "app-shell",
@@ -39,6 +41,7 @@ import { ToastService } from "../../../services/toast.service";
     ToolbarModule,
     ToastModule,
     Menu,
+    Avatar,
   ],
   templateUrl: "./shell.component.html",
   styleUrls: ["./shell.component.scss"],
@@ -87,6 +90,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   private animalsFilterStore = inject(AnimalsFiltersStore);
   private authService = inject(AuthService);
   private toastService = inject(ToastService);
+  private profileService = inject(ProfileService);
 
   private onScroll = () => {
     this.menu?.hide();
@@ -94,7 +98,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   };
 
   readonly isAuthenticated = this.authService.isAuthenticated;
-
+  readonly profileImage = this.profileService.profileImage;
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
 
@@ -133,6 +137,7 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   protected logout(): void {
     this.authService.logout();
+    this.profileService.clearProfileImage();
     this.toastService.success(
       "Sesión cerrada",
       "Has cerrado sesión correctamente."

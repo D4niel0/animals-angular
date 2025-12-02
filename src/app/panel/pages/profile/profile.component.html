@@ -8,6 +8,15 @@
     @if(isLoading) {
     <app-paw-spinner></app-paw-spinner>
     } @else {
+    <section class="mb-8">
+      <app-profile-image
+        [currentImageUrl]="currentProfileImage()"
+        (imageUpdated)="onProfileImageUpdated($event)"
+      ></app-profile-image>
+    </section>
+
+    <hr class="border-gray-200 mb-8" />
+
     <form
       [formGroup]="shelterForm"
       (ngSubmit)="onSubmit()"
