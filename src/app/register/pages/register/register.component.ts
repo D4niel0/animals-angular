@@ -121,7 +121,7 @@ export class RegisterComponent {
     const data: ShelterRegistration = this.shelterForm.value;
 
     this.sheltersService
-      .registerShelter(data)
+      .preRegisterShelter(data)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: () => {

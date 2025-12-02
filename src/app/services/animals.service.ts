@@ -7,7 +7,6 @@ import { getAgeYears } from "../core/utils/date-utils";
 
 @Injectable({ providedIn: "root" })
 export class AnimalsService {
-  private baseUrl = "http://localhost:3001/";
   private apiUrl = "http://localhost:3000/api/";
 
   private animalsSignal = signal<Animal[] | null>(null);

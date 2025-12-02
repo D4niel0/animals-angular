@@ -40,8 +40,10 @@ export class ForgotPasswordComponent {
   };
 
   constructor(private fb: FormBuilder, private router: Router) {
+    const rememberedEmail = localStorage.getItem("rememberedEmail") || "";
+
     this.forgotForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
+      email: [rememberedEmail, [Validators.required, Validators.email]],
     });
   }
 
@@ -67,7 +69,6 @@ export class ForgotPasswordComponent {
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: () => {
-          console.log("Recuperar contraseña para:", email);
           this.submitted = true;
         },
       });

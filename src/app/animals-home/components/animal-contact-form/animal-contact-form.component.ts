@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
-import { Animal } from "../../../shared/models";
+import { Animal, Contact } from "../../../shared/models";
 import { CommonModule } from "@angular/common";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
@@ -9,6 +9,8 @@ import { TextareaModule } from "primeng/textarea";
 import { CheckboxModule } from "primeng/checkbox";
 import { ToastModule } from "primeng/toast";
 import { ToastService } from "../../../services/toast.service";
+import { SheltersService } from "../../../services/shelters.service";
+import { finalize } from "rxjs";
 
 @Component({
   selector: "app-animal-contact-form",
@@ -29,6 +31,7 @@ import { ToastService } from "../../../services/toast.service";
 export class AnimalContactFormComponent {
   private fb = inject(FormBuilder);
   private toastService = inject(ToastService);
+  private sheltersService = inject(SheltersService);
   protected homeSizeOptions = [
     { label: "Pequeño (estudio / 1 habitación)", value: "small" },
     { label: "Mediano (piso estándar)", value: "medium" },
@@ -50,6 +53,8 @@ export class AnimalContactFormComponent {
       { label: "Otras consultas", value: "other" },
     ];
   }
+  protected isLoading = false;
+
   @Input() animal: Animal | undefined;
   @Output() showContactForm = new EventEmitter<void>();
 
@@ -73,24 +78,32 @@ export class AnimalContactFormComponent {
    * @param animal Animal contact
    */
   protected submitContactForm(animal: any): void {
+    this.isLoading = true;
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
-    const data = {
+    const data: Contact = {
       ...this.contactForm.value,
       animalId: animal.id,
       animalName: animal.name,
-      shelterEmail: animal.location.shelter.email,
-    };
+    } as Contact;
 
-    this.toastService.success(
-      `¡Tu mensaje ha sido enviado a los responsables de ${animal.name}!`
-    );
+    delete data.privacy;
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    this.sheltersService
+      .contactForm(data)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe({
+        next: () => {
+          this.toastService.success(
+            `¡Tu mensaje ha sido enviado a los responsables de ${animal.name}!`
+          );
+          window.scrollTo({ top: 0, behavior: "smooth" });
 
-    this.contactForm.reset();
-    this.showContactForm.emit();
+          this.contactForm.reset();
+          this.showContactForm.emit();
+        },
+      });
   }
 }

@@ -175,15 +175,11 @@ export class ProfileComponent {
     const currentPassword = this.passwordForm.get("currentPassword")?.value;
     const newPassword = this.passwordForm.get("newPassword")?.value;
 
-    this.profileService
-      .changePassword(this.shelterId, currentPassword, newPassword)
+    this.authService
+      .changePassword(currentPassword, newPassword)
       .pipe(finalize(() => (this.isLoadingPassword = false)))
       .subscribe({
         next: () => {
-          console.log("Cambio de contraseña", {
-            currentPassword,
-            newPassword,
-          });
           this.toastService.success(
             "Se ha cambiado la contraseña",
             "Cambio de contraseña completado"

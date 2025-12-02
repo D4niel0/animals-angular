@@ -12,10 +12,14 @@
       formControlName="name"
       placeholder="Escribe tu nombre"
     />
-    @if (contactForm.controls['name'].invalid &&
-    contactForm.controls['name'].touched) {
-    <small class="p-error"> Campo obligatorio </small>
-    }
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+      "
+    >
+      El nombre es obligatorio.
+    </small>
   </div>
 
   <!-- EMAIL -->
@@ -28,10 +32,14 @@
       formControlName="email"
       placeholder="tucorreo@example.com"
     />
-    @if (contactForm.controls['email'].valid &&
-    contactForm.controls['email'].touched) {
-    <small class="p-error"> Correo no válido </small>
-    }
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('email')?.invalid && contactForm.get('email')?.touched
+      "
+    >
+      Introduce un correo válido.
+    </small>
   </div>
 
   <!-- PHONE -->
@@ -60,10 +68,15 @@
       formControlName="homeSize"
       placeholder="Selecciona tamaño"
     ></p-dropdown>
-    @if( contactForm.controls['homeSize'].invalid &&
-    contactForm.controls['homeSize'].touched) {
-    <small class="p-error"> Obligatorio </small>
-    }
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('homeSize')?.invalid &&
+        contactForm.get('homeSize')?.touched
+      "
+    >
+      Obligatorio.
+    </small>
   </div>
 
   <!-- HAD PETS BEFORE -->
@@ -75,6 +88,15 @@
       formControlName="hadPets"
       placeholder="Selecciona"
     ></p-dropdown>
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('hadPets')?.invalid &&
+        contactForm.get('hadPets')?.touched
+      "
+    >
+      Obligatorio.
+    </small>
   </div>
 
   <!-- FAMILIARITY WITH BREED -->
@@ -86,6 +108,15 @@
       formControlName="familiarWithBreed"
       placeholder="Selecciona"
     ></p-dropdown>
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('familiarWithBreed')?.invalid &&
+        contactForm.get('familiarWithBreed')?.touched
+      "
+    >
+      Obligatorio.
+    </small>
   </div>
 
   <!-- SUBJECT -->
@@ -108,10 +139,15 @@
       formControlName="message"
       placeholder="Cuéntanos un poco sobre ti..."
     ></textarea>
-    @if (contactForm.controls['message'].invalid &&
-    contactForm.controls['message'].touched) {
-    <small class="p-error"> El mensaje es obligatorio </small>
-    }
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('message')?.invalid &&
+        contactForm.get('message')?.touched
+      "
+    >
+      El mensaje es obligatorio.
+    </small>
   </div>
 
   <!-- PRIVACY -->
@@ -129,6 +165,7 @@
       pButton
       type="submit"
       label="Enviar mensaje"
+      [loading]="isLoading"
       [disabled]="contactForm.invalid"
     ></button>
   </div>

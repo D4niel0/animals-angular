@@ -6,7 +6,6 @@ import { getAgeYears } from "../core/utils/date-utils";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
-  private baseUrl = "http://localhost:3001/";
   private apiUrl = "http://localhost:3000/api/";
   private _profileImage = signal<string | null>(null);
   readonly profileImage = this._profileImage.asReadonly();
@@ -30,20 +29,6 @@ export class ProfileService {
   updateShelter(shelterData: ShelterUpdateProfile) {
     const { id, ...filteredData } = shelterData;
     return this.http.patch(`${this.apiUrl}shelters/my-shelter`, filteredData);
-  }
-
-  changePassword(
-    shelterId: string,
-    currentPassword: string,
-    newPassword: string
-  ) {
-    return this.http
-      .post(`${this.baseUrl}change-password`, {
-        shelterId,
-        currentPassword,
-        newPassword,
-      })
-      .pipe(delay(500));
   }
 
   getShelterAnimals() {

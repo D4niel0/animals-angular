@@ -116,3 +116,22 @@ export interface SelectOption {
     | "contrast"
     | undefined;
 }
+
+export interface Contact {
+  name: string;
+  email: string;
+  phone: string;
+  location: string;
+
+  homeSize: string;
+  hadPets: string;
+  familiarWithBreed: string;
+
+  subject: string;
+  message: string;
+  animalId: string;
+  animalName: string;
+  shelterEmail: string;
+
+  privacy?: boolean;
+}

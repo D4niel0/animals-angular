@@ -6,8 +6,6 @@ import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  private baseUrl = "http://localhost:3001/";
-
   private apiUrl = "http://localhost:3000/api/";
 
   private readonly _isAuthenticated = signal<boolean>(this.hasInitialToken());
@@ -23,15 +21,14 @@ export class AuthService {
   }
 
   resetPassword(token: string | null, newPassword: string) {
-    return this.http
-      .post(`${this.baseUrl}reset-password`, { token, newPassword })
-      .pipe(delay(500));
+    return this.http.post(`${this.apiUrl}auth/reset-password`, {
+      token,
+      newPassword,
+    });
   }
 
   forgotPassword(email: string) {
-    return this.http
-      .post(`${this.baseUrl}forgot-password`, { email })
-      .pipe(delay(500));
+    return this.http.post(`${this.apiUrl}auth/forgot-password`, { email });
   }
 
   logout() {
@@ -43,6 +40,14 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem("token");
+  }
+
+  changePassword(password: string, newPassword: string) {
+    const body = {
+      currentPassword: password,
+      newPassword: newPassword,
+    };
+    return this.http.post(`${this.apiUrl}auth/change-password`, body);
   }
 
   private hasInitialToken(): boolean {

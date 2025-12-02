@@ -287,6 +287,7 @@
               [options]="provincesOptions"
               formControlName="addressProvince"
               optionLabel="label"
+              optionValue="value"
               placeholder="Selecciona una provincia"
               class="w-full"
               [ngClass]="{
@@ -416,6 +417,7 @@
         </div>
 
         <app-control-password
+          [title]="'Nueva contraseña'"
           [password]="$any(passwordForm.get('newPassword'))"
           [confirmPassword]="$any(passwordForm.get('confirmNewPassword'))"
         ></app-control-password>
@@ -425,7 +427,10 @@
             pButton
             type="submit"
             label="Actualizar contraseña"
-            [disabled]="passwordForm.invalid || passwordForm.pending"
+            [loading]="isLoadingPassword"
+            [disabled]="
+              passwordForm.invalid || passwordForm.pending || isLoadingPassword
+            "
           ></button>
         </div>
       </form>

@@ -27,6 +27,7 @@ import { AuthService } from "../../../services/auth.service";
 import { ToastService } from "../../../services/toast.service";
 import { Avatar } from "primeng/avatar";
 import { ProfileService } from "../../../services/profile.service";
+import { SheltersService } from "../../../services/shelters.service";
 
 @Component({
   selector: "app-shell",
@@ -91,6 +92,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);
   private toastService = inject(ToastService);
   private profileService = inject(ProfileService);
+  private sheltersService = inject(SheltersService);
 
   private onScroll = () => {
     this.menu?.hide();
@@ -101,6 +103,13 @@ export class ShellComponent implements OnInit, OnDestroy {
   readonly profileImage = this.profileService.profileImage;
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
+    if (localStorage.getItem("token")) {
+      this.sheltersService.getMyShelter().subscribe({
+        next: (shelter) => {
+          this.profileService.setProfileImage(shelter.imgUrl ?? null);
+        },
+      });
+    }
 
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
