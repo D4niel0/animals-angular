@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { computed, Injectable, signal } from "@angular/core";
 import { delay } from "rxjs";
-import { LoginResponse } from "../shared/models";
+import { ForgotPasswordRequest, LoginResponse } from "../shared/models";
 import { Router } from "@angular/router";
 import { environment } from "../../environments/environment.development";
 
@@ -28,8 +28,8 @@ export class AuthService {
     });
   }
 
-  forgotPassword(email: string) {
-    return this.http.post(`${this.apiUrl}auth/forgot-password`, { email });
+  forgotPassword(info: ForgotPasswordRequest) {
+    return this.http.post(`${this.apiUrl}auth/forgot-password`, info);
   }
 
   logout() {

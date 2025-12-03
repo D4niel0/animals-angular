@@ -11,6 +11,8 @@ import { ToastModule } from "primeng/toast";
 import { ToastService } from "../../../services/toast.service";
 import { SheltersService } from "../../../services/shelters.service";
 import { finalize } from "rxjs";
+import { NgxCaptchaModule } from "ngx-captcha";
+import { environment } from "../../../../environments/environment.development";
 
 @Component({
   selector: "app-animal-contact-form",
@@ -24,6 +26,7 @@ import { finalize } from "rxjs";
     CheckboxModule,
     ButtonModule,
     ToastModule,
+    NgxCaptchaModule,
   ],
   templateUrl: "./animal-contact-form.component.html",
   styleUrl: "./animal-contact-form.component.scss",
@@ -54,6 +57,7 @@ export class AnimalContactFormComponent {
     ];
   }
   protected isLoading = false;
+  protected recaptchaSiteKey = environment.recaptchaSiteKey;
 
   @Input() animal: Animal | undefined;
   @Output() showContactForm = new EventEmitter<void>();
@@ -69,8 +73,9 @@ export class AnimalContactFormComponent {
     familiarWithBreed: ["", Validators.required],
 
     subject: ["info", Validators.required],
-    message: ["", Validators.required],
+    message: ["", [Validators.required, Validators.minLength(10)]],
     privacy: [false, Validators.requiredTrue],
+    recaptchaToken: ["", Validators.required],
   });
 
   /**
