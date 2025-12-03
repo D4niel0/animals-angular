@@ -142,11 +142,20 @@
     <small
       class="text-red-500 text-xs"
       *ngIf="
-        contactForm.get('message')?.invalid &&
+        contactForm.get('message')?.hasError('required') &&
         contactForm.get('message')?.touched
       "
     >
       El mensaje es obligatorio.
+    </small>
+    <small
+      class="text-red-500 text-xs"
+      *ngIf="
+        contactForm.get('message')?.hasError('minlength') &&
+        contactForm.get('message')?.touched
+      "
+    >
+      El mensaje debe tener al menos 10 caracteres.
     </small>
   </div>
 
@@ -168,5 +177,26 @@
       [loading]="isLoading"
       [disabled]="contactForm.invalid"
     ></button>
+  </div>
+  <div class="md:col-span-2">
+    <div>
+      <ngx-recaptcha2
+        [siteKey]="recaptchaSiteKey"
+        formControlName="recaptchaToken"
+        [size]="'normal'"
+        [hl]="'es'"
+        [theme]="'light'"
+      ></ngx-recaptcha2>
+
+      <small
+        class="text-red-500 text-xs block mt-2"
+        *ngIf="
+          contactForm.get('recaptcha')?.invalid &&
+          contactForm.get('recaptcha')?.touched
+        "
+      >
+        Por favor, completa la verificación reCAPTCHA.
+      </small>
+    </div>
   </div>
 </form>

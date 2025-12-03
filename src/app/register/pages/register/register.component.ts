@@ -23,6 +23,8 @@ import { SheltersService } from "../../../services/shelters.service";
 import { AuthService } from "../../../services/auth.service";
 import { PROVINCES } from "../../../core/constants/provinces.const";
 import { SelectModule } from "primeng/select";
+import { NgxCaptchaModule } from "ngx-captcha";
+import { environment } from "../../../../environments/environment.development";
 
 @Component({
   selector: "app-register",
@@ -37,6 +39,7 @@ import { SelectModule } from "primeng/select";
     StepsModule,
     RegisterStepsComponent,
     SelectModule,
+    NgxCaptchaModule,
   ],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
@@ -46,8 +49,10 @@ export class RegisterComponent {
   private router = inject(Router);
   private sheltersService = inject(SheltersService);
   private authService = inject(AuthService);
+
   protected isLoading: boolean = false;
   protected shelterForm: FormGroup = new FormGroup({});
+  protected recaptchaSiteKey = environment.recaptchaSiteKey;
 
   readonly isAuthenticated = this.authService.isAuthenticated;
   protected buttonTitle = computed<string>(() =>
@@ -100,6 +105,7 @@ export class RegisterComponent {
         facebook: [""],
         instagram: [""],
         website: [""],
+        recaptcha: ["", Validators.required],
       },
       {
         validators: [this.passwordsMatchValidator()],
@@ -118,7 +124,11 @@ export class RegisterComponent {
     }
 
     this.isLoading = true;
-    const data: ShelterRegistration = this.shelterForm.value;
+    const { recaptcha, ...shelterData } = this.shelterForm.value;
+    const data: ShelterRegistration & { recaptchaToken: string } = {
+      ...shelterData,
+      recaptchaToken: recaptcha,
+    };
 
     this.sheltersService
       .preRegisterShelter(data)

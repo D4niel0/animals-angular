@@ -134,4 +134,10 @@ export interface Contact {
   shelterEmail: string;
 
   privacy?: boolean;
+  recaptchaToken?: string;
+}
+
+export interface ForgotPasswordRequest {
+  email: string;
+  recaptchaToken: string;
 }
