@@ -7,10 +7,11 @@ import {
   MyShelterProfile,
   ShelterRegistration,
 } from "../shared/models";
+import { environment } from "../../environments/environment.development";
 
 @Injectable({ providedIn: "root" })
 export class SheltersService {
-  private apiUrl = "http://localhost:3000/api/";
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

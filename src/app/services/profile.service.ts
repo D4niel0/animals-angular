@@ -3,10 +3,11 @@ import { Injectable, signal } from "@angular/core";
 import { delay, map, tap } from "rxjs";
 import { Animal, ShelterUpdateProfile } from "../shared/models";
 import { getAgeYears } from "../core/utils/date-utils";
+import { environment } from "../../environments/environment.development";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
-  private apiUrl = "http://localhost:3000/api/";
+  private apiUrl = environment.apiUrl;
   private _profileImage = signal<string | null>(null);
   readonly profileImage = this._profileImage.asReadonly();
 

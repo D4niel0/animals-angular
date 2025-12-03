@@ -4,10 +4,11 @@ import { delay, map, of, tap } from "rxjs";
 import { Observable } from "rxjs";
 import { Animal } from "../shared/models";
 import { getAgeYears } from "../core/utils/date-utils";
+import { environment } from "../../environments/environment.development";
 
 @Injectable({ providedIn: "root" })
 export class AnimalsService {
-  private apiUrl = "http://localhost:3000/api/";
+  private apiUrl = environment.apiUrl;
 
   private animalsSignal = signal<Animal[] | null>(null);
 

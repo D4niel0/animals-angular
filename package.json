@@ -4,11 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve --configuration development",
+    "start:prod": "ng serve --configuration production",
+    "start:all": "concurrently \"npm run start:dev\" \"npm run mock-api\"",
+    "start:all:prod": "concurrently \"npm run start:prod\" \"npm run mock-api\"",
     "build": "ng build",
+    "build:dev": "ng build --configuration development",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "mock-api": "json-server --watch mock-api/db.json --port 3001",
-    "start:all": "concurrently \"ng serve\" \"npm run mock-api\""
+    "mock-api": "json-server --watch mock-api/db.json --port 3001"
   },
   "private": true,
   "dependencies": {

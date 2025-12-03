@@ -3,10 +3,11 @@ import { computed, Injectable, signal } from "@angular/core";
 import { delay } from "rxjs";
 import { LoginResponse } from "../shared/models";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment.development";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  private apiUrl = "http://localhost:3000/api/";
+  private apiUrl = environment.apiUrl;
 
   private readonly _isAuthenticated = signal<boolean>(this.hasInitialToken());
   readonly isAuthenticated = computed(() => this._isAuthenticated());
