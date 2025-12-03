@@ -246,9 +246,14 @@
                 {{ animal.location?.shelter?.contactEmail }}
               </a>
             </div>
-            <div class="flex items-center">
+            <div
+              *ngIf="animal.location?.shelter?.contactPhone"
+              class="flex items-center"
+            >
               <i class="text-lg text-green-600 pi pi-phone pr-2"></i>
-              <span>{{ animal.location?.shelter?.contactPhone }}</span>
+              <span>{{
+                animal.location?.shelter?.contactPhone | phoneFormat
+              }}</span>
             </div>
             <div class="button">
               <button

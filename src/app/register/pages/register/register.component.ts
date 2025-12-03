@@ -25,6 +25,7 @@ import { PROVINCES } from "../../../core/constants/provinces.const";
 import { SelectModule } from "primeng/select";
 import { NgxCaptchaModule } from "ngx-captcha";
 import { environment } from "../../../../environments/environment.development";
+import { PhoneFormatDirective } from "../../../core/directives/phone-format.directive";
 
 @Component({
   selector: "app-register",
@@ -40,6 +41,7 @@ import { environment } from "../../../../environments/environment.development";
     RegisterStepsComponent,
     SelectModule,
     NgxCaptchaModule,
+    PhoneFormatDirective,
   ],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
@@ -84,10 +86,7 @@ export class RegisterComponent {
         ],
         responsibleRole: ["", [Validators.required, Validators.maxLength(60)]],
 
-        contactPhone: [
-          "",
-          [Validators.required, Validators.pattern(/^[0-9+\-\s()]{7,20}$/)],
-        ],
+        contactPhone: [""],
         contactEmail: ["", [Validators.required, Validators.email]],
         password: [
           "",
@@ -124,9 +123,11 @@ export class RegisterComponent {
     }
 
     this.isLoading = true;
-    const { recaptcha, ...shelterData } = this.shelterForm.value;
+    const { recaptcha, contactPhone, ...shelterData } = this.shelterForm.value;
+    const cleanPhone = contactPhone.replace(/\s/g, "");
     const data: ShelterRegistration & { recaptchaToken: string } = {
       ...shelterData,
+      contactPhone: cleanPhone,
       recaptchaToken: recaptcha,
     };
 

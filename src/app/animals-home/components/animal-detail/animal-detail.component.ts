@@ -17,6 +17,7 @@ import { AnimalContactFormComponent } from "../animal-contact-form/animal-contac
 import { ButtonModule } from "primeng/button";
 import { PawSpinnerComponent } from "../../../shared/components/paw-spinner/paw-spinner.component";
 import { ShareButtonComponent } from "../../../shared/components/share-button/share-button.component";
+import { PhoneFormatPipe } from "../../../core/pipes/phone-format.pipe";
 
 @Component({
   selector: "app-animal-detail",
@@ -29,6 +30,7 @@ import { ShareButtonComponent } from "../../../shared/components/share-button/sh
     ButtonModule,
     PawSpinnerComponent,
     ShareButtonComponent,
+    PhoneFormatPipe,
   ],
   templateUrl: "./animal-detail.component.html",
 })

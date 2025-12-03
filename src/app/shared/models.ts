@@ -38,7 +38,7 @@ export interface AnimalShelter {
   legalName: string;
   contactEmail: string;
   password: string;
-  contactPhone: string;
+  contactPhone?: string;
   facebook?: string;
   instagram?: string;
   addressCity?: string;
@@ -54,7 +54,7 @@ export interface ShelterRegistration {
   responsibleFullName: string;
   responsibleRole: string;
 
-  contactPhone: string;
+  contactPhone?: string;
   contactEmail: string;
   password: string;
   confirmPassword: string;
@@ -82,7 +82,7 @@ export interface ShelterUpdateProfile {
   responsibleFullName: string;
   responsibleRole: string;
 
-  contactPhone: string;
+  contactPhone?: string;
 
   addressCity?: string;
   addressProvince?: string;

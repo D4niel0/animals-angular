@@ -24,7 +24,7 @@
 
   <!-- EMAIL -->
   <div class="flex flex-col gap-2">
-    <label for="email">Correo electrónico</label>
+    <label for="email">Correo electrónico *</label>
     <input
       id="email"
       pInputText
@@ -45,12 +45,20 @@
   <!-- PHONE -->
   <div class="flex flex-col gap-2">
     <label for="phone">Teléfono</label>
-    <input id="phone" pInputText formControlName="phone" />
+    <input
+      id="phone"
+      pInputText
+      type="tel"
+      formControlName="phone"
+      appPhoneFormat
+      placeholder="Ej. 600 123 456 o 91 123 45 67"
+      [maxlength]="13"
+    />
   </div>
 
   <!-- LOCATION -->
   <div class="flex flex-col gap-2">
-    <label for="location">Localidad</label>
+    <label for="location">Localidad *</label>
     <input
       id="location"
       pInputText

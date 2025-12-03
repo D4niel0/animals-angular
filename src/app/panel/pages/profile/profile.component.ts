@@ -24,6 +24,7 @@ import { AuthService } from "../../../services/auth.service";
 import { PROVINCES } from "../../../core/constants/provinces.const";
 import { SelectModule } from "primeng/select";
 import { ProfileImageComponent } from "../../../shared/components/profile-image/profile-image.component";
+import { PhoneFormatDirective } from "../../../core/directives/phone-format.directive";
 
 @Component({
   selector: "app-profile",
@@ -39,6 +40,7 @@ import { ProfileImageComponent } from "../../../shared/components/profile-image/
     TooltipModule,
     SelectModule,
     ProfileImageComponent,
+    PhoneFormatDirective,
   ],
   templateUrl: "./profile.component.html",
   styleUrl: "./profile.component.scss",
@@ -77,7 +79,7 @@ export class ProfileComponent {
   protected initializeForms(): void {
     this.shelterForm = this.fb.group({
       id: [{ value: "", disabled: true }],
-      imgUrl: [null],
+      imgUrl: [""],
       legalName: ["", [Validators.required, Validators.maxLength(150)]],
       taxId: [{ value: "", disabled: true }],
       registryNumber: [{ value: "", disabled: true }],
@@ -88,10 +90,7 @@ export class ProfileComponent {
       ],
       responsibleRole: ["", [Validators.required, Validators.maxLength(60)]],
 
-      contactPhone: [
-        "",
-        [Validators.required, Validators.pattern(/^[0-9+\-\s()]{7,20}$/)],
-      ],
+      contactPhone: [""],
       contactEmail: [{ value: "", disabled: true }],
       addressCity: ["", [Validators.required, Validators.maxLength(80)]],
       addressProvince: ["", [Validators.required, Validators.maxLength(80)]],
@@ -147,7 +146,12 @@ export class ProfileComponent {
     }
 
     this.isLoadingEdit = true;
-    const data: ShelterUpdateProfile = this.shelterForm.value;
+
+    const { contactPhone, ...shelterData } = this.shelterForm.value;
+    const data: ShelterUpdateProfile & { recaptchaToken: string } = {
+      ...shelterData,
+      ...(contactPhone && { contactPhone: contactPhone.replace(/\s/g, "") }),
+    };
 
     this.profileService
       .updateShelter(data)

@@ -63,10 +63,14 @@
           {{ shelter?.contactEmail }}
         </a>
       </div>
+      @if (shelter?.contactPhone) {
       <div class="flex items-center">
         <i class="text-lg text-green-600 pi pi-phone pr-2"></i>
-        <span class="text-sm lg:text-base">{{ shelter?.contactPhone }}</span>
+        <span class="text-sm lg:text-base">{{
+          shelter?.contactPhone | phoneFormat
+        }}</span>
       </div>
+      }
     </div>
   </div>
 </div>

@@ -188,7 +188,7 @@
             <label
               for="contactPhone"
               class="block text-sm font-medium text-gray-700 mb-1"
-              >Teléfono de contacto *</label
+              >Teléfono de contacto</label
             >
             <input
               id="contactPhone"
@@ -196,22 +196,10 @@
               type="tel"
               formControlName="contactPhone"
               class="w-full"
-              placeholder="Ej. 600 123 456"
-              [ngClass]="{
-                'ng-invalid ng-dirty':
-                  shelterForm.get('contactPhone')?.invalid &&
-                  shelterForm.get('contactPhone')?.touched
-              }"
+              appPhoneFormat
+              placeholder="Ej. 600 123 456 o 91 123 45 67"
+              [maxlength]="13"
             />
-            <small
-              class="text-red-500 text-xs"
-              *ngIf="
-                shelterForm.get('contactPhone')?.invalid &&
-                shelterForm.get('contactPhone')?.touched
-              "
-            >
-              Introduce un teléfono válido.
-            </small>
           </div>
 
           <!-- Email -->

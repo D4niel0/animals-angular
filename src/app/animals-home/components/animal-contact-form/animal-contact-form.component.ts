@@ -13,6 +13,7 @@ import { SheltersService } from "../../../services/shelters.service";
 import { finalize } from "rxjs";
 import { NgxCaptchaModule } from "ngx-captcha";
 import { environment } from "../../../../environments/environment.development";
+import { PhoneFormatDirective } from "../../../core/directives/phone-format.directive";
 
 @Component({
   selector: "app-animal-contact-form",
@@ -27,6 +28,7 @@ import { environment } from "../../../../environments/environment.development";
     ButtonModule,
     ToastModule,
     NgxCaptchaModule,
+    PhoneFormatDirective,
   ],
   templateUrl: "./animal-contact-form.component.html",
   styleUrl: "./animal-contact-form.component.scss",
@@ -66,7 +68,7 @@ export class AnimalContactFormComponent {
     name: ["", Validators.required],
     email: ["", [Validators.required, Validators.email]],
     phone: [""],
-    location: [""],
+    location: ["", Validators.required],
 
     homeSize: ["", Validators.required],
     hadPets: ["", Validators.required],
@@ -88,8 +90,12 @@ export class AnimalContactFormComponent {
       this.contactForm.markAllAsTouched();
       return;
     }
+    const { phone } = this.contactForm.value;
+    const cleanPhone = phone ? phone.replace(/\s/g, "") : "";
+
     const data: Contact = {
       ...this.contactForm.value,
+      phone: cleanPhone,
       animalId: animal.id,
       animalName: animal.name,
     } as Contact;
