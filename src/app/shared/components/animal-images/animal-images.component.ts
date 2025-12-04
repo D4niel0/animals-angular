@@ -12,6 +12,7 @@ import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
 import { TooltipModule } from "primeng/tooltip";
 import { ImageCropperComponent, ImageCroppedEvent } from "ngx-image-cropper";
+import { ImageFallbackDirective } from "../../../core/directives/image-fallback.directive";
 
 interface AnimalImageItem {
   previewUrl: string;
@@ -27,6 +28,7 @@ interface AnimalImageItem {
     ButtonModule,
     TooltipModule,
     ImageCropperComponent,
+    ImageFallbackDirective,
   ],
   templateUrl: "./animal-images.component.html",
   styleUrl: "./animal-images.component.scss",

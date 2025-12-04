@@ -1,30 +1,38 @@
 <div class="flex justify-center gap-6 text-center">
   <div
     routerLink="/animals-home"
-    class="w-44 h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
+    class="w-24 h-24 md:w-44 md:h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
     (click)="setSpeciesFilter('dog')"
   >
-    <img src="/assets/icons/dog.png" alt="dog icon" class="w-16 h-16 mb-2" />
-    <span>Perros</span>
+    <img
+      src="/assets/icons/dog.png"
+      alt="dog icon"
+      class="w-10 h-10 md:w-16 md:h-16 mb-2"
+    />
+    <span class="font-medium">Perros</span>
   </div>
   <div
     routerLink="/animals-home"
-    class="w-44 h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
+    class="w-24 h-24 md:w-44 md:h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
     (click)="setSpeciesFilter('cat')"
   >
-    <img src="/assets/icons/cat.png" alt="cat icon" class="w-16 h-16 mb-2" />
-    <span>Gatos</span>
+    <img
+      src="/assets/icons/cat.png"
+      alt="cat icon"
+      class="w-10 h-10 md:w-16 md:h-16 mb-2"
+    />
+    <span class="font-medium">Gatos</span>
   </div>
   <div
     routerLink="/animals-home"
-    class="w-44 h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
+    class="w-24 h-24 md:w-44 md:h-44 rounded-full bg-white shadow hover:scale-105 transition flex flex-col items-center justify-center cursor-pointer"
     (click)="setSpeciesFilter('other')"
   >
     <img
       src="/assets/icons/others.png"
       alt="others icon"
-      class="w-16 h-16 mb-2"
+      class="w-10 h-10 md:w-16 md:h-16 mb-2"
     />
-    <span>Otros</span>
+    <span class="font-medium">Otros</span>
   </div>
 </div>

@@ -2,11 +2,12 @@ import { Component, inject, Input } from "@angular/core";
 import { Animal } from "../../models";
 import { Router } from "@angular/router";
 import { ScrollService } from "../../../services/scroll.service";
+import { ImageFallbackDirective } from "../../../core/directives/image-fallback.directive";
 
 @Component({
   selector: "app-cards",
   standalone: true,
-  imports: [],
+  imports: [ImageFallbackDirective],
   templateUrl: "./cards.component.html",
   styleUrl: "./cards.component.scss",
 })

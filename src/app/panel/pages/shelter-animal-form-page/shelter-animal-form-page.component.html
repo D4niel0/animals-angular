@@ -1,5 +1,14 @@
 <section>
   <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <div class="flex items-center">
+      <a
+        routerLink="/panel/shelter-animals"
+        class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-green-600 mb-4 grow"
+      >
+        <i class="pi pi-angle-left"></i>
+        Volver al listado
+      </a>
+    </div>
     <header class="mb-6 mt-2 flex items-center justify-between gap-3">
       <div>
         <h1 class="font-chewy text-xl md:text-2xl font-semibold text-gray-900">
@@ -10,14 +19,6 @@
           de adopciones.
         </p>
       </div>
-
-      <button
-        pButton
-        type="button"
-        label="Volver"
-        class="p-button-text"
-        routerLink="/panel/shelter-animals"
-      ></button>
     </header>
 
     <div *ngIf="isLoading">

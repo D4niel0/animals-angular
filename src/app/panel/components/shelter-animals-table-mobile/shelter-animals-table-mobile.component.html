@@ -172,8 +172,10 @@
     class="bg-white/80 rounded-xl shadow-sm p-3 flex gap-3 items-center border border-slate-100"
   >
     <img
+      appImageFallback
       [src]="animal.imageUrl[0]"
       [alt]="animal.name"
+      (click)="onEdit(animal.id)"
       class="w-16 h-16 rounded-lg object-cover flex-shrink-0"
     />
 

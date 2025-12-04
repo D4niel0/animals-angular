@@ -95,3 +95,21 @@ body,
 p-columnfilter .p-datatable-column-filter-button {
   display: none !important;
 }
+
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select,
+  .p-inputtext,
+  .p-password input,
+  .p-dropdown,
+  .p-multiselect {
+    font-size: 16px !important;
+  }
+}

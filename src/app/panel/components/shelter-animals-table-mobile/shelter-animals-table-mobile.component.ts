@@ -30,6 +30,7 @@ import { ColorTagComponent } from "../../../shared/components/color-tag/color-ta
 import { ConfirmationService } from "primeng/api";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { ToastService } from "../../../services/toast.service";
+import { ImageFallbackDirective } from "../../../core/directives/image-fallback.directive";
 
 @Component({
   selector: "app-shelter-animals-table-mobile",
@@ -46,6 +47,7 @@ import { ToastService } from "../../../services/toast.service";
     SkeletonModule,
     ColorTagComponent,
     ConfirmDialogModule,
+    ImageFallbackDirective,
   ],
   templateUrl: "./shelter-animals-table-mobile.component.html",
   styleUrl: "./shelter-animals-table-mobile.component.scss",

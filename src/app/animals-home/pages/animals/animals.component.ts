@@ -82,7 +82,7 @@ export class AnimalsComponent {
         return false;
 
       if (
-        animal.ageYears &&
+        animal.ageYears != null &&
         (animal.ageYears < filters.ageRange[0] ||
           animal.ageYears > filters.ageRange[1])
       )

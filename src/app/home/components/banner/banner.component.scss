@@ -6,5 +6,11 @@
 }
 
 .banner-image {
-  height: 54rem;
+  height: 44rem;
+}
+
+@media (max-width: 768px) {
+  .banner-image {
+    height: 28rem;
+  }
 }

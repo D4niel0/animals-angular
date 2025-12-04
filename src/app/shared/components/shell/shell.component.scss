@@ -1,8 +1,7 @@
 ::ng-deep .p-toolbar {
   width: 100% !important;
   border: none !important;
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(4px) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
 }
 
 .header {
@@ -38,7 +37,7 @@
 }
 
 .main-content {
-  padding-top: 58px;
+  padding-top: 72px;
   padding-bottom: 24px;
   overflow-y: visible;
   flex: 1;

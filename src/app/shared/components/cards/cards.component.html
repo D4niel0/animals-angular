@@ -4,10 +4,12 @@
 >
   <div class="bg-white/50 absolute rounded-t-xl w-full p-2 backdrop-blur-sm">
     <div class="title flex justify-between items-center gap-2">
-      <span class="truncate min-w-0 max-w-[50%] block">
+      <span class="truncate min-w-0 max-w-[50%] block font-medium">
         {{ animal?.name }}
       </span>
-      <div class="location flex items-center gap-1 min-w-0 max-w-[50%]">
+      <div
+        class="location flex items-center gap-1 min-w-0 max-w-[50%] font-medium"
+      >
         <span class="truncate block">{{ animal?.location?.province }}</span>
         <i class="pi pi-map-marker shrink-0"></i>
       </div>
@@ -15,7 +17,12 @@
   </div>
 
   <div class="img-wrap" style="--img-ratio: 4/3">
-    <img class="card-img" [src]="animal?.imageUrl?.[0]" [alt]="animal?.name" />
+    <img
+      appImageFallback
+      class="card-img"
+      [src]="animal?.imageUrl?.[0]"
+      [alt]="animal?.name"
+    />
   </div>
   @if (animal?.status === 'reserved') {
   <div
