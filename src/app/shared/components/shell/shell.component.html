@@ -12,6 +12,8 @@
         <a
           class="nav-link flex gap-2"
           routerLink="/home"
+          routerLinkActive="active-link-mobile"
+          [routerLinkActiveOptions]="{ exact: true }"
           aria-label="Inicio"
           (click)="clear()"
         >
@@ -25,6 +27,7 @@
         <a
           class="nav-link flex gap-2"
           routerLink="/animals-home"
+          routerLinkActive="active-link-mobile"
           aria-label="Animales"
         >
           <img src="assets/icons/pawprint.svg" alt="pawprint" class="w-5 h-5" />
@@ -37,6 +40,7 @@
           class="nav-link flex gap-2"
           aria-label="Protectoras"
           routerLink="/shelters-home"
+          routerLinkActive="active-link-mobile"
           (click)="clear()"
         >
           <img src="assets/icons/shelter.svg" alt="shelter" class="w-5 h-5" />
@@ -115,6 +119,8 @@
         @if (!isHome) {
         <a
           routerLink="/home"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
           (click)="clear()"
           class="text-lg cursor-pointer hover:text-green-600"
           >Inicio</a
@@ -123,12 +129,14 @@
 
         <a
           routerLink="/animals-home"
+          routerLinkActive="active-link"
           class="text-lg cursor-pointer hover:text-green-600"
           >Animales</a
         >
         <a
           class="text-lg cursor-pointer hover:text-green-600"
           routerLink="/shelters-home"
+          routerLinkActive="active-link"
           (click)="clear()"
           >Protectoras</a
         >

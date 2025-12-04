@@ -43,3 +43,12 @@
   overflow-y: visible;
   flex: 1;
 }
+
+.active-link {
+  border-bottom: 2px solid green;
+}
+
+.active-link-mobile {
+  border-left: 3px solid #22c55e;
+  padding-left: 0.5rem;
+}
