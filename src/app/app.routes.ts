@@ -10,11 +10,19 @@ import { ForgotPasswordComponent } from "./forgot-password/pages/forgot-password
 import { ResetPasswordComponent } from "./reset-password/pages/reset-password/reset-password.component";
 import { panelRoutes } from "./panel/panel.routes";
 import { authGuard } from "./core/guards/authenticated.guard";
+import { MaintenanceComponent } from "./shared/components/maintenance/maintenance.component";
+import { MaintenanceGuard } from "./core/guards/maintenance.guard";
 
 export const routes: Routes = [
   {
+    path: "maintenance",
+    canActivate: [MaintenanceGuard],
+    component: MaintenanceComponent,
+  },
+  {
     path: "",
     component: ShellComponent,
+    canActivate: [MaintenanceGuard],
     children: [
       { path: "home", component: HomeComponent },
       { path: "animals-home", component: AnimalsComponent },
