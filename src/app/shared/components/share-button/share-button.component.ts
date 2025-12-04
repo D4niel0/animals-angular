@@ -48,7 +48,7 @@ export class ShareButtonComponent {
         },
         command: () => {
           const text = encodeURIComponent("Mira esto");
-          const shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${text}`;
+          const shareUrl = `https://x.com/intent/tweet?url=${encodedUrl}&text=${text}`;
           window.open(shareUrl, "_blank", "noopener");
         },
       },

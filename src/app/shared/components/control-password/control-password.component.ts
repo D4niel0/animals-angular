@@ -14,5 +14,5 @@ export class ControlPasswordComponent {
   @Input() password: FormControl = new FormControl();
   @Input() confirmPassword: FormControl = new FormControl();
   @Input() responsive: boolean = true;
-  @Input() title: string = "Contraseña *";
+  @Input() title: string = "Contraseña";
 }
