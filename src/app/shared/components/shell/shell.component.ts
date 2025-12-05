@@ -55,7 +55,22 @@ export class ShellComponent implements OnInit, OnDestroy {
   protected isHome = false;
 
   protected menuItems = computed<MenuItem[]>(() => {
-    if (this.isAuthenticated()) {
+    if (this.isAdmin()) {
+      return [
+        {
+          label: "Panel Admin",
+          routerLink: ["/admin/shelter-admin"],
+        },
+        {
+          label: "Editar perfil",
+          routerLink: ["/panel/profile"],
+        },
+        {
+          label: "Cerrar sesión",
+          command: () => this.logout(),
+        },
+      ];
+    } else if (this.isAuthenticated()) {
       return [
         {
           label: "Gestionar animales",
@@ -94,6 +109,9 @@ export class ShellComponent implements OnInit, OnDestroy {
   private profileService = inject(ProfileService);
   private sheltersService = inject(SheltersService);
 
+  protected isAdmin = this.authService.isAdmin;
+  protected userRole = this.authService.userRole;
+
   private onScroll = () => {
     this.menu?.hide();
     this.menuMobile?.hide();
@@ -101,6 +119,7 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   readonly isAuthenticated = this.authService.isAuthenticated;
   readonly profileImage = this.profileService.profileImage;
+
   constructor(private router: Router) {
     this.isHome = this.checkIsHome(this.router.url);
     if (localStorage.getItem("token")) {
@@ -120,6 +139,8 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     window.addEventListener("scroll", this.onScroll, true);
+    console.log("Is Admin?", this.isAdmin());
+    console.log("Role:", this.userRole());
   }
 
   ngOnDestroy(): void {

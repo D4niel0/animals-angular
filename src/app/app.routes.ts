@@ -12,6 +12,8 @@ import { panelRoutes } from "./panel/panel.routes";
 import { authGuard } from "./core/guards/authenticated.guard";
 import { MaintenanceComponent } from "./shared/components/maintenance/maintenance.component";
 import { MaintenanceGuard } from "./core/guards/maintenance.guard";
+import { adminGuard } from "./core/guards/admin.guard";
+import { adminRoutes } from "./admin/admin.routes";
 
 export const routes: Routes = [
   {
@@ -33,6 +35,7 @@ export const routes: Routes = [
       { path: "forgot-password", component: ForgotPasswordComponent },
       { path: "reset-password", component: ResetPasswordComponent },
       { path: "panel", children: panelRoutes, canActivate: [authGuard] },
+      { path: "admin", children: adminRoutes, canActivate: [adminGuard] },
       { path: "**", redirectTo: "home" },
     ],
   },

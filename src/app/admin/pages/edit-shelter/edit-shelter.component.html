@@ -1,0 +1,286 @@
+<section>
+  <article class="bg-white/70 shadow-md rounded-md p-5 mt-5">
+    <header class="mb-6">
+      <h1 class="font-chewy text-xl md:text-2xl font-semibold text-gray-900">
+        Editar Protectora
+      </h1>
+      <p class="text-sm text-gray-600 mt-1">
+        Modifica los datos de la protectora
+      </p>
+    </header>
+
+    @if (isLoading) {
+    <app-paw-spinner></app-paw-spinner>
+    } @else {
+    <form [formGroup]="shelterForm" (ngSubmit)="onSave()" class="space-y-6">
+      <!-- Información Legal -->
+      <div class="border-b pb-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          Información Legal
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre Legal -->
+          <div class="form-field">
+            <label for="legalName" class="block text-sm font-medium mb-2">
+              Nombre Legal <span class="text-red-500">*</span>
+            </label>
+            <input
+              pInputText
+              id="legalName"
+              formControlName="legalName"
+              placeholder="Nombre legal de la protectora"
+              class="w-full"
+              [class.ng-invalid]="hasError('legalName')"
+              [class.ng-dirty]="hasError('legalName')"
+            />
+            @if (hasError('legalName')) {
+            <small class="text-red-500 text-xs mt-1">
+              {{ getErrorMessage("legalName") }}
+            </small>
+            }
+          </div>
+
+          <!-- CIF/NIF -->
+          <div class="form-field">
+            <label for="taxId" class="block text-sm font-medium mb-2">
+              CIF/NIF
+            </label>
+            <input
+              pInputText
+              id="taxId"
+              formControlName="taxId"
+              placeholder="A12345678"
+              class="w-full"
+            />
+          </div>
+
+          <!-- Número de Registro -->
+          <div class="form-field">
+            <label for="registryNumber" class="block text-sm font-medium mb-2">
+              Número de Registro
+            </label>
+            <input
+              pInputText
+              id="registryNumber"
+              formControlName="registryNumber"
+              placeholder="Número de registro oficial"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Información de Contacto -->
+      <div class="border-b pb-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          Información de Contacto
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Email -->
+          <div class="form-field">
+            <label for="contactEmail" class="block text-sm font-medium mb-2">
+              Email de Contacto <span class="text-red-500">*</span>
+            </label>
+            <input
+              pInputText
+              id="contactEmail"
+              type="email"
+              formControlName="contactEmail"
+              placeholder="email@ejemplo.com"
+              class="w-full"
+              [class.ng-invalid]="hasError('contactEmail')"
+              [class.ng-dirty]="hasError('contactEmail')"
+            />
+            @if (hasError('contactEmail')) {
+            <small class="text-red-500 text-xs mt-1">
+              {{ getErrorMessage("contactEmail") }}
+            </small>
+            }
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form-field">
+            <label for="contactPhone" class="block text-sm font-medium mb-2">
+              Teléfono de Contacto
+            </label>
+            <input
+              pInputText
+              id="contactPhone"
+              formControlName="contactPhone"
+              placeholder="666 666 666"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsable -->
+      <div class="border-b pb-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          Datos del Responsable
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre Completo del Responsable -->
+          <div class="form-field">
+            <label
+              for="responsibleFullName"
+              class="block text-sm font-medium mb-2"
+            >
+              Nombre Completo
+            </label>
+            <input
+              pInputText
+              id="responsibleFullName"
+              formControlName="responsibleFullName"
+              placeholder="Nombre del responsable"
+              class="w-full"
+            />
+          </div>
+
+          <!-- Cargo del Responsable -->
+          <div class="form-field">
+            <label for="responsibleRole" class="block text-sm font-medium mb-2">
+              Cargo/Rol
+            </label>
+            <input
+              pInputText
+              id="responsibleRole"
+              formControlName="responsibleRole"
+              placeholder="Presidente, Director, etc."
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dirección -->
+      <div class="border-b pb-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Dirección</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Ciudad -->
+          <div class="form-field">
+            <label for="addressCity" class="block text-sm font-medium mb-2">
+              Ciudad
+            </label>
+            <input
+              pInputText
+              id="addressCity"
+              formControlName="addressCity"
+              placeholder="Ciudad"
+              class="w-full"
+            />
+          </div>
+
+          <!-- Provincia -->
+          <div class="form-field">
+            <label for="addressProvince" class="block text-sm font-medium mb-2">
+              Provincia
+            </label>
+            <input
+              pInputText
+              id="addressProvince"
+              formControlName="addressProvince"
+              placeholder="Provincia"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Redes Sociales y Web -->
+      <div class="border-b pb-4">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          Redes Sociales y Web
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Facebook -->
+          <div class="form-field">
+            <label for="facebook" class="block text-sm font-medium mb-2">
+              Facebook
+            </label>
+            <input
+              pInputText
+              id="facebook"
+              formControlName="facebook"
+              placeholder="https://facebook.com/..."
+              class="w-full"
+            />
+          </div>
+
+          <!-- Instagram -->
+          <div class="form-field">
+            <label for="instagram" class="block text-sm font-medium mb-2">
+              Instagram
+            </label>
+            <input
+              pInputText
+              id="instagram"
+              formControlName="instagram"
+              placeholder="https://instagram.com/..."
+              class="w-full"
+            />
+          </div>
+
+          <!-- Website -->
+          <div class="form-field">
+            <label for="website" class="block text-sm font-medium mb-2">
+              Sitio Web
+            </label>
+            <input
+              pInputText
+              id="website"
+              formControlName="website"
+              placeholder="https://ejemplo.com"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Estado de Aprobación -->
+      <div class="form-field">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Estado</h2>
+
+        <div class="flex items-center gap-3">
+          <p-inputSwitch
+            formControlName="isApproved"
+            inputId="isApproved"
+          ></p-inputSwitch>
+          <label for="isApproved" class="text-sm font-medium cursor-pointer">
+            Protectora Aprobada
+          </label>
+        </div>
+        <p class="text-xs text-gray-500 mt-1">
+          Las protectoras aprobadas pueden publicar animales en la plataforma
+        </p>
+      </div>
+
+      <!-- Botones -->
+      <div class="flex justify-end gap-3 pt-4 border-t">
+        <button
+          pButton
+          type="button"
+          label="Cancelar"
+          class="p-button-outlined"
+          (click)="goBack()"
+          [disabled]="isSaving"
+        ></button>
+
+        <button
+          pButton
+          type="submit"
+          label="Guardar Cambios"
+          icon="pi pi-check"
+          [loading]="isSaving"
+          [disabled]="shelterForm.invalid"
+        ></button>
+      </div>
+    </form>
+    }
+  </article>
+</section>
