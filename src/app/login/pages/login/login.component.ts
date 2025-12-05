@@ -41,8 +41,10 @@ export class LoginComponent {
     autoplay: true,
     loop: true,
   };
+
   private authService = inject(AuthService);
   private profileService = inject(ProfileService);
+  protected isAdmin = this.authService.isAdmin;
 
   constructor(private fb: FormBuilder, private router: Router) {
     const rememberedEmail = localStorage.getItem("rememberedEmail") || "";
@@ -83,10 +85,18 @@ export class LoginComponent {
           if (response.imgUrl) {
             this.profileService.setProfileImage(response.imgUrl);
           }
-          localStorage.setItem("token", response.token);
-          localStorage.setItem("shelterId", response.shelterId);
-          this.authService["_isAuthenticated"].set(true);
-          this.router.navigate(["/panel/shelter-animals"]);
+
+          this.authService.setToken(response.token);
+
+          if (response.shelterId) {
+            localStorage.setItem("shelterId", response.shelterId);
+          }
+
+          if (this.isAdmin()) {
+            this.router.navigate(["/admin/shelter-admin"]);
+          } else {
+            this.router.navigate(["/panel/shelter-animals"]);
+          }
         },
       });
   }

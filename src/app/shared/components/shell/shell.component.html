@@ -49,6 +49,14 @@
           <span>Protectoras</span>
         </a>
       </li>
+
+      @if (isAdmin()) {
+      <li class="nav-item">
+        <a routerLink="/admin/shelter-admin">
+          <span>Panel Admin</span>
+        </a>
+      </li>
+      }
     </ul>
   </div>
 </p-sidebar>

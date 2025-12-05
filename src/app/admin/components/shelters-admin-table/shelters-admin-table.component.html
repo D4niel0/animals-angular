@@ -1,0 +1,175 @@
+<div>
+  <p-table
+    [value]="shelters"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 20, 50]"
+    [stripedRows]="true"
+    responsiveLayout="scroll"
+    dataKey="id"
+    styleClass="p-datatable-sm"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          Nombre Legal
+          <p-columnFilter
+            type="text"
+            field="legalName"
+            placeholder="Buscar por nombre"
+          ></p-columnFilter>
+        </th>
+
+        <th>
+          Email de Contacto
+          <p-columnFilter
+            type="text"
+            field="contactEmail"
+            placeholder="Buscar por email"
+          ></p-columnFilter>
+        </th>
+
+        <th>
+          Ciudad
+          <p-columnFilter
+            type="text"
+            field="addressCity"
+            placeholder="Buscar por ciudad"
+          ></p-columnFilter>
+        </th>
+
+        <th>
+          Provincia
+          <p-columnFilter
+            type="text"
+            field="addressProvince"
+            placeholder="Buscar por provincia"
+          ></p-columnFilter>
+        </th>
+
+        <th>
+          Estado
+          <p-columnFilter field="isApproved" matchMode="equals">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <p-dropdown
+                [options]="approvedOptions"
+                [ngModel]="value"
+                (onChange)="filter($event.value)"
+                (onClear)="filter(null)"
+                placeholder="Todos"
+                [showClear]="true"
+                styleClass="w-full"
+                optionLabel="label"
+                optionValue="value"
+              >
+                <ng-template pTemplate="item" let-option>
+                  <app-color-tag
+                    [value]="option.label"
+                    [variant]="option.variant"
+                    class="w-full justify-center"
+                  ></app-color-tag>
+                </ng-template>
+
+                <ng-template pTemplate="selectedItem" let-option>
+                  <app-color-tag
+                    *ngIf="option"
+                    [value]="option.label"
+                    [variant]="option.variant"
+                  ></app-color-tag>
+                  <span *ngIf="!option" class="text-gray-400 text-xs">
+                    Todos
+                  </span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+
+        <!-- Columnas de acciones -->
+        <th style="width: 4rem"></th>
+        <th style="width: 4rem"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-shelter>
+      <tr>
+        <td>
+          <span class="font-medium">{{ shelter.legalName }}</span>
+        </td>
+
+        <td>
+          <a
+            [href]="'mailto:' + shelter.contactEmail"
+            class="text-blue-600 hover:underline"
+          >
+            {{ shelter.contactEmail }}
+          </a>
+        </td>
+
+        <td>
+          <span>{{ shelter.addressCity || "-" }}</span>
+        </td>
+
+        <td>
+          <span>{{ shelter.addressProvince || "-" }}</span>
+        </td>
+
+        <td>
+          <app-color-tag
+            [value]="getApprovedLabel(shelter)"
+            [variant]="getApprovedVariant(shelter.isApproved)"
+          ></app-color-tag>
+        </td>
+
+        <td class="text-right">
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-text p-button-rounded"
+            (click)="onEdit(shelter.id)"
+            [pTooltip]="'Editar protectora'"
+            tooltipPosition="top"
+          ></button>
+        </td>
+
+        <td class="text-right">
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-text p-button-rounded p-button-danger"
+            (click)="deleteConfirm($event, shelter.id, shelter.legalName)"
+            [pTooltip]="'Eliminar protectora'"
+            tooltipPosition="top"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      @if(!isLoading) {
+      <tr>
+        <td colspan="7" class="text-center py-6 text-sm text-gray-500">
+          No se han encontrado protectoras.
+        </td>
+      </tr>
+      } @else { @for (tr of [1,2,3,4,5]; track $index) {
+      <tr>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+        <td><p-skeleton /></td>
+      </tr>
+      } }
+    </ng-template>
+  </p-table>
+</div>
+<p-confirmdialog />

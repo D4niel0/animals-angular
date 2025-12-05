@@ -44,6 +44,11 @@ export interface AnimalShelter {
   addressCity?: string;
   addressProvince?: string;
   website?: string;
+  isApproved?: boolean;
+  taxId?: string;
+  registryNumber?: string;
+  responsibleFullName?: string;
+  responsibleRole?: string;
 }
 
 export interface ShelterRegistration {
@@ -140,4 +145,13 @@ export interface Contact {
 export interface ForgotPasswordRequest {
   email: string;
   recaptchaToken: string;
+}
+
+export interface JwtPayload {
+  sub: string;
+  email: string;
+  role: string;
+  shelterId?: string;
+  iat: number;
+  exp: number;
 }
