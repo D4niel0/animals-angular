@@ -217,7 +217,13 @@
 
     <ng-template pTemplate="body" let-animal>
       <tr>
-        <td>{{ animal.name }}</td>
+        <td>
+          <span
+            class="font-medium cursor-pointer"
+            (click)="onEdit(animal.id)"
+            >{{ animal.name }}</span
+          >
+        </td>
 
         <td>
           <img
